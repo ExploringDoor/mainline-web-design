@@ -336,7 +336,7 @@ footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.5rem}
 <section class="contact" id="contact">
   <h2 class="reveal">Ready to build something <em>great?</em></h2>
   <p class="reveal">Whether you need a brand new website or want to level up your current one — let's talk.</p>
-  <span class="btn-orbit-wrap reveal"><a href="/cdn-cgi/l/email-protection#2e4f4a4f4300434f47404247404b594b4c4a4b5d474940080d181a1549434f4742004d4143115d5b4c444b4d5a13794b4c5d475a4b0b1c1e67405f5b475c57"><button class="btn-orbit">Get In Touch &rarr;</button></a><canvas class="orbit-canvas"></canvas></span>
+  <span class="btn-orbit-wrap reveal"><a id="contactBtn" href="#"><button class="btn-orbit">Get In Touch &rarr;</button></a><canvas class="orbit-canvas"></canvas></span>
 </section>
 
 <footer>
@@ -344,7 +344,7 @@ footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.5rem}
   <div>&copy; 2026 Main Line Web Design. All rights reserved.</div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 // INTRO PARTICLES — floating stars/dots
 (function(){
   var c=document.getElementById('introParticles');if(!c)return;
@@ -458,6 +458,15 @@ document.querySelectorAll('.orbit-canvas').forEach(function(cv){
 // SCROLL REVEAL
 var obs=new IntersectionObserver(function(es){es.forEach(function(e,i){if(e.isIntersecting){setTimeout(function(){e.target.classList.add('v')},i*60);obs.unobserve(e.target)}})},{threshold:.1});
 document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el)});
+// EMAIL LINKS — built in JS so Cloudflare can't obfuscate them
+(function(){
+  var u='adam.mainlinewebdesign';var d='gmail.com';var e=u+'@'+d;
+  var s='?subject=Website%20Inquiry';
+  var cb=document.getElementById('contactBtn');
+  if(cb)cb.href='mai'+'lto:'+e+s;
+  // Also set nav CTA
+  document.querySelectorAll('.nav-cta').forEach(function(a){a.href='mai'+'lto:'+e+s});
+})();
 </script>
 </body>
 </html>
