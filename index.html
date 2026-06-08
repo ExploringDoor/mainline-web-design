@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Main Line Web Design | Custom Websites for Small Businesses</title>
-<meta name="description" content="Main Line Web Design builds custom, modern websites for small businesses, startups, and organizations. Fast, mobile-friendly, and designed to help you win more customers.">
-<meta name="keywords" content="web design, website development, custom websites, small business websites, responsive design, modern web design, affordable web design, Main Line Web Design">
+<title>Main Line Web Design | Custom League & Tournament Websites</title>
+<meta name="description" content="Main Line Web Design builds custom websites and platforms for sports leagues, tournaments, and programs — schedules, standings, brackets, registration, and admin tools, all custom-coded. Based outside Philadelphia.">
+<meta name="keywords" content="league website, tournament website, sports league software, baseball league website, softball league website, little league website, league platform, bracket website, registration website, custom league site, Main Line Web Design">
 <meta name="author" content="Main Line Web Design">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://mainline-webdesign.com/">
@@ -18,14 +18,14 @@
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://mainline-webdesign.com/">
-<meta property="og:title" content="Main Line Web Design | Custom Websites for Small Businesses">
-<meta property="og:description" content="We build custom, modern websites for small businesses, startups, and organizations. Fast, mobile-friendly, and designed to help you win more customers.">
+<meta property="og:title" content="Main Line Web Design | Custom League & Tournament Websites">
+<meta property="og:description" content="Custom websites and platforms for sports leagues, tournaments, and programs &mdash; schedules, standings, brackets, registration, and admin tools, all custom-coded.">
 <meta property="og:site_name" content="Main Line Web Design">
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Main Line Web Design | Custom Websites for Small Businesses">
-<meta name="twitter:description" content="We build custom, modern websites for small businesses, startups, and organizations. Fast, mobile-friendly, and designed to help you win more customers.">
+<meta name="twitter:title" content="Main Line Web Design | Custom League & Tournament Websites">
+<meta name="twitter:description" content="Custom websites and platforms for sports leagues, tournaments, and programs &mdash; schedules, standings, brackets, registration, and admin tools, all custom-coded.">
 
 <!-- Structured Data for Google -->
 <script type="application/ld+json">
@@ -33,11 +33,11 @@
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   "name": "Main Line Web Design",
-  "description": "Custom website design and development for small businesses, startups, and organizations.",
+  "description": "Custom websites and platforms for sports leagues, tournaments, and programs. Schedules, standings, brackets, registration, and admin tools — all custom-coded.",
   "url": "https://mainline-webdesign.com",
   "email": "adam.mainlinewebdesign@gmail.com",
   "priceRange": "$$",
-  "serviceType": ["Web Design", "Web Development", "E-Commerce", "SEO", "Brand Identity"],
+  "serviceType": ["League Website Design", "Tournament Website Design", "Sports Registration Software", "Custom Web Development", "Brand Identity"],
   "areaServed": "United States",
   "sameAs": ["https://x.com/MainLineWebDsgn"]
 }
@@ -294,6 +294,12 @@ footer{border-top:1px solid var(--border);padding:2.5rem 4rem;display:flex;justi
 .reveal{opacity:0;transform:translateY(25px);transition:all .7s cubic-bezier(.16,1,.3,1)}
 .reveal.v{opacity:1;transform:translateY(0)}
 
+/* VERTICALS GRID — replaces the old stock-photo scroll strip */
+.vert-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:.8rem;padding:2.5rem 4rem 4rem;max-width:1100px;margin:0 auto}
+.vert-pill{padding:.85rem 1.5rem;background:var(--card);border:1px solid var(--border);border-radius:100px;font-family:var(--heading);font-size:.78rem;font-weight:600;letter-spacing:.06em;color:var(--fg);text-transform:uppercase;transition:all .4s cubic-bezier(.16,1,.3,1);cursor:default}
+.vert-pill:hover{border-color:rgba(56,189,248,.4);color:var(--accent);transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,0,0,.3),0 0 0 1px rgba(56,189,248,.1)}
+.vert-pill:nth-child(2n):hover{border-color:rgba(251,191,36,.4);color:var(--accent2);box-shadow:0 12px 30px rgba(0,0,0,.3),0 0 0 1px rgba(251,191,36,.1)}
+
 @media(max-width:1180px){.featured-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:900px){
 nav{padding:1rem 1.5rem}.nav-links a:not(.nav-cta){display:none}
@@ -306,7 +312,7 @@ nav{padding:1rem 1.5rem}.nav-links a:not(.nav-cta){display:none}
 .stat-item:nth-child(2)::after{display:none}
 .stat-item:not(:last-child)::after{top:5%;height:90%}
 .hiw{padding:4rem 1.5rem}.hiw-grid{grid-template-columns:1fr;gap:1rem}.hiw-grid::before{display:none}
-.portfolio{padding:4rem 1.5rem 1rem}.scroll-card{width:300px}.scroll-card img{height:190px}
+.portfolio{padding:4rem 1.5rem 1rem}.vert-grid{padding:2rem 1.5rem 3rem;gap:.6rem}.vert-pill{padding:.7rem 1.1rem;font-size:.7rem}
 .contact{padding:5rem 1.5rem}.quote-section{padding:4rem 1.5rem}.quote-grid{grid-template-columns:1fr;gap:1.2rem}.quote-card{padding:1.8rem}
 footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.5rem}
 .intro-word{font-size:clamp(3rem,15vw,6rem)}
@@ -342,8 +348,8 @@ footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.5rem}
     <div class="glow-bar"></div>
     <div class="hero-status"><div class="sdot green"></div><span class="slabel">LIVE</span><span class="slabel-sep">&mdash;</span><span class="slabel-msg">building something great</span></div>
   </div>
-  <h2 class="hero-headline">Where Brands Become <em>Unforgettable</em></h2>
-  <p class="hero-p">We design and develop custom websites for businesses that demand excellence in every pixel.</p>
+  <h2 class="hero-headline">Built for leagues. <em>Designed like brands.</em></h2>
+  <p class="hero-p">Custom league, tournament, and program websites &mdash; schedules, standings, brackets, registration, and admin tools, all custom-coded.</p>
   <div class="hero-actions">
     <span class="btn-orbit-wrap"><a href="#contact"><button class="btn-orbit">Start Your Project &rarr;</button></a><canvas class="orbit-canvas"></canvas></span>
     <a href="#work"><button class="btn-outline">See Our Work</button></a>
@@ -353,27 +359,27 @@ footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.5rem}
 <div class="divider"><div class="line"></div><div class="diamond"></div><div class="line"></div></div>
 
 <section class="intro-section">
-  <div class="reveal"><div class="label">Our Approach</div><h2>Crafted with intention, built for <em>impact</em></h2></div>
-  <div class="reveal"><p>Every website we create is a carefully considered balance of aesthetics and performance. We don't do templates. We design tailored digital experiences that reflect the unique character of each brand we partner with.</p></div>
+  <div class="reveal"><div class="label">Our Approach</div><h2>League software doesn't have to look like <em>league software.</em></h2></div>
+  <div class="reveal"><p>Most league and tournament sites read like a 2008 admin panel &mdash; clunky tables, stock templates, and a logo someone made in PowerPoint. We build league platforms that work like the big leagues and look like a brand: scores, schedules, brackets, stats, registration, and admin tools wrapped in a design your players, parents, and sponsors actually want to look at.</p></div>
 </section>
 
 <section class="services" id="services">
   <div class="services-grid">
-    <div class="serv-card reveal"><div class="serv-icon">&#9670;</div><h3>Web Design</h3><p>Bespoke visual design that elevates your brand and captivates your audience from the first interaction.</p></div>
-    <div class="serv-card reveal"><div class="serv-icon">&#9671;</div><h3>Development</h3><p>Impeccable code delivered on modern platforms. Fast, responsive, and built to last.</p></div>
-    <div class="serv-card reveal"><div class="serv-icon">&#9635;</div><h3>E-Commerce</h3><p>Elegant online stores designed to convert, with seamless checkout experiences.</p></div>
-    <div class="serv-card reveal"><div class="serv-icon">&#9651;</div><h3>Brand Identity</h3><p>Complete visual identity systems — logo, typography, color, and guidelines.</p></div>
-    <div class="serv-card reveal"><div class="serv-icon">&#9675;</div><h3>SEO</h3><p>Strategic optimization ensuring your beautiful site is discovered by the right audience.</p></div>
-    <div class="serv-card reveal"><div class="serv-icon">&#9633;</div><h3>Support</h3><p>Ongoing partnership. We maintain and evolve your site as your brand grows.</p></div>
+    <div class="serv-card reveal"><div class="serv-icon">&#9670;</div><h3>League Platforms</h3><p>The full stack: scores, schedules, standings, stats, team pages, recaps, and a public face that doesn't embarrass your league.</p></div>
+    <div class="serv-card reveal"><div class="serv-icon">&#9671;</div><h3>Tournament Sites</h3><p>Live brackets, pool play, seedings, championship archives. Single-event sites or multi-league district hubs.</p></div>
+    <div class="serv-card reveal"><div class="serv-icon">&#9635;</div><h3>Registration & Payments</h3><p>Player and team registration flows with payment, waivers, rosters, and league-ready data on the back end.</p></div>
+    <div class="serv-card reveal"><div class="serv-icon">&#9651;</div><h3>Admin Backends</h3><p>Score entry, roster management, schedule edits, and content updates &mdash; built for commissioners and team managers, not engineers.</p></div>
+    <div class="serv-card reveal"><div class="serv-icon">&#9675;</div><h3>Brand & Marketing Sites</h3><p>Camps, academies, coaches, and program sites that need a real identity &mdash; not a Squarespace template with your logo glued on.</p></div>
+    <div class="serv-card reveal"><div class="serv-icon">&#9633;</div><h3>Ongoing Support</h3><p>Season-to-season updates, new features, and a real person who picks up the phone when something breaks before a game.</p></div>
   </div>
 </section>
 
 <section class="hiw">
   <div class="hiw-header"><div class="label reveal">How It Works</div><h2 class="reveal">Three steps to launch</h2></div>
   <div class="hiw-grid">
-    <div class="hiw-step reveal"><div class="hiw-num">01</div><h3>Reach Out</h3><p>Send us an email telling us about your business, your vision, and what you need. We'll get back to you within 24 hours.</p></div>
-    <div class="hiw-step reveal"><div class="hiw-num">02</div><h3>Design & Build</h3><p>We craft your site from scratch with custom design, clean code, and mobile-ready layouts. You're in the loop every step of the way.</p></div>
-    <div class="hiw-step reveal"><div class="hiw-num">03</div><h3>Launch & Grow</h3><p>Your site goes live and we stick around for support, updates, and making sure everything keeps running smoothly.</p></div>
+    <div class="hiw-step reveal"><div class="hiw-num">01</div><h3>Tell Us About Your League</h3><p>Send an email with the basics &mdash; how many teams, what you score, how you register, what's broken about your current site. We respond within 24 hours.</p></div>
+    <div class="hiw-step reveal"><div class="hiw-num">02</div><h3>Design & Build</h3><p>We design the brand, build the site, wire up the admin tools, and load your data. You see every step and weigh in before we ship.</p></div>
+    <div class="hiw-step reveal"><div class="hiw-num">03</div><h3>Launch & Run Your Season</h3><p>The site goes live, your commissioners and managers get trained, and we're around all season for fixes, new features, and game-day backup.</p></div>
   </div>
 </section>
 
@@ -386,9 +392,9 @@ footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.5rem}
       <div class="about-sig">One person. One studio. Every pixel.</div>
     </div>
     <div class="about-body reveal">
-      <p>Main Line Web Design is a <strong>one-person studio</strong> based just outside Philadelphia. I design and build every site myself &mdash; from the first sketch to the final deploy.</p>
-      <p>No agencies, no outsourced templates, no Rolodex of contractors I'm managing behind the scenes. Just <span class="highlight">me, the code, and your project.</span></p>
-      <p>I work mostly with local programs, coaches, and small businesses who want a site that actually represents them &mdash; not a drag-and-drop template slapped together in an afternoon.</p>
+      <p>Main Line Web Design is a <strong>one-person studio</strong> based just outside Philadelphia. I design and build every league platform myself &mdash; from the first sketch to the final deploy.</p>
+      <p>No agencies, no outsourced templates, no Rolodex of contractors I'm managing behind the scenes. Just <span class="highlight">me, the code, and your league.</span></p>
+      <p>I work mostly with leagues, tournaments, coaches, and programs that want a site that actually represents them &mdash; not the same generic SportsConnect or LeagueLineup page every other team is stuck with.</p>
       <p>When I'm not building, you can probably find me on a softball field somewhere around Delco.</p>
     </div>
   </div>
@@ -407,7 +413,7 @@ footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.5rem}
   <div class="featured-header">
     <div class="label reveal">Recent Work</div>
     <h2 class="reveal">Built from scratch. <em>Every pixel.</em></h2>
-    <p class="featured-sub reveal">A handful of the sites I've designed and shipped for sports programs and local businesses. Each one is 100% custom code &mdash; no templates, no builders, no page-drag nonsense.</p>
+    <p class="featured-sub reveal">A handful of the leagues, tournaments, and programs I've designed and shipped. Each one is 100% custom code &mdash; no templates, no builders, no page-drag nonsense.</p>
   </div>
   <div class="featured-grid">
     <div class="featured-card reveal" data-tilt>
@@ -505,28 +511,18 @@ footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.5rem}
 </section>
 
 <section class="portfolio" id="portfolio">
-  <div class="port-header"><div class="label reveal">What We Build</div><h2 class="reveal">Websites for every vision</h2><p class="port-sub reveal">From restaurants to online stores, every business deserves a site that works as hard as they do.</p></div>
-</section>
-<div class="scroll-showcase">
-  <div class="scroll-track">
-    <div class="scroll-card"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80" alt="Website"><div class="scroll-card-label">Restaurant & Hospitality</div></div>
-    <div class="scroll-card"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80" alt="Website"><div class="scroll-card-label">E-Commerce & Retail</div></div>
-    <div class="scroll-card"><img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&q=80" alt="Website"><div class="scroll-card-label">Real Estate & Property</div></div>
-    <div class="scroll-card"><img src="https://images.unsplash.com/photo-1547658719-da2b51169166?w=600&q=80" alt="Website"><div class="scroll-card-label">Coaching & Personal Brand</div></div>
-    <div class="scroll-card"><img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?w=600&q=80" alt="Website"><div class="scroll-card-label">SaaS & Startups</div></div>
-    <div class="scroll-card"><img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=600&q=80" alt="Website"><div class="scroll-card-label">Medical & Health</div></div>
-    <div class="scroll-card"><img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=600&q=80" alt="Website"><div class="scroll-card-label">Law Firms</div></div>
-    <div class="scroll-card"><img src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?w=600&q=80" alt="Website"><div class="scroll-card-label">Fitness & Gyms</div></div>
-    <div class="scroll-card"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80" alt="Website"><div class="scroll-card-label">Restaurant & Hospitality</div></div>
-    <div class="scroll-card"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80" alt="Website"><div class="scroll-card-label">E-Commerce & Retail</div></div>
-    <div class="scroll-card"><img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&q=80" alt="Website"><div class="scroll-card-label">Real Estate & Property</div></div>
-    <div class="scroll-card"><img src="https://images.unsplash.com/photo-1547658719-da2b51169166?w=600&q=80" alt="Website"><div class="scroll-card-label">Coaching & Personal Brand</div></div>
-    <div class="scroll-card"><img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?w=600&q=80" alt="Website"><div class="scroll-card-label">SaaS & Startups</div></div>
-    <div class="scroll-card"><img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=600&q=80" alt="Website"><div class="scroll-card-label">Medical & Health</div></div>
-    <div class="scroll-card"><img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=600&q=80" alt="Website"><div class="scroll-card-label">Law Firms</div></div>
-    <div class="scroll-card"><img src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?w=600&q=80" alt="Website"><div class="scroll-card-label">Fitness & Gyms</div></div>
+  <div class="port-header"><div class="label reveal">Who We Build For</div><h2 class="reveal">Built for every level of the game.</h2><p class="port-sub reveal">If you run it, manage it, coach it, or organize it &mdash; we've probably built something like it. And if we haven't, we'd love to.</p></div>
+  <div class="vert-grid reveal">
+    <div class="vert-pill">Little Leagues</div>
+    <div class="vert-pill">Travel &amp; Club Teams</div>
+    <div class="vert-pill">Adult Leagues</div>
+    <div class="vert-pill">Tournaments &amp; Showcases</div>
+    <div class="vert-pill">School &amp; HS Programs</div>
+    <div class="vert-pill">Camps &amp; Academies</div>
+    <div class="vert-pill">Coaches &amp; Trainers</div>
+    <div class="vert-pill">Districts &amp; Associations</div>
   </div>
-</div>
+</section>
 
 <section class="quote-section">
   <div class="quote-header">
@@ -549,8 +545,8 @@ footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.5rem}
 </section>
 
 <section class="contact" id="contact">
-  <h2 class="reveal">Ready to build something <em>great?</em></h2>
-  <p class="reveal">Whether you need a brand new website or want to level up your current one, let's talk.</p>
+  <h2 class="reveal">Ready to upgrade your <em>league?</em></h2>
+  <p class="reveal">Starting a new league, running a tournament, or finally rebuilding the site every parent complains about &mdash; let's talk.</p>
   <span class="btn-orbit-wrap reveal"><a id="contactBtn" href="#"><button class="btn-orbit">Get In Touch &rarr;</button></a><canvas class="orbit-canvas"></canvas></span>
 </section>
 
