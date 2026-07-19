@@ -294,13 +294,33 @@ footer{border-top:1px solid var(--border);padding:2.5rem 4rem;display:flex;justi
 .reveal{opacity:0;transform:translateY(25px);transition:all .7s cubic-bezier(.16,1,.3,1)}
 .reveal.v{opacity:1;transform:translateY(0)}
 
+/* PROOF STRIP — sits below hero, above intro */
+.proof-strip{padding:3.5rem 4rem 4rem;position:relative;background:linear-gradient(180deg,transparent,rgba(56,189,248,.02) 40%,transparent)}
+.proof-inner{max-width:1200px;margin:0 auto}
+.proof-eyebrow{display:inline-flex;align-items:center;gap:.7rem;font-family:var(--mono);font-size:.68rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:2rem;padding-left:.2rem}
+.proof-eyebrow .pdot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px rgba(56,189,248,.6);animation:pdotPulse 2.4s ease-in-out infinite}
+@keyframes pdotPulse{0%,100%{opacity:1;box-shadow:0 0 12px rgba(56,189,248,.6)}50%{opacity:.55;box-shadow:0 0 4px rgba(56,189,248,.2)}}
+.proof-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.proof-tile{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.75rem 1.5rem;position:relative;overflow:hidden;transition:transform .5s cubic-bezier(.16,1,.3,1),border-color .5s,box-shadow .5s}
+.proof-tile::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(56,189,248,.4),transparent);opacity:0;transition:opacity .5s}
+.proof-tile:hover{border-color:rgba(56,189,248,.28);transform:translateY(-3px);box-shadow:0 20px 50px rgba(0,0,0,.35)}
+.proof-tile:hover::before{opacity:1}
+.proof-tile:nth-child(2n){}
+.proof-tile:nth-child(2n) .proof-headline{color:var(--accent2)}
+.proof-tile:nth-child(2n):hover{border-color:rgba(251,191,36,.28)}
+.proof-tile:nth-child(2n)::before{background:linear-gradient(90deg,transparent,rgba(251,191,36,.4),transparent)}
+.proof-headline{font-family:var(--heading);font-size:2.6rem;font-weight:800;color:var(--accent);letter-spacing:-.02em;line-height:1;margin-bottom:.65rem;filter:drop-shadow(0 0 24px rgba(56,189,248,.12))}
+.proof-tile:nth-child(2n) .proof-headline{filter:drop-shadow(0 0 24px rgba(251,191,36,.12))}
+.proof-headline .ps{font-size:1.4rem;font-weight:700;vertical-align:top;margin-left:.05em;opacity:.85}
+.proof-sub{font-family:var(--sans);font-size:.72rem;color:var(--muted);line-height:1.55;font-weight:400}
+
 /* VERTICALS GRID — replaces the old stock-photo scroll strip */
 .vert-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:.8rem;padding:2.5rem 4rem 4rem;max-width:1100px;margin:0 auto}
 .vert-pill{padding:.85rem 1.5rem;background:var(--card);border:1px solid var(--border);border-radius:100px;font-family:var(--heading);font-size:.78rem;font-weight:600;letter-spacing:.06em;color:var(--fg);text-transform:uppercase;transition:all .4s cubic-bezier(.16,1,.3,1);cursor:default}
 .vert-pill:hover{border-color:rgba(56,189,248,.4);color:var(--accent);transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,0,0,.3),0 0 0 1px rgba(56,189,248,.1)}
 .vert-pill:nth-child(2n):hover{border-color:rgba(251,191,36,.4);color:var(--accent2);box-shadow:0 12px 30px rgba(0,0,0,.3),0 0 0 1px rgba(251,191,36,.1)}
 
-@media(max-width:1180px){.featured-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:1180px){.featured-grid{grid-template-columns:repeat(2,1fr)}.proof-grid{grid-template-columns:repeat(2,1fr);gap:1rem}.proof-strip{padding:3rem 2rem 3.5rem}.proof-headline{font-size:2.2rem}}
 @media(max-width:900px){
 nav{padding:1rem 1.5rem}.nav-links a:not(.nav-cta){display:none}
 .hero{padding:7rem 1.5rem 4rem}.hero-logo .line1{font-size:clamp(28px,8vw,42px)}.hero-logo .line2{font-size:clamp(14px,3.5vw,20px)}.hero-logo .bracket{font-size:clamp(60px,15vw,100px)}.hero-actions{flex-direction:column;align-items:center}
@@ -313,6 +333,7 @@ nav{padding:1rem 1.5rem}.nav-links a:not(.nav-cta){display:none}
 .stat-item:not(:last-child)::after{top:5%;height:90%}
 .hiw{padding:4rem 1.5rem}.hiw-grid{grid-template-columns:1fr;gap:1rem}.hiw-grid::before{display:none}
 .portfolio{padding:4rem 1.5rem 1rem}.vert-grid{padding:2rem 1.5rem 3rem;gap:.6rem}.vert-pill{padding:.7rem 1.1rem;font-size:.7rem}
+.proof-strip{padding:2.5rem 1.5rem 3rem}.proof-grid{grid-template-columns:1fr 1fr;gap:.7rem}.proof-tile{padding:1.25rem 1.1rem}.proof-headline{font-size:1.8rem;margin-bottom:.4rem}.proof-sub{font-size:.65rem;line-height:1.5}
 .contact{padding:5rem 1.5rem}.quote-section{padding:4rem 1.5rem}.quote-grid{grid-template-columns:1fr;gap:1.2rem}.quote-card{padding:1.8rem}
 footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.5rem}
 .intro-word{font-size:clamp(3rem,15vw,6rem)}
@@ -357,6 +378,30 @@ footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.5rem}
 </section>
 
 <div class="divider"><div class="line"></div><div class="diamond"></div><div class="line"></div></div>
+
+<section class="proof-strip">
+  <div class="proof-inner">
+    <div class="proof-eyebrow reveal"><span class="pdot"></span>Trusted To Power</div>
+    <div class="proof-grid">
+      <div class="proof-tile reveal">
+        <div class="proof-headline">#1</div>
+        <div class="proof-sub">Tournament provider in the state of Texas</div>
+      </div>
+      <div class="proof-tile reveal">
+        <div class="proof-headline">#2</div>
+        <div class="proof-sub">Largest Little League program in the world</div>
+      </div>
+      <div class="proof-tile reveal">
+        <div class="proof-headline">10,000<span class="ps">+</span></div>
+        <div class="proof-sub">Little League players across PA District 27</div>
+      </div>
+      <div class="proof-tile reveal">
+        <div class="proof-headline">1,000<span class="ps">+</span></div>
+        <div class="proof-sub">Games covered every season</div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="intro-section">
   <div class="reveal"><div class="label">Our Approach</div><h2>League software doesn't have to look like <em>league software.</em></h2></div>
