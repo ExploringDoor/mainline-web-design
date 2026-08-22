@@ -187,7 +187,7 @@ module.exports = async function (req, res) {
     return isForm ? redirectDone(res) : send(res, 200, { ok: true });
   } catch (e) {
     console.error('send failed', e.message);
-    return send(res, 502, { ok: false, error: 'Could not send right now.', detail: String(e && e.message || e).slice(0, 300), debugFrom: from, debugCF: !!process.env.CONTACT_FROM, fallback: true });
+    return send(res, 502, { ok: false, error: 'Could not send right now.', fallback: true });
   }
 };
 
