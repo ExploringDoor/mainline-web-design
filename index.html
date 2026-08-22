@@ -315,13 +315,54 @@ footer{border-top:1px solid var(--border);padding:2.5rem 4rem;display:flex;justi
 .proof-headline .ps{font-size:1.4rem;font-weight:700;vertical-align:top;margin-left:.05em;opacity:.85}
 .proof-sub{font-family:var(--sans);font-size:.72rem;color:var(--muted);line-height:1.55;font-weight:400}
 
+/* DEMO TEASER — below the proof strip */
+.demo-teaser{padding:3rem 4rem 5rem;position:relative;overflow:hidden}
+.demo-teaser::before{content:'';position:absolute;right:-10%;top:10%;width:560px;height:560px;background:radial-gradient(circle,rgba(56,189,248,.07),transparent 60%);filter:blur(60px);pointer-events:none}
+.dt-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:.9fr 1.1fr;gap:4rem;align-items:center}
+.dt-copy .label{font-family:var(--mono);font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;color:var(--accent);margin-bottom:1.2rem;font-weight:600}
+.dt-copy h2{font-family:var(--serif);font-size:clamp(2rem,3.6vw,3rem);font-weight:300;line-height:1.15;margin-bottom:1.1rem}
+.dt-copy h2 em{font-style:italic;color:var(--accent)}
+.dt-copy p{font-size:.9rem;color:var(--muted);line-height:1.9;font-weight:300;margin-bottom:1.8rem;max-width:460px}
+.dt-card{display:block;background:#eef2f7;border-radius:14px;overflow:hidden;border:1px solid rgba(56,189,248,.15);box-shadow:0 40px 100px rgba(0,0,0,.5);transform:rotate(1.2deg) translateY(6px);transition:transform .6s cubic-bezier(.16,1,.3,1),box-shadow .6s;position:relative;color:#0f172a;font-family:var(--sans)}
+.dt-card:hover{transform:rotate(0) translateY(-4px);box-shadow:0 50px 120px rgba(0,0,0,.6),0 0 0 1px rgba(56,189,248,.25)}
+.dt-chrome{display:flex;align-items:center;gap:.35rem;padding:.55rem .8rem;background:#0a1522;border-bottom:1px solid var(--border)}
+.dt-chrome i{width:8px;height:8px;border-radius:50%;background:#1f2f40}.dt-chrome i:nth-child(1){background:#ff5f57}.dt-chrome i:nth-child(2){background:#febc2e}.dt-chrome i:nth-child(3){background:#28c840}
+.dt-chrome span{flex:1;margin-left:.5rem;background:#0e1c2c;border:1px solid var(--border);border-radius:5px;padding:.28rem .6rem;font-family:var(--mono);font-size:.6rem;color:var(--muted)}
+.dt-chrome em{font-style:normal;font-family:var(--mono);font-size:.52rem;letter-spacing:.18em;color:var(--accent);border:1px solid rgba(56,189,248,.35);padding:.2rem .45rem;border-radius:100px}
+.dt-tk{background:#071633;overflow:hidden;border-bottom:2px solid #f5b400}
+.dt-track{display:flex;width:max-content;animation:dtScroll 28s linear infinite}
+.dt-card:hover .dt-track{animation-play-state:paused}
+@keyframes dtScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.dt-i{display:grid;grid-template-columns:auto auto;grid-template-rows:auto auto;column-gap:.9rem;padding:.45rem .85rem;border-right:1px solid #1c3266;font-family:var(--mono);font-size:.62rem;color:#b9c6de;min-width:150px;align-content:center}
+.dt-i b{grid-column:1/-1;font-weight:500;font-size:.52rem;letter-spacing:.16em;text-transform:uppercase;color:#8fa3c7;margin-bottom:.15rem}
+.dt-i b.lv{color:#f5b400}
+.dt-i span.w{color:#fff;font-weight:700}
+.dt-body{display:grid;grid-template-columns:1.1fr 1fr;gap:.8rem;padding:.9rem}
+.dt-live{background:#0b1f45;color:#fff;border-radius:9px;padding:.8rem .9rem;position:relative;overflow:hidden}
+.dt-live::after{content:'';position:absolute;right:-40px;top:-40px;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle,rgba(245,180,0,.25),transparent 65%);pointer-events:none}
+.dt-lt{font-family:var(--mono);font-size:.52rem;letter-spacing:.18em;text-transform:uppercase;color:#f5b400;display:flex;align-items:center;gap:.4rem;margin-bottom:.55rem}
+.dt-lt i{width:6px;height:6px;border-radius:50%;background:#f5b400;animation:pdotPulse 1.4s infinite}
+.dt-row{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:.55rem;padding:.35rem 0}
+.dt-row + .dt-row{border-top:1px solid rgba(255,255,255,.08)}
+.dt-card .lg{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:5px;font-family:var(--heading);font-weight:900;font-size:.48rem;color:#fff;letter-spacing:.03em}
+.dt-row .nm{font-family:var(--heading);font-weight:800;font-size:.8rem}
+.dt-row .rn{font-family:var(--heading);font-weight:900;font-size:1.35rem;line-height:1}
+.dt-inn{font-family:var(--mono);font-size:.56rem;color:#c7d2e5;margin-top:.5rem;padding-top:.45rem;border-top:1px solid rgba(255,255,255,.1)}
+.dt-st{background:#fff;border:1px solid #dde3ec;border-radius:9px;overflow:hidden}
+.dt-sh{font-family:var(--mono);font-size:.52rem;letter-spacing:.18em;text-transform:uppercase;color:#fff;background:#0b1f45;padding:.45rem .7rem}
+.dt-sr{display:grid;grid-template-columns:1ch auto 1fr auto;align-items:center;gap:.5rem;padding:.42rem .7rem;border-top:1px solid #dde3ec;font-family:var(--mono);font-size:.62rem;color:#64748b}
+.dt-sr:first-of-type{border-top:none}
+.dt-sr .nm{font-family:var(--heading);font-weight:800;font-size:.74rem;color:#0f172a}
+.dt-cta{position:absolute;right:.9rem;bottom:.9rem;font-family:var(--mono);font-size:.55rem;letter-spacing:.16em;text-transform:uppercase;color:#0b1f45;background:#f5b400;padding:.35rem .6rem;border-radius:100px;font-weight:700;opacity:0;transform:translateY(4px);transition:all .4s}
+.dt-card:hover .dt-cta{opacity:1;transform:translateY(0)}
+
 /* VERTICALS GRID — replaces the old stock-photo scroll strip */
 .vert-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:.8rem;padding:2.5rem 4rem 4rem;max-width:1100px;margin:0 auto}
 .vert-pill{padding:.85rem 1.5rem;background:var(--card);border:1px solid var(--border);border-radius:100px;font-family:var(--heading);font-size:.78rem;font-weight:600;letter-spacing:.06em;color:var(--fg);text-transform:uppercase;transition:all .4s cubic-bezier(.16,1,.3,1);cursor:default}
 .vert-pill:hover{border-color:rgba(56,189,248,.4);color:var(--accent);transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,0,0,.3),0 0 0 1px rgba(56,189,248,.1)}
 .vert-pill:nth-child(2n):hover{border-color:rgba(251,191,36,.4);color:var(--accent2);box-shadow:0 12px 30px rgba(0,0,0,.3),0 0 0 1px rgba(251,191,36,.1)}
 
-@media(max-width:1180px){.featured-grid{grid-template-columns:repeat(2,1fr)}.proof-grid{grid-template-columns:repeat(2,1fr);gap:1rem}.proof-strip{padding:3rem 2rem 3.5rem}.proof-headline{font-size:2.2rem}}
+@media(max-width:1180px){.featured-grid{grid-template-columns:repeat(2,1fr)}.proof-grid{grid-template-columns:repeat(2,1fr);gap:1rem}.proof-strip{padding:3rem 2rem 3.5rem}.proof-headline{font-size:2.2rem}.dt-inner{gap:2.5rem}}
 @media(max-width:900px){
 nav{padding:1rem 1.5rem}.nav-links a:not(.nav-cta){display:none}
 .hero{padding:7rem 1.5rem 4rem}.hero-logo .line1{font-size:clamp(28px,8vw,42px)}.hero-logo .line2{font-size:clamp(14px,3.5vw,20px)}.hero-logo .bracket{font-size:clamp(60px,15vw,100px)}.hero-actions{flex-direction:column;align-items:center}
@@ -335,6 +376,7 @@ nav{padding:1rem 1.5rem}.nav-links a:not(.nav-cta){display:none}
 .hiw{padding:4rem 1.5rem}.hiw-grid{grid-template-columns:1fr;gap:1rem}.hiw-grid::before{display:none}
 .portfolio{padding:4rem 1.5rem 1rem}.vert-grid{padding:2rem 1.5rem 3rem;gap:.6rem}.vert-pill{padding:.7rem 1.1rem;font-size:.7rem}
 .proof-strip{padding:2.5rem 1.5rem 3rem}.proof-grid{grid-template-columns:1fr 1fr;gap:.7rem}.proof-tile{padding:1.25rem 1.1rem}.proof-headline{font-size:1.8rem;margin-bottom:.4rem}.proof-sub{font-size:.65rem;line-height:1.5}
+.demo-teaser{padding:2rem 1.5rem 3.5rem}.dt-inner{grid-template-columns:1fr;gap:2rem}.dt-card{transform:none}.dt-body{grid-template-columns:1fr}.dt-cta{position:static;display:inline-block;margin:0 .9rem .9rem;opacity:1;transform:none}
 .contact{padding:5rem 1.5rem}.quote-section{padding:4rem 1.5rem}.quote-grid{grid-template-columns:1fr;gap:1.2rem}.quote-card{padding:1.8rem}
 footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.5rem}
 .intro-word{font-size:clamp(3rem,15vw,6rem)}
@@ -353,7 +395,7 @@ footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.5rem}
 
 <nav>
   <a href="#" class="nav-logo"><span class="bracket bl">{</span><span class="nav-text"><span class="n1">MAIN LINE</span><span class="n2">WEB DESIGN</span></span><span class="bracket br">}</span></a>
-  <div class="nav-links"><a href="#services">Services</a><a href="#about">About</a><a href="#work">Work</a><a href="#contact" class="nav-cta">Get In Touch</a></div>
+  <div class="nav-links"><a href="#services">Services</a><a href="#about">About</a><a href="#work">Work</a><a href="demo.html">Demo</a><a href="#contact" class="nav-cta">Get In Touch</a></div>
 </nav>
 
 <section class="hero">
@@ -374,7 +416,7 @@ footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.5rem}
   <p class="hero-p">Custom league, tournament, and program websites &mdash; schedules, standings, brackets, registration, and admin tools, all custom-coded.</p>
   <div class="hero-actions">
     <span class="btn-orbit-wrap"><a href="#contact"><button class="btn-orbit">Start Your Project &rarr;</button></a><canvas class="orbit-canvas"></canvas></span>
-    <a href="#work"><button class="btn-outline">See Our Work</button></a>
+    <a href="demo.html"><button class="btn-outline">Try the Live Demo</button></a>
   </div>
 </section>
 
@@ -401,6 +443,48 @@ footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.5rem}
         <div class="proof-sub">Games covered every season</div>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="demo-teaser" id="demo">
+  <div class="dt-inner">
+    <div class="dt-copy reveal">
+      <div class="label">Interactive Demo</div>
+      <h2>Don't take a screenshot's word <em>for it.</em></h2>
+      <p>Click around a working league site. The live game plays itself, the standings compute from results, and when you publish a score in the admin, everything else updates. No signup, no sales call.</p>
+      <a href="demo.html"><button class="btn-orbit">Open the Live Demo &rarr;</button></a>
+    </div>
+    <a class="dt-card reveal" href="demo.html" aria-label="Open the live demo">
+      <div class="dt-chrome"><i></i><i></i><i></i><span>yourleague.com/scores</span><em>LIVE</em></div>
+      <div class="dt-tk"><div class="dt-track">
+        <div class="dt-i"><b class="lv">Live &middot; Bot 4</b><span>BAL 3</span><span>ARD 2</span></div>
+        <div class="dt-i"><b>Final</b><span class="w">NAR 7</span><span>WYN 4</span></div>
+        <div class="dt-i"><b>Final</b><span>HAV 5</span><span class="w">VIL 9</span></div>
+        <div class="dt-i"><b>Final</b><span class="w">GLD 6</span><span>BMR 1</span></div>
+        <div class="dt-i"><b>Sat Apr 25</b><span>WYN</span><span>at BAL</span></div>
+        <div class="dt-i"><b class="lv">Live &middot; Bot 4</b><span>BAL 3</span><span>ARD 2</span></div>
+        <div class="dt-i"><b>Final</b><span class="w">NAR 7</span><span>WYN 4</span></div>
+        <div class="dt-i"><b>Final</b><span>HAV 5</span><span class="w">VIL 9</span></div>
+        <div class="dt-i"><b>Final</b><span class="w">GLD 6</span><span>BMR 1</span></div>
+        <div class="dt-i"><b>Sat Apr 25</b><span>WYN</span><span>at BAL</span></div>
+      </div></div>
+      <div class="dt-body">
+        <div class="dt-live">
+          <div class="dt-lt"><i></i>Live &middot; Polo Field</div>
+          <div class="dt-row"><span class="lg" style="background:#0e7490">BAL</span><span class="nm">Bala Bombers</span><span class="rn">3</span></div>
+          <div class="dt-row"><span class="lg" style="background:#1d4ed8">ARD</span><span class="nm">Ardmore Anchors</span><span class="rn">2</span></div>
+          <div class="dt-inn">&#9660; Bottom of the 4th &middot; 1 out</div>
+        </div>
+        <div class="dt-st">
+          <div class="dt-sh">Standings</div>
+          <div class="dt-sr"><span>1</span><span class="lg" style="background:#b91c1c">NAR</span><span class="nm">Narberth Nine</span><span>11-5</span></div>
+          <div class="dt-sr"><span>2</span><span class="lg" style="background:#5b21b6">VIL</span><span class="nm">Villanova Vipers</span><span>10-6</span></div>
+          <div class="dt-sr"><span>3</span><span class="lg" style="background:#c2410c">GLD</span><span class="nm">Gladwyne Giants</span><span>9-7</span></div>
+          <div class="dt-sr"><span>4</span><span class="lg" style="background:#0e7490">BAL</span><span class="nm">Bala Bombers</span><span>9-7</span></div>
+        </div>
+      </div>
+      <div class="dt-cta">Click to open &rarr;</div>
+    </a>
   </div>
 </section>
 
