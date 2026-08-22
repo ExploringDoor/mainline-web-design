@@ -333,7 +333,9 @@ footer{border-top:1px solid var(--border);padding:2.5rem 4rem;display:flex;justi
 .dt-track{display:flex;width:max-content;animation:dtScroll 28s linear infinite}
 .dt-card:hover .dt-track{animation-play-state:paused}
 @keyframes dtScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-.dt-i{display:grid;grid-template-columns:auto auto;grid-template-rows:auto auto;column-gap:.9rem;padding:.45rem .85rem;border-right:1px solid #1c3266;font-family:var(--mono);font-size:.62rem;color:#b9c6de;min-width:150px;align-content:center}
+.dt-i{display:grid;grid-template-columns:auto auto;grid-template-rows:auto auto;column-gap:.9rem;row-gap:.15rem;padding:.45rem .85rem;border-right:1px solid #1c3266;font-family:var(--mono);font-size:.62rem;color:#b9c6de;min-width:170px;align-content:center}
+.dt-i span{display:inline-flex;align-items:center;gap:.35rem;white-space:nowrap}
+.dt-i span img{width:18px;height:18px;object-fit:contain}
 .dt-i b{grid-column:1/-1;font-weight:500;font-size:.52rem;letter-spacing:.16em;text-transform:uppercase;color:#8fa3c7;margin-bottom:.15rem}
 .dt-i b.lv{color:#f5b400}
 .dt-i span.w{color:#fff;font-weight:700}
@@ -344,7 +346,13 @@ footer{border-top:1px solid var(--border);padding:2.5rem 4rem;display:flex;justi
 .dt-lt i{width:6px;height:6px;border-radius:50%;background:#f5b400;animation:pdotPulse 1.4s infinite}
 .dt-row{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:.55rem;padding:.35rem 0}
 .dt-row + .dt-row{border-top:1px solid rgba(255,255,255,.08)}
-.dt-card .lg{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:5px;font-family:var(--heading);font-weight:900;font-size:.48rem;color:#fff;letter-spacing:.03em}
+.dt-card .lg{display:inline-block;width:24px;height:24px;flex-shrink:0}
+.dt-card .lg img{width:100%;height:100%;object-fit:contain;display:block;filter:drop-shadow(0 1px 2px rgba(0,0,0,.2))}
+.dt-row.dim .nm,.dt-row.dim .rn{color:#8fa3c7}
+.dt-btns{display:flex;gap:.4rem;margin-top:.6rem;padding-top:.55rem;border-top:1px solid rgba(255,255,255,.1)}
+.dt-b{font-family:var(--heading);font-weight:800;font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;padding:.35rem .6rem;border-radius:5px;border:1px solid rgba(255,255,255,.25);color:#fff;display:inline-flex;align-items:center;gap:.3rem}
+.dt-b.solid{background:#f5b400;color:#0b1f45;border-color:#f5b400}
+.dt-b em{font-style:normal;font-family:var(--mono);font-size:.46rem;background:rgba(11,31,69,.18);padding:.08rem .25rem;border-radius:3px}
 .dt-row .nm{font-family:var(--heading);font-weight:800;font-size:.8rem}
 .dt-row .rn{font-family:var(--heading);font-weight:900;font-size:1.35rem;line-height:1}
 .dt-inn{font-family:var(--mono);font-size:.56rem;color:#c7d2e5;margin-top:.5rem;padding-top:.45rem;border-top:1px solid rgba(255,255,255,.1)}
@@ -451,36 +459,36 @@ footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.5rem}
     <div class="dt-copy reveal">
       <div class="label">Interactive Demo</div>
       <h2>Don't take a screenshot's word <em>for it.</em></h2>
-      <p>Click around a working league site. The live game plays itself, the standings compute from results, and when you publish a score in the admin, everything else updates. No signup, no sales call.</p>
+      <p>Click around a working league site. Every final gets a recap and box score, the standings compute from results, and when you publish a score in the admin, everything else updates. No signup, no sales call.</p>
       <a href="demo.html"><button class="btn-orbit">Open the Live Demo &rarr;</button></a>
     </div>
     <a class="dt-card reveal" href="demo.html" aria-label="Open the live demo">
       <div class="dt-chrome"><i></i><i></i><i></i><span>yourleague.com/scores</span><em>LIVE</em></div>
       <div class="dt-tk"><div class="dt-track">
-        <div class="dt-i"><b class="lv">Live &middot; Bot 4</b><span>BAL 3</span><span>ARD 2</span></div>
-        <div class="dt-i"><b>Final</b><span class="w">NAR 7</span><span>WYN 4</span></div>
-        <div class="dt-i"><b>Final</b><span>HAV 5</span><span class="w">VIL 9</span></div>
-        <div class="dt-i"><b>Final</b><span class="w">GLD 6</span><span>BMR 1</span></div>
-        <div class="dt-i"><b>Sat Apr 25</b><span>WYN</span><span>at BAL</span></div>
-        <div class="dt-i"><b class="lv">Live &middot; Bot 4</b><span>BAL 3</span><span>ARD 2</span></div>
-        <div class="dt-i"><b>Final</b><span class="w">NAR 7</span><span>WYN 4</span></div>
-        <div class="dt-i"><b>Final</b><span>HAV 5</span><span class="w">VIL 9</span></div>
-        <div class="dt-i"><b>Final</b><span class="w">GLD 6</span><span>BMR 1</span></div>
-        <div class="dt-i"><b>Sat Apr 25</b><span>WYN</span><span>at BAL</span></div>
+        <div class="dt-i"><b>Final &middot; Sat May 2</b><span class="w"><img src="demo-logos/dragons.webp" alt="">NAR 7</span><span><img src="demo-logos/wolverines.webp" alt="">WYN 4</span></div>
+        <div class="dt-i"><b>Final &middot; Sat May 2</b><span><img src="demo-logos/thunder.webp" alt="">HAV 5</span><span class="w"><img src="demo-logos/storm.webp" alt="">VIL 9</span></div>
+        <div class="dt-i"><b>Final &middot; Sat May 2</b><span class="w"><img src="demo-logos/rockets.webp" alt="">GLD 6</span><span><img src="demo-logos/bulls.webp" alt="">BMR 1</span></div>
+        <div class="dt-i"><b>Final &middot; Sat May 2</b><span class="w"><img src="demo-logos/tigers.webp" alt="">BAL 8</span><span><img src="demo-logos/sharks.webp" alt="">ARD 3</span></div>
+        <div class="dt-i"><b>Sat May 9 &middot; 6:15 PM</b><span><img src="demo-logos/wolverines.webp" alt="">WYN</span><span><img src="demo-logos/tigers.webp" alt="">at BAL</span></div>
+        <div class="dt-i"><b>Final &middot; Sat May 2</b><span class="w"><img src="demo-logos/dragons.webp" alt="">NAR 7</span><span><img src="demo-logos/wolverines.webp" alt="">WYN 4</span></div>
+        <div class="dt-i"><b>Final &middot; Sat May 2</b><span><img src="demo-logos/thunder.webp" alt="">HAV 5</span><span class="w"><img src="demo-logos/storm.webp" alt="">VIL 9</span></div>
+        <div class="dt-i"><b>Final &middot; Sat May 2</b><span class="w"><img src="demo-logos/rockets.webp" alt="">GLD 6</span><span><img src="demo-logos/bulls.webp" alt="">BMR 1</span></div>
+        <div class="dt-i"><b>Final &middot; Sat May 2</b><span class="w"><img src="demo-logos/tigers.webp" alt="">BAL 8</span><span><img src="demo-logos/sharks.webp" alt="">ARD 3</span></div>
+        <div class="dt-i"><b>Sat May 9 &middot; 6:15 PM</b><span><img src="demo-logos/wolverines.webp" alt="">WYN</span><span><img src="demo-logos/tigers.webp" alt="">at BAL</span></div>
       </div></div>
       <div class="dt-body">
         <div class="dt-live">
-          <div class="dt-lt"><i></i>Live &middot; Polo Field</div>
-          <div class="dt-row"><span class="lg" style="background:#0e7490">BAL</span><span class="nm">Bala Bombers</span><span class="rn">3</span></div>
-          <div class="dt-row"><span class="lg" style="background:#1d4ed8">ARD</span><span class="nm">Ardmore Anchors</span><span class="rn">2</span></div>
-          <div class="dt-inn">&#9660; Bottom of the 4th &middot; 1 out</div>
+          <div class="dt-lt"><i></i>Final &middot; Sat May 2 &middot; Polo Field</div>
+          <div class="dt-row"><span class="lg"><img src="demo-logos/tigers.webp" alt=""></span><span class="nm">Bala Tigers</span><span class="rn">8</span></div>
+          <div class="dt-row dim"><span class="lg"><img src="demo-logos/sharks.webp" alt=""></span><span class="nm">Ardmore Sharks</span><span class="rn">3</span></div>
+          <div class="dt-btns"><span class="dt-b solid">Recap <em>AI</em></span><span class="dt-b">Box Score</span></div>
         </div>
         <div class="dt-st">
           <div class="dt-sh">Standings</div>
-          <div class="dt-sr"><span>1</span><span class="lg" style="background:#b91c1c">NAR</span><span class="nm">Narberth Nine</span><span>11-5</span></div>
-          <div class="dt-sr"><span>2</span><span class="lg" style="background:#5b21b6">VIL</span><span class="nm">Villanova Vipers</span><span>10-6</span></div>
-          <div class="dt-sr"><span>3</span><span class="lg" style="background:#c2410c">GLD</span><span class="nm">Gladwyne Giants</span><span>9-7</span></div>
-          <div class="dt-sr"><span>4</span><span class="lg" style="background:#0e7490">BAL</span><span class="nm">Bala Bombers</span><span>9-7</span></div>
+          <div class="dt-sr"><span>1</span><span class="lg"><img src="demo-logos/tigers.webp" alt=""></span><span class="nm">Bala Tigers</span><span>11-5</span></div>
+          <div class="dt-sr"><span>2</span><span class="lg"><img src="demo-logos/dragons.webp" alt=""></span><span class="nm">Narberth Dragons</span><span>10-6</span></div>
+          <div class="dt-sr"><span>3</span><span class="lg"><img src="demo-logos/storm.webp" alt=""></span><span class="nm">Villanova Storm</span><span>9-7</span></div>
+          <div class="dt-sr"><span>4</span><span class="lg"><img src="demo-logos/rockets.webp" alt=""></span><span class="nm">Gladwyne Rockets</span><span>9-7</span></div>
         </div>
       </div>
       <div class="dt-cta">Click to open &rarr;</div>
