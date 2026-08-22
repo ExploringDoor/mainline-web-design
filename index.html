@@ -14,6 +14,7 @@
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="apple-touch-icon" href="favicon.svg">
 <meta name="theme-color" content="#040b14">
+<noscript><style>.reveal{opacity:1!important;transform:none!important}.intro-overlay{display:none!important}</style></noscript>
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website">
@@ -364,13 +365,111 @@ footer{border-top:1px solid var(--border);padding:2.5rem 4rem;display:flex;justi
 .dt-cta{position:absolute;right:.9rem;bottom:.9rem;font-family:var(--mono);font-size:.55rem;letter-spacing:.16em;text-transform:uppercase;color:#0b1f45;background:#f5b400;padding:.35rem .6rem;border-radius:100px;font-weight:700;opacity:0;transform:translateY(4px);transition:all .4s}
 .dt-card:hover .dt-cta{opacity:1;transform:translateY(0)}
 
+/* PRICING + FAQ */
+.pricing{padding:5rem 4rem 6rem;border-top:1px solid var(--border);position:relative;overflow:hidden}
+.pricing::before{content:'';position:absolute;left:-10%;top:0;width:600px;height:600px;background:radial-gradient(circle,rgba(251,191,36,.05),transparent 60%);filter:blur(70px);pointer-events:none}
+.price-head{text-align:center;max-width:720px;margin:0 auto 2.8rem;position:relative}
+.price-head .label{font-family:var(--mono);font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;font-weight:600}
+.price-head h2{font-family:var(--serif);font-size:clamp(2rem,3.8vw,3rem);font-weight:300;line-height:1.15;margin-bottom:1rem}
+.price-head h2 em{font-style:italic;color:var(--accent2)}
+.price-sub{font-size:.88rem;color:var(--muted);line-height:1.85;font-weight:300}
+.price-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;max-width:1240px;margin:0 auto;position:relative}
+.price-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.5rem 1.4rem 1.3rem;display:flex;flex-direction:column;position:relative;overflow:hidden;transition:transform .5s cubic-bezier(.16,1,.3,1),border-color .5s,box-shadow .5s}
+.price-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(56,189,248,.45),transparent);opacity:0;transition:opacity .4s}
+.price-card:hover{transform:translateY(-4px);border-color:rgba(56,189,248,.3);box-shadow:0 24px 60px rgba(0,0,0,.35)}
+.price-card:hover::before{opacity:1}
+.price-card.hot{border-color:rgba(251,191,36,.35);background:linear-gradient(180deg,rgba(251,191,36,.06),var(--card) 40%)}
+.price-card.hot::before{background:linear-gradient(90deg,transparent,var(--accent2),transparent);opacity:1}
+.pc-tag{position:absolute;top:.9rem;right:.9rem;font-family:var(--mono);font-size:.52rem;letter-spacing:.18em;text-transform:uppercase;color:var(--bg);background:var(--accent2);padding:.25rem .55rem;border-radius:100px;font-weight:700}
+.pc-k{font-family:var(--mono);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:.8rem;font-weight:600}
+.price-card.hot .pc-k{color:var(--accent2)}
+.pc-r{font-family:var(--heading);font-weight:800;font-size:1.45rem;color:#fff;letter-spacing:-.01em;line-height:1.1;margin-bottom:.8rem}
+.pc-r span{font-family:var(--serif);font-style:italic;font-weight:300;font-size:1rem;color:var(--muted);margin:0 .15rem}
+.pc-r small{display:block;font-family:var(--mono);font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:500;margin-top:.35rem}
+.price-card p{font-size:.76rem;color:var(--muted);line-height:1.65;font-weight:300;margin-bottom:1rem}
+.price-card ul{list-style:none;display:flex;flex-direction:column;gap:.4rem;margin-bottom:1.2rem;flex:1}
+.price-card li{font-size:.74rem;color:var(--fg);display:flex;gap:.55rem;align-items:flex-start;line-height:1.45;font-weight:300}
+.price-card li::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:.45rem}
+.price-card.hot li::before{background:var(--accent2)}
+.pc-f{display:flex;flex-direction:column;gap:.25rem;padding-top:.9rem;border-top:1px solid var(--border);font-family:var(--mono);font-size:.56rem;letter-spacing:.08em;color:var(--muted)}
+.price-note{max-width:760px;margin:1.6rem auto 0;text-align:center;font-size:.76rem;color:var(--muted);line-height:1.75;font-weight:300;position:relative}
+.price-note a{color:var(--accent);border-bottom:1px solid rgba(56,189,248,.35)}
+.faq{max-width:1100px;margin:4.5rem auto 0;position:relative}
+.faq-head{margin-bottom:1.8rem}
+.faq-head .label{font-family:var(--mono);font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;color:var(--accent2);margin-bottom:.8rem;font-weight:600}
+.faq-head h3{font-family:var(--serif);font-size:clamp(1.6rem,2.8vw,2.2rem);font-weight:300;line-height:1.2}
+.faq-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem 2.2rem}
+.faq-item h4{font-family:var(--sans);font-weight:600;font-size:.9rem;color:#fff;margin-bottom:.5rem;line-height:1.35}
+.faq-item p{font-size:.78rem;color:var(--muted);line-height:1.7;font-weight:300}
+.faq-item a{color:var(--accent);border-bottom:1px solid rgba(56,189,248,.35)}
+
+/* PORTFOLIO GROUPS + MINI STRIP */
+.featured-group + .featured-group{margin-top:3rem}
+.fg-h{display:flex;align-items:baseline;gap:1rem;margin-bottom:1.2rem;padding-bottom:.7rem;border-bottom:1px solid var(--border)}
+.fg-k{font-family:var(--mono);font-size:.62rem;color:var(--accent2);letter-spacing:.2em}
+.fg-t{font-family:var(--heading);font-weight:800;font-size:1.05rem;text-transform:uppercase;letter-spacing:.08em;color:#fff}
+.fg-n{font-family:var(--mono);font-size:.6rem;color:var(--muted);letter-spacing:.08em;margin-left:auto;text-align:right}
+.mini-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.mini{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:transform .4s cubic-bezier(.16,1,.3,1),border-color .4s}
+.mini:hover{transform:translateY(-3px);border-color:rgba(56,189,248,.3)}
+.mini-img{display:block;aspect-ratio:16/9;overflow:hidden;background:var(--bg)}
+.mini-img img{width:100%;height:100%;object-fit:cover;object-position:top center;filter:saturate(.9);transition:transform .6s}
+.mini:hover .mini-img img{transform:scale(1.05)}
+.mini-body{padding:.8rem .95rem 1rem;display:flex;flex-direction:column;gap:.25rem}
+.mini-body b{font-family:var(--sans);font-weight:600;font-size:.8rem;color:#fff}
+.mini-body span{font-size:.68rem;color:var(--muted);line-height:1.5;font-weight:300}
+
+/* CONTACT FORM */
+.contact{padding:6rem 4rem 7rem;text-align:left}
+.contact-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:.85fr 1.15fr;gap:4rem;align-items:start}
+.contact-copy .label{font-family:var(--mono);font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;font-weight:600}
+.contact-copy h2{margin-bottom:1rem}
+.contact-copy p{color:var(--muted);font-size:.9rem;line-height:1.8;font-weight:300;margin:0 0 1.4rem;max-width:460px}
+.contact-pts{list-style:none;display:flex;flex-direction:column;gap:.6rem;margin-bottom:1.6rem}
+.contact-pts li{font-size:.8rem;color:var(--fg);font-weight:300;display:flex;gap:.6rem;line-height:1.5}
+.contact-pts li::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent2);flex-shrink:0;margin-top:.5rem}
+.contact-direct{font-family:var(--mono);font-size:.7rem;color:var(--muted);letter-spacing:.04em}
+.contact-direct a{color:var(--accent);border-bottom:1px solid rgba(56,189,248,.35)}
+.intake{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.8rem;position:relative;overflow:hidden}
+.intake::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(56,189,248,.5),transparent)}
+.f-row{display:grid;gap:.9rem;margin-bottom:.9rem}
+.f-row.two{grid-template-columns:1fr 1fr}.f-row.three{grid-template-columns:1fr 1fr 1fr}
+.intake label{display:flex;flex-direction:column;gap:.4rem;font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:#94a6b8}
+.intake input,.intake select,.intake textarea{width:100%;background:#08131f;border:1px solid var(--border);border-radius:8px;padding:.7rem .8rem;color:var(--fg);font-family:var(--sans);font-size:16px;font-weight:300;letter-spacing:0;text-transform:none;transition:border-color .25s,box-shadow .25s;appearance:none;-webkit-appearance:none}
+.intake select{background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);background-position:calc(100% - 16px) 50%,calc(100% - 11px) 50%;background-size:5px 5px;background-repeat:no-repeat;padding-right:2rem}
+.intake textarea{resize:vertical;min-height:96px;line-height:1.55}
+.intake input::placeholder,.intake textarea::placeholder{color:#6d7f91}
+.intake input:focus,.intake select:focus,.intake textarea:focus{outline:none;border-color:rgba(56,189,248,.6);box-shadow:0 0 0 3px rgba(56,189,248,.12)}
+.intake .err{border-color:rgba(239,68,68,.7)!important;box-shadow:0 0 0 3px rgba(239,68,68,.14)!important}
+.f-hp{position:absolute;left:-9999px;top:-9999px;opacity:0;height:0;overflow:hidden}
+.f-foot{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-top:.4rem}
+.f-foot .btn-orbit{padding:.95rem 2rem}
+.f-foot .btn-orbit:disabled{opacity:.6;cursor:wait;transform:none;box-shadow:none}
+.f-note{font-family:var(--mono);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.f-msg{margin-top:.8rem;font-size:.78rem;line-height:1.5;min-height:1.2em}
+.f-msg.warn{color:var(--accent2)}
+.intake-done{background:var(--card);border:1px solid rgba(56,189,248,.35);border-radius:16px;padding:2.2rem 2rem;text-align:center}
+.intake-done .label{font-family:var(--mono);font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;color:var(--accent);margin-bottom:.8rem;font-weight:600}
+.intake-done h3{font-family:var(--serif);font-size:1.8rem;font-weight:300;line-height:1.2;margin-bottom:.8rem}
+.intake-done p{color:var(--muted);font-size:.85rem;line-height:1.75;font-weight:300;margin-bottom:1.4rem}
+.intake-done .btn-outline{margin:0}
+.quote-card.ref .quote-icon{font-family:var(--mono);font-size:2rem;line-height:1;opacity:.9}
+.f-legend{font-size:.74rem;color:#94a6b8;margin-bottom:1rem;font-weight:300}
+.req{color:var(--accent2);font-weight:700;margin-left:.15rem}
+.intake select.unset{color:#6d7f91}
+.intake [aria-invalid="true"]{border-color:rgba(239,68,68,.7);box-shadow:0 0 0 3px rgba(239,68,68,.14)}
+.f-note{font-size:.66rem;color:#94a6b8}
+.intake-done:focus{outline:2px solid rgba(56,189,248,.6);outline-offset:4px}
+.intake-done .btn-outline{display:inline-block}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{transition:none;transform:none;opacity:1}.featured-card,.price-card,.ucard,.proof-tile,.dt-card,.mini,.quote-card,.vert-pill{transition:none}.proof-eyebrow .pdot,.dt-lt i,.dt-track{animation:none}}
+
 /* VERTICALS GRID — replaces the old stock-photo scroll strip */
 .vert-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:.8rem;padding:2.5rem 4rem 4rem;max-width:1100px;margin:0 auto}
 .vert-pill{padding:.85rem 1.5rem;background:var(--card);border:1px solid var(--border);border-radius:100px;font-family:var(--heading);font-size:.78rem;font-weight:600;letter-spacing:.06em;color:var(--fg);text-transform:uppercase;transition:all .4s cubic-bezier(.16,1,.3,1);cursor:default}
 .vert-pill:hover{border-color:rgba(56,189,248,.4);color:var(--accent);transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,0,0,.3),0 0 0 1px rgba(56,189,248,.1)}
 .vert-pill:nth-child(2n):hover{border-color:rgba(251,191,36,.4);color:var(--accent2);box-shadow:0 12px 30px rgba(0,0,0,.3),0 0 0 1px rgba(251,191,36,.1)}
 
-@media(max-width:1180px){.featured-grid{grid-template-columns:repeat(2,1fr)}.proof-grid{grid-template-columns:repeat(2,1fr);gap:1rem}.proof-strip{padding:3rem 2rem 3.5rem}.proof-headline{font-size:2.2rem}.dt-inner{gap:2.5rem}}
+@media(max-width:1180px){.featured-grid{grid-template-columns:repeat(2,1fr)}.proof-grid{grid-template-columns:repeat(2,1fr);gap:1rem}.proof-strip{padding:3rem 2rem 3.5rem}.proof-headline{font-size:2.2rem}.dt-inner{gap:2.5rem}.price-grid{grid-template-columns:repeat(2,1fr)}.faq-grid{grid-template-columns:repeat(2,1fr)}.mini-grid{grid-template-columns:repeat(2,1fr)}.contact-inner{gap:2.5rem}}
 @media(max-width:900px){
 nav{padding:1rem 1.5rem}.nav-links a:not(.nav-cta){display:none}
 .hero{padding:7rem 1.5rem 4rem}.hero-logo .line1{font-size:clamp(28px,8vw,42px)}.hero-logo .line2{font-size:clamp(14px,3.5vw,20px)}.hero-logo .bracket{font-size:clamp(60px,15vw,100px)}.hero-actions{flex-direction:column;align-items:center}
@@ -385,6 +484,9 @@ nav{padding:1rem 1.5rem}.nav-links a:not(.nav-cta){display:none}
 .portfolio{padding:4rem 1.5rem 1rem}.vert-grid{padding:2rem 1.5rem 3rem;gap:.6rem}.vert-pill{padding:.7rem 1.1rem;font-size:.7rem}
 .proof-strip{padding:2.5rem 1.5rem 3rem}.proof-grid{grid-template-columns:1fr 1fr;gap:.7rem}.proof-tile{padding:1.25rem 1.1rem}.proof-headline{font-size:1.8rem;margin-bottom:.4rem}.proof-sub{font-size:.65rem;line-height:1.5}
 .demo-teaser{padding:2rem 1.5rem 3.5rem}.dt-inner{grid-template-columns:1fr;gap:2rem}.dt-card{transform:none}.dt-body{grid-template-columns:1fr}.dt-cta{position:static;display:inline-block;margin:0 .9rem .9rem;opacity:1;transform:none}
+.pricing{padding:3.5rem 1.5rem 4rem}.price-grid{grid-template-columns:1fr;gap:.8rem}.faq{margin-top:3rem}.faq-grid{grid-template-columns:1fr;gap:1.2rem}
+.fg-h{flex-wrap:wrap;gap:.5rem .8rem}.fg-n{margin-left:0;text-align:left;width:100%}.mini-grid{grid-template-columns:1fr 1fr;gap:.7rem}
+.contact{padding:4rem 1.5rem 5rem}.contact-inner{grid-template-columns:1fr;gap:2rem}.intake{padding:1.2rem}.f-row.two,.f-row.three{grid-template-columns:1fr}.intake-done{padding:1.6rem 1.2rem}
 .contact{padding:5rem 1.5rem}.quote-section{padding:4rem 1.5rem}.quote-grid{grid-template-columns:1fr;gap:1.2rem}.quote-card{padding:1.8rem}
 footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.5rem}
 .intro-word{font-size:clamp(3rem,15vw,6rem)}
@@ -403,7 +505,7 @@ footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.5rem}
 
 <nav>
   <a href="#" class="nav-logo"><span class="bracket bl">{</span><span class="nav-text"><span class="n1">MAIN LINE</span><span class="n2">WEB DESIGN</span></span><span class="bracket br">}</span></a>
-  <div class="nav-links"><a href="#services">Services</a><a href="#about">About</a><a href="#work">Work</a><a href="demo.html">Demo</a><a href="#contact" class="nav-cta">Get In Touch</a></div>
+  <div class="nav-links"><a href="#services">Services</a><a href="#about">About</a><a href="#work">Work</a><a href="#pricing">Pricing</a><a href="demo.html">Demo</a><a href="#contact" class="nav-cta">Get In Touch</a></div>
 </nav>
 
 <section class="hero">
@@ -512,6 +614,58 @@ footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.5rem}
   </div>
 </section>
 
+<section class="pricing" id="pricing">
+  <div class="price-head">
+    <div class="label reveal">What It Costs</div>
+    <h2 class="reveal">Flat per season. <em>No per-player fees.</em></h2>
+    <p class="price-sub reveal">One annual number that covers the build, hosting, updates, and support. Your league keeps its own payment processor, so registration money never passes through me, and parents never see a "platform fee" line.</p>
+  </div>
+  <div class="price-grid">
+    <div class="price-card reveal">
+      <div class="pc-k">League Site</div>
+      <div class="pc-r">$2,500 <span>to</span> $4,000<small>per season</small></div>
+      <p>Schedules, scores, standings, team pages, news, and an admin your board can run. For leagues that want to stop living in group texts.</p>
+      <ul><li>Live scores &amp; standings</li><li>Team pages &amp; schedules</li><li>News, rules, documents</li><li>Commissioner admin</li></ul>
+      <div class="pc-f"><span>Typical build: 2 to 4 weeks</span><span>Like: COYBL, Lancaster</span></div>
+    </div>
+    <div class="price-card hot reveal">
+      <div class="pc-tag">Most leagues</div>
+      <div class="pc-k">League Platform</div>
+      <div class="pc-r">$4,000 <span>to</span> $6,500<small>per season</small></div>
+      <p>Everything in League Site plus registration, online payments, game recaps, box scores, playoff brackets, and text alerts. The full engine.</p>
+      <ul><li>Registration &amp; card payments</li><li>AI game recaps &amp; box scores</li><li>Playoff brackets &amp; history</li><li>Manager portals &amp; text alerts</li></ul>
+      <div class="pc-f"><span>Typical build: 4 to 6 weeks</span><span>Like: Lower Merion, Island</span></div>
+    </div>
+    <div class="price-card reveal">
+      <div class="pc-k">Tournament Operations</div>
+      <div class="pc-r">$4,000 <span>to</span> $7,500<small>per season</small></div>
+      <p>Built for companies running events every weekend: team registration with payment, waivers, insurance, pool play to bracket, and a director's dashboard.</p>
+      <ul><li>Team registration &amp; payments</li><li>Waivers, insurance, rosters</li><li>Pool play, seeding, brackets</li><li>Director admin &amp; champions</li></ul>
+      <div class="pc-f"><span>Typical build: 4 to 8 weeks</span><span>Like: Small Town Select</span></div>
+    </div>
+    <div class="price-card reveal">
+      <div class="pc-k">District Hub</div>
+      <div class="pc-r">$2,000 <span>to</span> $4,000<small>per season</small></div>
+      <p>One site for every league in a district: tournament schedules, live brackets, champions, and a place the DA can forward to parents instead of a PDF.</p>
+      <ul><li>Multi-league tournaments</li><li>Live brackets &amp; pool play</li><li>Champion archives</li><li>Keeps SportsConnect for registration</li></ul>
+      <div class="pc-f"><span>Typical build: 2 to 4 weeks</span><span>Like: PA District 27</span></div>
+    </div>
+  </div>
+  <p class="price-note reveal">Ranges, not quotes. Where you land depends on divisions, features, and how much data moves over. Year one includes the build; renewals cover hosting, updates, and support. <a href="#contact">Tell me about your league</a> and I'll give you one number.</p>
+
+  <div class="faq">
+    <div class="faq-head reveal"><div class="label">Straight Answers</div><h3>What commissioners ask before they say yes</h3></div>
+    <div class="faq-grid">
+      <div class="faq-item reveal"><h4>Can we actually run it ourselves?</h4><p>Yes. Score entry, schedule changes, postponements, and news are all built for volunteers on a phone. <a href="demo.html#admin">Try the admin in the demo</a>; that's the real workflow.</p></div>
+      <div class="faq-item reveal"><h4>We're on SportsConnect or LeagueLineup. What moves?</h4><p>Scores, schedules, standings, brackets, team pages, and communication move to your new site. If you're a Little League that has to keep SportsConnect for registration, keep it; PA District 27 does exactly that and links the two.</p></div>
+      <div class="faq-item reveal"><h4>What happens if you get hit by a bus?</h4><p>Your league owns the domain, the hosting account, and the data. The site is plain HTML and JavaScript on Firebase, not a proprietary platform, so any developer can pick it up. No lock-in is part of the deal.</p></div>
+      <div class="faq-item reveal"><h4>Who handles the money?</h4><p>You do. Registration runs through your own Stripe or Square account and lands in your bank. I never touch it and never take a percentage, which is why there's no per-player fee.</p></div>
+      <div class="faq-item reveal"><h4>How long does it take?</h4><p>Two to eight weeks depending on the tier, and I work backward from your registration open date or opening day. Most leagues start 8 to 10 weeks before the season.</p></div>
+      <div class="faq-item reveal"><h4>Do parents need an app?</h4><p>No. Everything is mobile web, so a texted link just works. Optional text alerts for finals, postponements, and bracket updates go out from the admin with one tap.</p></div>
+    </div>
+  </div>
+</section>
+
 <section class="hiw">
   <div class="hiw-header"><div class="label reveal">How It Works</div><h2 class="reveal">Three steps to launch</h2></div>
   <div class="hiw-grid">
@@ -551,40 +705,48 @@ footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.5rem}
   <div class="featured-header">
     <div class="label reveal">Recent Work</div>
     <h2 class="reveal">Built from scratch. <em>Every pixel.</em></h2>
-    <p class="featured-sub reveal">A handful of the leagues, tournaments, and programs I've designed and shipped. Each one is 100% custom code &mdash; no templates, no builders, no page-drag nonsense.</p>
+    <p class="featured-sub reveal">The leagues, tournaments, and districts I've designed and shipped. Each one is 100% custom code &mdash; no templates, no builders, no page-drag nonsense.</p>
   </div>
-  <div class="featured-grid">
+  <div class="featured-group">
+    <div class="fg-h reveal"><span class="fg-k">01</span><span class="fg-t">Tournaments &amp; Districts</span><span class="fg-n">Registration, payments, brackets, multi-league hubs</span></div>
+    <div class="featured-grid">
     <div class="featured-card reveal" data-tilt>
-      <a class="featured-img" href="https://ststournaments.com/" target="_blank" rel="noopener">
-        <img src="sts-screenshot.png" alt="Small Town Select Tournaments Website">
-        <div class="featured-img-overlay"></div><div class="featured-badge">Flagship Client</div>
-      </a>
+      <a class="featured-img" href="https://ststournaments.com/" target="_blank" rel="noopener"><img src="sts-screenshot.webp" alt="Small Town Select Tournaments Website" loading="lazy"><div class="featured-img-overlay"></div><div class="featured-badge">Flagship Client</div></a>
       <div class="featured-body">
         <div class="client-name">Small Town Select Tournaments</div>
         <h3>The largest tournament provider in Texas</h3>
         <p>Full operations for the <strong>largest baseball &amp; softball tournament provider in the state of Texas</strong> &mdash; live team registration with online card payments, waivers, insurance, rosters, live schedules, standings, brackets, championship archives, and an admin backend used every game day.</p>
         <div class="featured-tags"><span>Live Registration</span><span>Online Payments</span><span>Admin Portal</span></div>
-        <a href="https://ststournaments.com/" target="_blank" class="featured-link">Visit Live Site &rarr;</a>
+        <a href="https://ststournaments.com/" target="_blank" rel="noopener" class="featured-link">Visit Live Site &rarr;</a>
       </div>
     </div>
     <div class="featured-card reveal" data-tilt>
-      <a class="featured-img" href="https://padistrict27.vercel.app/" target="_blank" rel="noopener">
-        <img src="d27-screenshot.png" alt="PA District 27 Little League Website">
-        <div class="featured-img-overlay"></div><div class="featured-badge">Live Project</div>
-      </a>
+      <a class="featured-img" href="https://www.padistrict27.com/" target="_blank" rel="noopener"><img src="d27-screenshot.webp" alt="PA District 27 Little League Website" loading="lazy"><div class="featured-img-overlay"></div><div class="featured-badge">Live Project</div></a>
       <div class="featured-body">
         <div class="client-name">PA District 27 Little League</div>
         <h3>A tournament hub for 12 leagues</h3>
         <p>Live brackets, schedules, and champion archives for <strong>10,000+ baseball &amp; softball players</strong> across 12 Little Leagues in Chester, Delaware, and Montgomery counties.</p>
-        <div class="featured-tags"><span>Multi-League</span><span>Live Brackets</span><span>Tournament</span></div>
-        <a href="https://padistrict27.vercel.app/" target="_blank" class="featured-link">Visit Live Site &rarr;</a>
+        <div class="featured-tags"><span>Multi-League</span><span>Live Brackets</span><span>District Hub</span></div>
+        <a href="https://www.padistrict27.com/" target="_blank" rel="noopener" class="featured-link">Visit Live Site &rarr;</a>
       </div>
     </div>
     <div class="featured-card warm-accent reveal" data-tilt>
-      <div class="featured-img">
-        <img src="lmll-screenshot.png" alt="Lower Merion Little League Website">
-        <div class="featured-img-overlay"></div><div class="featured-badge warm">Launching Soon</div>
+      <a class="featured-img" href="https://texasselecttournament.com/" target="_blank" rel="noopener"><img src="txselect-screenshot.webp" alt="Texas Select Tournaments Website" loading="lazy"><div class="featured-img-overlay"></div><div class="featured-badge warm">Live Project</div></a>
+      <div class="featured-body">
+        <div class="client-name">Texas Select Tournaments</div>
+        <h3>Dual-sport tournaments across South Texas</h3>
+        <p>Competitive fastpitch &amp; baseball tournaments across South Texas &mdash; team registration, an insurance store, live schedules, brackets, and a season-long <strong>Team Points leaderboard</strong> tracking every event.</p>
+        <div class="featured-tags"><span>Dual-Sport</span><span>Registration</span><span>Team Points</span></div>
+        <a href="https://texasselecttournament.com/" target="_blank" rel="noopener" class="featured-link">Visit Live Site &rarr;</a>
       </div>
+    </div>
+    </div>
+  </div>
+  <div class="featured-group">
+    <div class="fg-h reveal"><span class="fg-k">02</span><span class="fg-t">Leagues</span><span class="fg-n">Scores, standings, recaps, registration, admin</span></div>
+    <div class="featured-grid">
+    <div class="featured-card warm-accent reveal" data-tilt>
+      <div class="featured-img"><img src="lmll-screenshot.webp" alt="Lower Merion Little League Website" loading="lazy"><div class="featured-img-overlay"></div><div class="featured-badge warm">Launching Soon</div></div>
       <div class="featured-body">
         <div class="client-name">Lower Merion Little League</div>
         <h3>The world's 2nd&#8209;largest Little League</h3>
@@ -593,96 +755,65 @@ footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.5rem}
         <span class="featured-link" style="opacity:.55;cursor:default">Launching with the 2026 season</span>
       </div>
     </div>
-    <div class="featured-card warm-accent reveal" data-tilt>
-      <a class="featured-img" href="https://texasselecttournament.com/" target="_blank" rel="noopener">
-        <img src="txselect-screenshot.png" alt="Texas Select Tournaments Website">
-        <div class="featured-img-overlay"></div><div class="featured-badge warm">Live Project</div>
-      </a>
+    <div class="featured-card reveal" data-tilt>
+      <a class="featured-img" href="https://lcybl.vercel.app/" target="_blank" rel="noopener"><img src="lcybl-screenshot.webp" alt="Lancaster County Youth Baseball League Website" loading="lazy"><div class="featured-img-overlay"></div><div class="featured-badge">Live Project</div></a>
       <div class="featured-body">
-        <div class="client-name">Texas Select Tournaments</div>
-        <h3>Dual-sport tournaments across South Texas</h3>
-        <p>Competitive fastpitch &amp; baseball tournaments across South Texas &mdash; team registration, an insurance store, live schedules, brackets, and a season-long <strong>Team Points leaderboard</strong> tracking every event.</p>
-        <div class="featured-tags"><span>Dual-Sport</span><span>Registration</span><span>Team Points</span></div>
-        <a href="https://texasselecttournament.com/" target="_blank" class="featured-link">Visit Live Site &rarr;</a>
+        <div class="client-name">Lancaster County Youth Baseball</div>
+        <h3>185 teams, one scoreboard</h3>
+        <p>A record <strong>185 teams across Lancaster County</strong> &mdash; live scores in every division, team pages, tournaments, volunteer and sponsor pages, league documents, and a playoff and champion history going back to 2009.</p>
+        <div class="featured-tags"><span>185 Teams</span><span>Live Scores</span><span>Champion History</span></div>
+        <a href="https://lcybl.vercel.app/" target="_blank" rel="noopener" class="featured-link">Visit Live Site &rarr;</a>
+      </div>
+    </div>
+    <div class="featured-card warm-accent reveal" data-tilt>
+      <a class="featured-img" href="https://islandfastpitch.com/" target="_blank" rel="noopener"><img src="island-screenshot.webp" alt="Island Fastpitch Website" loading="lazy"><div class="featured-img-overlay"></div><div class="featured-badge warm">Live Project</div></a>
+      <div class="featured-body">
+        <div class="client-name">Island Fastpitch</div>
+        <h3>Leagues and tournaments on Long Island</h3>
+        <p>The premier fastpitch leagues and tournaments on Long Island &mdash; spring, summer, and fall seasons for 8U through 18+, league registration, a tournament calendar, scores, standings, college clinic signups, and a team shop.</p>
+        <div class="featured-tags"><span>Fastpitch</span><span>Registration</span><span>Tournaments</span></div>
+        <a href="https://islandfastpitch.com/" target="_blank" rel="noopener" class="featured-link">Visit Live Site &rarr;</a>
       </div>
     </div>
     <div class="featured-card reveal" data-tilt>
-      <a class="featured-img" href="https://aces-basketball.vercel.app/" target="_blank" rel="noopener">
-        <img src="aces-screenshot.png" alt="Lower Merion Aces Basketball Website">
-        <div class="featured-img-overlay"></div><div class="featured-badge">Live Project</div>
-      </a>
+      <a class="featured-img" href="https://coybl.org/" target="_blank" rel="noopener"><img src="coybl-screenshot.webp" alt="Central Ohio Youth Baseball League Website" loading="lazy"><div class="featured-img-overlay"></div><div class="featured-badge">Live Project</div></a>
       <div class="featured-body">
-        <div class="client-name">Lower Merion Aces Basketball</div>
-        <h3>A digital home for the Aces program</h3>
-        <p>Full site for the Lower Merion Aces program &mdash; team rosters, schedules, and program info in a clean, high-energy interface.</p>
-        <div class="featured-tags"><span>Next.js</span><span>Custom Design</span><span>Responsive</span></div>
-        <a href="https://aces-basketball.vercel.app/" target="_blank" class="featured-link">Visit Live Site &rarr;</a>
+        <div class="client-name">Central Ohio Youth Baseball League</div>
+        <h3>Pitch counts, power rankings, coach logins</h3>
+        <p>A multi-community youth baseball league in Central Ohio &mdash; scores, schedules, standings, <strong>pitch count tracking</strong>, power rankings, tournaments, coach portals, and team registration.</p>
+        <div class="featured-tags"><span>Pitch Counts</span><span>Power Rankings</span><span>Coach Portal</span></div>
+        <a href="https://coybl.org/" target="_blank" rel="noopener" class="featured-link">Visit Live Site &rarr;</a>
       </div>
     </div>
     <div class="featured-card warm-accent reveal" data-tilt>
-      <a class="featured-img" href="https://greggdownerbasketball.com" target="_blank" rel="noopener">
-        <img src="downer-screenshot.png" alt="Gregg Downer Basketball Website">
-        <div class="featured-img-overlay"></div><div class="featured-badge warm">Live Project</div>
-      </a>
-      <div class="featured-body">
-        <div class="client-name">Downer Basketball Academy</div>
-        <h3>The official site for a legendary coach</h3>
-        <p>Camp registration, program details, and a premium design for Coach Gregg Downer &mdash; the head coach who shaped Kobe Bryant's high school years.</p>
-        <div class="featured-tags"><span>Next.js</span><span>Brand Identity</span><span>Registration</span></div>
-        <a href="https://greggdownerbasketball.com" target="_blank" class="featured-link">Visit Live Site &rarr;</a>
-      </div>
-    </div>
-    <div class="featured-card warm-accent reveal" data-tilt>
-      <a class="featured-img" href="https://lbdc1.vercel.app/" target="_blank" rel="noopener">
-        <img src="lbdc-screenshot.png" alt="Long Beach Diamond Classics Website">
-        <div class="featured-img-overlay"></div><div class="featured-badge warm">Live Project</div>
-      </a>
-      <div class="featured-body">
-        <div class="client-name">Long Beach Diamond Classics</div>
-        <h3>A full league site for 50+ baseball</h3>
-        <p>Schedules, standings, tournaments, team pages, and a front-door news feed &mdash; built for a tight-knit Men's 50+ baseball league on the West Coast.</p>
-        <div class="featured-tags"><span>League Site</span><span>Next.js</span><span>Admin Tools</span></div>
-        <a href="https://lbdc.vercel.app/" target="_blank" class="featured-link">Visit Live Site &rarr;</a>
-      </div>
-    </div>
-    <div class="featured-card reveal" data-tilt>
-      <a class="featured-img" href="https://dvsl.vercel.app/" target="_blank" rel="noopener">
-        <img src="dvsl-screenshot.png" alt="Delaware Valley Softball League Website">
-        <div class="featured-img-overlay"></div><div class="featured-badge">Live Project</div>
-      </a>
+      <a class="featured-img" href="https://dvsl.vercel.app/" target="_blank" rel="noopener"><img src="dvsl-screenshot.webp" alt="Delaware Valley Softball League Website" loading="lazy"><div class="featured-img-overlay"></div><div class="featured-badge warm">Live Project</div></a>
       <div class="featured-body">
         <div class="client-name">Delaware Valley Softball League</div>
         <h3>A complete league platform, from scratch</h3>
         <p>Scores, stats, standings, recaps, rosters, captain dashboard, and a full admin backend &mdash; everything the league needs in one place.</p>
-        <div class="featured-tags"><span>Firebase</span><span>Admin Portal</span><span>Live Stats</span></div>
-        <a href="https://dvsl.vercel.app/" target="_blank" class="featured-link">Visit Live Site &rarr;</a>
+        <div class="featured-tags"><span>Live Stats</span><span>Recaps</span><span>Captain Dashboard</span></div>
+        <a href="https://dvsl.vercel.app/" target="_blank" rel="noopener" class="featured-link">Visit Live Site &rarr;</a>
       </div>
     </div>
-    <div class="featured-card warm-accent reveal" data-tilt>
-      <a class="featured-img" href="https://sfbl-1.vercel.app/" target="_blank" rel="noopener">
-        <img src="sfbl-screenshot.png" alt="South Florida Baseball League Website">
-        <div class="featured-img-overlay"></div><div class="featured-badge warm">Live Project</div>
-      </a>
+    <div class="featured-card reveal" data-tilt>
+      <a class="featured-img" href="https://sfbl-1.vercel.app/" target="_blank" rel="noopener"><img src="sfbl-screenshot.webp" alt="South Florida Baseball League Website" loading="lazy"><div class="featured-img-overlay"></div><div class="featured-badge">Live Project</div></a>
       <div class="featured-body">
         <div class="client-name">South Florida Baseball League</div>
         <h3>An adult league, dialed in</h3>
         <p>Scores, standings, stats, rosters, and registration for an 18+ baseball league in South Florida &mdash; same platform engine, fully rebranded for the league.</p>
-        <div class="featured-tags"><span>Firebase</span><span>Adult League</span><span>Registration</span></div>
-        <a href="https://sfbl-1.vercel.app/" target="_blank" class="featured-link">Visit Live Site &rarr;</a>
+        <div class="featured-tags"><span>Adult League</span><span>Registration</span><span>Box Scores</span></div>
+        <a href="https://sfbl-1.vercel.app/" target="_blank" rel="noopener" class="featured-link">Visit Live Site &rarr;</a>
       </div>
     </div>
-    <div class="featured-card warm-accent reveal" data-tilt>
-      <a class="featured-img" href="https://www.fielddayadventures.com/" target="_blank" rel="noopener">
-        <img src="fda-screenshot.png" alt="Field Day Adventures Website">
-        <div class="featured-img-overlay"></div><div class="featured-badge warm">Live Project</div>
-      </a>
-      <div class="featured-body">
-        <div class="client-name">Field Day Adventures</div>
-        <h3>A beach camp with a brand</h3>
-        <p>Marketing &amp; registration site for a Longport, NJ summer drop-off camp &mdash; custom illustrated identity, schedule, activities, and parent FAQs in a warm editorial layout.</p>
-        <div class="featured-tags"><span>Brand Identity</span><span>Custom Design</span><span>Registration</span></div>
-        <a href="https://www.fielddayadventures.com/" target="_blank" class="featured-link">Visit Live Site &rarr;</a>
-      </div>
+    </div>
+  </div>
+  <div class="featured-group">
+    <div class="fg-h reveal"><span class="fg-k">03</span><span class="fg-t">Programs &amp; Camps</span><span class="fg-n">Brand and registration sites</span></div>
+    <div class="mini-grid">
+    <a class="mini reveal" href="https://lbdc1.vercel.app/" target="_blank" rel="noopener"><span class="mini-img"><img src="lbdc-screenshot.webp" alt="Long Beach Diamond Classics Website" loading="lazy"></span><span class="mini-body"><b>Long Beach Diamond Classics</b><span>Men's 50+ baseball league, Southern California</span></span></a>
+    <a class="mini reveal" href="https://aces-basketball.vercel.app/" target="_blank" rel="noopener"><span class="mini-img"><img src="aces-screenshot.webp" alt="Lower Merion Aces Basketball Website" loading="lazy"></span><span class="mini-body"><b>Lower Merion Aces Basketball</b><span>HS program site: rosters, schedules, program info</span></span></a>
+    <a class="mini reveal" href="https://greggdownerbasketball.com" target="_blank" rel="noopener"><span class="mini-img"><img src="downer-screenshot.webp" alt="Gregg Downer Basketball Website" loading="lazy"></span><span class="mini-body"><b>Downer Basketball Academy</b><span>Camp registration for a legendary coach</span></span></a>
+    <a class="mini reveal" href="https://www.fielddayadventures.com/" target="_blank" rel="noopener"><span class="mini-img"><img src="fda-screenshot.webp" alt="Field Day Adventures Website" loading="lazy"></span><span class="mini-body"><b>Field Day Adventures</b><span>Brand + registration site for a Longport, NJ kids camp</span></span></a>
     </div>
   </div>
 </section>
@@ -712,19 +843,63 @@ footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.5rem}
       <div class="quote-text">Main Line Web Design built us a site that truly captures the spirit of our program. Professional, fast, and incredibly easy to work with. The finished product exceeded all of our expectations.</div>
       <div class="quote-author"><strong>Gregg Downer</strong>Head Coach, Lower Merion High School</div>
     </div>
-    <!-- Placeholder testimonial — replace with a real quote when you collect one -->
-    <div class="quote-card warm reveal">
-      <div class="quote-icon">&ldquo;</div>
-      <div class="quote-text">We'd been patching together spreadsheets and group texts for years. Adam built us a real website in weeks &mdash; schedules, rosters, standings, all of it. Our players can finally find their games.</div>
-      <div class="quote-author"><strong>League Admin</strong>Long Beach Diamond Classics</div>
+    <div class="quote-card warm ref reveal">
+      <div class="quote-icon">&#8599;</div>
+      <div class="quote-text">Want to hear it from a commissioner or tournament director, not from me? Ask for a reference call on the form below and I'll connect you with a current client running the same kind of league.</div>
+      <div class="quote-author"><strong>Reference calls available</strong>Leagues, tournaments, and districts currently live</div>
     </div>
   </div>
 </section>
 
 <section class="contact" id="contact">
-  <h2 class="reveal">Ready to upgrade your <em>league?</em></h2>
-  <p class="reveal">Starting a new league, running a tournament, or finally rebuilding the site every parent complains about &mdash; let's talk.</p>
-  <span class="btn-orbit-wrap reveal"><a id="contactBtn" href="#"><button class="btn-orbit">Get In Touch &rarr;</button></a><canvas class="orbit-canvas"></canvas></span>
+  <div class="contact-inner">
+    <div class="contact-copy reveal">
+      <div class="label">Get In Touch</div>
+      <h2>Ready to upgrade your <em>league?</em></h2>
+      <p>Starting a new league, running a tournament, or finally rebuilding the site every parent complains about. Tell me the basics and I'll reply within 24 hours with a first take and a couple of questions.</p>
+      <ul class="contact-pts">
+        <li>No sales call required. Email back and forth is fine.</li>
+        <li>Ask for a reference call with a current client.</li>
+        <li>Want a mockup first? Say so and I'll show your league on the engine.</li>
+      </ul>
+      <div class="contact-direct">Prefer email? <a id="contactEmail" href="#">adam.mainlinewebdesign@gmail.com</a></div>
+    </div>
+    <form class="intake reveal" id="intake" action="/api/contact" method="post" novalidate>
+      <p class="f-legend">Only name, email, and league are required. <span class="req" aria-hidden="true">*</span></p>
+      <div class="f-row two">
+        <label for="f-name">Your name <span class="req" aria-hidden="true">*</span><input id="f-name" type="text" name="name" autocomplete="name" required maxlength="120" placeholder="Jamie Rivera"></label>
+        <label for="f-email">Email <span class="req" aria-hidden="true">*</span><input id="f-email" type="email" name="email" autocomplete="email" required maxlength="200" placeholder="you@league.org"></label>
+      </div>
+      <div class="f-row two">
+        <label for="f-org">League / organization <span class="req" aria-hidden="true">*</span><input id="f-org" type="text" name="org" autocomplete="organization" required maxlength="160" placeholder="Main Line Little League"></label>
+        <label>What is it?<select name="orgType"><option value="">Pick one</option><option>Youth league</option><option>Adult league</option><option>Tournament company</option><option>District or association</option><option>School or program</option><option>Camp or academy</option><option>Something else</option></select></label>
+      </div>
+      <div class="f-row three">
+        <label>Sport<select name="sport"><option value="">Pick one</option><option>Baseball</option><option>Softball</option><option>Baseball &amp; softball</option><option>Basketball</option><option>Other</option></select></label>
+        <label>Teams<select name="teams"><option value="">Roughly</option><option>Under 10</option><option>10 to 25</option><option>25 to 50</option><option>50 to 100</option><option>100+</option><option>Tournament teams vary</option></select></label>
+        <label>Using today<select name="current"><option value="">Pick one</option><option>SportsConnect</option><option>LeagueLineup</option><option>TeamSnap</option><option>GameChanger</option><option>Wix / Squarespace / WordPress</option><option>Spreadsheets and group texts</option><option>Nothing yet</option><option>Other</option></select></label>
+      </div>
+      <div class="f-row">
+        <label>Current site (optional)<input type="url" name="url" inputmode="url" maxlength="300" placeholder="https://"></label>
+      </div>
+      <div class="f-row">
+        <label>What do you need? What's broken today?<textarea name="notes" rows="4" maxlength="4000" placeholder="Scores never get posted, registration is a mess, we want brackets people can actually read on a phone..."></textarea></label>
+      </div>
+      <div class="f-hp" aria-hidden="true"><label>Website<input type="text" name="website2" tabindex="-1" autocomplete="off"></label></div>
+      <input type="hidden" name="ref" id="refField"><input type="hidden" name="page" id="pageField">
+      <div class="f-foot">
+        <button type="submit" class="btn-orbit" id="intakeBtn">Send It &rarr;</button>
+        <span class="f-note">24-hour reply. No spam, no list.</span>
+      </div>
+      <div class="f-msg" id="intakeMsg" role="status" aria-live="polite"></div>
+    </form>
+    <div class="intake-done reveal" id="intakeDone" role="status" tabindex="-1" hidden>
+      <div class="label">Sent</div>
+      <h3>Got it. You'll hear from me within 24 hours.</h3>
+      <p>In the meantime, the fastest way to see how the admin side works is the live demo. Publish a score and watch the standings update.</p>
+      <a class="btn-outline" href="demo.html#admin">Open the admin demo</a>
+    </div>
+  </div>
 </section>
 
 <footer>
@@ -891,14 +1066,46 @@ document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el)});
   },{threshold:.4});
   nums.forEach(function(n){so.observe(n)});
 })();
-// EMAIL LINKS — built in JS so Cloudflare can't obfuscate them
+// CONTACT — intake form posts to /api/contact; falls back to a pre-filled email if mail isn't configured
 (function(){
-  var u='adam.mainlinewebdesign';var d='gmail.com';var e=u+'@'+d;
-  var s='?subject=Website%20Inquiry';
-  var cb=document.getElementById('contactBtn');
-  if(cb)cb.href='mai'+'lto:'+e+s;
-  // Also set nav CTA
-  document.querySelectorAll('.nav-cta').forEach(function(a){a.href='mai'+'lto:'+e+s});
+  var u='adam.mainlinewebdesign';var d='gmail.com';var E=u+'@'+d;
+  var ce=document.getElementById('contactEmail');if(ce)ce.href='mai'+'lto:'+E+'?subject=League%20website%20inquiry';
+  document.querySelectorAll('.nav-cta').forEach(function(a){a.href='#contact'});
+  var form=document.getElementById('intake');if(!form)return;
+  var msg=document.getElementById('intakeMsg'),btn=document.getElementById('intakeBtn'),done=document.getElementById('intakeDone');
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  try{var q=new URLSearchParams(location.search);var ref=q.get('ref')||q.get('utm_source')||'';if(ref)sessionStorage.setItem('mlwd_ref',ref);document.getElementById('refField').value=ref||sessionStorage.getItem('mlwd_ref')||'';
+    if(q.get('sent')==='1'){showDone(false)}}catch(e){}
+  document.getElementById('pageField').value=location.pathname+location.hash;
+  form.querySelectorAll('select').forEach(function(s){function u(){s.classList.toggle('unset',!s.value)}s.addEventListener('change',u);u()});
+  form.querySelectorAll('input,textarea').forEach(function(el){el.addEventListener('input',function(){el.classList.remove('err');el.removeAttribute('aria-invalid')})});
+  var sending=false;
+  function showDone(scroll){form.hidden=true;done.hidden=false;done.classList.add('v');if(scroll!==false)done.scrollIntoView({behavior:reduce?'auto':'smooth',block:'center'});setTimeout(function(){try{done.focus({preventScroll:true})}catch(e){done.focus()}},50)}
+  function data(){var o={};new FormData(form).forEach(function(v,k){o[k]=String(v).trim()});return o}
+  function say(t,kind){msg.textContent=t;msg.className='f-msg '+(kind||'');msg.setAttribute('role',kind==='warn'?'alert':'status')}
+  function idle(){sending=false;btn.disabled=false;btn.removeAttribute('aria-busy');btn.textContent='Send It →'}
+  function mailtoFallback(o){
+    var body='Name: '+o.name+'\nEmail: '+o.email+'\nOrganization: '+o.org+'\nType: '+o.orgType+'\nSport: '+o.sport+'\nTeams: '+o.teams+'\nUsing today: '+o.current+'\nCurrent site: '+o.url+'\n\n'+o.notes;
+    location.href='mai'+'lto:'+E+'?subject='+encodeURIComponent('League website inquiry: '+o.org)+'&body='+encodeURIComponent(body.slice(0,1500));
+    say('Opening your email app with everything filled in. If nothing opened, email '+E+' directly.','warn');
+  }
+  form.addEventListener('submit',function(ev){
+    ev.preventDefault();if(sending)return;
+    var o=data();
+    form.querySelectorAll('.err').forEach(function(el){el.classList.remove('err');el.removeAttribute('aria-invalid')});
+    var bad=[];if(!o.name)bad.push(['name','your name']);if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(o.email))bad.push(['email','a working email']);if(!o.org)bad.push(['org','your league or organization']);
+    if(bad.length){bad.forEach(function(b){var el=form.querySelector('[name="'+b[0]+'"]');if(el){el.classList.add('err');el.setAttribute('aria-invalid','true');el.setAttribute('aria-describedby','intakeMsg')}});say('Still need: '+bad.map(function(b){return b[1]}).join(', ')+'.','warn');setTimeout(function(){form.querySelector('[name="'+bad[0][0]+'"]').focus()},150);return}
+    sending=true;btn.disabled=true;btn.setAttribute('aria-busy','true');btn.textContent='Sending...';say('');
+    fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(o)})
+      .then(function(r){return r.json().catch(function(){return {ok:false,fallback:r.status>=500}}).then(function(j){j.status=r.status;return j})})
+      .then(function(j){
+        if(j.ok){showDone(true);try{if(window.gtag)gtag('event','contact_submit')}catch(e){}return}
+        idle();
+        if(j.fallback||j.status===503||j.status===502||j.status===429){mailtoFallback(o);return}
+        say(j.error||'Something went wrong. Email '+E+' and I will get it.','warn');btn.focus();
+      })
+      .catch(function(){idle();mailtoFallback(o)});
+  });
 })();
 </script>
 </body>
