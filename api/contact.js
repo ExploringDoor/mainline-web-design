@@ -54,15 +54,25 @@ function readBody(req) {
 }
 
 async function sendgrid(key, msg) {
-  var r = await fetch('https://api.sendgrid.com/v3/mail/send', {
-    method: 'POST',
-    headers: { Authorization: 'Bearer ' + key, 'Content-Type': 'application/json' },
-    body: JSON.stringify(msg)
-  });
-  if (r.status >= 300) {
-    var t = '';
-    try { t = await r.text(); } catch (e) {}
-    throw new Error('SendGrid ' + r.status + ' ' + t.slice(0, 300));
+  var ctrl = new AbortController();
+  var timer = setTimeout(function () { ctrl.abort(); }, 8000);
+  try {
+    var r = await fetch('https://api.sendgrid.com/v3/mail/send', {
+      method: 'POST',
+      headers: { Authorization: 'Bearer ' + key, 'Content-Type': 'application/json' },
+      body: JSON.stringify(msg),
+      signal: ctrl.signal
+    });
+    if (r.status >= 300) {
+      var t = '';
+      try { t = await r.text(); } catch (e) {}
+      throw new Error('SendGrid ' + r.status + ' ' + t.replace(/\s+/g, ' ').slice(0, 300));
+    }
+  } catch (e) {
+    if (e && e.name === 'AbortError') throw new Error('SendGrid request timed out after 8s');
+    throw e;
+  } finally {
+    clearTimeout(timer);
   }
 }
 
@@ -174,7 +184,7 @@ module.exports = async function (req, res) {
     return isForm ? redirectDone(res) : send(res, 200, { ok: true });
   } catch (e) {
     console.error('send failed', e.message);
-    return send(res, 502, { ok: false, error: 'Could not send right now.', fallback: true });
+    return send(res, 502, { ok: false, error: 'Could not send right now.', detail: String(e && e.message || e).slice(0, 300), fallback: true });
   }
 };
 
