@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@1,400;1,500&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#040b14;--fg:#e2e8f0;--accent:#38bdf8;--accent2:#fbbf24;--muted:#7789a0;--card:#0c1926;--border:#1a2a3a;--mono:'Space Grotesk',monospace;--heading:'Urbanist',sans-serif;--serif:'Cormorant Garamond',serif}
+html,body{width:1200px;height:630px;overflow:hidden}
+body{background:var(--bg);color:var(--fg);font-family:var(--heading);position:relative}
+.tex{position:absolute;inset:0;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.glow{position:absolute;border-radius:50%;filter:blur(90px);pointer-events:none}
+.g1{width:640px;height:640px;right:-160px;top:-220px;background:radial-gradient(circle,rgba(56,189,248,.14),transparent 62%)}
+.g2{width:560px;height:560px;left:-200px;bottom:-260px;background:radial-gradient(circle,rgba(251,191,36,.10),transparent 62%)}
+.wrap{position:relative;height:100%;padding:70px 74px;display:flex;flex-direction:column;justify-content:space-between}
+.top{display:flex;align-items:center;gap:14px}
+.brand{display:flex;align-items:center;gap:2px}
+.brk{font-family:var(--mono);font-weight:300;font-size:56px;color:var(--accent);opacity:.35;line-height:1}
+.bl{padding-right:12px}.br{padding-left:12px}
+.name{display:flex;flex-direction:column;align-items:center;line-height:1}
+.n1{font-weight:900;font-size:34px;letter-spacing:6px;color:#fff}
+.n2{font-weight:700;font-size:15px;letter-spacing:11px;color:var(--accent);margin-top:6px}
+.live{margin-left:auto;font-family:var(--mono);font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);border:1px solid rgba(56,189,248,.3);border-radius:100px;padding:9px 18px;display:flex;align-items:center;gap:9px}
+.live i{width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px rgba(56,189,248,.8)}
+.mid{margin-top:6px}
+.eyebrow{font-family:var(--mono);font-size:16px;letter-spacing:.24em;text-transform:uppercase;color:var(--accent2);margin-bottom:20px;font-weight:600}
+h1{font-family:var(--heading);font-weight:800;font-size:70px;line-height:1.04;letter-spacing:-1px;color:#fff;max-width:1000px}
+h1 em{font-family:var(--serif);font-style:italic;font-weight:500;color:var(--accent)}
+.sub{margin-top:22px;font-size:23px;line-height:1.5;color:var(--muted);max-width:820px;font-weight:400}
+.chips{display:flex;gap:14px;margin-top:4px}
+.chip{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px 22px;flex:1}
+.chip .k{font-family:var(--heading);font-weight:900;font-size:30px;color:var(--accent);line-height:1}
+.chip:nth-child(2) .k,.chip:nth-child(3) .k{color:var(--accent2)}
+.chip .v{font-family:var(--mono);font-size:14px;color:var(--muted);margin-top:9px;line-height:1.4;letter-spacing:.02em}
+.chip .k .s{font-size:19px;vertical-align:top;margin-left:1px}
+</style>
+</head>
+<body>
+<div class="tex"></div><div class="glow g1"></div><div class="glow g2"></div>
+<div class="wrap">
+  <div class="top">
+    <div class="brand"><span class="brk bl">{</span><span class="name"><span class="n1">MAIN LINE</span><span class="n2">WEB DESIGN</span></span><span class="brk br">}</span></div>
+    <div class="live"><i></i>League &amp; Tournament Sites</div>
+  </div>
+  <div class="mid">
+    <div class="eyebrow">Built for leagues. Designed like brands.</div>
+    <h1>Your league, on a platform that <em>works like the big leagues.</em></h1>
+    <div class="sub">Custom sites for leagues, tournaments, and districts. Live scores, standings, brackets, registration, and admin, all custom-coded.</div>
+  </div>
+  <div class="chips">
+    <div class="chip"><div class="k">#1</div><div class="v">Tournament provider in Texas</div></div>
+    <div class="chip"><div class="k">#2</div><div class="v">Largest Little League in the world</div></div>
+    <div class="chip"><div class="k">10,000<span class="s">+</span></div><div class="v">Little League players served</div></div>
+  </div>
+</div>
+</body>
+</html>
