@@ -140,9 +140,11 @@ module.exports = async function (req, res) {
   }
 
   var key = process.env.SENDGRID_API_KEY;
-  // Normalize addresses: env vars can arrive with stray case/spaces; email addresses are effectively case-insensitive and SendGrid matches senders case-sensitively.
+  // Normalize addresses: env vars can arrive with stray case/spaces; SendGrid matches senders case-sensitively.
+  // The sender must be a verified identity, so fall back to the known-good verified domain sender if CONTACT_FROM is missing or malformed rather than trusting a typo through to SendGrid.
   var to = String(process.env.CONTACT_TO || TO_DEFAULT).trim().toLowerCase();
-  var from = String(process.env.CONTACT_FROM || to).trim().toLowerCase();
+  var cf = String(process.env.CONTACT_FROM || '').trim().toLowerCase();
+  var from = validEmail(cf) ? cf : 'hello@mainline-webdesign.com';
   if (!key) return send(res, 503, { ok: false, error: 'Mail is not configured yet.', fallback: true });
 
   hits[ip].push(now);
