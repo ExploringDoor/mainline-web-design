@@ -353,40 +353,49 @@ tbody tr.clk:hover .tgo{opacity:1;transform:translateX(2px);color:var(--lg-acc)}
 .set-brand .sb-sw{width:30px;height:30px;border-radius:7px}
 
 /* CHAMPION BANNER */
-.champ2{position:relative;margin-top:2rem;display:grid;grid-template-columns:250px 1fr;border-radius:16px;overflow:hidden;border:1px solid var(--lg-line);box-shadow:0 24px 60px rgba(11,31,69,.18)}
-.champ-photo{position:relative;min-height:190px;background:linear-gradient(180deg,#8ec9f0 0%,#bfe0f2 38%,#3f9b4f 39%,#2e7d3d 70%,#8a5a33 71%,#7a4e2b 100%);display:grid;place-items:center}
-.champ-photo::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 30%,rgba(255,255,255,.35),transparent 55%)}
-.champ-photo .logo{filter:drop-shadow(0 10px 24px rgba(0,0,0,.4));transform:scale(1.25)}
-.cp-cap{position:absolute;bottom:.6rem;left:50%;transform:translateX(-50%);white-space:nowrap;background:rgba(11,31,69,.85);color:#fff;font-family:var(--heading);font-weight:800;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;padding:.3rem .8rem;border-radius:100px}
-.cp-tbd{font-family:var(--heading);font-weight:900;font-size:3rem;color:rgba(11,31,69,.45)}
-.champ-bar{position:relative;background:var(--lg-navy);color:#fff;display:flex;align-items:center;gap:1.3rem;padding:1.4rem 1.6rem;flex-wrap:wrap}
-.tro{width:64px;height:64px;flex-shrink:0;filter:drop-shadow(0 6px 16px rgba(245,180,0,.35))}
-.champ2.has .tro{animation:troPop .6s cubic-bezier(.34,1.56,.64,1)}
-@keyframes troPop{0%{transform:scale(.4) rotate(-14deg);opacity:0}100%{transform:scale(1) rotate(0)}}
-.champ-txt{flex:1;min-width:200px}
-.ct2{font-family:var(--mono);font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;color:var(--lg-gold);margin-bottom:.35rem}
-.cn2{font-family:var(--heading);font-weight:900;font-size:1.7rem;line-height:1;text-transform:uppercase;letter-spacing:.01em}
-.cn2.tbd{color:#a9b8d6;font-size:1.1rem}
-.cs2{font-family:var(--mono);font-size:.64rem;color:#c7d2e5;margin-top:.45rem;letter-spacing:.04em}
-.champ2 .cf{position:absolute;inset:0;pointer-events:none;opacity:0;z-index:2}
+/* CHAMPION BANNER — gold, premium (matches the district tournament sites) */
+.champ2{position:relative;margin-top:2.2rem}
+.champ-gold{position:relative;background:linear-gradient(120deg,#c9a227,#ebcb5e 46%,#c9a227);border-radius:18px;padding:1.5rem 2.2rem;display:flex;align-items:center;justify-content:center;gap:1.9rem;box-shadow:0 20px 55px rgba(201,162,39,.42);overflow:hidden;flex-wrap:wrap;animation:champShine 3s ease-in-out infinite}
+@keyframes champShine{50%{box-shadow:0 20px 66px rgba(201,162,39,.66)}}
+.champ-gold::after{content:'';position:absolute;right:-50px;top:-70px;width:320px;height:320px;background:radial-gradient(circle,rgba(255,255,255,.42),transparent 62%);pointer-events:none}
+.champ-tro{height:clamp(104px,17vw,160px);width:auto;flex:none;position:relative;z-index:2;filter:drop-shadow(0 6px 14px rgba(11,31,69,.42))}
+.champ2.has .champ-tro{animation:troPop .7s cubic-bezier(.34,1.56,.64,1)}
+@keyframes troPop{0%{transform:scale(.5) rotate(-12deg);opacity:0}100%{transform:scale(1) rotate(0);opacity:1}}
+.champ-ct{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;text-align:center;gap:.34rem;min-width:0}
+.champ-ct .ce{font-family:var(--heading);font-weight:800;letter-spacing:.18em;text-transform:uppercase;font-size:.64rem;color:#6b5410}
+.champ-ct .cl{font-family:var(--heading);font-weight:800;letter-spacing:.26em;text-transform:uppercase;font-size:.58rem;color:#0b1f45;opacity:.72;display:flex;align-items:center;gap:.55rem}
+.champ-ct .cl::before,.champ-ct .cl::after{content:'';width:24px;height:1.5px;background:rgba(11,31,69,.38)}
+.champ-ct .cnm{font-family:var(--heading);font-weight:900;font-size:clamp(2.1rem,5.6vw,3.7rem);line-height:.94;text-transform:uppercase;color:#0b1f45;letter-spacing:-.012em}
+.champ-ct .cnm.tbd{font-size:clamp(1.3rem,3.2vw,2rem);color:rgba(11,31,69,.5)}
+.champ-ct .csub{font-family:var(--mono);font-size:.66rem;color:#6b5410;letter-spacing:.02em;margin-top:.15rem}
+.champ-lg{flex:none;position:relative;z-index:2;display:flex;align-items:center}
+.champ-lg .logo{width:clamp(76px,12vw,116px);height:clamp(76px,12vw,116px);filter:drop-shadow(0 4px 10px rgba(11,31,69,.32))}
+@media(max-width:600px){.champ-lg{display:none}.champ-gold{gap:1.1rem;padding:1.3rem 1.2rem}}
+.champ-cta{display:flex;justify-content:center;gap:.6rem;margin-top:1rem;flex-wrap:wrap}
+.champ2 .cf{position:absolute;inset:0;pointer-events:none;opacity:0;z-index:3}
 .champ2.has .cf{opacity:1}
 .champ2 .cf i{position:absolute;top:-10px;width:6px;height:10px;border-radius:2px;animation:confetti 2.6s linear infinite}
-/* CHAMPIONS ARCHIVE */
-.arch-head{margin:2.2rem 0 .9rem}
+/* CHAMPIONS ARCHIVE — hanging-banner cards */
+.arch-head{margin:2.4rem 0 1rem}
 .arch-head .eyebrow{font-family:var(--mono);font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--lg-muted);margin-bottom:.15rem}
 .arch-head h3{font-family:var(--heading);font-weight:900;font-size:1.35rem;text-transform:uppercase;color:var(--lg-ink);line-height:1}
-.arch-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.9rem}
-.arch{background:var(--lg-card);border:1px solid var(--lg-line);border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s}
-.arch:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(15,23,42,.12)}
-.arch-photo{position:relative;height:130px;background:linear-gradient(180deg,#8ec9f0 0%,#bfe0f2 40%,#3f9b4f 41%,#2e7d3d 100%);display:grid;place-items:center}
-.arch-photo .logo{width:80px;height:80px;filter:drop-shadow(0 8px 18px rgba(0,0,0,.35))}
-.arch-photo.tbd{background:linear-gradient(180deg,#e5eaf1,#cdd6e2)}
-.arch.now .arch-photo::after{content:'NEW BANNER';position:absolute;top:.55rem;right:.55rem;background:var(--lg-gold);color:var(--lg-acc);font-family:var(--heading);font-weight:800;font-size:.5rem;letter-spacing:.14em;padding:.2rem .5rem;border-radius:100px}
-.arch-bar{display:flex;align-items:center;gap:.7rem;padding:.7rem .85rem}
-.arch-y{font-family:var(--heading);font-weight:900;font-size:1rem;color:var(--lg-muted)}
-.arch-y.gold{color:var(--lg-gold)}
-.arch-t b{display:block;font-family:var(--heading);font-weight:800;font-size:.8rem;color:var(--lg-ink);line-height:1.15}
-.arch-t small{font-family:var(--mono);font-size:.56rem;color:var(--lg-muted)}
+.arch-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.arch{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--lg-line);background:var(--lg-card);transition:transform .2s,box-shadow .2s}
+.arch:hover{transform:translateY(-4px);box-shadow:0 16px 38px rgba(15,23,42,.16)}
+.arch-ban{position:relative;height:124px;display:grid;place-items:center;background:linear-gradient(150deg,var(--lg-navy),var(--lg-navy2));overflow:hidden}
+.arch-ban::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 128%,rgba(245,180,0,.28),transparent 58%)}
+.arch-ban .logo{width:76px;height:76px;position:relative;z-index:1;filter:drop-shadow(0 6px 14px rgba(0,0,0,.42))}
+.arch-ban .yr{position:absolute;top:.5rem;left:.7rem;font-family:var(--heading);font-weight:900;font-size:.82rem;color:rgba(255,255,255,.62);letter-spacing:.04em;z-index:1}
+.arch-ban.gold{background:linear-gradient(150deg,#c9a227,#ebcb5e 50%,#c9a227)}
+.arch-ban.gold::before{background:radial-gradient(circle at 50% 128%,rgba(255,255,255,.4),transparent 58%)}
+.arch-ban.gold .yr{color:rgba(11,31,69,.72)}
+.arch-ban.gold .logo{filter:drop-shadow(0 5px 12px rgba(11,31,69,.34))}
+.arch-ban.tbd{background:linear-gradient(150deg,var(--lg-soft),var(--lg-line))}
+.arch-ban.tbd .q{font-family:var(--heading);font-weight:900;font-size:2.4rem;color:var(--lg-muted);opacity:.55}
+.arch.now .arch-ban::after{content:'NEW BANNER';position:absolute;top:.5rem;right:.55rem;background:#0b1f45;color:var(--lg-gold);font-family:var(--heading);font-weight:800;font-size:.5rem;letter-spacing:.14em;padding:.22rem .5rem;border-radius:100px;z-index:2}
+.arch-ft{padding:.75rem .9rem}
+.arch-ft b{display:block;font-family:var(--heading);font-weight:800;font-size:.82rem;color:var(--lg-ink);line-height:1.15}
+.arch-ft small{font-family:var(--mono);font-size:.56rem;color:var(--lg-muted)}
 /* MASTHEAD EXTRAS */
 .lg-ico{position:relative;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.08);cursor:pointer;color:#fff}
 .lg-ico svg{width:16px;height:16px}
@@ -704,8 +713,6 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:2.
   .up-row{grid-template-columns:1fr;gap:.5rem}.up-row .fld{text-align:left}
   .panel{padding:1.1rem 1rem 1.6rem}
   .br-rounds{grid-template-columns:repeat(3,240px)}
-  .champ2{grid-template-columns:1fr}
-  .champ-photo{min-height:160px}
   .arch-grid{grid-template-columns:1fr 1fr}
   .lg-ico,.lg-prof{display:none}
   .lead-grid{grid-template-columns:1fr}
@@ -1539,15 +1546,18 @@ function renderBracket(){
   var ch=b.f?T[b.f]:null;
   var fg=(b.f&&m.f[0]&&m.f[1])?pMake('f',0,m.f,b.f):null;
   var cf='';for(var i=0;i<20;i++){cf+='<i style="left:'+(3+i*4.9)+'%;background:'+['#f5b400','#fff','#d7263d','#38bdf8'][i%4]+';animation-delay:'+(i*.16)+'s;animation-duration:'+(2.2+(i%5)*.25)+'s"></i>'}
-  var trophy='<svg class="tro" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="tg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd75e"/><stop offset="1" stop-color="#d99e00"/></linearGradient></defs><path fill="none" stroke="url(#tg)" stroke-width="4" d="M17 12H7v3c0 8 5 13 12 14M47 12h10v3c0 8-5 13-12 14"/><path fill="url(#tg)" d="M17 6h30v13c0 11-6.7 20-15 20s-15-9-15-20V6z"/><rect x="29" y="38" width="6" height="8" fill="#d99e00"/><path fill="url(#tg)" d="M21 46h22v6H21z"/><rect x="16" y="52" width="32" height="7" rx="1.5" fill="#b98300"/><path fill="#fff" opacity=".28" d="M22 9h6v13c0 5 1 8 2 10-5-2-8-8-8-15V9z"/></svg>';
+  var trophy='<img class="champ-tro" src="demo-logos/trophy.webp" alt="Championship trophy" width="215" height="320" loading="lazy">';
   var runner=fg?T[fg.pair[0]===b.f?fg.pair[1]:fg.pair[0]]:null;
   html+='<div class="champ2'+(ch?' has':'')+'">'
     +'<div class="cf">'+cf+'</div>'
-    +'<div class="champ-photo">'+(ch?logo(ch,'xl'):'<span class="cp-tbd">?</span>')+(ch?'<span class="cp-cap">'+esc(ch.name)+' &middot; 2026</span>':'')+'</div>'
-    +'<div class="champ-bar">'+trophy+'<div class="champ-txt"><div class="ct2">2026 League Champions</div>'
-    +(ch?'<div class="cn2">'+esc(ch.name)+'</div><div class="cs2">'+(runner?'Beat the '+esc(runner.nick)+' '+Math.max(fg.hs,fg.as)+'-'+Math.min(fg.hs,fg.as)+' in the final &middot; #'+sd[ch.id]+' seed':'#'+sd[ch.id]+' seed')+'</div>'
-        :'<div class="cn2 tbd">Awaiting a champion</div><div class="cs2">Click through the bracket to crown one</div>')
-    +'</div>'+(fg?'<button class="gbtn gold" onclick="openRecap('+fg.id+')">Championship recap</button>':'')+'</div>'
+    +'<div class="champ-gold">'+trophy
+    +'<div class="champ-ct"><div class="ce">2026 Season</div><div class="cl">Champions</div>'
+    +(ch?'<div class="cnm">'+esc(ch.name)+'</div><div class="csub">'+(runner?'def. '+esc(runner.nick)+' '+Math.max(fg.hs,fg.as)+'&ndash;'+Math.min(fg.hs,fg.as)+' &middot; '+ord(sd[ch.id])+' seed':ord(sd[ch.id])+' seed')+'</div>'
+        :'<div class="cnm tbd">To be crowned</div><div class="csub">Click through the bracket to crown one</div>')
+    +'</div>'
+    +(ch?'<div class="champ-lg">'+logo(ch,'xl')+'</div>':'')
+    +'</div>'
+    +(fg?'<div class="champ-cta"><button class="gbtn gold" onclick="openRecap('+fg.id+')">Championship recap</button></div>':'')
     +'</div>';
   document.getElementById('bracket').innerHTML=html;
   renderArchive(ch,fg,sd,runner);
@@ -1556,9 +1566,9 @@ function renderArchive(ch,fg,sd,runner){
   var el=document.getElementById('champArch');if(!el)return;
   var past=[{y:2023,w:'NAR',l:'ARD',s:'9-6'},{y:2024,w:'ARD',l:'GLD',s:'4-2'},{y:2025,w:'GLD',l:'BAL',s:'7-5'}];
   var html=past.map(function(c){var W=T[c.w],L=T[c.l];
-    return '<div class="arch"><div class="arch-photo">'+logo(W,'xl')+'</div><div class="arch-bar"><span class="arch-y">'+c.y+'</span><div class="arch-t"><b>'+esc(W.name)+'</b><small>beat the '+esc(L.nick)+' '+c.s+'</small></div></div></div>'}).join('');
-  if(ch){html+='<div class="arch now"><div class="arch-photo">'+logo(ch,'xl')+'</div><div class="arch-bar"><span class="arch-y gold">2026</span><div class="arch-t"><b>'+esc(ch.name)+'</b><small>'+(runner?'beat the '+esc(runner.nick)+' '+Math.max(fg.hs,fg.as)+'-'+Math.min(fg.hs,fg.as):'crowned champions')+'</small></div></div></div>'}
-  else{html+='<div class="arch empty"><div class="arch-photo tbd"><span class="cp-tbd">?</span></div><div class="arch-bar"><span class="arch-y">2026</span><div class="arch-t"><b>To be crowned</b><small>bracket in progress</small></div></div></div>'}
+    return '<div class="arch"><div class="arch-ban"><span class="yr">'+c.y+'</span>'+logo(W,'xl')+'</div><div class="arch-ft"><b>'+esc(W.name)+'</b><small>def. '+esc(L.nick)+' '+c.s+'</small></div></div>'}).join('');
+  if(ch){html+='<div class="arch now"><div class="arch-ban gold"><span class="yr">2026</span>'+logo(ch,'xl')+'</div><div class="arch-ft"><b>'+esc(ch.name)+'</b><small>'+(runner?'def. '+esc(runner.nick)+' '+Math.max(fg.hs,fg.as)+'-'+Math.min(fg.hs,fg.as):'crowned champions')+'</small></div></div>'}
+  else{html+='<div class="arch"><div class="arch-ban tbd"><span class="q">?</span></div><div class="arch-ft"><b>To be crowned</b><small>bracket in progress</small></div></div>'}
   el.innerHTML=html;
 }
 document.getElementById('bracket').addEventListener('click',function(e){
@@ -1570,7 +1580,7 @@ document.getElementById('bracket').addEventListener('click',function(e){
   if(r==='f'&&prev!==id)toast('<b>'+esc(T[id].name)+'</b> win the 2026 title.','Bracket saved. Champions page updates automatically.','gold');
 });
 window.clearPicks=function(){state.bracket={qf:[null,null,null,null],sf:[null,null],f:null};save();renderBracket();renderTicker();toast('Bracket picks cleared.','Seeds still follow the standings.')};
-window.reseed=function(){state.bracket={qf:[null,null,null,null],sf:[null,null],f:null};save();renderBracket();renderTicker();toast('Bracket reseeded from current standings.','1 v 8, 4 v 5, 3 v 6, 2 v 7.','gold')};
+window.reseed=function(){seedBracket();save();renderBracket();renderTicker();toast('Bracket reseeded from current standings.','Top seed crowned. Click any team to rewrite it.','gold')};
 
 /* ---------- ADMIN ---------- */
 function renderAdmin(){
