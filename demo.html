@@ -306,6 +306,51 @@ td .l5 i.W{background:var(--lg-green)}td .l5 i.L{background:#cbd5e1}
 .empty{padding:1.1rem 1rem;font-family:var(--mono);font-size:.6rem;color:var(--lg-muted);text-align:center}
 .adm-tip{padding:.8rem 1rem;background:#fff8e1;border-top:1px solid #f6dd8a;font-size:.68rem;color:#5a4300;line-height:1.55}
 .adm-tip b{font-weight:700}
+/* clickable standings */
+tbody tr.clk{cursor:pointer}
+tbody tr.clk:hover td{background:var(--lg-soft)}
+.tgo{margin-left:.35rem;color:var(--lg-muted);font-weight:800;opacity:0;transition:opacity .2s,transform .2s;display:inline-block}
+tbody tr.clk:hover .tgo{opacity:1;transform:translateX(2px);color:var(--lg-navy)}
+/* rail badge */
+.adm-rail .ri{position:relative}
+.ri-badge{position:absolute;right:.5rem;top:50%;transform:translateY(-50%);min-width:16px;height:16px;padding:0 4px;border-radius:100px;background:var(--lg-red);color:#fff;font-family:var(--mono);font-size:.54rem;display:none;align-items:center;justify-content:center}
+.ri-badge.on{display:inline-flex}
+.adm-rail .ri.on .ri-badge{background:var(--lg-navy)}
+/* admin sub-views */
+.av-h{margin-bottom:1.1rem}
+.av-h .crumb{font-family:var(--mono);font-size:.56rem;letter-spacing:.18em;text-transform:uppercase;color:var(--lg-muted);margin-bottom:.3rem}
+.av-h h3{font-family:var(--heading);font-weight:900;font-size:1.4rem;color:var(--lg-ink);line-height:1}
+.av-h p{font-size:.72rem;color:var(--lg-muted);margin-top:.3rem}
+.av-2{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;align-items:start}
+.av-tbl{width:100%;border-collapse:collapse}
+.av-tbl th{font-family:var(--mono);font-size:.52rem;letter-spacing:.16em;text-transform:uppercase;color:var(--lg-muted);background:var(--lg-soft);padding:.5rem .8rem;text-align:left;border-bottom:1px solid var(--lg-line);white-space:nowrap}
+.av-tbl th.c,.av-tbl td.c{text-align:center}
+.av-tbl td{padding:.55rem .8rem;border-bottom:1px solid var(--lg-line);font-size:.78rem;color:var(--lg-ink);vertical-align:middle}
+.av-tbl tr:hover td{background:#fbfcfe}
+.av-tbl .tm{display:flex;align-items:center;gap:.5rem;font-family:var(--heading);font-weight:800;font-size:.82rem}
+.av-tbl .tm small{font-family:var(--mono);font-weight:400;font-size:.54rem;color:var(--lg-muted)}
+.mini-list{display:flex;flex-direction:column}
+.mini-row{display:grid;grid-template-columns:auto 1fr auto;gap:.6rem;align-items:center;padding:.5rem .9rem;border-top:1px solid var(--lg-line);font-size:.78rem}
+.mini-row:first-child{border-top:none}
+.mini-row .tm{display:flex;align-items:center;gap:.5rem;font-family:var(--heading);font-weight:800}
+.mini-row .r{font-family:var(--mono);font-size:.66rem;color:var(--lg-muted)}
+.rq{display:grid;grid-template-columns:1fr auto;gap:.7rem;align-items:center;padding:.7rem 1rem;border-top:1px solid var(--lg-line)}
+.rq:first-child{border-top:none}
+.rq .rq-t{font-family:var(--heading);font-weight:800;font-size:.9rem;color:var(--lg-ink)}
+.rq .rq-m{font-family:var(--mono);font-size:.56rem;color:var(--lg-muted);margin-top:.2rem}
+.rq .rq-b{display:flex;gap:.4rem}
+.rq .approved{font-family:var(--mono);font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;color:var(--lg-green);background:#dcfce7;padding:.25rem .55rem;border-radius:100px}
+.gbtn.ok{background:var(--lg-green);color:#fff;border-color:var(--lg-green)}
+.gbtn.no{color:var(--lg-red);border-color:#f3c2c8}
+.set-row{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:.8rem 1rem;border-top:1px solid var(--lg-line)}
+.set-row:first-child{border-top:none}
+.set-row .sl b{font-family:var(--heading);font-weight:700;font-size:.82rem;color:var(--lg-ink);display:block}
+.set-row .sl span{font-family:var(--mono);font-size:.56rem;color:var(--lg-muted)}
+.sw{width:42px;height:24px;border-radius:100px;background:#cbd5e1;position:relative;cursor:pointer;flex-shrink:0;transition:background .2s}
+.sw::after{content:'';position:absolute;top:3px;left:3px;width:18px;height:18px;border-radius:50%;background:#fff;transition:transform .2s;box-shadow:0 1px 3px rgba(0,0,0,.2)}
+.sw.on{background:var(--lg-green)}.sw.on::after{transform:translateX(18px)}
+.set-brand{display:flex;align-items:center;gap:.8rem;padding:1rem;background:var(--lg-soft);border-radius:10px;margin:0 1rem 1rem;margin-top:1rem}
+.set-brand .sb-sw{width:30px;height:30px;border-radius:7px}
 
 /* CHAMPION BANNER */
 .champ2{position:relative;margin-top:2rem;display:grid;grid-template-columns:250px 1fr;border-radius:16px;overflow:hidden;border:1px solid var(--lg-line);box-shadow:0 24px 60px rgba(11,31,69,.18)}
@@ -577,6 +622,7 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:2.
   .srow{grid-template-columns:1fr auto;gap:.4rem .8rem}
   .srow .when{order:1}.srow .stat-chip{order:2;justify-self:end}.srow .who{order:3;grid-column:1/-1}.srow .fld{display:none}
   .reg-2{grid-template-columns:1fr}
+  .av-2{grid-template-columns:1fr}
   .adm{grid-template-columns:1fr}.adm-rail{flex-direction:row;flex-wrap:wrap;padding:.7rem .8rem;gap:.3rem}.adm-rail .rb{display:none}.adm-rail .ru{display:none}.adm-rail .ri{padding:.45rem .6rem;font-size:.66rem}
   .adm-main{padding:1rem}
   .stbl th{display:none}.stbl tr.wkrow td{display:block}
@@ -740,19 +786,20 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:2.
       <div class="adm">
         <aside class="adm-rail">
           <div class="rb"><div class="lg-mark"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2l10 10-10 10L2 12 12 2z" fill="#0b1f45"/><path d="M12 6.5l5.5 5.5-5.5 5.5L6.5 12 12 6.5z" fill="#f5b400"/></svg></div><div><b>Demo League</b><span>Admin</span></div></div>
-          <div class="ri" onclick="toast('Dashboard is part of the full build.','Attendance, revenue, and alerts at a glance.')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>Dashboard</div>
-          <div class="ri on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M4 10h16M10 4v16"/></svg>Scores<span class="cnt" id="railCount">0</span></div>
-          <div class="ri" onclick="toast('Schedule editor is part of the full build.','Drag games between fields and times.')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>Schedule</div>
-          <div class="ri" onclick="toast('Team manager is part of the full build.','Rosters, logos, contacts, managers.')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0113 0M16 4a3.5 3.5 0 010 7M21.5 20a6.5 6.5 0 00-5-6.3"/></svg>Teams</div>
-          <div class="ri" onclick="toast('Recaps are generated the moment a score is published.','Edit or regenerate any recap here.')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 3h10l4 4v14H5z"/><path d="M15 3v4h4M8 12h8M8 16h8"/></svg>Recaps</div>
-          <div class="ri" onclick="toast('Registration is part of the full build.','Payments, waivers, and rosters.')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18"/></svg>Registration</div>
-          <div class="ri" onclick="toast('Settings are part of the full build.','Branding, notifications, tiebreakers.')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 00.3 1.8l.1.1a2 2 0 01-2.8 2.8l-.1-.1a1.7 1.7 0 00-1.8-.3 1.7 1.7 0 00-1 1.5V21a2 2 0 01-4 0v-.1a1.7 1.7 0 00-1.1-1.5 1.7 1.7 0 00-1.8.3l-.1.1a2 2 0 01-2.8-2.8l.1-.1a1.7 1.7 0 00.3-1.8 1.7 1.7 0 00-1.5-1H3a2 2 0 010-4h.1a1.7 1.7 0 001.5-1.1 1.7 1.7 0 00-.3-1.8l-.1-.1a2 2 0 012.8-2.8l.1.1a1.7 1.7 0 001.8.3H9a1.7 1.7 0 001-1.5V3a2 2 0 014 0v.1a1.7 1.7 0 001 1.5 1.7 1.7 0 001.8-.3l.1-.1a2 2 0 012.8 2.8l-.1.1a1.7 1.7 0 00-.3 1.8V9a1.7 1.7 0 001.5 1H21a2 2 0 010 4h-.1a1.7 1.7 0 00-1.5 1z"/></svg>Settings</div>
+          <div class="ri" data-av="dashboard" onclick="setAdmin('dashboard')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>Dashboard</div>
+          <div class="ri on" data-av="scores" onclick="setAdmin('scores')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M4 10h16M10 4v16"/></svg>Scores<span class="cnt" id="railCount">0</span></div>
+          <div class="ri" data-av="schedule" onclick="setAdmin('schedule')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>Schedule</div>
+          <div class="ri" data-av="teams" onclick="setAdmin('teams')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0113 0M16 4a3.5 3.5 0 010 7M21.5 20a6.5 6.5 0 00-5-6.3"/></svg>Teams</div>
+          <div class="ri" data-av="recaps" onclick="setAdmin('recaps')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 3h10l4 4v14H5z"/><path d="M15 3v4h4M8 12h8M8 16h8"/></svg>Recaps</div>
+          <div class="ri" data-av="registration" onclick="setAdmin('registration')"><span class="ri-badge" id="regBadge"></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18"/></svg>Registration</div>
+          <div class="ri" data-av="settings" onclick="setAdmin('settings')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 00.3 1.8l.1.1a2 2 0 01-2.8 2.8l-.1-.1a1.7 1.7 0 00-1.8-.3 1.7 1.7 0 00-1 1.5V21a2 2 0 01-4 0v-.1a1.7 1.7 0 00-1.1-1.5 1.7 1.7 0 00-1.8.3l-.1.1a2 2 0 01-2.8-2.8l.1-.1a1.7 1.7 0 00.3-1.8 1.7 1.7 0 00-1.5-1H3a2 2 0 010-4h.1a1.7 1.7 0 001.5-1.1 1.7 1.7 0 00-.3-1.8l-.1-.1a2 2 0 012.8-2.8l.1.1a1.7 1.7 0 001.8.3H9a1.7 1.7 0 001-1.5V3a2 2 0 014 0v.1a1.7 1.7 0 001 1.5 1.7 1.7 0 001.8-.3l.1-.1a2 2 0 012.8 2.8l-.1.1a1.7 1.7 0 00-.3 1.8V9a1.7 1.7 0 001.5 1H21a2 2 0 010 4h-.1a1.7 1.7 0 00-1.5 1z"/></svg>Settings</div>
           <div class="ru"><div class="av">C</div><div><b>Commissioner</b><span>Super admin</span></div></div>
         </aside>
         <div class="adm-main">
+          <div id="admScores">
           <div class="adm-h">
             <div><div class="crumb">Admin &rsaquo; Scores</div><h3>Score Entry</h3><p id="admSub"></p></div>
-            <div class="acts"><button class="gbtn" onclick="toast('Export is part of the full build.','CSV, PDF standings, and box score sheets.')">Export</button><button class="gbtn solid" onclick="toast('Add game is part of the full build.','Pick teams, field, time. Managers get a text.')">+ Add game</button></div>
+            <div class="acts"><button class="gbtn" onclick="setAdmin('recaps')">Recaps</button><button class="gbtn solid" onclick="toast('Add game is part of the full build.','Pick teams, field, time. Managers get a text.')">+ Add game</button></div>
           </div>
           <div class="kpis" id="kpis"></div>
           <div class="adm-grid">
@@ -776,6 +823,8 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:2.
               </div>
             </div>
           </div>
+          </div>
+          <div id="admView" hidden></div>
         </div>
       </div>
     </section>
@@ -1065,7 +1114,7 @@ function renderTeamsIndex(){
     return '<div class="tcard" onclick="openTeam(\''+t.id+'\')">'+logo(t,'xl')+'<b>'+esc(t.name)+'</b><div class="rec">'+r.w+'-'+r.l+' &middot; '+(r.diff>0?'+':'')+r.diff+' diff</div><span class="pl">'+ord(i+1)+' place</span></div>'}).join('');
   if(curTeam)renderTeamPage();
 }
-window.openTeam=function(id){curTeam=id;document.getElementById('teamsIndex').hidden=true;var tp=document.getElementById('teamPage');tp.hidden=false;renderTeamPage();try{if(window.gtag)gtag('event','demo_team',{team:id})}catch(e){}};
+window.openTeam=function(id){curTeam=id;if(cur!=='teams')showTab('teams');document.getElementById('teamsIndex').hidden=true;var tp=document.getElementById('teamPage');tp.hidden=false;renderTeamPage();try{if(window.gtag)gtag('event','demo_team',{team:id})}catch(e){}};
 window.closeTeam=function(){curTeam=null;document.getElementById('teamPage').hidden=true;document.getElementById('teamsIndex').hidden=false};
 function renderTeamPage(){
   if(!curTeam)return;var t=T[curTeam];var r=rowOf(curTeam);var st=statsOf(curTeam).slice().sort(function(a,b){return b.avg-a.avg});
@@ -1168,7 +1217,7 @@ function renderStandings(flashIds){
   var rows=standings();
   document.getElementById('stBody').innerHTML=rows.map(function(r,i){
     var d=r.diff;
-    return '<tr class="'+(flashIds&&flashIds.indexOf(r.team.id)>-1?'flash':'')+'"><td><span class="rk">'+(i+1)+'</span></td><td><span class="tm">'+logo(r.team)+esc(r.team.name)+'</span></td><td>'+r.w+'</td><td>'+r.l+'</td><td>'+r.pct.toFixed(3).replace(/^0/,'')+'</td><td>'+(r.gb?r.gb.toFixed(1):'-')+'</td><td>'+r.rs+'</td><td>'+r.ra+'</td><td class="'+(d>0?'pos':d<0?'neg':'')+'">'+(d>0?'+':'')+d+'</td><td>'+r.streak+'</td><td>'+l5(r.l5)+'</td></tr>';
+    return '<tr class="clk'+(flashIds&&flashIds.indexOf(r.team.id)>-1?' flash':'')+'" onclick="openTeam(\''+r.team.id+'\')" title="View '+esc(r.team.name)+'"><td><span class="rk">'+(i+1)+'</span></td><td><span class="tm">'+logo(r.team)+esc(r.team.name)+'<span class="tgo">&rsaquo;</span></span></td><td>'+r.w+'</td><td>'+r.l+'</td><td>'+r.pct.toFixed(3).replace(/^0/,'')+'</td><td>'+(r.gb?r.gb.toFixed(1):'-')+'</td><td>'+r.rs+'</td><td>'+r.ra+'</td><td class="'+(d>0?'pos':d<0?'neg':'')+'">'+(d>0?'+':'')+d+'</td><td>'+r.streak+'</td><td>'+l5(r.l5)+'</td></tr>';
   }).join('');
   if(flashIds){setTimeout(function(){var f=document.querySelectorAll('#stBody tr.flash');for(var i=0;i<f.length;i++)f[i].classList.remove('flash')},1400)}
 }
@@ -1286,7 +1335,9 @@ function renderAdmin(){
     '<div class="kpi"><div class="k">Pending scores</div><div class="v">'+n+'</div><div class="d r">'+(n?'Managers notified':'All caught up')+'</div></div>'+
     '<div class="kpi"><div class="k">Published this session</div><div class="v">'+state.log.length+'</div><div class="d g">'+(state.log.length?'Recaps generated':'Publish one below')+'</div></div>'+
     '<div class="kpi"><div class="k">Finals this season</div><div class="v">'+finals+'<span style="font-size:.9rem;color:var(--lg-muted)"> / '+state.games.length+'</span></div><div class="d">'+Math.round(finals/state.games.length*100)+'% complete</div></div>'+
-    '<div class="kpi"><div class="k">Teams</div><div class="v">8'+(state.regs.length?'<span style="font-size:.9rem;color:var(--lg-green)"> +'+state.regs.length+'</span>':'')+'</div><div class="d">'+(state.regs.length?state.regs.length+' pending approval':TEAMS.length*12+' rostered players')+'</div></div>';
+    '<div class="kpi"><div class="k">Teams</div><div class="v">8'+(pendingRegs().length?'<span style="font-size:.9rem;color:var(--lg-green)"> +'+pendingRegs().length+'</span>':'')+'</div><div class="d">'+(pendingRegs().length?pendingRegs().length+' pending approval':TEAMS.length*12+' rostered players')+'</div></div>';
+  var pr=pendingRegs().length;var rb=document.getElementById('regBadge');if(rb){rb.textContent=pr;rb.className='ri-badge'+(pr?' on':'')}
+  if(admCur!=='scores')renderAdminView();
   var html='',wk=null;
   pend.forEach(function(g){
     if(g.week!==wk){wk=g.week;html+='<tr class="wkrow"><td colspan="6">Week '+wk+' &middot; '+fmtDate(g.date)+'</td></tr>'}
@@ -1395,6 +1446,90 @@ window.personaReset=function(){PERS=JSON.parse(JSON.stringify(ORIG));personaSync
   var deb;f.addEventListener('input',function(){clearTimeout(deb);deb=setTimeout(up,250)});
 })();
 
+/* ---------- ADMIN SUB-VIEWS ---------- */
+var admCur='scores';
+function pendingRegs(){return state.regs.filter(function(r){return r.st!=='approved'})}
+var admSettings={alerts:true,autopost:true,payments:true,public:true};
+window.setAdmin=function(v){
+  admCur=v;
+  var ris=document.querySelectorAll('.adm-rail .ri');for(var i=0;i<ris.length;i++)ris[i].classList.toggle('on',ris[i].getAttribute('data-av')===v);
+  var sc=document.getElementById('admScores'),av=document.getElementById('admView');
+  if(v==='scores'){sc.hidden=false;av.hidden=true;renderAdmin();}
+  else{sc.hidden=true;av.hidden=false;renderAdminView();}
+  try{if(window.gtag)gtag('event','admin_view',{view:v})}catch(e){}
+};
+function renderAdminView(){
+  var el=document.getElementById('admView');if(!el||admCur==='scores')return;
+  if(admCur==='dashboard')el.innerHTML=admDashboard();
+  else if(admCur==='schedule')el.innerHTML=admSchedule();
+  else if(admCur==='teams')el.innerHTML=admTeams();
+  else if(admCur==='recaps')el.innerHTML=admRecaps();
+  else if(admCur==='registration')el.innerHTML=admRegistration();
+  else if(admCur==='settings')el.innerHTML=admSettingsView();
+}
+function admHead(crumb,title,sub){return '<div class="av-h"><div class="crumb">Admin &rsaquo; '+crumb+'</div><h3>'+title+'</h3>'+(sub?'<p>'+sub+'</p>':'')+'</div>'}
+function admDashboard(){
+  var rows=standings();var finals=state.games.filter(function(g){return g.status==='final'});
+  var next=state.games.filter(function(g){return g.status==='upcoming'}).sort(byDate).slice(0,4);
+  var recent=finals.slice().sort(byDate).reverse().slice(0,4);
+  var kpi='<div class="kpis">'
+    +'<div class="kpi"><div class="k">Season</div><div class="v">'+Math.round(finals.length/state.games.length*100)+'%</div><div class="d">'+finals.length+' of '+state.games.length+' games final</div></div>'
+    +'<div class="kpi"><div class="k">Pending scores</div><div class="v">'+state.games.filter(function(g){return g.status==='upcoming'}).length+'</div><div class="d r">Awaiting a manager</div></div>'
+    +'<div class="kpi"><div class="k">New registrations</div><div class="v">'+pendingRegs().length+'</div><div class="d '+(pendingRegs().length?'g':'')+'">'+(pendingRegs().length?'Need approval':'None pending')+'</div></div>'
+    +'<div class="kpi"><div class="k">News posts</div><div class="v">'+(state.news.length)+'</div><div class="d">This session</div></div></div>';
+  var upc=next.map(function(g){var h=T[g.home],a=T[g.away];return '<div class="mini-row"><span class="r">'+fmtDate(g.date)+'</span><span class="tm">'+logo(a,'s')+esc(a.abbr)+' at '+logo(h,'s')+esc(h.abbr)+'</span><span class="r">'+g.time+'</span></div>'}).join('')||'<div class="empty">Season complete.</div>';
+  var rec=recent.map(function(g){var h=T[g.home],a=T[g.away];var hw=g.hs>g.as;return '<div class="mini-row"><span class="tm">'+logo(hw?h:a,'s')+esc((hw?h:a).abbr)+' '+Math.max(g.hs,g.as)+'</span><span class="r">beat '+esc((hw?a:h).abbr)+' '+Math.min(g.hs,g.as)+'</span><button class="gbtn" onclick="openRecap('+g.id+')">Recap</button></div>'}).join('')||'<div class="empty">No finals yet.</div>';
+  return admHead('Dashboard','Season Dashboard','A commissioner\'s eye view of the whole league.')+kpi
+    +'<div class="av-2"><div class="adm-card"><div class="ch"><h4>Next games</h4><span class="chip" onclick="setAdmin(\'schedule\')" style="cursor:pointer">Schedule</span></div><div class="mini-list">'+upc+'</div></div>'
+    +'<div class="adm-card"><div class="ch"><h4>Latest finals</h4><span class="chip">Auto-recapped</span></div><div class="mini-list">'+rec+'</div></div></div>'
+    +'<div class="adm-card" style="margin-top:.9rem"><div class="ch"><h4>Standings snapshot</h4><span class="chip" onclick="showTab(\'standings\')" style="cursor:pointer">Full table</span></div><div class="mini-list">'+rows.slice(0,5).map(function(r,i){return '<div class="mini-row"><span class="tm"><b style="width:1.4ch;display:inline-block;color:var(--lg-muted)">'+(i+1)+'</b>'+logo(r.team,'s')+esc(r.team.name)+'</span><span class="r">'+r.w+'-'+r.l+' &middot; '+(r.diff>0?'+':'')+r.diff+'</span></div>'}).join('')+'</div></div>';
+}
+function admSchedule(){
+  var games=state.games.slice().sort(byDate);
+  var body=games.map(function(g){var h=T[g.home],a=T[g.away];var fin=g.status==='final';
+    var st=fin?'<span class="stat-chip fin">Final</span>':g.status==='ppd'?'<span class="stat-chip pd">PPD</span>':'<span class="stat-chip up">Scheduled</span>';
+    return '<tr><td class="c">Wk '+g.week+'</td><td>'+fmtDate(g.date)+'</td><td class="tm">'+logo(a,'s')+esc(a.nick)+' <small>at</small> '+logo(h,'s')+esc(h.nick)+'</td><td>'+esc(g.field)+'</td><td>'+(fin?g.as+'-'+g.hs:g.time)+'</td><td>'+st+'</td><td class="c">'+(g.status==='upcoming'?'<button class="gbtn" onclick="setAdmin(\'scores\')">Enter</button>':fin?'<button class="gbtn" onclick="openBox('+g.id+')">Box</button>':'<button class="gbtn" onclick="setAdmin(\'scores\')">Fix</button>')+'</td></tr>'}).join('');
+  return admHead('Schedule','Schedule Manager','All '+games.length+' regular-season games. Reschedule, postpone, or jump to score entry.')
+    +'<div class="adm-card"><div class="ch"><h4>2026 season</h4><span class="chip">Drag-to-reschedule in the full build</span></div><div style="overflow-x:auto"><table class="av-tbl"><thead><tr><th class="c">Wk</th><th>Date</th><th>Matchup</th><th>Field</th><th>Score</th><th>Status</th><th class="c"></th></tr></thead><tbody>'+body+'</tbody></table></div></div>';
+}
+function admTeams(){
+  var rows=standings();
+  var body=rows.map(function(r,i){var t=r.team;var ros=rosterOf(t.id);var mgr=ros[0];
+    return '<tr><td class="tm">'+logo(t,'s')+esc(t.name)+'</td><td>'+esc(mgr.name)+' <small>#'+mgr.num+'</small></td><td class="c">'+ros.length+'</td><td class="c">'+r.w+'-'+r.l+'</td><td class="c">'+ord(i+1)+'</td><td class="c"><button class="gbtn" onclick="showTab(\'teams\');openTeam(\''+t.id+'\')">Open</button> <button class="gbtn" onclick="toast(\'Message sent to '+esc(t.nick)+' manager.\',\'Real sites email + text the team.\')">Message</button></td></tr>'}).join('');
+  return admHead('Teams','Team Manager','Rosters, managers, and contact for all 8 clubs.')
+    +'<div class="adm-card"><div class="ch"><h4>Clubs</h4><span class="chip">'+(TEAMS.length*12)+' players rostered</span></div><div style="overflow-x:auto"><table class="av-tbl"><thead><tr><th>Team</th><th>Manager</th><th class="c">Players</th><th class="c">Record</th><th class="c">Place</th><th class="c"></th></tr></thead><tbody>'+body+'</tbody></table></div></div>';
+}
+function admRecaps(){
+  var finals=state.games.filter(function(g){return g.status==='final'}).sort(byDate).reverse();
+  var pos=pDecided();var all=pos.concat(finals);
+  var body=all.map(function(g){var rc=recapOf(g);if(g.roundLabel)rc=playoffFlavor(g,rc);
+    return '<div class="rq"><div><div class="rq-t">'+esc(rc.head)+'</div><div class="rq-m">'+(g.roundLabel?esc(g.roundLabel):'Week '+g.week)+' &middot; '+fmtDate(g.date)+' &middot; auto-generated</div></div><div class="rq-b"><button class="gbtn" onclick="openRecap('+g.id+')">Read</button><button class="gbtn" onclick="toast(\'Recap regenerated.\',\'A fresh angle from the same box score.\',\'gold\')">Regenerate</button><button class="gbtn" onclick="toast(\'Opened in the editor.\',\'Commissioners can tweak any line before it posts.\')">Edit</button></div></div>'}).join('')||'<div class="empty">No finals yet. Publish a score.</div>';
+  return admHead('Recaps','Recap Studio','Every final gets an AI recap in seconds. Read, regenerate, or edit before it posts.')
+    +'<div class="adm-card"><div class="ch"><h4>'+all.length+' recaps</h4><span class="chip">Newest first</span></div>'+body+'</div>';
+}
+function admRegistration(){
+  var pend=pendingRegs();var app=state.regs.filter(function(r){return r.st==='approved'});
+  var q=pend.length?pend.map(function(r,i){var gi=state.regs.indexOf(r);return '<div class="rq"><div><div class="rq-t">'+esc(r.team)+'</div><div class="rq-m">'+esc(r.mgr)+' &middot; '+esc(r.div)+' &middot; $450 paid &middot; '+esc(r.at)+'</div></div><div class="rq-b"><button class="gbtn ok" onclick="approveReg('+gi+')">Approve</button><button class="gbtn no" onclick="declineReg('+gi+')">Decline</button></div></div>'}).join(''):'<div class="empty">No pending registrations. Hit <b>Register</b> up top to add one.</div>';
+  var appHtml=app.length?'<div class="adm-card" style="margin-top:.9rem"><div class="ch"><h4>Approved this session</h4><span class="chip">'+app.length+'</span></div>'+app.map(function(r){return '<div class="rq"><div><div class="rq-t">'+esc(r.team)+'</div><div class="rq-m">'+esc(r.div)+' &middot; added to the league</div></div><span class="approved">On the schedule</span></div>'}).join('')+'</div>':'';
+  return admHead('Registration','Registration Queue','Approve incoming teams. Payment and waivers arrive attached.')
+    +'<div class="adm-card"><div class="ch"><h4>Pending approval</h4><span class="chip'+(pend.length?' on':'')+'" style="'+(pend.length?'background:var(--lg-red);color:#fff;border-color:var(--lg-red)':'')+'">'+pend.length+' waiting</span></div>'+q+'</div>'+appHtml;
+}
+window.approveReg=function(idx){var r=state.regs[idx];if(!r)return;r.st='approved';save();renderAdmin();renderAdminView();renderNews();toast('<b>'+esc(r.team)+' approved.</b>','Added to the league. A schedule slot opens automatically.','gold')};
+window.declineReg=function(idx){var r=state.regs[idx];if(!r)return;state.regs.splice(idx,1);save();renderAdmin();renderAdminView();toast('Registration declined.','The team was notified and refunded.')};
+function admSettingsView(){
+  function tog(k,t,d){return '<div class="set-row"><div class="sl"><b>'+t+'</b><span>'+d+'</span></div><span class="sw'+(admSettings[k]?' on':'')+'" role="button" tabindex="0" onclick="toggleSet(\''+k+'\',this)"></span></div>'}
+  return admHead('Settings','League Settings','Branding, notifications, and the rules that run the season.')
+    +'<div class="adm-card"><div class="ch"><h4>Branding</h4><span class="chip">Live preview</span></div>'
+    +'<div class="set-brand"><span class="sb-sw" style="background:var(--lg-navy)"></span><span class="sb-sw" style="background:var(--lg-gold)"></span><div style="font-family:var(--mono);font-size:.62rem;color:var(--lg-muted)">Your colors drive the whole site. Try the personalizer on the homepage.</div></div></div>'
+    +'<div class="adm-card" style="margin-top:.9rem"><div class="ch"><h4>Notifications &amp; rules</h4><span class="chip">Demo toggles</span></div>'
+    +tog('alerts','Text alerts on finals','Managers and parents get a text the moment a game goes final.')
+    +tog('autopost','Auto-post recaps to News','Every recap lands on the News tab without lifting a finger.')
+    +tog('payments','Collect registration online','Stripe or Square in your own account. No per-player fee.')
+    +tog('public','Public standings &amp; stats','Turn off to hide the league from search until opening day.')
+    +'<div class="set-row"><div class="sl"><b>Tiebreakers</b><span>PCT, then run differential, then runs scored</span></div><button class="gbtn" onclick="toast(\'Tiebreaker order is configurable.\',\'Head-to-head, run diff, coin flip, your call.\')">Edit order</button></div></div>';
+}
+window.toggleSet=function(k,el){admSettings[k]=!admSettings[k];el.classList.toggle('on',admSettings[k]);toast(admSettings[k]?'Turned on.':'Turned off.','Settings save instantly on a real site.')};
+
 /* ---------- TABS ---------- */
 var cur='scores';
 window.showTab=function(name){
@@ -1404,7 +1539,7 @@ window.showTab=function(name){
   document.getElementById('urlTab').textContent='/'+(name==='bracket'?'playoffs':name);
   if(history.replaceState)history.replaceState(null,'',buildHash(name));
   try{if(window.gtag)gtag('event','demo_tab',{tab:name})}catch(e){}
-  if(name==='standings')renderStandings();if(name==='bracket')renderBracket();if(name==='admin')renderAdmin();if(name==='scores')renderScores();
+  if(name==='standings')renderStandings();if(name==='bracket')renderBracket();if(name==='admin')setAdmin(admCur);if(name==='scores')renderScores();
   if(name==='schedule')renderSchedule();if(name==='stats')renderStats();if(name==='teams')renderTeamsIndex();if(name==='news')renderNews();
   var top=document.querySelector('.frame').getBoundingClientRect().top+window.scrollY-90;
   if(window.scrollY>top+40||window.scrollY<top-400)window.scrollTo({top:top,behavior:'smooth'});
