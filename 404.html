@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page Not Found | Main Line Web Design</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="theme-color" content="#040b14">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@600;800;900&family=Space+Grotesk:wght@400;600&family=Cormorant+Garamond:ital,wght@1,300;1,400&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#040b14;--fg:#e2e8f0;--accent:#38bdf8;--accent2:#fbbf24;--muted:#6a7a8a;--border:#1a2a3a}
+body{background:var(--bg);color:var(--fg);font-family:'Urbanist',system-ui,sans-serif;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:2rem;text-align:center}
+.code{font-family:'Space Grotesk',monospace;font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--accent2);margin-bottom:1.2rem}
+h1{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(2rem,5vw,3.2rem);line-height:1.15;margin-bottom:1rem}
+h1 em{font-style:italic;color:var(--accent)}
+p{color:var(--muted);font-size:.9rem;line-height:1.8;font-weight:400;max-width:440px;margin:0 auto 2rem;font-family:system-ui,sans-serif}
+.btns{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap}
+a.b{display:inline-block;padding:.9rem 1.8rem;border-radius:8px;font-weight:800;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:transform .25s}
+a.b:hover{transform:translateY(-2px)}
+a.solid{background:var(--accent);color:var(--bg)}
+a.line{border:1px solid var(--border);color:var(--fg)}
+.brk{font-family:'Space Grotesk',monospace;color:var(--accent);opacity:.3;font-weight:300}
+</style>
+</head>
+<body>
+<main>
+  <div class="code">404 &middot; Foul ball</div>
+  <h1><span class="brk">{</span> That page is <em>out of play.</em> <span class="brk">}</span></h1>
+  <p>The page you're looking for moved, was renamed, or never made the roster. The good stuff is one click away.</p>
+  <div class="btns">
+    <a class="b solid" href="/">Back to the site</a>
+    <a class="b line" href="/demo.html">Try the live demo</a>
+  </div>
+</main>
+</body>
+</html>
