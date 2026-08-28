@@ -191,13 +191,17 @@ td .l5 i.W{background:var(--lg-green)}td .l5 i.L{background:#cbd5e1}
 .lbtn:hover{border-color:var(--lg-navy);background:var(--lg-soft)}
 .lbtn.solid{background:var(--lg-navy);color:#fff;border-color:var(--lg-navy)}
 .lbtn.solid:hover{background:var(--lg-navy2)}
-.pbracket{display:grid;grid-template-columns:repeat(3,minmax(210px,1fr)) 200px;gap:1.2rem;overflow-x:auto;padding-bottom:.5rem}
-.round{display:flex;flex-direction:column;min-width:210px}
-.round .rt{font-family:var(--mono);font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:var(--lg-muted);text-align:center;margin-bottom:.8rem}
-.round .mus{flex:1;display:flex;flex-direction:column;justify-content:space-around;gap:.8rem}
+.pbracket{display:block}
+.br-rounds{display:grid;grid-template-columns:repeat(3,minmax(230px,1fr));gap:2.4rem;overflow-x:auto;padding-bottom:.6rem}
+.round{display:flex;flex-direction:column;min-width:230px}
+.round .rt{align-self:center;font-family:var(--heading);font-weight:800;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:#fff;background:var(--lg-navy);border-radius:100px;padding:.35rem .95rem;margin-bottom:1rem}
+.round .mus{flex:1;display:flex;flex-direction:column;justify-content:space-around;gap:2rem}
+.pair{position:relative;display:flex;flex-direction:column;gap:1.1rem}
+.pair::before{content:'';position:absolute;right:-1.3rem;top:25%;bottom:25%;width:1.1rem;border:2px solid var(--lg-line);border-left:0;border-radius:0 10px 10px 0}
+.pair::after{content:'';position:absolute;right:-2.4rem;top:50%;width:1.1rem;height:2px;background:var(--lg-line);transform:translateY(-50%)}
+.pair.fp::before,.pair.fp::after{display:none}
+.mu-hint{font-family:var(--mono);font-size:.54rem;letter-spacing:.1em;text-transform:uppercase;color:var(--lg-muted)}
 .mu{background:var(--lg-card);border:1px solid var(--lg-line);border-radius:10px;overflow:hidden;position:relative}
-.mu::after{content:'';position:absolute;right:-1.2rem;top:50%;width:1.2rem;height:1px;background:var(--lg-line)}
-.round:last-of-type .mu::after{display:none}
 .mu .slot{display:grid;grid-template-columns:20px auto 1fr auto auto;align-items:center;gap:.55rem;padding:.5rem .7rem;cursor:pointer;transition:background .2s;user-select:none}
 .mu .slot + .slot{border-top:1px solid var(--lg-line)}
 .mu .slot:hover{background:var(--lg-soft)}
@@ -303,6 +307,47 @@ td .l5 i.W{background:var(--lg-green)}td .l5 i.L{background:#cbd5e1}
 .adm-tip{padding:.8rem 1rem;background:#fff8e1;border-top:1px solid #f6dd8a;font-size:.68rem;color:#5a4300;line-height:1.55}
 .adm-tip b{font-weight:700}
 
+/* CHAMPION BANNER */
+.champ2{position:relative;margin-top:2rem;display:grid;grid-template-columns:250px 1fr;border-radius:16px;overflow:hidden;border:1px solid var(--lg-line);box-shadow:0 24px 60px rgba(11,31,69,.18)}
+.champ-photo{position:relative;min-height:190px;background:linear-gradient(180deg,#8ec9f0 0%,#bfe0f2 38%,#3f9b4f 39%,#2e7d3d 70%,#8a5a33 71%,#7a4e2b 100%);display:grid;place-items:center}
+.champ-photo::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 30%,rgba(255,255,255,.35),transparent 55%)}
+.champ-photo .logo{filter:drop-shadow(0 10px 24px rgba(0,0,0,.4));transform:scale(1.25)}
+.cp-cap{position:absolute;bottom:.6rem;left:50%;transform:translateX(-50%);white-space:nowrap;background:rgba(11,31,69,.85);color:#fff;font-family:var(--heading);font-weight:800;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;padding:.3rem .8rem;border-radius:100px}
+.cp-tbd{font-family:var(--heading);font-weight:900;font-size:3rem;color:rgba(11,31,69,.45)}
+.champ-bar{position:relative;background:var(--lg-navy);color:#fff;display:flex;align-items:center;gap:1.3rem;padding:1.4rem 1.6rem;flex-wrap:wrap}
+.tro{width:64px;height:64px;flex-shrink:0;filter:drop-shadow(0 6px 16px rgba(245,180,0,.35))}
+.champ2.has .tro{animation:troPop .6s cubic-bezier(.34,1.56,.64,1)}
+@keyframes troPop{0%{transform:scale(.4) rotate(-14deg);opacity:0}100%{transform:scale(1) rotate(0)}}
+.champ-txt{flex:1;min-width:200px}
+.ct2{font-family:var(--mono);font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;color:var(--lg-gold);margin-bottom:.35rem}
+.cn2{font-family:var(--heading);font-weight:900;font-size:1.7rem;line-height:1;text-transform:uppercase;letter-spacing:.01em}
+.cn2.tbd{color:#a9b8d6;font-size:1.1rem}
+.cs2{font-family:var(--mono);font-size:.64rem;color:#c7d2e5;margin-top:.45rem;letter-spacing:.04em}
+.champ2 .cf{position:absolute;inset:0;pointer-events:none;opacity:0;z-index:2}
+.champ2.has .cf{opacity:1}
+.champ2 .cf i{position:absolute;top:-10px;width:6px;height:10px;border-radius:2px;animation:confetti 2.6s linear infinite}
+/* CHAMPIONS ARCHIVE */
+.arch-head{margin:2.2rem 0 .9rem}
+.arch-head .eyebrow{font-family:var(--mono);font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--lg-muted);margin-bottom:.15rem}
+.arch-head h3{font-family:var(--heading);font-weight:900;font-size:1.35rem;text-transform:uppercase;color:var(--lg-ink);line-height:1}
+.arch-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.9rem}
+.arch{background:var(--lg-card);border:1px solid var(--lg-line);border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s}
+.arch:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(15,23,42,.12)}
+.arch-photo{position:relative;height:130px;background:linear-gradient(180deg,#8ec9f0 0%,#bfe0f2 40%,#3f9b4f 41%,#2e7d3d 100%);display:grid;place-items:center}
+.arch-photo .logo{width:80px;height:80px;filter:drop-shadow(0 8px 18px rgba(0,0,0,.35))}
+.arch-photo.tbd{background:linear-gradient(180deg,#e5eaf1,#cdd6e2)}
+.arch.now .arch-photo::after{content:'NEW BANNER';position:absolute;top:.55rem;right:.55rem;background:var(--lg-gold);color:var(--lg-navy);font-family:var(--heading);font-weight:800;font-size:.5rem;letter-spacing:.14em;padding:.2rem .5rem;border-radius:100px}
+.arch-bar{display:flex;align-items:center;gap:.7rem;padding:.7rem .85rem}
+.arch-y{font-family:var(--heading);font-weight:900;font-size:1rem;color:var(--lg-muted)}
+.arch-y.gold{color:var(--lg-gold)}
+.arch-t b{display:block;font-family:var(--heading);font-weight:800;font-size:.8rem;color:var(--lg-ink);line-height:1.15}
+.arch-t small{font-family:var(--mono);font-size:.56rem;color:var(--lg-muted)}
+/* MASTHEAD EXTRAS */
+.lg-ico{position:relative;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.08);cursor:pointer;color:#fff}
+.lg-ico svg{width:16px;height:16px}
+.lg-ico i{position:absolute;top:5px;right:6px;width:7px;height:7px;border-radius:50%;background:var(--lg-red);border:1.5px solid var(--lg-navy)}
+.lg-prof{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.35);border-radius:6px;padding:.55rem .9rem;font-family:var(--heading);font-weight:800;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer}
+.lg-prof:hover{border-color:#fff}
 /* PERSONALIZER */
 .persona{position:relative;z-index:1;padding:0 4rem 2rem;max-width:1320px;margin:0 auto}
 .p-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.3rem 1.5rem;display:grid;grid-template-columns:290px 1fr;gap:2rem;align-items:start;position:relative;overflow:hidden}
@@ -521,7 +566,11 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:2.
   .res-grid{grid-template-columns:1fr}
   .up-row{grid-template-columns:1fr;gap:.5rem}.up-row .fld{text-align:left}
   .panel{padding:1.1rem 1rem 1.6rem}
-  .pbracket{grid-template-columns:repeat(3,220px) 200px}
+  .br-rounds{grid-template-columns:repeat(3,240px)}
+  .champ2{grid-template-columns:1fr}
+  .champ-photo{min-height:160px}
+  .arch-grid{grid-template-columns:1fr 1fr}
+  .lg-ico,.lg-prof{display:none}
   .lead-grid{grid-template-columns:1fr}
   .team-grid{grid-template-columns:1fr 1fr}
   .tp-grid{grid-template-columns:1fr}
@@ -566,7 +615,7 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:2.
     <ol>
       <li><b>01</b><span>On <em>Scores</em>, hit <em>Recap</em> on a final or <em>Preview</em> on an upcoming game.</span></li>
       <li><b>02</b><span>Open <em>Standings</em>. Wins, losses, run differential, games back, last five. All computed, nothing typed.</span></li>
-      <li><b>03</b><span>On <em>Bracket</em>, click a team to advance it. Seeds come straight from the standings.</span></li>
+      <li><b>03</b><span>The <em>Bracket</em> arrives fully played: scores, recaps, trophy, and the champions archive. Click any team to rewrite it.</span></li>
       <li><b>04</b><span>In <em>Admin</em>, enter a score and hit Publish. Check the ticker and standings again.</span></li>
     </ol>
   </aside>
@@ -608,6 +657,8 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:2.
       <div class="lg-nav">
         <span data-tab="scores" class="on">Scores</span><span data-tab="schedule">Schedule</span><span data-tab="standings">Standings</span><span data-tab="stats">Stats</span><span data-tab="teams">Teams</span><span data-tab="news">News</span>
       </div>
+      <span class="lg-ico" role="button" tabindex="0" aria-label="Notifications" onclick="toast('3 unread alerts.','Finals, rainouts, and bracket updates land here.','gold')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8a6 6 0 10-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 01-3.4 0"/></svg><i></i></span>
+      <button class="lg-prof" onclick="toast('Manager login is part of the full build.','Each manager gets their own scoped admin.')">Profile</button>
       <button class="lg-reg" onclick="openReg()">Register</button>
     </div>
 
@@ -648,10 +699,12 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:2.
     <section class="panel" id="p-bracket">
       <div class="br-top">
         <div><div class="sec-h" style="margin-bottom:.3rem"><div><div class="eyebrow">Single elimination</div><h3>2026 Playoffs</h3></div></div>
-        <div class="br-hint"><b>Click a team</b> to advance it. Seeds are pulled from the live standings.</div></div>
+        <div class="br-hint">The 2026 bracket, fully played. <b>Click any team</b> to rewrite history, or open a Recap on any playoff game.</div></div>
         <div class="br-btns"><button class="lbtn" onclick="clearPicks()">Clear picks</button><button class="lbtn solid" onclick="reseed()">Reseed from standings</button></div>
       </div>
       <div class="pbracket" id="bracket"></div>
+      <div class="arch-head"><div class="eyebrow">Every banner lives here</div><h3>Champions Archive</h3></div>
+      <div class="arch-grid" id="champArch"></div>
     </section>
 
     <!-- SCHEDULE -->
@@ -814,11 +867,12 @@ function seedState(){
     }
     var last=rot.pop();rot.splice(1,0,last);
   }
-  return {games:games,bracket:{qf:[null,null,null,null],sf:[null,null],f:null},log:[]};
+  return {games:games,bracket:{qf:[null,null,null,null],sf:[null,null],f:null},log:[],fresh:true};
 }
 
 var state=load();
 if(!state.news)state.news=[];if(!state.regs)state.regs=[];
+function seedBracket(){var s=seeds();state.bracket={qf:[s[0],s[4],s[2],s[1]],sf:[s[0],s[1]],f:s[0]}}
 function load(){try{var s=localStorage.getItem(KEY);if(s){var o=JSON.parse(s);if(o&&o.games&&o.games.length)return o}}catch(e){}return seedState()}
 function save(){try{localStorage.setItem(KEY,JSON.stringify(state))}catch(e){}}
 
@@ -1169,18 +1223,45 @@ function renderBracket(){
     var score=(pick&&sc)?'<span class="psc">'+(side==='a'?sc.a:sc.b)+'</span>':'';
     return '<div class="slot'+cls+'" data-r="'+round+'" data-i="'+idx+'" data-id="'+id+'"><span class="sd">'+sd[id]+'</span>'+logo(t)+'<span class="nm">'+esc(t.name)+'</span>'+score+'<span class="chk">&#10003;</span></div>';
   }
-  function mu(pair,pick,round,idx){
+  function muCard(pair,pick,round,idx){
     var sc=(pick&&pair[0]&&pair[1])?pScore(round,idx,pick,pair):null;
-    var foot='';
+    var foot;
     if(sc){var pg=pMake(round,idx,pair,pick);foot='<div class="mu-f"><span class="mu-rt">'+pg.roundLabel+' &middot; Final</span><span class="mu-links"><button class="mu-lnk" type="button" onclick="openRecap('+pg.id+')">Recap</button><button class="mu-lnk" type="button" onclick="openBox('+pg.id+')">Box score</button></span></div>'}
+    else{foot='<div class="mu-f"><span class="mu-rt">'+ROUND[round].label+(ROUND[round].n>1?' '+(idx+1):'')+'</span><span class="mu-hint">Pick a winner</span></div>'}
     return '<div class="mu">'+slot(pair[0],pick,round,idx,sc,'a')+slot(pair[1],pick,round,idx,sc,'b')+foot+'</div>';
   }
-  var html='<div class="round"><div class="rt">Quarterfinals</div><div class="mus">'+m.qf.map(function(p,i){return mu(p,b.qf[i],'qf',i)}).join('')+'</div></div>'+
-    '<div class="round"><div class="rt">Semifinals</div><div class="mus">'+m.sf.map(function(p,i){return mu(p,b.sf[i],'sf',i)}).join('')+'</div></div>'+
-    '<div class="round"><div class="rt">Championship</div><div class="mus">'+mu(m.f,b.f,'f',0)+'</div></div>';
-  var ch=b.f?T[b.f]:null;var fg=(b.f&&m.f[0]&&m.f[1])?pMake('f',0,m.f,b.f):null;var cf='';for(var i=0;i<18;i++){cf+='<i style="left:'+(4+i*5.3)+'%;background:'+['#f5b400','#fff','#d7263d','#38bdf8'][i%4]+';animation-delay:'+(i*.17)+'s;animation-duration:'+(2.2+(i%5)*.25)+'s"></i>'}
-  html+='<div class="champ'+(ch?' has':'')+'"><div class="cf">'+cf+'</div><div class="ct">2026 Champions</div><div class="cl">'+logo(ch||TEAMS[0],'xl')+'<span class="trophy">&#127942;</span></div>'+(ch?'<div class="cn">'+esc(ch.name)+'</div><div class="cs">#'+sd[ch.id]+' seed'+(fg?' &middot; beat '+esc(T[fg.pair[0]===b.f?fg.pair[1]:fg.pair[0]].nick)+' '+Math.max(fg.hs,fg.as)+'-'+Math.min(fg.hs,fg.as)+' in the final':' &middot; '+recOf(ch.id)+' regular season')+'</div>':'<div class="cn tbd">Click through the bracket</div>')+'</div>';
+  var html='<div class="br-rounds">'
+    +'<div class="round"><div class="rt">Quarterfinals</div><div class="mus">'
+    +'<div class="pair">'+muCard(m.qf[0],b.qf[0],'qf',0)+muCard(m.qf[1],b.qf[1],'qf',1)+'</div>'
+    +'<div class="pair">'+muCard(m.qf[2],b.qf[2],'qf',2)+muCard(m.qf[3],b.qf[3],'qf',3)+'</div>'
+    +'</div></div>'
+    +'<div class="round"><div class="rt">Semifinals</div><div class="mus"><div class="pair sfp">'+muCard(m.sf[0],b.sf[0],'sf',0)+muCard(m.sf[1],b.sf[1],'sf',1)+'</div></div></div>'
+    +'<div class="round"><div class="rt">Championship</div><div class="mus"><div class="pair fp">'+muCard(m.f,b.f,'f',0)+'</div></div></div>'
+    +'</div>';
+  var ch=b.f?T[b.f]:null;
+  var fg=(b.f&&m.f[0]&&m.f[1])?pMake('f',0,m.f,b.f):null;
+  var cf='';for(var i=0;i<20;i++){cf+='<i style="left:'+(3+i*4.9)+'%;background:'+['#f5b400','#fff','#d7263d','#38bdf8'][i%4]+';animation-delay:'+(i*.16)+'s;animation-duration:'+(2.2+(i%5)*.25)+'s"></i>'}
+  var trophy='<svg class="tro" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="tg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd75e"/><stop offset="1" stop-color="#d99e00"/></linearGradient></defs><path fill="none" stroke="url(#tg)" stroke-width="4" d="M17 12H7v3c0 8 5 13 12 14M47 12h10v3c0 8-5 13-12 14"/><path fill="url(#tg)" d="M17 6h30v13c0 11-6.7 20-15 20s-15-9-15-20V6z"/><rect x="29" y="38" width="6" height="8" fill="#d99e00"/><path fill="url(#tg)" d="M21 46h22v6H21z"/><rect x="16" y="52" width="32" height="7" rx="1.5" fill="#b98300"/><path fill="#fff" opacity=".28" d="M22 9h6v13c0 5 1 8 2 10-5-2-8-8-8-15V9z"/></svg>';
+  var runner=fg?T[fg.pair[0]===b.f?fg.pair[1]:fg.pair[0]]:null;
+  html+='<div class="champ2'+(ch?' has':'')+'">'
+    +'<div class="cf">'+cf+'</div>'
+    +'<div class="champ-photo">'+(ch?logo(ch,'xl'):'<span class="cp-tbd">?</span>')+(ch?'<span class="cp-cap">'+esc(ch.name)+' &middot; 2026</span>':'')+'</div>'
+    +'<div class="champ-bar">'+trophy+'<div class="champ-txt"><div class="ct2">2026 League Champions</div>'
+    +(ch?'<div class="cn2">'+esc(ch.name)+'</div><div class="cs2">'+(runner?'Beat the '+esc(runner.nick)+' '+Math.max(fg.hs,fg.as)+'-'+Math.min(fg.hs,fg.as)+' in the final &middot; #'+sd[ch.id]+' seed':'#'+sd[ch.id]+' seed')+'</div>'
+        :'<div class="cn2 tbd">Awaiting a champion</div><div class="cs2">Click through the bracket to crown one</div>')
+    +'</div>'+(fg?'<button class="gbtn gold" onclick="openRecap('+fg.id+')">Championship recap</button>':'')+'</div>'
+    +'</div>';
   document.getElementById('bracket').innerHTML=html;
+  renderArchive(ch,fg,sd,runner);
+}
+function renderArchive(ch,fg,sd,runner){
+  var el=document.getElementById('champArch');if(!el)return;
+  var past=[{y:2023,w:'NAR',l:'ARD',s:'9-6'},{y:2024,w:'ARD',l:'GLD',s:'4-2'},{y:2025,w:'GLD',l:'BAL',s:'7-5'}];
+  var html=past.map(function(c){var W=T[c.w],L=T[c.l];
+    return '<div class="arch"><div class="arch-photo">'+logo(W,'xl')+'</div><div class="arch-bar"><span class="arch-y">'+c.y+'</span><div class="arch-t"><b>'+esc(W.name)+'</b><small>beat the '+esc(L.nick)+' '+c.s+'</small></div></div></div>'}).join('');
+  if(ch){html+='<div class="arch now"><div class="arch-photo">'+logo(ch,'xl')+'</div><div class="arch-bar"><span class="arch-y gold">2026</span><div class="arch-t"><b>'+esc(ch.name)+'</b><small>'+(runner?'beat the '+esc(runner.nick)+' '+Math.max(fg.hs,fg.as)+'-'+Math.min(fg.hs,fg.as):'crowned champions')+'</small></div></div></div>'}
+  else{html+='<div class="arch empty"><div class="arch-photo tbd"><span class="cp-tbd">?</span></div><div class="arch-bar"><span class="arch-y">2026</span><div class="arch-t"><b>To be crowned</b><small>bracket in progress</small></div></div></div>'}
+  el.innerHTML=html;
 }
 document.getElementById('bracket').addEventListener('click',function(e){
   var s=e.target.closest('.slot');if(!s||s.classList.contains('tbd'))return;
@@ -1338,9 +1419,10 @@ window.toast=function(msg,sub,kind){
 };
 
 /* ---------- RESET ---------- */
-window.resetDemo=function(){try{localStorage.removeItem(KEY)}catch(e){}state=seedState();renderAll();toast('Demo reset.','Fresh season. Weeks 1 to 4 are final, 5 and 6 are open.')};
+window.resetDemo=function(){try{localStorage.removeItem(KEY)}catch(e){}state=seedState();delete state.fresh;seedBracket();save();renderAll();toast('Demo reset.','Fresh season, finished bracket. Weeks 5 and 6 are open.')};
 
 function renderAll(flash){renderTicker();renderScores();renderStandings(flash);renderBracket();renderAdmin();renderSchedule();renderStats();renderTeamsIndex();renderNews()}
+if(state.fresh){delete state.fresh;seedBracket();save()}
 renderAll();
 var hraw=(location.hash||'').replace('#','');var hparts=hraw.split(';');var htab=hparts[0];var hadCfg=false;
 for(var hi=0;hi<hparts.length;hi++){if(hparts[hi].indexOf('cfg=')===0){try{personaLoad(JSON.parse(atob(decodeURIComponent(hparts[hi].slice(4)))));hadCfg=true}catch(e){}}}
