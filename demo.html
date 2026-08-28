@@ -393,6 +393,12 @@ tbody tr.clk:hover .tgo{opacity:1;transform:translateX(2px);color:var(--lg-navy)
 .lg-ico i{position:absolute;top:5px;right:6px;width:7px;height:7px;border-radius:50%;background:var(--lg-red);border:1.5px solid var(--lg-navy)}
 .lg-prof{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.35);border-radius:6px;padding:.55rem .9rem;font-family:var(--heading);font-weight:800;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer}
 .lg-prof:hover{border-color:#fff}
+/* STAT TOGGLE */
+.stat-toggle{display:inline-flex;background:var(--lg-soft);border:1px solid var(--lg-line);border-radius:8px;padding:2px}
+.stg{background:none;border:none;font-family:var(--heading);font-weight:800;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--lg-muted);padding:.4rem .9rem;border-radius:6px;cursor:pointer;transition:all .2s}
+.stg.on{background:var(--lg-navy);color:#fff}
+.mcard.clk{cursor:pointer;transition:border-color .2s}
+.mcard.clk:hover{border-color:var(--lg-navy)}
 /* PLAYER PROFILE */
 .pl-top{display:flex;align-items:center;gap:1.1rem;padding:1.1rem 1.5rem;background:var(--lg-soft);border-bottom:1px solid var(--lg-line);flex-wrap:wrap}
 .pl-av{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;color:#fff;font-family:var(--heading);font-weight:900;font-size:1.1rem;letter-spacing:.02em;box-shadow:0 4px 12px rgba(0,0,0,.25)}
@@ -794,9 +800,9 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:2.
 
     <!-- STATS -->
     <section class="panel" id="p-stats">
-      <div class="sec-h"><div><div class="eyebrow">Batting</div><h3>League Leaders</h3></div><span class="lnk" onclick="showTab('teams')">Team rosters &rarr;</span></div>
+      <div class="sec-h"><div><div class="eyebrow" id="statEyebrow">Batting</div><h3>League Leaders</h3></div><div class="stat-toggle"><button class="stg on" data-sm="batting" onclick="setStatMode('batting')">Batting</button><button class="stg" data-sm="pitching" onclick="setStatMode('pitching')">Pitching</button></div></div>
       <div class="lead-grid" id="leadGrid"></div>
-      <div class="st-wrap" style="margin-top:1.1rem"><div class="tbl"><table><thead><tr><th>#</th><th>Player</th><th>Team</th><th>GP</th><th>AB</th><th>H</th><th>AVG</th><th>HR</th><th>RBI</th></tr></thead><tbody id="statBody"></tbody></table></div><div class="st-note"><span>Stats generate from published finals. Publish a score in <b>Admin</b> and the leaders move.</span><span>Top 15 by AVG, minimum 8 AB</span></div></div>
+      <div id="statWrap" style="margin-top:1.1rem"></div>
     </section>
 
     <!-- TEAMS -->
@@ -1055,7 +1061,7 @@ window.openBox=function(id){
   openModal('<div class="mhead"><div class="tag">Box score</div><h2>'+esc(a.nick)+' at '+esc(h.nick)+'</h2><div class="sub">'+(g.roundLabel?esc(g.roundLabel):'Week '+g.week)+' &middot; '+fmtDate(g.date)+' &middot; '+esc(g.field)+' &middot; Final</div></div>'+
     scoreHeader(g)+
     '<div class="mbody"><table class="lines"><thead><tr><th>Team</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>R</th><th>H</th><th>E</th></tr></thead><tbody>'+row(a,ls.a,ls.hitsA,ls.errA,false,ba,g.as)+row(h,ls.h,ls.hitsH,ls.errH,ls.homeX,bh,g.hs)+'</tbody></table>'+
-    '<div class="mgrid"><div class="mcard"><div class="k">Winning pitcher</div><div class="v">'+esc(PLAYERS[(g.id*3)%PLAYERS.length])+'<small>'+(g.hs>g.as?h.abbr:a.abbr)+'</small></div></div><div class="mcard"><div class="k">Losing pitcher</div><div class="v">'+esc(PLAYERS[(g.id*5+2)%PLAYERS.length])+'<small>'+(g.hs>g.as?a.abbr:h.abbr)+'</small></div></div></div>'+
+    (function(){var wt=g.hs>g.as?g.home:g.away,lt=g.hs>g.as?g.away:g.home;var wp=starterOf(wt,g),lp=starterOf(lt,g);var wi=starterIdx(wt,g),li=starterIdx(lt,g);return '<div class="mgrid"><div class="mcard clk" onclick="closeModal();openPlayer(\''+wt+'\','+wi+')"><div class="k">Winning pitcher</div><div class="v">'+esc(wp.name)+'<small>'+T[wt].abbr+'</small></div></div><div class="mcard clk" onclick="closeModal();openPlayer(\''+lt+'\','+li+')"><div class="k">Losing pitcher</div><div class="v">'+esc(lp.name)+'<small>'+T[lt].abbr+'</small></div></div></div>';})()+
     '<div class="box-bat"><div class="bb-col"><div class="bb-h">'+esc(a.nick)+' leaders</div>'+boxBat(g,g.away)+'</div><div class="bb-col"><div class="bb-h">'+esc(h.nick)+' leaders</div>'+boxBat(g,g.home)+'</div></div>'+
     '<p style="font-family:var(--mono);font-size:.58rem;color:var(--lg-muted);margin-top:.7rem">Every line ties to the season stats. Click a player on the Stats or Teams tab for a full game log.</p></div>'+
     '<div class="mfoot"><span>Published '+fmtDate(g.date)+'</span><span class="share"><button class="gbtn" onclick="openRecap('+g.id+')">Read recap</button></span></div>');
@@ -1088,7 +1094,7 @@ function rosterOf(tid){
     do{f=FIRSTN[Math.floor(rr()*FIRSTN.length)];l=LASTN[Math.floor(rr()*LASTN.length)];nm=f+' '+l;guard++}while(used[nm]&&guard<40);
     used[nm]=1;
     var num;do{num=2+Math.floor(rr()*47)}while(used['#'+num]);used['#'+num]=1;
-    out.push({num:num,name:nm,pos:POSN[i]});
+    out.push({num:num,name:nm,pos:i>=8?['SP','SP','SP','CL'][i-8]:POSN[i]});
   }
   _rosters[tid]=out;return out;
 }
@@ -1114,7 +1120,31 @@ function statsOf(tid){
 }
 function playerLog(tid,idx){return teamGamesFinal(tid).sort(byDate).map(function(g){var gl=gameLine(g,tid)[idx];var home=g.home===tid;var opp=T[home?g.away:g.home];var us=home?g.hs:g.as,them=home?g.as:g.hs;return {g:g,opp:opp,home:home,w:us>them,us:us,them:them,ab:gl.ab,h:gl.h,hr:gl.hr,rbi:gl.rbi}})}
 function playerCard(tid,idx){var st=statsOf(tid)[idx];var log=playerLog(tid,idx);var tb=st.h+st.hr*3;return {st:st,log:log,slg:st.ab?tb/st.ab:0,ops:(st.ab?tb/st.ab:0)+(st.ab?st.h/st.ab:0)}}
+function orderIndex(tid,g){var arr=teamGamesFinal(tid).slice().sort(byDate);for(var i=0;i<arr.length;i++)if(arr[i].id===g.id)return i;return 0}
+function starterIdx(tid,g){return 8+(orderIndex(tid,g)%4)}
+function pitchGameLine(g,tid){
+  var home=g.home===tid;var ra=home?g.as:g.hs;var won=(home?g.hs:g.as)>ra;
+  var rr=rng(g.id*577+hashId(tid)*13+7);
+  var ip=won?6+Math.floor(rr()*2):4+Math.floor(rr()*3);if(ip>7)ip=7;
+  var er=Math.max(0,Math.min(ra,Math.round(ra*ip/8)+(rr()<.3?1:0)));
+  var k=3+Math.floor(rr()*6);
+  var hh=Math.max(er,er+1+Math.floor(rr()*4));
+  var bb=Math.floor(rr()*4);
+  return {idx:starterIdx(tid,g),ip:ip,er:er,k:k,h:hh,bb:bb,w:won?1:0,l:won?0:1};
+}
+function isPitcher(idx){return idx>=8}
+function pitchStatsTeam(tid){
+  var ros=rosterOf(tid);var agg={};
+  teamGamesFinal(tid).sort(byDate).forEach(function(g){var pl=pitchGameLine(g,tid);var i=pl.idx;if(!agg[i])agg[i]={app:0,w:0,l:0,ip:0,er:0,k:0,h:0,bb:0};var a=agg[i];a.app++;a.w+=pl.w;a.l+=pl.l;a.ip+=pl.ip;a.er+=pl.er;a.k+=pl.k;a.h+=pl.h;a.bb+=pl.bb});
+  return Object.keys(agg).map(function(i){var a=agg[i];var pl=ros[+i];return {team:tid,idx:+i,num:pl.num,name:pl.name,pos:pl.pos,app:a.app,w:a.w,l:a.l,ip:a.ip,er:a.er,k:a.k,h:a.h,bb:a.bb,era:a.ip?a.er*9/a.ip:0,whip:a.ip?(a.h+a.bb)/a.ip:0}});
+}
+function leaguePitching(){var all=[];TEAMS.forEach(function(t){all=all.concat(pitchStatsTeam(t.id))});return all}
+function pitchLog(tid,idx){return teamGamesFinal(tid).slice().sort(byDate).filter(function(g){return starterIdx(tid,g)===idx}).map(function(g){var pl=pitchGameLine(g,tid);var home=g.home===tid;var opp=T[home?g.away:g.home];var us=home?g.hs:g.as,them=home?g.as:g.hs;return {g:g,opp:opp,home:home,w:us>them,us:us,them:them,ip:pl.ip,er:pl.er,k:pl.k,bb:pl.bb,h:pl.h}})}
+function starterOf(tid,g){return rosterOf(tid)[starterIdx(tid,g)]}
+function eraFmt(v){return v.toFixed(2)}
 window.openPlayer=function(tid,idx){
+  if(isPitcher(idx))return openPitcher(tid,idx);
+
   var pc=playerCard(tid,idx);var st=pc.st;var t=T[tid];var ini=st.name.split(' ').map(function(x){return x[0]}).join('');
   var log=pc.log.slice().reverse();
   var rows=log.map(function(l){return '<tr><td>'+fmtDate(l.g.date)+(l.g.roundLabel?' &middot; '+esc(l.g.roundLabel):'')+'</td><td>'+(l.home?'vs':'at')+' '+esc(l.opp.abbr)+'</td><td class="c"><span class="wl-s '+(l.w?'W':'L')+'">'+(l.w?'W':'L')+'</span> '+l.us+'-'+l.them+'</td><td class="c">'+l.ab+'</td><td class="c">'+l.h+'</td><td class="c">'+l.hr+'</td><td class="c">'+l.rbi+'</td></tr>'}).join('');
@@ -1127,18 +1157,43 @@ window.openPlayer=function(tid,idx){
     '<div class="mfoot"><span>Season totals build from every published box score.</span><span class="share"><button class="gbtn" onclick="closeModal();showTab(\'teams\');openTeam(\''+tid+'\')">Team page</button></span></div>');
   try{if(window.gtag)gtag('event','demo_player')}catch(e){}
 };
+window.openPitcher=function(tid,idx){
+  var team=T[tid];var stats=pitchStatsTeam(tid).filter(function(x){return x.idx===idx})[0];var pl=rosterOf(tid)[idx];
+  var log=pitchLog(tid,idx).slice().reverse();var ini=pl.name.split(' ').map(function(x){return x[0]}).join('');
+  if(!stats){stats={num:pl.num,name:pl.name,pos:pl.pos,w:0,l:0,ip:0,er:0,k:0,era:0,whip:0,app:0}}
+  var rows=log.map(function(l){return '<tr><td>'+fmtDate(l.g.date)+(l.g.roundLabel?' &middot; '+esc(l.g.roundLabel):'')+'</td><td>'+(l.home?'vs':'at')+' '+esc(l.opp.abbr)+'</td><td class="c"><span class="wl-s '+(l.w?'W':'L')+'">'+(l.w?'W':'L')+'</span> '+l.us+'-'+l.them+'</td><td class="c">'+l.ip+'.0</td><td class="c">'+l.er+'</td><td class="c">'+l.k+'</td></tr>'}).join('');
+  openModal('<div class="mhead" style="background:'+team.c+'"><div class="tag">#'+pl.num+' &middot; '+pl.pos+'</div><h2>'+esc(pl.name)+'</h2><div class="sub">'+esc(team.name)+' &middot; Pitcher</div></div>'+
+    '<div class="pl-top"><div class="pl-av" style="background:'+team.c+'">'+ini+'</div><div class="pl-line">'+
+      '<div class="pl-stat"><span>'+stats.w+'-'+stats.l+'</span>W-L</div><div class="pl-stat"><span>'+eraFmt(stats.era)+'</span>ERA</div><div class="pl-stat"><span>'+stats.k+'</span>K</div><div class="pl-stat"><span>'+stats.ip+'.0</span>IP</div><div class="pl-stat"><span>'+stats.whip.toFixed(2)+'</span>WHIP</div>'+
+    '</div></div>'+
+    '<div class="mbody"><div class="k" style="font-family:var(--mono);font-size:.52rem;letter-spacing:.18em;text-transform:uppercase;color:var(--lg-muted);margin-bottom:.5rem">Starts</div>'+
+    '<div class="tbl"><table class="pl-log"><thead><tr><th>Date</th><th>Opp</th><th class="c">Result</th><th class="c">IP</th><th class="c">ER</th><th class="c">K</th></tr></thead><tbody>'+(rows||'<tr><td colspan="6" class="empty">No starts yet.</td></tr>')+'</tbody></table></div></div>'+
+    '<div class="mfoot"><span>Pitching lines build from every published final.</span><span class="share"><button class="gbtn" onclick="closeModal();showTab(\'teams\');openTeam(\''+tid+'\')">Team page</button></span></div>');
+  try{if(window.gtag)gtag('event','demo_player',{pos:'P'})}catch(e){}
+};
 function leagueStats(){var all=[];TEAMS.forEach(function(t){all=all.concat(statsOf(t.id))});return all}
 function avgFmt(v){return v.toFixed(3).replace(/^0/,'')}
 
 /* ---------- STATS TAB ---------- */
+var statMode='batting';
+window.setStatMode=function(m){statMode=m;var bs=document.querySelectorAll('.stg');for(var i=0;i<bs.length;i++)bs[i].classList.toggle('on',bs[i].getAttribute('data-sm')===m);var ey=document.getElementById('statEyebrow');if(ey)ey.textContent=m==='pitching'?'Pitching':'Batting';renderStats();try{if(window.gtag)gtag('event','stat_mode',{mode:m})}catch(e){}};
+function board(title,rows,fmt){return '<div class="lead"><div class="lh"><span>'+title+'</span><span>Leaders</span></div>'+rows.slice(0,3).map(function(p2,i){return '<div class="lr'+(i===0?' top':'')+'" style="cursor:pointer" onclick="openPlayer(\''+p2.team+'\','+p2.idx+')"><i>'+(i+1)+'</i>'+logo(T[p2.team],'s')+'<div class="nm">'+esc(p2.name)+'<small>'+esc(T[p2.team].nick)+' &middot; '+p2.pos+'</small></div><div class="v">'+fmt(p2)+'</div></div>'}).join('')+'</div>'}
 function renderStats(){
+  if(statMode==='pitching')return renderPitching();
   var all=leagueStats();var q=all.filter(function(p2){return p2.ab>=8});
   var byAvg=q.slice().sort(function(a,b){return b.avg-a.avg||b.h-a.h});
   var byHr=all.slice().sort(function(a,b){return b.hr-a.hr||b.rbi-a.rbi});
   var byRbi=all.slice().sort(function(a,b){return b.rbi-a.rbi||b.hr-a.hr});
-  function board(title,rows,fmt){return '<div class="lead"><div class="lh"><span>'+title+'</span><span>Leaders</span></div>'+rows.slice(0,3).map(function(p2,i){return '<div class="lr'+(i===0?' top':'')+'" style="cursor:pointer" onclick="openPlayer(\''+p2.team+'\','+p2.idx+')"><i>'+(i+1)+'</i>'+logo(T[p2.team],'s')+'<div class="nm">'+esc(p2.name)+'<small>'+esc(T[p2.team].nick)+' &middot; '+p2.pos+'</small></div><div class="v">'+fmt(p2)+'</div></div>'}).join('')+'</div>'}
   document.getElementById('leadGrid').innerHTML=board('Batting Average',byAvg,function(p2){return avgFmt(p2.avg)})+board('Home Runs',byHr,function(p2){return p2.hr})+board('RBI',byRbi,function(p2){return p2.rbi});
-  document.getElementById('statBody').innerHTML=byAvg.slice(0,15).map(function(p2,i){return '<tr class="clk" onclick="openPlayer(\''+p2.team+'\','+p2.idx+')"><td><span class="rk">'+(i+1)+'</span></td><td><span class="tm">'+logo(T[p2.team])+esc(p2.name)+'</span></td><td>'+esc(T[p2.team].abbr)+'</td><td>'+p2.gp+'</td><td>'+p2.ab+'</td><td>'+p2.h+'</td><td>'+avgFmt(p2.avg)+'</td><td>'+p2.hr+'</td><td>'+p2.rbi+'</td></tr>'}).join('');
+  document.getElementById('statWrap').innerHTML='<div class="st-wrap"><div class="tbl"><table><thead><tr><th>#</th><th>Player</th><th>Team</th><th>GP</th><th>AB</th><th>H</th><th>AVG</th><th>HR</th><th>RBI</th></tr></thead><tbody>'+byAvg.slice(0,15).map(function(p2,i){return '<tr class="clk" onclick="openPlayer(\''+p2.team+'\','+p2.idx+')"><td><span class="rk">'+(i+1)+'</span></td><td><span class="tm">'+logo(T[p2.team])+esc(p2.name)+'</span></td><td>'+esc(T[p2.team].abbr)+'</td><td>'+p2.gp+'</td><td>'+p2.ab+'</td><td>'+p2.h+'</td><td>'+avgFmt(p2.avg)+'</td><td>'+p2.hr+'</td><td>'+p2.rbi+'</td></tr>'}).join('')+'</tbody></table></div><div class="st-note"><span>Stats generate from published finals. Publish a score in <b>Admin</b> and the leaders move.</span><span>Top 15 by AVG, minimum 8 AB</span></div></div>';
+}
+function renderPitching(){
+  var all=leaguePitching();var q=all.filter(function(x){return x.ip>=8});
+  var byEra=q.slice().sort(function(a,b){return a.era-b.era||b.ip-a.ip});
+  var byW=all.slice().sort(function(a,b){return b.w-a.w||a.l-b.l});
+  var byK=all.slice().sort(function(a,b){return b.k-a.k||b.ip-a.ip});
+  document.getElementById('leadGrid').innerHTML=board('ERA',byEra,function(x){return eraFmt(x.era)})+board('Wins',byW,function(x){return x.w})+board('Strikeouts',byK,function(x){return x.k});
+  document.getElementById('statWrap').innerHTML='<div class="st-wrap"><div class="tbl"><table><thead><tr><th>#</th><th>Pitcher</th><th>Team</th><th>APP</th><th>W-L</th><th>IP</th><th>ERA</th><th>K</th><th>WHIP</th></tr></thead><tbody>'+byEra.slice(0,15).map(function(x,i){return '<tr class="clk" onclick="openPlayer(\''+x.team+'\','+x.idx+')"><td><span class="rk">'+(i+1)+'</span></td><td><span class="tm">'+logo(T[x.team])+esc(x.name)+'</span></td><td>'+esc(T[x.team].abbr)+'</td><td>'+x.app+'</td><td>'+x.w+'-'+x.l+'</td><td>'+x.ip+'.0</td><td>'+eraFmt(x.era)+'</td><td>'+x.k+'</td><td>'+x.whip.toFixed(2)+'</td></tr>'}).join('')+'</tbody></table></div><div class="st-note"><span>Pitching lines build from every published final.</span><span>Top 15 by ERA, minimum 8 IP</span></div></div>';
 }
 
 /* ---------- SCHEDULE TAB ---------- */
