@@ -65,7 +65,7 @@
 }
 </script>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@200;300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=Sora:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,800;0,900;1,800;1,900&family=Urbanist:wght@200;300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=Sora:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap');
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{--bg:#040b14;--fg:#e2e8f0;--accent:#38bdf8;--accent2:#fbbf24;--accent3:#f472b6;--muted:#6a7a8a;--card:#0c1926;--border:#1a2a3a;--serif:'Cormorant Garamond',Georgia,serif;--sans:'Sora',system-ui,sans-serif;--heading:'Urbanist',sans-serif;--mono:'Space Grotesk',monospace}
 html{scroll-behavior:smooth}
@@ -526,6 +526,199 @@ nav.open .nav-links{max-height:26rem;opacity:1;pointer-events:auto}
 footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.5rem}
 .intro-word{font-size:clamp(3rem,15vw,6rem)}
 }
+
+/* ============ BROADCAST KIT ============ */
+.hero.bc{min-height:auto;display:block;text-align:left;padding:8rem 4rem 3.5rem;position:relative;overflow:hidden}
+.bc-grid{position:relative;z-index:5;max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1.02fr .98fr;gap:3.5rem;align-items:center}
+.bc-grid>*{min-width:0}
+.cast-ticker{min-width:0}
+.bc-problem{display:flex;align-items:center;gap:.7rem;font-family:var(--mono);font-size:.78rem;color:#9fb2c5;min-height:1.6em;margin-bottom:1.4rem;flex-wrap:wrap}
+.bc-live{display:inline-flex;align-items:center;gap:.4rem;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:#fff;background:#d7263d;padding:.22rem .55rem .18rem;border-radius:3px}
+.bc-live i{width:6px;height:6px;border-radius:50%;background:#fff;animation:pulse 1.2s infinite}
+.bc-type s{color:#ff7b88;text-decoration-thickness:2px}
+.bc-type b{color:var(--accent2);font-weight:600}
+.bc-type.typing::after{content:'';display:inline-block;width:8px;height:1.05em;background:var(--accent);margin-left:2px;vertical-align:text-bottom;animation:pulse 1s infinite}
+.bc-h{font-family:'Barlow Condensed',sans-serif;font-weight:900;text-transform:uppercase;font-size:clamp(3rem,5.6vw,4.9rem);line-height:.95;letter-spacing:.01em;color:#fff}
+.bc-h em{font-style:italic;color:var(--accent2)}
+.bc-sub{font-size:.95rem;color:var(--muted);max-width:520px;line-height:1.8;margin:1.3rem 0 1.6rem;font-weight:300}
+.bc-mirror{background:rgba(12,25,38,.75);border:1px solid var(--border);border-radius:12px;padding:.9rem 1rem 1rem;max-width:560px;backdrop-filter:blur(8px)}
+.bc-mlabel{font-family:var(--mono);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent2);margin-bottom:.55rem}
+.bc-input{display:flex;gap:.6rem}
+.bc-input input{flex:1;min-width:0;background:#08131f;border:1px solid var(--border);border-radius:8px;padding:.85rem 1rem;color:var(--fg);font-family:var(--sans);font-size:16px;font-weight:400}
+.bc-input input:focus{outline:none;border-color:rgba(251,191,36,.6);box-shadow:0 0 0 3px rgba(251,191,36,.14)}
+.bc-go{display:inline-flex;align-items:center;white-space:nowrap;background:var(--accent2);color:#0b1f45;font-family:'Barlow Condensed',sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.06em;font-size:.95rem;padding:.6rem 1.1rem;border-radius:8px;transition:transform .25s,box-shadow .25s}
+.bc-go:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(251,191,36,.3)}
+.bc-ctas{display:flex;align-items:center;gap:1.4rem;margin-top:1.6rem;flex-wrap:wrap}
+.bc-watch{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);border-bottom:1px solid rgba(56,189,248,.35);padding-bottom:2px}
+/* cast frame */
+.cast{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:0 40px 100px rgba(0,0,0,.5),0 0 0 1px rgba(56,189,248,.06);transform:rotate(.8deg)}
+.cast-chrome{display:flex;align-items:center;gap:.8rem;padding:.65rem .9rem;background:#0a1522;border-bottom:1px solid var(--border)}
+.cast-bug{display:inline-flex;align-items:center;gap:.35rem;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:#fff;background:#d7263d;padding:.2rem .5rem .16rem;border-radius:3px}
+.cast-bug i{width:5px;height:5px;border-radius:50%;background:#fff;animation:pulse 1.2s infinite}
+.cast-name{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1rem;letter-spacing:.05em;text-transform:uppercase;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cast-dom{margin-left:auto;font-family:var(--mono);font-size:.6rem;color:var(--muted)}
+.cast-ticker{background:#071633;border-bottom:2px solid var(--accent2);overflow:hidden}
+.cast-track{display:flex;width:max-content;animation:castScroll 30s linear infinite}
+@keyframes castScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.cti{display:inline-flex;align-items:center;gap:.4rem;padding:.4rem .9rem;border-right:1px solid #1c3266;font-family:var(--mono);font-size:.6rem;color:#b9c6de;white-space:nowrap}
+.cti img{width:14px;height:14px;object-fit:contain}
+.cti b{color:var(--accent2);font-weight:600;letter-spacing:.1em;font-size:.52rem}
+.cast-stage{position:relative;height:216px}
+.cscene{position:absolute;inset:0;padding:1.1rem 1.2rem;opacity:0;transform:translateY(12px);transition:opacity .45s,transform .45s;pointer-events:none}
+.cscene.on{opacity:1;transform:none;pointer-events:auto}
+.sc-tag{font-family:var(--mono);font-size:.56rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:.7rem}
+.sc-tag.gold{color:var(--accent2)}
+.sc-row{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:.7rem;padding:.5rem 0;border-bottom:1px solid var(--border)}
+.sc-row img{width:30px;height:30px;object-fit:contain}
+.sc-row b{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.15rem;letter-spacing:.03em;text-transform:uppercase;color:#cfd8e3}
+.sc-row .sc-r{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.7rem;color:#8fa0b3}
+.sc-row.w b,.sc-row.w .sc-r{color:#fff}
+.sc-row.w .sc-r{color:var(--accent2)}
+.sc-stamp{position:absolute;right:1.4rem;top:52%;transform:rotate(-8deg);font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.5rem;letter-spacing:.24em;color:#d7263d;border:3px solid #d7263d;border-radius:6px;padding:.1rem .55rem .05rem;opacity:.9}
+.sc-stamp.pop{animation:stampIn .5s cubic-bezier(.34,1.56,.64,1)}
+@keyframes stampIn{0%{transform:rotate(-8deg) scale(2.2);opacity:0}60%{opacity:1}100%{transform:rotate(-8deg) scale(1)}}
+.sc-st{display:flex;flex-direction:column;gap:.35rem}
+.sc-sr{display:grid;grid-template-columns:1.2ch auto 1fr auto;align-items:center;gap:.6rem;background:#08131f;border:1px solid var(--border);border-radius:8px;padding:.45rem .7rem}
+.sc-sr i{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-style:normal;color:var(--muted)}
+.sc-sr img{width:20px;height:20px;object-fit:contain}
+.sc-sr b{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:.95rem;letter-spacing:.03em;text-transform:uppercase;color:#e6edf4}
+.sc-sr span{font-family:var(--mono);font-size:.68rem;color:var(--muted)}
+.sc-st.go .sc-sr[data-k="a"]{animation:rowUp .7s ease}
+.sc-st.go .sc-sr[data-k="b"]{animation:rowDown .7s ease}
+@keyframes rowUp{0%{transform:translateY(calc(100% + .35rem))}100%{transform:none}}
+@keyframes rowDown{0%{transform:translateY(calc(-100% - .35rem))}100%{transform:none}}
+.sc-head{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.5rem;line-height:1.1;text-transform:uppercase;color:#fff;min-height:2.3em}
+.sc-meta{font-family:var(--mono);font-size:.6rem;color:var(--muted);margin-top:.6rem}
+.cast-foot{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:.6rem .9rem;border-top:1px solid var(--border);font-family:var(--mono);font-size:.58rem;color:var(--muted)}
+.cast-foot a{color:var(--accent)}
+/* shared broadcast headers */
+.bug{display:inline-block;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:.82rem;letter-spacing:.2em;text-transform:uppercase;color:#0b1f45;background:var(--accent2);padding:.32rem .8rem .26rem;transform:skewX(-8deg);margin-bottom:1.1rem}
+.bug.red{background:#d7263d;color:#fff}
+.bc-h2{font-family:'Barlow Condensed',sans-serif;font-weight:900;text-transform:uppercase;font-size:clamp(2.1rem,4.2vw,3.3rem);line-height:1;letter-spacing:.01em;color:#fff}
+.bc-h2 em{font-style:italic;color:var(--accent2)}
+.tour-sub{font-size:.9rem;color:var(--muted);line-height:1.8;font-weight:300;max-width:560px;margin:1rem auto 0}
+/* tour */
+.tour{padding:5.5rem 4rem 5rem;border-top:1px solid var(--border);position:relative}
+.tour-head{text-align:center;max-width:760px;margin:0 auto 3rem}
+.tour-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;max-width:1240px;margin:0 auto;align-items:start}
+.tour-stagewrap{min-height:100%}
+.tour-stage{position:sticky;top:110px;background:var(--card);border:1px solid var(--border);border-radius:16px;height:380px;overflow:hidden}
+.ts{position:absolute;inset:0;padding:1.3rem 1.4rem;opacity:0;transform:translateY(16px);transition:opacity .5s,transform .5s}
+.tour-stage[data-active="0"] .ts[data-ts="0"],.tour-stage[data-active="1"] .ts[data-ts="1"],.tour-stage[data-active="2"] .ts[data-ts="2"],.tour-stage[data-active="3"] .ts[data-ts="3"]{opacity:1;transform:none}
+.ts-chrome{display:flex;justify-content:space-between;gap:1rem;font-family:var(--mono);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--border);padding-bottom:.7rem;margin-bottom:1.1rem}
+.ts-chrome.gold{color:var(--accent2)}
+.ts-adminrow{background:#08131f;border:1px solid var(--border);border-radius:10px;padding:1rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+.ts-time{display:block;font-family:var(--mono);font-size:.58rem;color:var(--muted);margin-bottom:.5rem;letter-spacing:.1em}
+.ts-teams{display:inline-flex;align-items:center;gap:.5rem;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.05rem;text-transform:uppercase;color:#e6edf4;flex-wrap:wrap}
+.ts-teams img{width:24px;height:24px;object-fit:contain}
+.ts-teams input{width:46px;background:#0c1926;border:1px solid var(--border);border-radius:6px;color:#fff;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.1rem;text-align:center;padding:.3rem 0}
+.ts-pub{background:var(--accent2);color:#0b1f45;border:none;border-radius:8px;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:.95rem;letter-spacing:.08em;text-transform:uppercase;padding:.7rem 1.4rem;cursor:default}
+.ts-pub.press{animation:pubPress .7s ease}
+@keyframes pubPress{0%{transform:scale(1)}30%{transform:scale(.9);box-shadow:0 0 0 6px rgba(251,191,36,.25)}100%{transform:scale(1)}}
+.ts-note{font-family:var(--mono);font-size:.6rem;color:var(--muted);margin-top:1rem}
+.ts-recap{background:#08131f;border:1px solid var(--border);border-radius:10px;padding:1.2rem}
+.ts-rh{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.7rem;line-height:1.05;text-transform:uppercase;color:#fff;min-height:2.2em}
+.ts-rm{font-family:var(--mono);font-size:.62rem;color:var(--muted);margin-top:.8rem;letter-spacing:.04em}
+.ts-st{display:flex;flex-direction:column;gap:.45rem}
+.ts-sr{display:grid;grid-template-columns:1.4ch auto 1fr auto auto;align-items:center;gap:.7rem;background:#08131f;border:1px solid var(--border);border-radius:9px;padding:.6rem .85rem}
+.ts-sr i{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-style:normal;color:var(--muted)}
+.ts-sr img{width:24px;height:24px;object-fit:contain}
+.ts-sr b{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.05rem;letter-spacing:.03em;text-transform:uppercase;color:#e6edf4}
+.ts-sr em{font-style:normal;font-family:var(--mono);font-size:.6rem}
+.ts-sr.up em{color:#22c55e}.ts-sr.down em{color:#ef4444}
+.ts-sr span{font-family:var(--mono);font-size:.7rem;color:var(--muted)}
+.tour-stage[data-active="2"] .ts-sr.up{animation:rowUp .7s ease}
+.tour-stage[data-active="2"] .ts-sr.down{animation:rowDown .7s ease}
+.ts-phone{width:240px;margin:0 auto;background:#0b1220;border:1px solid var(--border);border-radius:22px;padding:1rem .9rem 1.2rem;box-shadow:0 20px 50px rgba(0,0,0,.4)}
+.ts-ph-head{font-family:var(--mono);font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);text-align:center;margin-bottom:.8rem}
+.ts-bub{background:#16283c;color:#dbe5ee;font-size:.72rem;line-height:1.5;border-radius:12px 12px 12px 4px;padding:.55rem .7rem;margin-bottom:.5rem;opacity:0;transform:translateY(8px);max-width:92%}
+.ts-bub.me{background:var(--accent2);color:#0b1f45;border-radius:12px 12px 4px 12px;margin-left:auto}
+.tour-stage[data-active="3"] .ts-bub.b1{animation:bubIn .4s ease .15s forwards}
+.tour-stage[data-active="3"] .ts-bub.b2{animation:bubIn .4s ease .9s forwards}
+.tour-stage[data-active="3"] .ts-bub.b3{animation:bubIn .4s ease 1.7s forwards}
+@keyframes bubIn{to{opacity:1;transform:none}}
+.tour-steps{display:flex;flex-direction:column}
+.tstep{min-height:56vh;display:flex;flex-direction:column;justify-content:center;opacity:.35;transition:opacity .4s}
+.tstep.on{opacity:1}
+.tnum{font-family:var(--mono);font-size:.68rem;letter-spacing:.24em;color:var(--accent2);margin-bottom:.8rem}
+.tstep h3{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.9rem;line-height:1.05;text-transform:uppercase;color:#fff;margin-bottom:.7rem}
+.tstep p{font-size:.88rem;color:var(--muted);line-height:1.8;font-weight:300;max-width:420px}
+.tour-cta{padding:2rem 0 1rem}
+/* villain */
+.villain{padding:5.5rem 4rem 6rem;border-top:1px solid var(--border)}
+.vs{position:relative;max-width:1100px;height:440px;margin:0 auto;border-radius:16px;overflow:hidden;border:1px solid var(--border);box-shadow:0 40px 100px rgba(0,0,0,.5)}
+.vs-old,.vs-new{position:absolute;inset:0;overflow:hidden}
+.vs-old{background:#e8e4da;color:#111;font-family:'Times New Roman',Times,serif;text-align:center}
+.vo-banner{background:#c00;color:#ff0;font-weight:700;font-size:.82rem;padding:.35rem;letter-spacing:.02em}
+.vo-title{font-size:1.6rem;font-weight:700;padding:.7rem .5rem .3rem;text-decoration:underline}
+.vo-marq{overflow:hidden;background:#ffffcc;border-top:1px solid #999;border-bottom:1px solid #999;white-space:nowrap}
+.vo-marq span{display:inline-block;padding:.25rem 0;font-size:.78rem;animation:voM 14s linear infinite}
+@keyframes voM{from{transform:translateX(60%)}to{transform:translateX(-100%)}}
+.vo-body{padding:.8rem 1rem}
+.vo-nav{font-size:.85rem;margin-bottom:.7rem}
+.vo-nav a{color:#00e;text-decoration:underline}
+.vo-img{width:78%;margin:0 auto .7rem;border:2px dashed #999;background:#f4f2ec;color:#777;font-size:.72rem;padding:1.4rem .5rem;font-family:Arial,sans-serif}
+.vo-p{font-size:.8rem;line-height:1.5;margin-bottom:.6rem}
+.vo-small{font-size:.66rem;color:#555}
+.vo-tbl{margin:0 auto .6rem;border-collapse:collapse;font-size:.78rem;background:#fff}
+.vo-tbl th,.vo-tbl td{border:1px solid #999;padding:.22rem .8rem}
+.vo-tbl th{background:#ccc}
+.vs-new{background:linear-gradient(160deg,#0b1f45,#08131f 70%);clip-path:inset(0 0 0 var(--p));color:#fff}
+.vn-mast{display:flex;align-items:center;gap:.8rem;padding:.8rem 1rem;background:rgba(255,255,255,.04);border-bottom:2px solid var(--accent2)}
+.vn-bug{display:inline-flex;align-items:center;gap:.35rem;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;color:#fff;background:#d7263d;padding:.18rem .45rem .14rem;border-radius:3px}
+.vn-bug i{width:5px;height:5px;border-radius:50%;background:#fff}
+.vn-mast .mirror-name{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.05rem;letter-spacing:.05em;text-transform:uppercase}
+.vn-nav{margin-left:auto;font-family:var(--mono);font-size:.58rem;color:#a9b8d6;letter-spacing:.08em}
+.vn-body{display:grid;grid-template-columns:1.1fr .9fr;gap:1rem;padding:1.1rem}
+.vn-score,.vn-st{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:.9rem 1rem}
+.vn-tag{font-family:var(--mono);font-size:.56rem;letter-spacing:.18em;text-transform:uppercase;color:#a9b8d6;margin-bottom:.6rem}
+.vn-row{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:.6rem;padding:.4rem 0;border-bottom:1px solid rgba(255,255,255,.08)}
+.vn-row img{width:24px;height:24px;object-fit:contain}
+.vn-row b{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1rem;text-transform:uppercase;letter-spacing:.03em}
+.vn-row span{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.3rem;color:#9fb2c5}
+.vn-row.w span{color:var(--accent2)}
+.vn-btns{display:flex;gap:.5rem;margin-top:.7rem}
+.vn-btns span{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;background:#fff;color:#0b1f45;border-radius:5px;padding:.3rem .6rem}
+.vn-btns span:last-child{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.35)}
+.vn-sr{display:grid;grid-template-columns:1.2ch 1fr auto;gap:.6rem;align-items:center;padding:.42rem 0;border-bottom:1px solid rgba(255,255,255,.08);font-family:'Barlow Condensed',sans-serif}
+.vn-sr i{font-style:normal;font-weight:900;color:#a9b8d6}
+.vn-sr b{font-weight:800;text-transform:uppercase;font-size:.95rem;letter-spacing:.03em}
+.vn-sr span{font-family:var(--mono);font-size:.66rem;color:#a9b8d6}
+.vs-handle{position:absolute;top:0;bottom:0;left:var(--p);width:3px;background:var(--accent2);transform:translateX(-50%);pointer-events:none;box-shadow:0 0 20px rgba(251,191,36,.5)}
+.vs-handle span{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:40px;height:40px;border-radius:50%;background:var(--accent2);display:grid;place-items:center}
+.vs-handle span::before{content:'\2194';color:#0b1f45;font-weight:900;font-size:1.1rem}
+#vsRange{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+.vs-tag{position:absolute;bottom:.8rem;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;padding:.3rem .7rem;border-radius:100px;pointer-events:none}
+.vt-old{left:.8rem;background:rgba(0,0,0,.65);color:#ffd9d9}
+.vt-new{right:.8rem;background:rgba(251,191,36,.92);color:#0b1f45}
+@media(max-width:1180px){
+.bc-grid{gap:2.2rem}
+.tour-grid{gap:2.2rem}
+}
+@media(max-width:900px){
+.hero.bc{padding:6.5rem 1.25rem 2.5rem}
+.bc-grid{grid-template-columns:1fr;gap:2rem}
+.bc-h{font-size:clamp(2.7rem,12vw,3.6rem)}
+.bc-input{flex-direction:column}
+.bc-go{justify-content:center}
+.cast{transform:none}
+.cast-name{font-size:.85rem}
+.tour{padding:3.5rem 1.25rem 3rem}
+.tour-grid{grid-template-columns:1fr;gap:1.4rem}
+.tour-stage{top:84px;height:340px;z-index:5}
+.tstep{min-height:62vh}
+.villain{padding:3.5rem 1.25rem 4rem}
+.vs{height:500px}
+.vn-body{grid-template-columns:1fr;padding:.9rem}
+.vo-title{font-size:1.15rem}
+.vs-tag{bottom:.5rem;font-size:.6rem}
+}
+@media (prefers-reduced-motion:reduce){
+.cast-track,.vo-marq span{animation:none}
+.cscene,.ts,.tstep{transition:none}
+.ts-bub{opacity:1;transform:none}
+.sc-stamp.pop,.ts-pub.press{animation:none}
+}
 </style>
 </head>
 <body>
@@ -544,25 +737,58 @@ footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.5rem}
   <div class="nav-links" id="navLinks"><a href="#services">Services</a><a href="#about">About</a><a href="#work">Work</a><a href="#pricing">Pricing</a><a href="demo.html">Demo</a><a href="#contact" class="nav-cta">Get In Touch</a></div>
 </nav>
 
-<section class="hero">
+<section class="hero bc">
   <canvas id="fogCanvas"></canvas>
   <div class="spotlight spot-top"></div><div class="spotlight spot-center"></div><div class="spotlight spot-left"></div><div class="spotlight spot-right"></div>
-  <div class="ambient-bloom"></div>
-  <div class="hero-prompt"><span class="path">~/mainline </span><span class="cmd">&rarr; build</span></div>
-  <div class="hero-logo">
-    <div class="bracket bl">{</div>
-    <div class="text-block"><div class="line1">MAIN LINE</div><div class="line2">WEB DESIGN</div></div>
-    <div class="bracket br">}</div>
-  </div>
-  <div class="hero-below">
-    <div class="glow-bar"></div>
-    <div class="hero-status"><div class="sdot green"></div><span class="slabel">LIVE</span><span class="slabel-sep">&mdash;</span><span class="slabel-msg">building something great</span></div>
-  </div>
-  <h2 class="hero-headline">Built for leagues. <em>Designed like brands.</em></h2>
-  <p class="hero-p">Custom league, tournament, and program websites &mdash; schedules, standings, brackets, registration, and admin tools, all custom-coded.</p>
-  <div class="hero-actions">
-    <span class="btn-orbit-wrap"><a href="#contact"><button class="btn-orbit">Start Your Project &rarr;</button></a><canvas class="orbit-canvas"></canvas></span>
-    <a href="demo.html"><button class="btn-outline">Try the Live Demo</button></a>
+  <div class="bc-grid">
+    <div class="bc-left">
+      <div class="bc-problem"><span class="bc-live"><i></i>Live</span><span class="bc-type" id="bcType"><noscript><s>It&rsquo;s 11:04 PM on a Sunday. Nobody posted the scores. Again.</s> <b>Fixed.</b></noscript></span></div>
+      <h1 class="bc-h">Your league,<br><em>run like the big leagues.</em></h1>
+      <p class="bc-sub">Live scores, standings, brackets, registration, and recaps that write themselves. On a site parents brag about instead of apologize for.</p>
+      <div class="bc-mirror">
+        <div class="bc-mlabel">See it with your name on it</div>
+        <div class="bc-input"><input id="mirror" type="text" maxlength="40" placeholder="Type your league&rsquo;s name" autocomplete="off" aria-label="Your league's name"><a id="mirrorGo" href="demo.html" class="bc-go">Open your demo &rarr;</a></div>
+      </div>
+      <div class="bc-ctas"><a href="#contact"><button class="btn-orbit">Start Your Project &rarr;</button></a><a href="#tour" class="bc-watch">Watch it run &darr;</a></div>
+    </div>
+    <div class="bc-right">
+      <div class="cast" id="cast">
+        <div class="cast-chrome"><span class="cast-bug"><i></i>Live</span><span class="cast-name mirror-name">Main Line Demo League</span><span class="cast-dom" id="castDom">yourleague.com</span></div>
+        <div class="cast-ticker"><div class="cast-track" id="castTrack">
+          <span class="cti"><img src="demo-logos/tigers.webp" alt="">BAL 8 <img src="demo-logos/sharks.webp" alt="">ARD 3 <b>FINAL</b></span>
+          <span class="cti"><img src="demo-logos/dragons.webp" alt="">NAR 7 <img src="demo-logos/wolverines.webp" alt="">WYN 4 <b>FINAL</b></span>
+          <span class="cti"><img src="demo-logos/storm.webp" alt="">VIL 9 <img src="demo-logos/thunder.webp" alt="">HAV 5 <b>FINAL</b></span>
+          <span class="cti"><img src="demo-logos/rockets.webp" alt="">GLD 6 <img src="demo-logos/bulls.webp" alt="">BMR 1 <b>FINAL</b></span>
+          <span class="cti"><img src="demo-logos/tigers.webp" alt="">BAL 8 <img src="demo-logos/sharks.webp" alt="">ARD 3 <b>FINAL</b></span>
+          <span class="cti"><img src="demo-logos/dragons.webp" alt="">NAR 7 <img src="demo-logos/wolverines.webp" alt="">WYN 4 <b>FINAL</b></span>
+          <span class="cti"><img src="demo-logos/storm.webp" alt="">VIL 9 <img src="demo-logos/thunder.webp" alt="">HAV 5 <b>FINAL</b></span>
+          <span class="cti"><img src="demo-logos/rockets.webp" alt="">GLD 6 <img src="demo-logos/bulls.webp" alt="">BMR 1 <b>FINAL</b></span>
+        </div></div>
+        <div class="cast-stage" id="castStage">
+          <div class="cscene on" data-cs="0">
+            <div class="sc-tag">Sat &middot; Polo Field</div>
+            <div class="sc-row"><img src="demo-logos/sharks.webp" alt=""><b>Ardmore Sharks</b><span class="sc-r">3</span></div>
+            <div class="sc-row w"><img src="demo-logos/tigers.webp" alt=""><b>Bala Tigers</b><span class="sc-r" id="castRuns">5</span></div>
+            <div class="sc-stamp" id="castStamp">FINAL</div>
+          </div>
+          <div class="cscene" data-cs="1">
+            <div class="sc-tag">Standings &middot; updated now</div>
+            <div class="sc-st" id="castSt">
+              <div class="sc-sr" data-k="a"><i>1</i><img src="demo-logos/tigers.webp" alt=""><b>Bala Tigers</b><span>12-4</span></div>
+              <div class="sc-sr" data-k="b"><i>2</i><img src="demo-logos/dragons.webp" alt=""><b>Narberth Dragons</b><span>11-5</span></div>
+              <div class="sc-sr" data-k="c"><i>3</i><img src="demo-logos/storm.webp" alt=""><b>Villanova Storm</b><span>10-6</span></div>
+              <div class="sc-sr" data-k="d"><i>4</i><img src="demo-logos/rockets.webp" alt=""><b>Gladwyne Rockets</b><span>9-7</span></div>
+            </div>
+          </div>
+          <div class="cscene" data-cs="2">
+            <div class="sc-tag gold">AI Recap &middot; published in 4 seconds</div>
+            <div class="sc-head" id="castRecap">Tigers pull away late, top Sharks 5-3.</div>
+            <div class="sc-meta">Headline, key inning, player of the game. Nobody typed a word.</div>
+          </div>
+        </div>
+        <div class="cast-foot"><span>No one is touching this. It runs itself.</span><a href="demo.html">Full demo &rarr;</a></div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -592,51 +818,94 @@ footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.5rem}
   </div>
 </section>
 
-<section class="demo-teaser" id="demo">
-  <div class="dt-inner">
-    <div class="dt-copy reveal">
-      <div class="label">Interactive Demo</div>
-      <h2>Don't take a screenshot's word <em>for it.</em></h2>
-      <p>Click around a working league site. Every final gets a recap and box score, the standings compute from results, and when you publish a score in the admin, everything else updates. No signup, no sales call.</p>
-      <a href="demo.html"><button class="btn-orbit">Open the Live Demo &rarr;</button></a>
-    </div>
-    <a class="dt-card reveal" href="demo.html" aria-label="Open the live demo">
-      <div class="dt-chrome"><i></i><i></i><i></i><span>yourleague.com/scores</span><em>LIVE</em></div>
-      <div class="dt-tk"><div class="dt-track">
-        <div class="dt-i"><b>Final &middot; Sat May 2</b><span class="w"><img src="demo-logos/dragons.webp" alt="">NAR 7</span><span><img src="demo-logos/wolverines.webp" alt="">WYN 4</span></div>
-        <div class="dt-i"><b>Final &middot; Sat May 2</b><span><img src="demo-logos/thunder.webp" alt="">HAV 5</span><span class="w"><img src="demo-logos/storm.webp" alt="">VIL 9</span></div>
-        <div class="dt-i"><b>Final &middot; Sat May 2</b><span class="w"><img src="demo-logos/rockets.webp" alt="">GLD 6</span><span><img src="demo-logos/bulls.webp" alt="">BMR 1</span></div>
-        <div class="dt-i"><b>Final &middot; Sat May 2</b><span class="w"><img src="demo-logos/tigers.webp" alt="">BAL 8</span><span><img src="demo-logos/sharks.webp" alt="">ARD 3</span></div>
-        <div class="dt-i"><b>Sat May 9 &middot; 6:15 PM</b><span><img src="demo-logos/wolverines.webp" alt="">WYN</span><span><img src="demo-logos/tigers.webp" alt="">at BAL</span></div>
-        <div class="dt-i"><b>Final &middot; Sat May 2</b><span class="w"><img src="demo-logos/dragons.webp" alt="">NAR 7</span><span><img src="demo-logos/wolverines.webp" alt="">WYN 4</span></div>
-        <div class="dt-i"><b>Final &middot; Sat May 2</b><span><img src="demo-logos/thunder.webp" alt="">HAV 5</span><span class="w"><img src="demo-logos/storm.webp" alt="">VIL 9</span></div>
-        <div class="dt-i"><b>Final &middot; Sat May 2</b><span class="w"><img src="demo-logos/rockets.webp" alt="">GLD 6</span><span><img src="demo-logos/bulls.webp" alt="">BMR 1</span></div>
-        <div class="dt-i"><b>Final &middot; Sat May 2</b><span class="w"><img src="demo-logos/tigers.webp" alt="">BAL 8</span><span><img src="demo-logos/sharks.webp" alt="">ARD 3</span></div>
-        <div class="dt-i"><b>Sat May 9 &middot; 6:15 PM</b><span><img src="demo-logos/wolverines.webp" alt="">WYN</span><span><img src="demo-logos/tigers.webp" alt="">at BAL</span></div>
-      </div></div>
-      <div class="dt-body">
-        <div class="dt-live">
-          <div class="dt-lt"><i></i>Final &middot; Sat May 2 &middot; Polo Field</div>
-          <div class="dt-row"><span class="lg"><img src="demo-logos/tigers.webp" alt=""></span><span class="nm">Bala Tigers</span><span class="rn">8</span></div>
-          <div class="dt-row dim"><span class="lg"><img src="demo-logos/sharks.webp" alt=""></span><span class="nm">Ardmore Sharks</span><span class="rn">3</span></div>
-          <div class="dt-btns"><span class="dt-b solid">Recap <em>AI</em></span><span class="dt-b">Box Score</span></div>
+<section class="tour" id="tour">
+  <div class="tour-head">
+    <div class="bug reveal">Watch It Run</div>
+    <h2 class="bc-h2 reveal">One score goes in. <em>Everything updates.</em></h2>
+    <p class="tour-sub reveal">This is the whole pitch. Scroll and watch what happens the moment a game ends.</p>
+  </div>
+  <div class="tour-grid">
+    <div class="tour-stagewrap"><div class="tour-stage" id="tourStage" data-active="0" aria-hidden="true">
+      <div class="ts" data-ts="0">
+        <div class="ts-chrome"><span class="mirror-name">Main Line Demo League</span><span>Admin &rsaquo; Scores</span></div>
+        <div class="ts-adminrow">
+          <div class="ts-g"><span class="ts-time">7:30 PM &middot; Field 2</span><span class="ts-teams"><img src="demo-logos/sharks.webp" alt="">Sharks <input value="3" readonly> at <img src="demo-logos/tigers.webp" alt="">Tigers <input value="5" readonly></span></div>
+          <button class="ts-pub" id="tsPub" type="button">Publish</button>
         </div>
-        <div class="dt-st">
-          <div class="dt-sh">Standings</div>
-          <div class="dt-sr"><span>1</span><span class="lg"><img src="demo-logos/tigers.webp" alt=""></span><span class="nm">Bala Tigers</span><span>11-5</span></div>
-          <div class="dt-sr"><span>2</span><span class="lg"><img src="demo-logos/dragons.webp" alt=""></span><span class="nm">Narberth Dragons</span><span>10-6</span></div>
-          <div class="dt-sr"><span>3</span><span class="lg"><img src="demo-logos/storm.webp" alt=""></span><span class="nm">Villanova Storm</span><span>9-7</span></div>
-          <div class="dt-sr"><span>4</span><span class="lg"><img src="demo-logos/rockets.webp" alt=""></span><span class="nm">Gladwyne Rockets</span><span>9-7</span></div>
+        <div class="ts-note">A manager does this from the parking lot.</div>
+      </div>
+      <div class="ts" data-ts="1">
+        <div class="ts-chrome gold"><span>AI Recap</span><span>4 seconds later</span></div>
+        <div class="ts-recap"><div class="ts-rh" id="tsRecap"></div><div class="ts-rm">Tigers improve to 12-4 &middot; C. Delgado: 2-for-3, 2 RBI</div></div>
+      </div>
+      <div class="ts" data-ts="2">
+        <div class="ts-chrome"><span>Standings</span><span>re-ranked automatically</span></div>
+        <div class="ts-st">
+          <div class="ts-sr up"><i>1</i><img src="demo-logos/tigers.webp" alt=""><b>Bala Tigers</b><em>+1</em><span>12-4</span></div>
+          <div class="ts-sr down"><i>2</i><img src="demo-logos/dragons.webp" alt=""><b>Narberth Dragons</b><em>-1</em><span>11-5</span></div>
+          <div class="ts-sr"><i>3</i><img src="demo-logos/storm.webp" alt=""><b>Villanova Storm</b><em></em><span>10-6</span></div>
+          <div class="ts-sr"><i>4</i><img src="demo-logos/rockets.webp" alt=""><b>Gladwyne Rockets</b><em></em><span>9-7</span></div>
         </div>
       </div>
-      <div class="dt-cta">Click to open &rarr;</div>
-    </a>
+      <div class="ts" data-ts="3">
+        <div class="ts-phone">
+          <div class="ts-ph-head">Team Alerts</div>
+          <div class="ts-bub b1">FINAL: Tigers 5, Sharks 3. Recap: yourleague.com/recap</div>
+          <div class="ts-bub b2">Playoff picture updated. Tigers clinch the 1 seed.</div>
+          <div class="ts-bub b3 me">This site is the best thing the league ever bought</div>
+        </div>
+        <div class="ts-note">Alerts fire, seeds re-rank, the champions page waits for October.</div>
+      </div>
+    </div></div>
+    <div class="tour-steps">
+      <div class="tstep" data-step="0"><span class="tnum">01</span><h3>A manager enters the score</h3><p>Two numbers and a Publish button, from a phone, in the parking lot. That is the entire job.</p></div>
+      <div class="tstep" data-step="1"><span class="tnum">02</span><h3>The recap writes itself</h3><p>Headline, the key inning, player of the game. Four seconds after the final, it reads like a beat writer filed it.</p></div>
+      <div class="tstep" data-step="2"><span class="tnum">03</span><h3>Standings re-rank on their own</h3><p>Wins, losses, games back, run differential, streaks. Nobody opens a spreadsheet ever again.</p></div>
+      <div class="tstep" data-step="3"><span class="tnum">04</span><h3>Parents get the text</h3><p>Alerts go out, playoff seeds update, and the bracket is ready before the team is out of the parking lot.</p></div>
+      <div class="tour-cta"><a href="demo.html"><button class="btn-orbit">Do it yourself in the demo &rarr;</button></a></div>
+    </div>
   </div>
 </section>
 
-<section class="intro-section">
-  <div class="reveal"><div class="label">Our Approach</div><h2>League software doesn't have to look like <em>league software.</em></h2></div>
-  <div class="reveal"><p>Most league and tournament sites read like a 2008 admin panel &mdash; clunky tables, stock templates, and a logo someone made in PowerPoint. We build league platforms that work like the big leagues and look like a brand: scores, schedules, brackets, stats, registration, and admin tools wrapped in a design your players, parents, and sponsors actually want to look at.</p></div>
+<section class="villain" id="villain">
+  <div class="tour-head">
+    <div class="bug red reveal">The Villain</div>
+    <h2 class="bc-h2 reveal">League software doesn&rsquo;t have to look like <em>league software.</em></h2>
+    <p class="tour-sub reveal">Drag the handle. If the left side feels familiar, we should talk.</p>
+  </div>
+  <div class="vs reveal" id="vs" style="--p:50%">
+    <div class="vs-old" aria-hidden="true">
+      <div class="vo-banner">&#9733;&#9733;&#9733; WELCOME TO THE OFFICIAL LEAGUE WEBSITE !!! &#9733;&#9733;&#9733;</div>
+      <div class="vo-title">TRI-COUNTY ADULT BASEBALL LEAGUE</div>
+      <div class="vo-marq"><span>*** SEASON STARTS APRIL 12TH *** CALL DAVE FOR FIELD ASSIGNMENTS *** SNACK STAND VOLUNTEERS NEEDED ***</span></div>
+      <div class="vo-body">
+        <div class="vo-nav"><a href="#villain">Home</a> | <a href="#villain">Standings (PDF)</a> | <a href="#villain">Schedule (Excel)</a> | <a href="#villain">Photos</a> | <a href="#villain">Guestbook</a></div>
+        <div class="vo-img">[ team_photo_2019.jpg failed to load ]</div>
+        <p class="vo-p"><b>UPDATE:</b> Standings below are through Week 3. For current standings please email Dave. Scores from last weekend coming soon!!</p>
+        <table class="vo-tbl"><tr><th>Team</th><th>W</th><th>L</th></tr><tr><td>Cardinals</td><td>4</td><td>1</td></tr><tr><td>Blue Sox</td><td>3</td><td>?</td></tr><tr><td>Giants</td><td>2</td><td>2</td></tr></table>
+        <p class="vo-p vo-small">Last updated: March 2024 &middot; Visitor #004,182 &middot; Best viewed in Internet Explorer</p>
+      </div>
+    </div>
+    <div class="vs-new" aria-hidden="true">
+      <div class="vn-mast"><span class="vn-bug"><i></i>Live</span><span class="mirror-name">Main Line Demo League</span><span class="vn-nav">Scores &middot; Standings &middot; Bracket</span></div>
+      <div class="vn-body">
+        <div class="vn-score"><div class="vn-tag">Final &middot; Sat</div>
+          <div class="vn-row"><img src="demo-logos/sharks.webp" alt=""><b>Ardmore Sharks</b><span>3</span></div>
+          <div class="vn-row w"><img src="demo-logos/tigers.webp" alt=""><b>Bala Tigers</b><span>5</span></div>
+          <div class="vn-btns"><span>Recap</span><span>Box Score</span></div>
+        </div>
+        <div class="vn-st"><div class="vn-tag">Standings</div>
+          <div class="vn-sr"><i>1</i><b>Bala Tigers</b><span>12-4</span></div>
+          <div class="vn-sr"><i>2</i><b>Narberth Dragons</b><span>11-5</span></div>
+          <div class="vn-sr"><i>3</i><b>Villanova Storm</b><span>10-6</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="vs-handle" aria-hidden="true"><span></span></div>
+    <input type="range" id="vsRange" min="0" max="100" value="50" step="0.5" aria-label="Compare an old league site with a Main Line build">
+    <span class="vs-tag vt-old">their site now</span>
+    <span class="vs-tag vt-new">their site with us</span>
+  </div>
 </section>
 
 <section class="services" id="services">
@@ -979,6 +1248,57 @@ footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.5rem}
   document.addEventListener('click',function(e){if(nav.classList.contains('open')&&!nav.contains(e.target))close()});
   document.addEventListener('keydown',function(e){if(e.key==='Escape')close()});
   window.addEventListener('resize',function(){if(window.innerWidth>900)close()});
+})();
+// BROADCAST HERO + TOUR + VILLAIN
+(function(){
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // typed problem line
+  var tEl=document.getElementById('bcType');
+  if(tEl){var line='It\u2019s 11:04 PM on a Sunday. Nobody posted the scores. Again.';
+    var doneHTML='<s>'+line+'</s> <b>Fixed.</b>';
+    if(reduce){tEl.innerHTML=doneHTML}
+    else{var i=0;tEl.classList.add('typing');(function step(){if(i<=line.length){tEl.textContent=line.slice(0,i);i++;setTimeout(step,i<14?50:26)}else{tEl.classList.remove('typing');setTimeout(function(){tEl.innerHTML=doneHTML},900)}})()}
+  }
+  // cast engine
+  var stage=document.getElementById('castStage');
+  if(stage){var scenes=stage.querySelectorAll('.cscene');var ci=0,timer=null;
+    function typeRecap(){var el=document.getElementById('castRecap');var txt='Tigers pull away late, top Sharks 5-3.';if(reduce||!el){if(el)el.textContent=txt;return}el.textContent='';var k=0;(function st(){if(k<=txt.length){el.textContent=txt.slice(0,k);k++;setTimeout(st,24)}})()}
+    function act(nx){for(var j=0;j<scenes.length;j++)scenes[j].classList.toggle('on',j===nx);
+      if(nx===0){var s1=document.getElementById('castStamp');if(s1){s1.classList.remove('pop');void s1.offsetWidth;s1.classList.add('pop')}}
+      if(nx===1){var sw=document.getElementById('castSt');if(sw){sw.classList.remove('go');void sw.offsetWidth;sw.classList.add('go')}}
+      if(nx===2)typeRecap();
+      ci=nx}
+    if(!reduce){var start=function(){return setInterval(function(){act((ci+1)%scenes.length)},4200)};timer=start();
+      var cast=document.getElementById('cast');
+      cast.addEventListener('mouseenter',function(){if(timer){clearInterval(timer);timer=null}});
+      cast.addEventListener('mouseleave',function(){if(!timer)timer=start()});
+    }
+  }
+  // mirror
+  var mir=document.getElementById('mirror'),go=document.getElementById('mirrorGo');var mirred=false;
+  if(mir&&go){var deb;mir.addEventListener('input',function(){clearTimeout(deb);deb=setTimeout(function(){
+      var v=mir.value.trim();var nm=v||'Main Line Demo League';
+      var els=document.querySelectorAll('.mirror-name');for(var i=0;i<els.length;i++)els[i].textContent=nm;
+      var dom=document.getElementById('castDom');if(dom)dom.textContent=(v?v.toLowerCase().replace(/[^a-z0-9]+/g,'').slice(0,24):'yourleague')+'.com';
+      go.href=v?('demo.html#scores;cfg='+encodeURIComponent(btoa(JSON.stringify({name:v.slice(0,40)})))):'demo.html';
+      if(v&&!mirred){mirred=true;try{if(window.gtag)gtag('event','mirror_type')}catch(e){}}
+    },200)});}
+  // tour
+  var tstage=document.getElementById('tourStage');
+  if(tstage&&'IntersectionObserver' in window){
+    var steps=document.querySelectorAll('.tstep');
+    var tio=new IntersectionObserver(function(es){es.forEach(function(en){if(!en.isIntersecting)return;
+      var st=+en.target.getAttribute('data-step');tstage.setAttribute('data-active',st);
+      for(var i=0;i<steps.length;i++)steps[i].classList.toggle('on',steps[i]===en.target);
+      if(st===0){var pb=document.getElementById('tsPub');if(pb){pb.classList.remove('press');void pb.offsetWidth;pb.classList.add('press')}}
+      if(st===1){var el=document.getElementById('tsRecap');var txt='Tigers pull away late, top Sharks 5-3';if(el){if(reduce){el.textContent=txt}else{el.textContent='';var k=0;(function st2(){if(k<=txt.length){el.textContent=txt.slice(0,k);k++;setTimeout(st2,22)}})()}}}
+    })},{threshold:.55});
+    for(var i=0;i<steps.length;i++)tio.observe(steps[i]);
+    if(steps.length)steps[0].classList.add('on');
+  }
+  // villain slider
+  var vs=document.getElementById('vs'),vr=document.getElementById('vsRange');var vdr=false;
+  if(vs&&vr){vr.addEventListener('input',function(){vs.style.setProperty('--p',vr.value+'%');if(!vdr){vdr=true;try{if(window.gtag)gtag('event','villain_drag')}catch(e){}}})}
 })();
 // INTRO PARTICLES — floating stars/dots
 (function(){
