@@ -333,6 +333,82 @@ td .l5 i.W{background:var(--lg-green)}td .l5 i.L{background:#cbd5e1}
 .mu-lnk{background:none;border:none;padding:0;font-family:var(--heading);font-weight:800;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--lg-navy);cursor:pointer}
 .mu-lnk:hover{text-decoration:underline}
 
+/* SCHEDULE */
+.sched-sel{background:#fff;border:1px solid var(--lg-line);border-radius:7px;padding:.5rem 2rem .5rem .8rem;font-family:var(--heading);font-weight:700;font-size:.78rem;color:var(--lg-ink);appearance:none;-webkit-appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--lg-muted) 50%),linear-gradient(135deg,var(--lg-muted) 50%,transparent 50%);background-position:calc(100% - 14px) 50%,calc(100% - 9px) 50%;background-size:5px 5px;background-repeat:no-repeat;cursor:pointer}
+.swk{font-family:var(--mono);font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--lg-muted);margin:1.2rem 0 .5rem;padding-bottom:.35rem;border-bottom:1px solid var(--lg-line)}
+.swk:first-child{margin-top:0}
+.srow{display:grid;grid-template-columns:112px 1fr auto auto;align-items:center;gap:1rem;background:var(--lg-card);border:1px solid var(--lg-line);border-radius:10px;padding:.6rem .9rem;margin-bottom:.45rem}
+.srow .when{font-family:var(--mono);font-size:.6rem;color:var(--lg-muted);line-height:1.45}
+.srow .when b{display:block;color:var(--lg-ink);font-weight:600;font-size:.66rem}
+.srow .who{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;font-family:var(--heading);font-weight:800;font-size:.85rem;color:var(--lg-ink)}
+.srow .who .at{font-family:var(--mono);font-size:.56rem;color:var(--lg-muted);font-weight:400}
+.srow .who .sc{font-family:var(--heading);font-weight:900;color:var(--lg-navy)}
+.srow .who .lsc{color:var(--lg-muted);font-weight:700}
+.srow .fld{font-family:var(--mono);font-size:.58rem;color:var(--lg-muted);text-align:right}
+.srow .stat-chip{font-family:var(--mono);font-size:.54rem;letter-spacing:.12em;text-transform:uppercase;padding:.22rem .5rem;border-radius:100px}
+.srow .stat-chip.fin{background:#dcfce7;color:#166534}
+.srow .stat-chip.up{background:#eef2ff;color:#3730a3}
+.srow .stat-chip.pd{background:#fee2e2;color:#991b1b}
+.srow .stat-chip.po{background:#fef3c7;color:#92400e}
+.srow .who .tm-x{display:inline-flex;align-items:center;gap:.4rem}
+/* STATS */
+.lead-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem}
+.lead{background:var(--lg-card);border:1px solid var(--lg-line);border-radius:12px;overflow:hidden}
+.lead .lh{background:var(--lg-navy);color:#fff;font-family:var(--mono);font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;padding:.55rem .9rem;display:flex;justify-content:space-between}
+.lead .lr{display:grid;grid-template-columns:1.2ch auto 1fr auto;gap:.6rem;align-items:center;padding:.55rem .9rem;border-top:1px solid var(--lg-line)}
+.lead .lr:first-of-type{border-top:none}
+.lead .lr i{font-family:var(--heading);font-weight:900;font-style:normal;color:var(--lg-muted)}
+.lead .lr.top i{color:var(--lg-gold)}
+.lead .lr .nm{font-family:var(--heading);font-weight:800;font-size:.85rem;color:var(--lg-ink);line-height:1.15}
+.lead .lr .nm small{display:block;font-family:var(--mono);font-weight:400;font-size:.54rem;color:var(--lg-muted);margin-top:.1rem}
+.lead .lr .v{font-family:var(--heading);font-weight:900;font-size:1.05rem;color:var(--lg-navy)}
+/* TEAMS */
+.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.9rem}
+.tcard{background:var(--lg-card);border:1px solid var(--lg-line);border-radius:12px;padding:1.1rem 1rem;text-align:center;cursor:pointer;transition:transform .2s,box-shadow .2s}
+.tcard:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(15,23,42,.1)}
+.tcard .logo{width:72px;height:72px;margin:0 auto .6rem}
+.tcard b{display:block;font-family:var(--heading);font-weight:800;font-size:.95rem;color:var(--lg-ink);line-height:1.15}
+.tcard .rec{font-family:var(--mono);font-size:.62rem;color:var(--lg-muted);margin-top:.3rem}
+.tcard .pl{display:inline-block;margin-top:.5rem;font-family:var(--mono);font-size:.54rem;letter-spacing:.14em;text-transform:uppercase;background:var(--lg-soft);border:1px solid var(--lg-line);border-radius:100px;padding:.22rem .6rem;color:var(--lg-navy)}
+.tp-head{display:flex;align-items:center;gap:1.2rem;background:var(--lg-navy);color:#fff;border-radius:12px;padding:1.1rem 1.3rem;margin-bottom:1rem;flex-wrap:wrap}
+.tp-head .logo{width:84px;height:84px;flex-shrink:0}
+.tp-head h3{font-family:var(--heading);font-weight:900;font-size:1.5rem;text-transform:uppercase;letter-spacing:.01em;line-height:1}
+.tp-head .meta{font-family:var(--mono);font-size:.62rem;color:#a9b8d6;margin-top:.4rem;letter-spacing:.06em}
+.tp-head .lbtn{margin-left:auto}
+.tp-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:1rem;align-items:start}
+.tp-sec{background:var(--lg-card);border:1px solid var(--lg-line);border-radius:12px;overflow:hidden}
+.tp-sec .ch{padding:.7rem 1rem;background:var(--lg-soft);border-bottom:1px solid var(--lg-line);font-family:var(--heading);font-weight:800;font-size:.8rem;color:var(--lg-ink)}
+.tp-gm{display:grid;grid-template-columns:auto 1fr auto auto;gap:.7rem;align-items:center;padding:.55rem 1rem;border-top:1px solid var(--lg-line);font-size:.78rem}
+.tp-gm:first-of-type{border-top:none}
+.tp-gm .wl{font-family:var(--heading);font-weight:900;font-size:.8rem;width:1.4rem;height:1.4rem;border-radius:5px;display:grid;place-items:center;color:#fff}
+.tp-gm .wl.W{background:var(--lg-green)}.tp-gm .wl.L{background:#cbd5e1;color:#475569}.tp-gm .wl.U{background:#eef2ff;color:#3730a3}
+.tp-gm .op{font-family:var(--heading);font-weight:700;color:var(--lg-ink);display:flex;align-items:center;gap:.45rem}
+.tp-gm .dt{font-family:var(--mono);font-size:.56rem;color:var(--lg-muted)}
+/* NEWS */
+.news-list{display:flex;flex-direction:column;gap:.8rem}
+.news{background:var(--lg-card);border:1px solid var(--lg-line);border-left:4px solid var(--lg-navy);border-radius:10px;padding:1rem 1.2rem}
+.news.gold{border-left-color:var(--lg-gold)}
+.news.red{border-left-color:var(--lg-red)}
+.news .nh{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;margin-bottom:.4rem}
+.news .pin{font-family:var(--mono);font-size:.52rem;letter-spacing:.14em;text-transform:uppercase;background:#fef3c7;color:#92400e;border-radius:100px;padding:.18rem .5rem}
+.news .dt{font-family:var(--mono);font-size:.56rem;color:var(--lg-muted)}
+.news h4{font-family:var(--heading);font-weight:900;font-size:1.05rem;color:var(--lg-ink);text-transform:uppercase;letter-spacing:.01em;line-height:1.2;margin-bottom:.35rem}
+.news p{font-size:.8rem;color:#334155;line-height:1.65}
+.news .gbtn{margin-top:.6rem}
+/* ADMIN NEWS COMPOSER */
+.np{padding:.9rem 1rem;display:flex;flex-direction:column;gap:.6rem}
+.np input,.np textarea{width:100%;border:1px solid var(--lg-line);border-radius:8px;padding:.6rem .75rem;font-family:var(--sans);font-size:16px;color:var(--lg-ink);background:#fff}
+.np input:focus,.np textarea:focus{outline:none;border-color:var(--lg-navy);box-shadow:0 0 0 3px rgba(11,31,69,.12)}
+.np textarea{resize:vertical}
+.np .pub{align-self:flex-start}
+/* REGISTER MODAL */
+.reg-form{display:flex;flex-direction:column;gap:.8rem}
+.reg-form label{display:flex;flex-direction:column;gap:.35rem;font-family:var(--mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--lg-muted)}
+.reg-form input,.reg-form select{border:1px solid var(--lg-line);border-radius:8px;padding:.7rem .8rem;font-family:var(--sans);font-size:16px;color:var(--lg-ink);background:#fff}
+.reg-form input:focus,.reg-form select:focus{outline:none;border-color:var(--lg-navy);box-shadow:0 0 0 3px rgba(11,31,69,.12)}
+.reg-2{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+.reg-fee{display:flex;justify-content:space-between;align-items:center;background:var(--lg-soft);border:1px solid var(--lg-line);border-radius:10px;padding:.8rem 1rem;font-size:.8rem}
+.reg-fee b{font-family:var(--heading);font-weight:900;font-size:1.1rem;color:var(--lg-navy)}
 /* MODAL */
 .modal{position:fixed;inset:0;z-index:400;display:none;align-items:center;justify-content:center;padding:1.5rem;background:rgba(4,11,20,.72);backdrop-filter:blur(6px)}
 .modal.on{display:flex}
@@ -446,6 +522,12 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:2.
   .up-row{grid-template-columns:1fr;gap:.5rem}.up-row .fld{text-align:left}
   .panel{padding:1.1rem 1rem 1.6rem}
   .pbracket{grid-template-columns:repeat(3,220px) 200px}
+  .lead-grid{grid-template-columns:1fr}
+  .team-grid{grid-template-columns:1fr 1fr}
+  .tp-grid{grid-template-columns:1fr}
+  .srow{grid-template-columns:1fr auto;gap:.4rem .8rem}
+  .srow .when{order:1}.srow .stat-chip{order:2;justify-self:end}.srow .who{order:3;grid-column:1/-1}.srow .fld{display:none}
+  .reg-2{grid-template-columns:1fr}
   .adm{grid-template-columns:1fr}.adm-rail{flex-direction:row;flex-wrap:wrap;padding:.7rem .8rem;gap:.3rem}.adm-rail .rb{display:none}.adm-rail .ru{display:none}.adm-rail .ri{padding:.45rem .6rem;font-size:.66rem}
   .adm-main{padding:1rem}
   .stbl th{display:none}.stbl tr.wkrow td{display:block}
@@ -524,17 +606,21 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:2.
         <div><div class="b1">Main Line Demo League</div><div class="b2">2026 Season &middot; Adult Baseball</div></div>
       </div>
       <div class="lg-nav">
-        <span data-tab="scores" class="on">Scores</span><span data-tab="standings">Standings</span><span data-tab="bracket">Playoffs</span><span data-tab="admin">Admin</span>
+        <span data-tab="scores" class="on">Scores</span><span data-tab="schedule">Schedule</span><span data-tab="standings">Standings</span><span data-tab="stats">Stats</span><span data-tab="teams">Teams</span><span data-tab="news">News</span>
       </div>
-      <button class="lg-reg" onclick="toast('Registration + payments are part of the full build.','Stripe, waivers, rosters, the works.','gold')">Register</button>
+      <button class="lg-reg" onclick="openReg()">Register</button>
     </div>
 
     <div class="tk"><div class="tk-track" id="ticker"></div></div>
 
     <div class="lg-tabs" id="tabs">
       <button class="lg-tab on" data-tab="scores">Scores</button>
+      <button class="lg-tab" data-tab="schedule">Schedule</button>
       <button class="lg-tab" data-tab="standings">Standings</button>
+      <button class="lg-tab" data-tab="stats">Stats</button>
+      <button class="lg-tab" data-tab="teams">Teams</button>
       <button class="lg-tab" data-tab="bracket">Bracket</button>
+      <button class="lg-tab" data-tab="news">News</button>
       <button class="lg-tab" data-tab="admin">Admin <span class="pill" id="pendingCount">0</span></button>
     </div>
 
@@ -568,6 +654,34 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:2.
       <div class="pbracket" id="bracket"></div>
     </section>
 
+    <!-- SCHEDULE -->
+    <section class="panel" id="p-schedule">
+      <div class="sec-h"><div><div class="eyebrow">2026 Season</div><h3>Full Schedule</h3></div><select id="schedTeam" class="sched-sel" aria-label="Filter by team"><option value="">All teams</option></select></div>
+      <div id="schedList"></div>
+    </section>
+
+    <!-- STATS -->
+    <section class="panel" id="p-stats">
+      <div class="sec-h"><div><div class="eyebrow">Batting</div><h3>League Leaders</h3></div><span class="lnk" onclick="showTab('teams')">Team rosters &rarr;</span></div>
+      <div class="lead-grid" id="leadGrid"></div>
+      <div class="st-wrap" style="margin-top:1.1rem"><div class="tbl"><table><thead><tr><th>#</th><th>Player</th><th>Team</th><th>GP</th><th>AB</th><th>H</th><th>AVG</th><th>HR</th><th>RBI</th></tr></thead><tbody id="statBody"></tbody></table></div><div class="st-note"><span>Stats generate from published finals. Publish a score in <b>Admin</b> and the leaders move.</span><span>Top 15 by AVG, minimum 8 AB</span></div></div>
+    </section>
+
+    <!-- TEAMS -->
+    <section class="panel" id="p-teams">
+      <div id="teamsIndex">
+        <div class="sec-h"><div><div class="eyebrow">8 Clubs</div><h3>Teams</h3></div><span class="lnk" onclick="showTab('standings')">Standings &rarr;</span></div>
+        <div class="team-grid" id="teamGrid"></div>
+      </div>
+      <div id="teamPage" hidden></div>
+    </section>
+
+    <!-- NEWS -->
+    <section class="panel" id="p-news">
+      <div class="sec-h"><div><div class="eyebrow">From the commissioner</div><h3>News &amp; Events</h3></div><span class="lnk" onclick="showTab('admin')">Post news in Admin &rarr;</span></div>
+      <div class="news-list" id="newsList"></div>
+    </section>
+
     <!-- ADMIN -->
     <section class="panel adm-panel" id="p-admin">
       <div class="adm">
@@ -594,6 +708,14 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:2.
               <div style="overflow-x:auto"><table class="stbl"><thead><tr><th>Game</th><th>Away</th><th class="c">Score</th><th>Home</th><th class="c">Score</th><th></th></tr></thead><tbody id="scoreEntry"></tbody></table></div>
             </div>
             <div>
+              <div class="adm-card" style="margin-bottom:.9rem">
+                <div class="ch"><h4>Post news</h4><span class="chip">Goes to the News tab</span></div>
+                <div class="np">
+                  <input id="npTitle" type="text" maxlength="80" placeholder="Title, e.g. Rainout: Saturday games moved to Sunday" autocomplete="off">
+                  <textarea id="npBody" rows="3" maxlength="400" placeholder="Body text..."></textarea>
+                  <button class="pub" type="button" onclick="postNews()">Publish post</button>
+                </div>
+              </div>
               <div class="adm-card">
                 <div class="ch"><h4>Activity</h4><span class="chip">Live</span></div>
                 <div class="act-list" id="pubLog"></div>
@@ -696,6 +818,7 @@ function seedState(){
 }
 
 var state=load();
+if(!state.news)state.news=[];if(!state.regs)state.regs=[];
 function load(){try{var s=localStorage.getItem(KEY);if(s){var o=JSON.parse(s);if(o&&o.games&&o.games.length)return o}}catch(e){}return seedState()}
 function save(){try{localStorage.setItem(KEY,JSON.stringify(state))}catch(e){}}
 
@@ -801,6 +924,151 @@ window.openPreview=function(id){
     '<div class="mbody"><div class="mgrid"><div class="mcard"><div class="k">'+esc(a.nick)+' form</div><div class="v">'+ra.w+'-'+ra.l+'<small>'+ord(rankOf(a.id))+' &middot; '+(ra.diff>=0?'+':'')+ra.diff+'</small></div>'+l5(ra.l5)+'</div><div class="mcard"><div class="k">'+esc(h.nick)+' form</div><div class="v">'+rh.w+'-'+rh.l+'<small>'+ord(rankOf(h.id))+' &middot; '+(rh.diff>=0?'+':'')+rh.diff+'</small></div>'+l5(rh.l5)+'</div></div>'+
     '<div class="k" style="font-family:var(--mono);font-size:.52rem;letter-spacing:.18em;text-transform:uppercase;color:var(--lg-muted);margin-bottom:.5rem">Keys to the game</div><ul class="keys">'+keys.map(function(k){return '<li>'+esc(k)+'</li>'}).join('')+'</ul></div>'+
     '<div class="mfoot"><span>Previews post automatically the morning of the game.</span><span class="share"><button class="gbtn" onclick="toast(\'Added to your calendar.\',\'Real sites serve an ICS feed per team.\')">Add to calendar</button><button class="gbtn gold" onclick="closeModal();showTab(\'admin\')">Enter score</button></span></div>');
+};
+
+/* ---------- ROSTERS + BATTING (derived from finals) ---------- */
+var FIRSTN=['Marcus','Jalen','Tommy','Ricky','Andre','Colin','Devin','Sam','Luis','Pete','Owen','Nate','Victor','Charlie','Isaiah','Brendan','Hank','Miguel','Troy','Eddie','Grant','Felix','Jordan','Wes'];
+var LASTN=['Rivera','Okafor','Nguyen','Delgado','Brennan','Patel','Kowalski','Thompson','Ferreira','Washington','Moreau','Castillo','Haddad','Sullivan','Lindqvist','Mensah','Romano','Fitzgerald','Ortiz','Blackwell','Chen','Donnelly','Vega','Marsh'];
+var POSN=['C','1B','2B','3B','SS','LF','CF','RF','P','DH','UT','OF'];
+function hashId(x){var h=7;for(var i=0;i<x.length;i++)h=(h*31+x.charCodeAt(i))>>>0;return h}
+var _rosters={};
+function rosterOf(tid){
+  if(_rosters[tid])return _rosters[tid];
+  var rr=rng(hashId(tid)*97+5);var used={};var out=[];
+  for(var i=0;i<12;i++){
+    var f,l,nm,guard=0;
+    do{f=FIRSTN[Math.floor(rr()*FIRSTN.length)];l=LASTN[Math.floor(rr()*LASTN.length)];nm=f+' '+l;guard++}while(used[nm]&&guard<40);
+    used[nm]=1;
+    var num;do{num=2+Math.floor(rr()*47)}while(used['#'+num]);used['#'+num]=1;
+    out.push({num:num,name:nm,pos:POSN[i]});
+  }
+  _rosters[tid]=out;return out;
+}
+function teamGamesFinal(tid){
+  return state.games.filter(function(g){return g.status==='final'&&(g.home===tid||g.away===tid)})
+    .concat(pDecided().filter(function(g){return g.home===tid||g.away===tid}));
+}
+function statsOf(tid){
+  var ros=rosterOf(tid);var agg=ros.map(function(){return {ab:0,h:0,hr:0,rbi:0,gp:0}});
+  teamGamesFinal(tid).forEach(function(g){
+    var home=g.home===tid;var runs=home?g.hs:g.as;
+    var rr=rng(g.id*131+hashId(tid));
+    for(var i=0;i<12;i++){
+      var ab=3+(rr()<.45?1:0);agg[i].gp++;agg[i].ab+=ab;
+      var talent=.42-.018*i;
+      for(var k2=0;k2<ab;k2++){if(rr()<talent)agg[i].h++}
+    }
+    function pick(){var x=rr();return Math.floor(Math.pow(x,1.3)*12)}
+    for(var r2=0;r2<runs;r2++){agg[pick()].rbi++}
+    var hrs=Math.min(3,Math.floor(runs/3));
+    for(var h3=0;h3<hrs;h3++){var pj=pick();agg[pj].hr++;if(agg[pj].h<agg[pj].ab)agg[pj].h++}
+  });
+  return ros.map(function(pl,i){var a=agg[i];return {num:pl.num,name:pl.name,pos:pl.pos,team:tid,gp:a.gp,ab:a.ab,h:a.h,hr:a.hr,rbi:a.rbi,avg:a.ab?a.h/a.ab:0}});
+}
+function leagueStats(){var all=[];TEAMS.forEach(function(t){all=all.concat(statsOf(t.id))});return all}
+function avgFmt(v){return v.toFixed(3).replace(/^0/,'')}
+
+/* ---------- STATS TAB ---------- */
+function renderStats(){
+  var all=leagueStats();var q=all.filter(function(p2){return p2.ab>=8});
+  var byAvg=q.slice().sort(function(a,b){return b.avg-a.avg||b.h-a.h});
+  var byHr=all.slice().sort(function(a,b){return b.hr-a.hr||b.rbi-a.rbi});
+  var byRbi=all.slice().sort(function(a,b){return b.rbi-a.rbi||b.hr-a.hr});
+  function board(title,rows,fmt){return '<div class="lead"><div class="lh"><span>'+title+'</span><span>Leaders</span></div>'+rows.slice(0,3).map(function(p2,i){return '<div class="lr'+(i===0?' top':'')+'"><i>'+(i+1)+'</i>'+logo(T[p2.team],'s')+'<div class="nm">'+esc(p2.name)+'<small>'+esc(T[p2.team].nick)+' &middot; '+p2.pos+'</small></div><div class="v">'+fmt(p2)+'</div></div>'}).join('')+'</div>'}
+  document.getElementById('leadGrid').innerHTML=board('Batting Average',byAvg,function(p2){return avgFmt(p2.avg)})+board('Home Runs',byHr,function(p2){return p2.hr})+board('RBI',byRbi,function(p2){return p2.rbi});
+  document.getElementById('statBody').innerHTML=byAvg.slice(0,15).map(function(p2,i){return '<tr><td><span class="rk">'+(i+1)+'</span></td><td><span class="tm">'+logo(T[p2.team])+esc(p2.name)+'</span></td><td>'+esc(T[p2.team].abbr)+'</td><td>'+p2.gp+'</td><td>'+p2.ab+'</td><td>'+p2.h+'</td><td>'+avgFmt(p2.avg)+'</td><td>'+p2.hr+'</td><td>'+p2.rbi+'</td></tr>'}).join('');
+}
+
+/* ---------- SCHEDULE TAB ---------- */
+function renderSchedule(){
+  var sel=document.getElementById('schedTeam');
+  if(!sel.dataset.built){sel.dataset.built='1';sel.addEventListener('change',renderSchedule)}
+  var keep=sel.value;
+  sel.innerHTML='<option value="">All teams</option>'+TEAMS.map(function(t){return '<option value="'+t.id+'"'+(t.id===keep?' selected':'')+'>'+esc(t.name)+'</option>'}).join('');
+  var f=sel.value;
+  var games=state.games.slice().sort(byDate).concat(pDecided());
+  if(f)games=games.filter(function(g){return g.home===f||g.away===f});
+  var html='',wk=null;
+  games.forEach(function(g){
+    var wkKey=g.roundLabel?'Playoffs':'Week '+g.week;
+    if(wkKey!==wk){wk=wkKey;html+='<div class="swk">'+wkKey+(g.roundLabel?'':' &middot; '+fmtDate(g.date))+'</div>'}
+    var h=T[g.home],a=T[g.away];var fin=g.status==='final';var hw=g.hs>g.as;
+    var chip=g.roundLabel?'<span class="stat-chip po">'+esc(g.roundLabel)+'</span>':fin?'<span class="stat-chip fin">Final</span>':g.status==='ppd'?'<span class="stat-chip pd">PPD</span>':'<span class="stat-chip up">'+g.time+'</span>';
+    var mid;
+    if(fin){mid='<span class="tm-x">'+logo(a,'s')+esc(a.nick)+'</span><span class="sc'+(hw?' lsc':'')+'">'+g.as+'</span><span class="at">at</span><span class="tm-x">'+logo(h,'s')+esc(h.nick)+'</span><span class="sc'+(hw?'':' lsc')+'">'+g.hs+'</span>'}
+    else{mid='<span class="tm-x">'+logo(a,'s')+esc(a.nick)+'</span><span class="at">at</span><span class="tm-x">'+logo(h,'s')+esc(h.nick)+'</span>'}
+    var btn=fin?'<button class="gbtn" onclick="openRecap('+g.id+')">Recap</button>':(g.status==='upcoming'?'<button class="gbtn" onclick="openPreview('+g.id+')">Preview</button>':'<span></span>');
+    html+='<div class="srow"><div class="when"><b>'+fmtDate(g.date)+'</b>'+esc(g.field)+'</div><div class="who">'+mid+'</div>'+chip+btn+'</div>';
+  });
+  document.getElementById('schedList').innerHTML=html||'<div class="empty">No games.</div>';
+}
+
+/* ---------- TEAMS TAB ---------- */
+var curTeam=null;
+function renderTeamsIndex(){
+  var rows=standings();
+  document.getElementById('teamGrid').innerHTML=rows.map(function(r,i){var t=r.team;
+    return '<div class="tcard" onclick="openTeam(\''+t.id+'\')">'+logo(t,'xl')+'<b>'+esc(t.name)+'</b><div class="rec">'+r.w+'-'+r.l+' &middot; '+(r.diff>0?'+':'')+r.diff+' diff</div><span class="pl">'+ord(i+1)+' place</span></div>'}).join('');
+  if(curTeam)renderTeamPage();
+}
+window.openTeam=function(id){curTeam=id;document.getElementById('teamsIndex').hidden=true;var tp=document.getElementById('teamPage');tp.hidden=false;renderTeamPage();try{if(window.gtag)gtag('event','demo_team',{team:id})}catch(e){}};
+window.closeTeam=function(){curTeam=null;document.getElementById('teamPage').hidden=true;document.getElementById('teamsIndex').hidden=false};
+function renderTeamPage(){
+  if(!curTeam)return;var t=T[curTeam];var r=rowOf(curTeam);var st=statsOf(curTeam).slice().sort(function(a,b){return b.avg-a.avg});
+  var res=teamGamesFinal(curTeam).sort(byDate);
+  var ups=state.games.filter(function(g){return g.status!=='final'&&(g.home===curTeam||g.away===curTeam)}).sort(byDate);
+  var html='<div class="tp-head">'+logo(t,'xl')+'<div><h3>'+esc(t.name)+'</h3><div class="meta">'+r.w+'-'+r.l+' &middot; '+ord(rankOf(curTeam))+' place &middot; '+(r.diff>0?'+':'')+r.diff+' run diff &middot; Streak '+r.streak+'</div></div><button class="lbtn" onclick="closeTeam()">&larr; All teams</button></div>';
+  html+='<div class="tp-grid"><div class="tp-sec"><div class="ch">Roster &amp; batting</div><div class="tbl"><table><thead><tr><th>No</th><th>Player</th><th>Pos</th><th>AB</th><th>H</th><th>AVG</th><th>HR</th><th>RBI</th></tr></thead><tbody>'+st.map(function(p2){return '<tr><td>'+p2.num+'</td><td>'+esc(p2.name)+'</td><td>'+p2.pos+'</td><td>'+p2.ab+'</td><td>'+p2.h+'</td><td>'+avgFmt(p2.avg)+'</td><td>'+p2.hr+'</td><td>'+p2.rbi+'</td></tr>'}).join('')+'</tbody></table></div></div>';
+  html+='<div><div class="tp-sec" style="margin-bottom:.9rem"><div class="ch">Results</div>'+(res.length?res.map(function(g){var home=g.home===curTeam;var us=home?g.hs:g.as,them=home?g.as:g.hs;var opp=T[home?g.away:g.home];var w=us>them;return '<div class="tp-gm"><span class="wl '+(w?'W':'L')+'">'+(w?'W':'L')+'</span><span class="op">'+(home?'vs':'at')+' '+logo(opp,'s')+esc(opp.nick)+'</span><span class="dt">'+us+'-'+them+(g.roundLabel?' &middot; '+esc(g.roundLabel):'')+'</span><button class="gbtn" onclick="openRecap('+g.id+')">Recap</button></div>'}).join(''):'<div class="empty">No results yet.</div>')+'</div>';
+  html+='<div class="tp-sec"><div class="ch">Upcoming</div>'+(ups.length?ups.map(function(g){var home=g.home===curTeam;var opp=T[home?g.away:g.home];return '<div class="tp-gm"><span class="wl U">&bull;</span><span class="op">'+(home?'vs':'at')+' '+logo(opp,'s')+esc(opp.nick)+'</span><span class="dt">'+fmtDate(g.date)+(g.status==='ppd'?' &middot; PPD':'')+'</span>'+(g.status==='upcoming'?'<button class="gbtn" onclick="openPreview('+g.id+')">Preview</button>':'<span></span>')+'</div>'}).join(''):'<div class="empty">Season complete.</div>')+'</div></div></div>';
+  document.getElementById('teamPage').innerHTML=html;
+}
+
+/* ---------- NEWS TAB ---------- */
+function newsTime(){var d=new Date();return d.toLocaleDateString([],{month:'short',day:'numeric'})}
+function renderNews(){
+  var out='';
+  state.regs.slice().reverse().slice(0,2).forEach(function(rg){out+='<div class="news gold"><div class="nh"><span class="pin">New team</span><span class="dt">'+esc(rg.at)+'</span></div><h4>Welcome the '+esc(rg.team)+'</h4><p>'+esc(rg.mgr)+' registered for the '+esc(rg.div)+' division. A schedule slot opens as soon as the commissioner approves.</p></div>'});
+  state.news.forEach(function(p2){out+='<div class="news"><div class="nh"><span class="dt">'+esc(p2.at)+'</span></div><h4>'+esc(p2.t)+'</h4><p>'+esc(p2.b)+'</p></div>'});
+  var fg=pDecided().filter(function(g){return g.r==='f'})[0];
+  if(fg){var wn=T[fg.winner];out+='<div class="news gold"><div class="nh"><span class="pin">Champions</span><span class="dt">'+fmtDate(fg.date)+'</span></div><h4>'+esc(wn.name)+' are your 2026 champions</h4><p>The banner is up, the archive page is live, and next season starts a new chapter.</p><button class="gbtn solid" onclick="openRecap('+fg.id+')">Championship recap</button></div>'}
+  out+='<div class="news"><div class="nh"><span class="pin">Pinned</span><span class="dt">Apr 8</span></div><h4>Welcome to the new '+esc(LEAGUE())+' site</h4><p>Scores, schedules, standings, stats, and playoff brackets live here now. Managers: check your email for your admin login.</p></div>';
+  state.games.filter(function(g){return g.status==='final'}).sort(byDate).reverse().slice(0,3).forEach(function(g){var rc=recapOf(g);out+='<div class="news red"><div class="nh"><span class="dt">'+fmtDate(g.date)+'</span></div><h4>'+esc(rc.head)+'</h4><p>'+esc(rc.p2)+'</p><button class="gbtn" onclick="openRecap('+g.id+')">Read the full recap</button></div>'});
+  out+='<div class="news"><div class="nh"><span class="dt">Apr 2</span></div><h4>Registration is open for summer ball</h4><p>Returning teams keep their slot until May 1. New teams: hit Register in the top right. The fee runs through the league&rsquo;s own account, never ours.</p></div>';
+  document.getElementById('newsList').innerHTML=out;
+}
+window.postNews=function(){
+  var t=document.getElementById('npTitle'),b=document.getElementById('npBody');
+  var tv=t.value.trim(),bv=b.value.trim();
+  if(!tv){toast('Give the post a title.','','red');t.focus();return}
+  state.news.unshift({t:tv.slice(0,80),b:bv.slice(0,400)||'',at:newsTime()});save();
+  t.value='';b.value='';renderNews();
+  toast('<b>Posted to News.</b>','On a real site this can also email every subscriber.','gold');
+  showTab('news');
+  try{if(window.gtag)gtag('event','news_post')}catch(e){}
+};
+
+/* ---------- REGISTRATION ---------- */
+window.openReg=function(){
+  openModal('<div class="mhead"><div class="tag">Team registration</div><h2>Register for the 2026 season</h2><div class="sub">'+esc(LEAGUE())+' &middot; Summer session</div></div>'+
+  '<div class="mbody"><form class="reg-form" onsubmit="return regSubmit(this)">'+
+  '<label>Team name<input name="team" required maxlength="30" placeholder="Wynnewood Wolves"></label>'+
+  '<div class="reg-2"><label>Manager<input name="mgr" required maxlength="40" placeholder="Jamie Rivera"></label><label>Email<input name="email" type="email" required maxlength="80" placeholder="you@example.com"></label></div>'+
+  '<label>Division<select name="div"><option>Sunday A</option><option>Sunday B</option><option>Weeknight</option></select></label>'+
+  '<div class="reg-fee"><span>Team fee, due at signup</span><b>$450</b></div>'+
+  '<button class="gbtn solid" style="align-self:flex-start;padding:.7rem 1.3rem" type="submit">Continue to payment &rarr;</button>'+
+  '<p style="font-family:var(--mono);font-size:.58rem;color:var(--lg-muted)">Demo note: no card is charged. Real sites run Stripe or Square in the league&rsquo;s own account, with waivers attached.</p>'+
+  '</form></div>');
+  try{if(window.gtag)gtag('event','reg_open')}catch(e){}
+};
+window.regSubmit=function(f){
+  var team=f.team.value.trim(),mgr=f.mgr.value.trim();
+  if(!team||!mgr||!f.email.value.trim()){toast('Team, manager, and email are required.','','red');return false}
+  state.regs.push({team:team.slice(0,30),mgr:mgr.slice(0,40),div:f.div.value,at:newsTime()});save();closeModal();
+  toast('<b>'+esc(team)+' registered.</b>','Payment and waiver would run here. The commissioner just got an alert.','gold');
+  renderAdmin();renderNews();
+  try{if(window.gtag)gtag('event','reg_submit')}catch(e){}
+  return false;
 };
 
 /* ---------- TICKER ---------- */
@@ -937,7 +1205,7 @@ function renderAdmin(){
     '<div class="kpi"><div class="k">Pending scores</div><div class="v">'+n+'</div><div class="d r">'+(n?'Managers notified':'All caught up')+'</div></div>'+
     '<div class="kpi"><div class="k">Published this session</div><div class="v">'+state.log.length+'</div><div class="d g">'+(state.log.length?'Recaps generated':'Publish one below')+'</div></div>'+
     '<div class="kpi"><div class="k">Finals this season</div><div class="v">'+finals+'<span style="font-size:.9rem;color:var(--lg-muted)"> / '+state.games.length+'</span></div><div class="d">'+Math.round(finals/state.games.length*100)+'% complete</div></div>'+
-    '<div class="kpi"><div class="k">Teams</div><div class="v">8</div><div class="d">'+TEAMS.length*15+' rostered players</div></div>';
+    '<div class="kpi"><div class="k">Teams</div><div class="v">8'+(state.regs.length?'<span style="font-size:.9rem;color:var(--lg-green)"> +'+state.regs.length+'</span>':'')+'</div><div class="d">'+(state.regs.length?state.regs.length+' pending approval':TEAMS.length*12+' rostered players')+'</div></div>';
   var html='',wk=null;
   pend.forEach(function(g){
     if(g.week!==wk){wk=g.week;html+='<tr class="wkrow"><td colspan="6">Week '+wk+' &middot; '+fmtDate(g.date)+'</td></tr>'}
@@ -953,7 +1221,8 @@ function renderAdmin(){
   var logs=state.log.slice().reverse().map(function(l){var g=gameById(l.id);if(!g)return '';var h=T[g.home],a=T[g.away];
     return '<div class="act"><span class="dot"></span><div><div class="a1">Published '+a.abbr+' '+g.as+', '+h.abbr+' '+g.hs+'</div><div class="a2">'+esc(l.at)+' &middot; Week '+g.week+' &middot; recap generated</div></div><span class="undo" data-undo="'+g.id+'">Undo</span></div>'}).join('');
   logs+='<div class="act"><span class="dot sys"></span><div><div class="a1">Week 4 scores published</div><div class="a2">Sat May 2 &middot; 4 games &middot; standings recomputed</div></div></div><div class="act"><span class="dot sys"></span><div><div class="a1">Week 5 schedule sent to managers</div><div class="a2">Mon Apr 27 &middot; 8 texts delivered</div></div></div>';
-  document.getElementById('pubLog').innerHTML=logs;
+  var regsHtml=state.regs.slice().reverse().map(function(rg){return '<div class="act"><span class="dot" style="background:var(--lg-gold)"></span><div><div class="a1">New registration: '+esc(rg.team)+'</div><div class="a2">'+esc(rg.at)+' &middot; '+esc(rg.div)+' &middot; '+esc(rg.mgr)+'</div></div></div>'}).join('');
+  document.getElementById('pubLog').innerHTML=regsHtml+logs;
 }
 document.getElementById('scoreEntry').addEventListener('click',function(e){
   var pub=e.target.closest('[data-pub]');var ppd=e.target.closest('[data-ppd]');
@@ -1055,6 +1324,7 @@ window.showTab=function(name){
   if(history.replaceState)history.replaceState(null,'',buildHash(name));
   try{if(window.gtag)gtag('event','demo_tab',{tab:name})}catch(e){}
   if(name==='standings')renderStandings();if(name==='bracket')renderBracket();if(name==='admin')renderAdmin();if(name==='scores')renderScores();
+  if(name==='schedule')renderSchedule();if(name==='stats')renderStats();if(name==='teams')renderTeamsIndex();if(name==='news')renderNews();
   var top=document.querySelector('.frame').getBoundingClientRect().top+window.scrollY-90;
   if(window.scrollY>top+40||window.scrollY<top-400)window.scrollTo({top:top,behavior:'smooth'});
 };
@@ -1070,12 +1340,12 @@ window.toast=function(msg,sub,kind){
 /* ---------- RESET ---------- */
 window.resetDemo=function(){try{localStorage.removeItem(KEY)}catch(e){}state=seedState();renderAll();toast('Demo reset.','Fresh season. Weeks 1 to 4 are final, 5 and 6 are open.')};
 
-function renderAll(flash){renderTicker();renderScores();renderStandings(flash);renderBracket();renderAdmin()}
+function renderAll(flash){renderTicker();renderScores();renderStandings(flash);renderBracket();renderAdmin();renderSchedule();renderStats();renderTeamsIndex();renderNews()}
 renderAll();
 var hraw=(location.hash||'').replace('#','');var hparts=hraw.split(';');var htab=hparts[0];var hadCfg=false;
 for(var hi=0;hi<hparts.length;hi++){if(hparts[hi].indexOf('cfg=')===0){try{personaLoad(JSON.parse(atob(decodeURIComponent(hparts[hi].slice(4)))));hadCfg=true}catch(e){}}}
 if(!hadCfg){try{var savedP=localStorage.getItem('mlwd_persona_v1');if(savedP)personaLoad(JSON.parse(savedP))}catch(e){}}
-if(['scores','standings','bracket','admin'].indexOf(htab)>-1){showTab(htab)}
+if(['scores','schedule','standings','stats','teams','bracket','news','admin'].indexOf(htab)>-1){showTab(htab)}
 })();
 </script>
 </body>
