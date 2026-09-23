@@ -592,6 +592,20 @@ footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.5rem}
 .sc-meta{font-family:var(--mono);font-size:.6rem;color:var(--muted);margin-top:.6rem}
 .cast-foot{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:.6rem .9rem;border-top:1px solid var(--border);font-family:var(--mono);font-size:.58rem;color:var(--muted)}
 .cast-foot a{color:var(--accent)}
+/* hero product shot */
+.hero-shot{background:#0a1522;border:1px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:0 40px 100px rgba(0,0,0,.5),0 0 0 1px rgba(56,189,248,.06);transform:rotate(.8deg);transition:transform .5s}
+.hero-shot:hover{transform:rotate(0)}
+.shot-chrome{display:flex;align-items:center;gap:.7rem;padding:.6rem .9rem;background:#0a1522;border-bottom:1px solid var(--border)}
+.shot-dots{display:inline-flex;gap:.42rem;flex:0 0 auto}
+.shot-dots i{width:11px;height:11px;border-radius:50%;background:#33465c}
+.shot-dots i:nth-child(1){background:#ff5f57}.shot-dots i:nth-child(2){background:#febc2e}.shot-dots i:nth-child(3){background:#28c840}
+.shot-url{flex:1;min-width:0;text-align:center;font-family:var(--mono);font-size:.62rem;letter-spacing:.04em;color:#9fb2c5;background:#08131f;border:1px solid var(--border);border-radius:6px;padding:.32rem .8rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.shot-live{flex:0 0 auto;display:inline-flex;align-items:center;gap:.35rem;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:#fff;background:#d7263d;padding:.18rem .5rem .14rem;border-radius:3px}
+.shot-live i{width:5px;height:5px;border-radius:50%;background:#fff;animation:pulse 1.2s infinite}
+.shot-img{display:block;line-height:0;background:#0a1522}
+.shot-img img{width:100%;height:auto;display:block}
+.hero-caption{margin:1.1rem .3rem 0;font-family:var(--mono);font-size:.62rem;letter-spacing:.03em;line-height:1.6;color:var(--muted);text-align:center}
+.hero-caption b{color:#cbd6e2;font-weight:600}
 /* shared broadcast headers */
 .bug{display:inline-block;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:.82rem;letter-spacing:.2em;text-transform:uppercase;color:#0b1f45;background:var(--accent2);padding:.32rem .8rem .26rem;transform:skewX(-8deg);margin-bottom:1.1rem}
 .bug.red{background:#d7263d;color:#fff}
@@ -703,6 +717,7 @@ footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.5rem}
 .bc-input{flex-direction:column}
 .bc-go{justify-content:center}
 .cast{transform:none}
+.hero-shot{transform:none}
 .cast-name{font-size:.85rem}
 .tour{padding:3.5rem 1.25rem 3rem}
 .tour-grid{grid-template-columns:1fr;gap:1.4rem}
@@ -735,7 +750,7 @@ footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.5rem}
 <nav>
   <a href="#" class="nav-logo"><span class="bracket bl">{</span><span class="nav-text"><span class="n1">MAIN LINE</span><span class="n2">WEB DESIGN</span></span><span class="bracket br">}</span></a>
   <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
-  <div class="nav-links" id="navLinks"><a href="#services">Services</a><a href="#about">About</a><a href="#work">Work</a><!--<a href="#pricing">Pricing</a>--><a href="demo.html">Demo</a><a href="#contact" class="nav-cta">Get In Touch</a></div>
+  <div class="nav-links" id="navLinks"><a href="#services">Services</a><a href="#about">About</a><a href="#work">Work</a><!--<a href="#pricing">Pricing</a>--><!--<a href="demo.html">Demo</a>--><a href="#contact" class="nav-cta">Get In Touch</a></div>
 </nav>
 
 <section class="hero bc">
@@ -746,49 +761,15 @@ footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.5rem}
       <div class="bc-problem"><span class="bc-live"><i></i>Live</span><span class="bc-type" id="bcType"><noscript><s>It&rsquo;s 11:04 PM on a Sunday. Nobody posted the scores. Again.</s> <b>Fixed.</b></noscript></span></div>
       <h1 class="bc-h">Your league,<br><em>run like the big leagues.</em></h1>
       <p class="bc-sub">Live scores, standings, brackets, registration, and recaps that write themselves. On a site parents brag about instead of apologize for.</p>
-      <div class="bc-mirror">
-        <div class="bc-mlabel">See it with your name on it</div>
-        <div class="bc-input"><input id="mirror" type="text" maxlength="40" placeholder="Type your league&rsquo;s name" autocomplete="off" aria-label="Your league's name"><a id="mirrorGo" href="demo.html" class="bc-go">Open your demo &rarr;</a></div>
-      </div>
+      <!-- personalizer / demo entry hidden for now -->
       <div class="bc-ctas"><a href="#contact"><button class="btn-orbit">Start Your Project &rarr;</button></a><a href="#tour" class="bc-watch">Watch it run &darr;</a></div>
     </div>
     <div class="bc-right">
-      <div class="cast" id="cast">
-        <div class="cast-chrome"><span class="cast-bug"><i></i>Live</span><span class="cast-name mirror-name">Main Line Demo League</span><span class="cast-dom" id="castDom">yourleague.com</span></div>
-        <div class="cast-ticker"><div class="cast-track" id="castTrack">
-          <span class="cti"><img src="demo-logos/tigers.webp" alt="">BAL 8 <img src="demo-logos/sharks.webp" alt="">ARD 3 <b>FINAL</b></span>
-          <span class="cti"><img src="demo-logos/dragons.webp" alt="">NAR 7 <img src="demo-logos/wolverines.webp" alt="">WYN 4 <b>FINAL</b></span>
-          <span class="cti"><img src="demo-logos/storm.webp" alt="">VIL 9 <img src="demo-logos/thunder.webp" alt="">HAV 5 <b>FINAL</b></span>
-          <span class="cti"><img src="demo-logos/rockets.webp" alt="">GLD 6 <img src="demo-logos/bulls.webp" alt="">BMR 1 <b>FINAL</b></span>
-          <span class="cti"><img src="demo-logos/tigers.webp" alt="">BAL 8 <img src="demo-logos/sharks.webp" alt="">ARD 3 <b>FINAL</b></span>
-          <span class="cti"><img src="demo-logos/dragons.webp" alt="">NAR 7 <img src="demo-logos/wolverines.webp" alt="">WYN 4 <b>FINAL</b></span>
-          <span class="cti"><img src="demo-logos/storm.webp" alt="">VIL 9 <img src="demo-logos/thunder.webp" alt="">HAV 5 <b>FINAL</b></span>
-          <span class="cti"><img src="demo-logos/rockets.webp" alt="">GLD 6 <img src="demo-logos/bulls.webp" alt="">BMR 1 <b>FINAL</b></span>
-        </div></div>
-        <div class="cast-stage" id="castStage">
-          <div class="cscene on" data-cs="0">
-            <div class="sc-tag">Sat &middot; Polo Field</div>
-            <div class="sc-row"><img src="demo-logos/sharks.webp" alt=""><b>Ardmore Sharks</b><span class="sc-r">3</span></div>
-            <div class="sc-row w"><img src="demo-logos/tigers.webp" alt=""><b>Bala Tigers</b><span class="sc-r" id="castRuns">5</span></div>
-            <div class="sc-stamp" id="castStamp">FINAL</div>
-          </div>
-          <div class="cscene" data-cs="1">
-            <div class="sc-tag">Standings &middot; updated now</div>
-            <div class="sc-st" id="castSt">
-              <div class="sc-sr" data-k="a"><i>1</i><img src="demo-logos/tigers.webp" alt=""><b>Bala Tigers</b><span>12-4</span></div>
-              <div class="sc-sr" data-k="b"><i>2</i><img src="demo-logos/dragons.webp" alt=""><b>Narberth Dragons</b><span>11-5</span></div>
-              <div class="sc-sr" data-k="c"><i>3</i><img src="demo-logos/storm.webp" alt=""><b>Villanova Storm</b><span>10-6</span></div>
-              <div class="sc-sr" data-k="d"><i>4</i><img src="demo-logos/rockets.webp" alt=""><b>Gladwyne Rockets</b><span>9-7</span></div>
-            </div>
-          </div>
-          <div class="cscene" data-cs="2">
-            <div class="sc-tag gold">AI Recap &middot; published in 4 seconds</div>
-            <div class="sc-head" id="castRecap">Tigers pull away late, top Sharks 5-3.</div>
-            <div class="sc-meta">Headline, key inning, player of the game. Nobody typed a word.</div>
-          </div>
-        </div>
-        <div class="cast-foot"><span>No one is touching this. It runs itself.</span><a href="demo.html">Full demo &rarr;</a></div>
-      </div>
+      <figure class="hero-shot">
+        <div class="shot-chrome"><span class="shot-dots"><i></i><i></i><i></i></span><span class="shot-url">new.lmll.org</span><span class="shot-live"><i></i>Live</span></div>
+        <div class="shot-img"><img src="lmll-screenshot.webp" alt="Lower Merion Little League website, built from scratch by Main Line Web Design" width="1100"></div>
+      </figure>
+      <div class="hero-caption"><b>Lower Merion Little League.</b> The world&rsquo;s 2nd largest, built from scratch.</div>
     </div>
   </div>
 </section>
@@ -815,6 +796,113 @@ footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.5rem}
         <div class="proof-headline">1,000<span class="ps">+</span></div>
         <div class="proof-sub">Games covered every season</div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="featured" id="work">
+  <div class="featured-header">
+    <div class="label reveal">Recent Work</div>
+    <h2 class="reveal">Built from scratch. <em>Every pixel.</em></h2>
+    <p class="featured-sub reveal">The leagues, tournaments, and districts I've designed and shipped. Each one is 100% custom code &mdash; no templates, no builders, no page-drag nonsense.</p>
+  </div>
+  <div class="featured-group">
+    <div class="fg-h reveal"><span class="fg-k">01</span><span class="fg-t">Tournaments &amp; Districts</span><span class="fg-n">Registration, payments, brackets, multi-league hubs</span></div>
+    <div class="featured-grid">
+    <div class="featured-card reveal" data-tilt>
+      <a class="featured-img" href="https://ststournaments.com/" target="_blank" rel="noopener"><img src="sts-screenshot.webp" alt="Small Town Select Tournaments Website" loading="lazy"><div class="featured-img-overlay"></div><div class="featured-badge">Flagship Client</div></a>
+      <div class="featured-body">
+        <div class="client-name">Small Town Select Tournaments</div>
+        <h3>The largest tournament provider in Texas</h3>
+        <p>Full operations for the <strong>largest baseball &amp; softball tournament provider in the state of Texas</strong> &mdash; live team registration with online card payments, waivers, insurance, rosters, live schedules, standings, brackets, championship archives, and an admin backend used every game day.</p>
+        <div class="featured-tags"><span>Live Registration</span><span>Online Payments</span><span>Admin Portal</span></div>
+        <a href="https://ststournaments.com/" target="_blank" rel="noopener" class="featured-link">Visit Live Site &rarr;</a>
+      </div>
+    </div>
+    <div class="featured-card reveal" data-tilt>
+      <a class="featured-img" href="https://www.padistrict27.com/" target="_blank" rel="noopener"><img src="d27-screenshot.webp" alt="PA District 27 Little League Website" loading="lazy"><div class="featured-img-overlay"></div><div class="featured-badge">Live Project</div></a>
+      <div class="featured-body">
+        <div class="client-name">PA District 27 Little League</div>
+        <h3>A tournament hub for 12 leagues</h3>
+        <p>Live brackets, schedules, and champion archives for <strong>10,000+ baseball &amp; softball players</strong> across 12 Little Leagues in Chester, Delaware, and Montgomery counties.</p>
+        <div class="featured-tags"><span>Multi-League</span><span>Live Brackets</span><span>District Hub</span></div>
+        <a href="https://www.padistrict27.com/" target="_blank" rel="noopener" class="featured-link">Visit Live Site &rarr;</a>
+      </div>
+    </div>
+    <div class="featured-card warm-accent reveal" data-tilt>
+      <a class="featured-img" href="https://texasselecttournament.com/" target="_blank" rel="noopener"><img src="txselect-screenshot.webp" alt="Texas Select Tournaments Website" loading="lazy"><div class="featured-img-overlay"></div><div class="featured-badge warm">Live Project</div></a>
+      <div class="featured-body">
+        <div class="client-name">Texas Select Tournaments</div>
+        <h3>Dual-sport tournaments across South Texas</h3>
+        <p>Competitive fastpitch &amp; baseball tournaments across South Texas &mdash; team registration, an insurance store, live schedules, brackets, and a season-long <strong>Team Points leaderboard</strong> tracking every event.</p>
+        <div class="featured-tags"><span>Dual-Sport</span><span>Registration</span><span>Team Points</span></div>
+        <a href="https://texasselecttournament.com/" target="_blank" rel="noopener" class="featured-link">Visit Live Site &rarr;</a>
+      </div>
+    </div>
+    </div>
+  </div>
+  <div class="featured-group">
+    <div class="fg-h reveal"><span class="fg-k">02</span><span class="fg-t">Leagues</span><span class="fg-n">Scores, standings, recaps, registration, admin</span></div>
+    <div class="featured-grid">
+    <div class="featured-card warm-accent reveal" data-tilt>
+      <div class="featured-img"><img src="lmll-screenshot.webp" alt="Lower Merion Little League Website" loading="lazy"><div class="featured-img-overlay"></div><div class="featured-badge warm">Launching Soon</div></div>
+      <div class="featured-body">
+        <div class="client-name">Lower Merion Little League</div>
+        <h3>The world's 2nd&#8209;largest Little League</h3>
+        <p>The complete league platform for the <strong>2nd largest Little League program in the world</strong> &mdash; 178 teams, 20 divisions, 1,000+ games a season across 54 fields. Live scores, schedules, standings, playoff brackets, registration, and admin, all in one place.</p>
+        <div class="featured-tags"><span>Live Scores</span><span>Playoff Brackets</span><span>Registration</span></div>
+        <span class="featured-link" style="opacity:.55;cursor:default">Launching with the 2026 season</span>
+      </div>
+    </div>
+<div class="featured-card warm-accent reveal" data-tilt>
+      <a class="featured-img" href="https://islandfastpitch.com/" target="_blank" rel="noopener"><img src="island-screenshot.webp" alt="Island Fastpitch Website" loading="lazy"><div class="featured-img-overlay"></div><div class="featured-badge warm">Live Project</div></a>
+      <div class="featured-body">
+        <div class="client-name">Island Fastpitch</div>
+        <h3>Leagues and tournaments on Long Island</h3>
+        <p>The premier fastpitch leagues and tournaments on Long Island &mdash; spring, summer, and fall seasons for 8U through 18+, league registration, a tournament calendar, scores, standings, college clinic signups, and a team shop.</p>
+        <div class="featured-tags"><span>Fastpitch</span><span>Registration</span><span>Tournaments</span></div>
+        <a href="https://islandfastpitch.com/" target="_blank" rel="noopener" class="featured-link">Visit Live Site &rarr;</a>
+      </div>
+    </div>
+    <div class="featured-card reveal" data-tilt>
+      <a class="featured-img" href="https://coybl.org/" target="_blank" rel="noopener"><img src="coybl-screenshot.webp" alt="Central Ohio Youth Baseball League Website" loading="lazy"><div class="featured-img-overlay"></div><div class="featured-badge">Live Project</div></a>
+      <div class="featured-body">
+        <div class="client-name">Central Ohio Youth Baseball League</div>
+        <h3>Pitch counts, power rankings, coach logins</h3>
+        <p>A multi-community youth baseball league in Central Ohio &mdash; scores, schedules, standings, <strong>pitch count tracking</strong>, power rankings, tournaments, coach portals, and team registration.</p>
+        <div class="featured-tags"><span>Pitch Counts</span><span>Power Rankings</span><span>Coach Portal</span></div>
+        <a href="https://coybl.org/" target="_blank" rel="noopener" class="featured-link">Visit Live Site &rarr;</a>
+      </div>
+    </div>
+    <div class="featured-card warm-accent reveal" data-tilt>
+      <a class="featured-img" href="https://dvsl.vercel.app/" target="_blank" rel="noopener"><img src="dvsl-screenshot.webp" alt="Delaware Valley Softball League Website" loading="lazy"><div class="featured-img-overlay"></div><div class="featured-badge warm">Live Project</div></a>
+      <div class="featured-body">
+        <div class="client-name">Delaware Valley Softball League</div>
+        <h3>A complete league platform, from scratch</h3>
+        <p>Scores, stats, standings, recaps, rosters, captain dashboard, and a full admin backend &mdash; everything the league needs in one place.</p>
+        <div class="featured-tags"><span>Live Stats</span><span>Recaps</span><span>Captain Dashboard</span></div>
+        <a href="https://dvsl.vercel.app/" target="_blank" rel="noopener" class="featured-link">Visit Live Site &rarr;</a>
+      </div>
+    </div>
+    <div class="featured-card reveal" data-tilt>
+      <a class="featured-img" href="https://sfbl-1.vercel.app/" target="_blank" rel="noopener"><img src="sfbl-screenshot.webp" alt="South Florida Baseball League Website" loading="lazy"><div class="featured-img-overlay"></div><div class="featured-badge">Live Project</div></a>
+      <div class="featured-body">
+        <div class="client-name">South Florida Baseball League</div>
+        <h3>An adult league, dialed in</h3>
+        <p>Scores, standings, stats, rosters, and registration for an 18+ baseball league in South Florida &mdash; same platform engine, fully rebranded for the league.</p>
+        <div class="featured-tags"><span>Adult League</span><span>Registration</span><span>Box Scores</span></div>
+        <a href="https://sfbl-1.vercel.app/" target="_blank" rel="noopener" class="featured-link">Visit Live Site &rarr;</a>
+      </div>
+    </div>
+    </div>
+  </div>
+  <div class="featured-group">
+    <div class="fg-h reveal"><span class="fg-k">03</span><span class="fg-t">Programs &amp; Camps</span><span class="fg-n">Brand and registration sites</span></div>
+    <div class="mini-grid">
+    <a class="mini reveal" href="https://lbdc1.vercel.app/" target="_blank" rel="noopener"><span class="mini-img"><img src="lbdc-screenshot.webp" alt="Long Beach Diamond Classics Website" loading="lazy"></span><span class="mini-body"><b>Long Beach Diamond Classics</b><span>Men's 50+ baseball league, Southern California</span></span></a>
+    <a class="mini reveal" href="https://aces-basketball.vercel.app/" target="_blank" rel="noopener"><span class="mini-img"><img src="aces-screenshot.webp" alt="Lower Merion Aces Basketball Website" loading="lazy"></span><span class="mini-body"><b>Lower Merion Aces Basketball</b><span>HS program site: rosters, schedules, program info</span></span></a>
+    <a class="mini reveal" href="https://greggdownerbasketball.com" target="_blank" rel="noopener"><span class="mini-img"><img src="downer-screenshot.webp" alt="Gregg Downer Basketball Website" loading="lazy"></span><span class="mini-body"><b>Downer Basketball Academy</b><span>Camp registration for a legendary coach</span></span></a>
+    <a class="mini reveal" href="https://www.fielddayadventures.com/" target="_blank" rel="noopener"><span class="mini-img"><img src="fda-screenshot.webp" alt="Field Day Adventures Website" loading="lazy"></span><span class="mini-body"><b>Field Day Adventures</b><span>Brand + registration site for a Longport, NJ kids camp</span></span></a>
     </div>
   </div>
 </section>
@@ -863,7 +951,7 @@ footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.5rem}
       <div class="tstep" data-step="1"><span class="tnum">02</span><h3>The recap writes itself</h3><p>Headline, the key inning, player of the game. Four seconds after the final, it reads like a beat writer filed it.</p></div>
       <div class="tstep" data-step="2"><span class="tnum">03</span><h3>Standings re-rank on their own</h3><p>Wins, losses, games back, run differential, streaks. Nobody opens a spreadsheet ever again.</p></div>
       <div class="tstep" data-step="3"><span class="tnum">04</span><h3>Parents get the text</h3><p>Alerts go out, playoff seeds update, and the bracket is ready before the team is out of the parking lot.</p></div>
-      <div class="tour-cta"><a href="demo.html"><button class="btn-orbit">Do it yourself in the demo &rarr;</button></a></div>
+      <div class="tour-cta"><a href="#contact"><button class="btn-orbit">Start your project &rarr;</button></a></div>
     </div>
   </div>
 </section>
@@ -932,7 +1020,7 @@ footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.5rem}
       <div class="pc-r">$2,500 <span>to</span> $4,000<small>per season</small></div>
       <p>Schedules, scores, standings, team pages, news, and an admin your board can run. For leagues that want to stop living in group texts.</p>
       <ul><li>Live scores &amp; standings</li><li>Team pages &amp; schedules</li><li>News, rules, documents</li><li>Commissioner admin</li></ul>
-      <div class="pc-f"><span>Typical build: 2 to 4 weeks</span><span>Like: COYBL, Lancaster</span></div>
+      <div class="pc-f"><span>Typical build: 2 to 4 weeks</span><span>Like: COYBL, Island Fastpitch</span></div>
     </div>
     <div class="price-card hot reveal">
       <div class="pc-tag">Most leagues</div>
@@ -962,7 +1050,7 @@ footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.5rem}
   <div class="faq">
     <div class="faq-head reveal"><div class="label">Straight Answers</div><h3>What commissioners ask before they say yes</h3></div>
     <div class="faq-grid">
-      <div class="faq-item reveal"><h4>Can we actually run it ourselves?</h4><p>Yes. Score entry, schedule changes, postponements, and news are all built for volunteers on a phone. <a href="demo.html#admin">Try the admin in the demo</a>; that's the real workflow.</p></div>
+      <div class="faq-item reveal"><h4>Can we actually run it ourselves?</h4><p>Yes. Score entry, schedule changes, postponements, and news are all built for volunteers on a phone. It's the same simple workflow whether you're at the field or on the couch, no training required.</p></div>
       <div class="faq-item reveal"><h4>We're on SportsConnect or LeagueLineup. What moves?</h4><p>Scores, schedules, standings, brackets, team pages, and communication move to your new site. If you're a Little League that has to keep SportsConnect for registration, keep it; PA District 27 does exactly that and links the two.</p></div>
       <div class="faq-item reveal"><h4>What happens if you get hit by a bus?</h4><p>Your league owns the domain, the hosting account, and the data. The site is plain HTML and JavaScript on Firebase, not a proprietary platform, so any developer can pick it up. No lock-in is part of the deal.</p></div>
       <div class="faq-item reveal"><h4>Who handles the money?</h4><p>You do. Registration runs through your own Stripe or Square account and lands in your bank. I never touch it and never take a percentage, which is why there's no per-player fee.</p></div>
@@ -1004,123 +1092,6 @@ footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.5rem}
     <div class="stat-item reveal"><div class="stat-num" data-count="100" data-suffix="%">100%</div><div class="stat-label">Custom Built</div></div>
     <div class="stat-item reveal"><div class="stat-num" data-count="0" data-suffix="">0</div><div class="stat-label">Per-Player Fees</div></div>
     <div class="stat-item reveal"><div class="stat-num" data-count="0" data-suffix="">0</div><div class="stat-label">Lock-In</div></div>
-  </div>
-</section>
-
-<section class="featured" id="work">
-  <div class="featured-header">
-    <div class="label reveal">Recent Work</div>
-    <h2 class="reveal">Built from scratch. <em>Every pixel.</em></h2>
-    <p class="featured-sub reveal">The leagues, tournaments, and districts I've designed and shipped. Each one is 100% custom code &mdash; no templates, no builders, no page-drag nonsense.</p>
-  </div>
-  <div class="featured-group">
-    <div class="fg-h reveal"><span class="fg-k">01</span><span class="fg-t">Tournaments &amp; Districts</span><span class="fg-n">Registration, payments, brackets, multi-league hubs</span></div>
-    <div class="featured-grid">
-    <div class="featured-card reveal" data-tilt>
-      <a class="featured-img" href="https://ststournaments.com/" target="_blank" rel="noopener"><img src="sts-screenshot.webp" alt="Small Town Select Tournaments Website" loading="lazy"><div class="featured-img-overlay"></div><div class="featured-badge">Flagship Client</div></a>
-      <div class="featured-body">
-        <div class="client-name">Small Town Select Tournaments</div>
-        <h3>The largest tournament provider in Texas</h3>
-        <p>Full operations for the <strong>largest baseball &amp; softball tournament provider in the state of Texas</strong> &mdash; live team registration with online card payments, waivers, insurance, rosters, live schedules, standings, brackets, championship archives, and an admin backend used every game day.</p>
-        <div class="featured-tags"><span>Live Registration</span><span>Online Payments</span><span>Admin Portal</span></div>
-        <a href="https://ststournaments.com/" target="_blank" rel="noopener" class="featured-link">Visit Live Site &rarr;</a>
-      </div>
-    </div>
-    <div class="featured-card reveal" data-tilt>
-      <a class="featured-img" href="https://www.padistrict27.com/" target="_blank" rel="noopener"><img src="d27-screenshot.webp" alt="PA District 27 Little League Website" loading="lazy"><div class="featured-img-overlay"></div><div class="featured-badge">Live Project</div></a>
-      <div class="featured-body">
-        <div class="client-name">PA District 27 Little League</div>
-        <h3>A tournament hub for 12 leagues</h3>
-        <p>Live brackets, schedules, and champion archives for <strong>10,000+ baseball &amp; softball players</strong> across 12 Little Leagues in Chester, Delaware, and Montgomery counties.</p>
-        <div class="featured-tags"><span>Multi-League</span><span>Live Brackets</span><span>District Hub</span></div>
-        <a href="https://www.padistrict27.com/" target="_blank" rel="noopener" class="featured-link">Visit Live Site &rarr;</a>
-      </div>
-    </div>
-    <div class="featured-card warm-accent reveal" data-tilt>
-      <a class="featured-img" href="https://texasselecttournament.com/" target="_blank" rel="noopener"><img src="txselect-screenshot.webp" alt="Texas Select Tournaments Website" loading="lazy"><div class="featured-img-overlay"></div><div class="featured-badge warm">Live Project</div></a>
-      <div class="featured-body">
-        <div class="client-name">Texas Select Tournaments</div>
-        <h3>Dual-sport tournaments across South Texas</h3>
-        <p>Competitive fastpitch &amp; baseball tournaments across South Texas &mdash; team registration, an insurance store, live schedules, brackets, and a season-long <strong>Team Points leaderboard</strong> tracking every event.</p>
-        <div class="featured-tags"><span>Dual-Sport</span><span>Registration</span><span>Team Points</span></div>
-        <a href="https://texasselecttournament.com/" target="_blank" rel="noopener" class="featured-link">Visit Live Site &rarr;</a>
-      </div>
-    </div>
-    </div>
-  </div>
-  <div class="featured-group">
-    <div class="fg-h reveal"><span class="fg-k">02</span><span class="fg-t">Leagues</span><span class="fg-n">Scores, standings, recaps, registration, admin</span></div>
-    <div class="featured-grid">
-    <div class="featured-card warm-accent reveal" data-tilt>
-      <div class="featured-img"><img src="lmll-screenshot.webp" alt="Lower Merion Little League Website" loading="lazy"><div class="featured-img-overlay"></div><div class="featured-badge warm">Launching Soon</div></div>
-      <div class="featured-body">
-        <div class="client-name">Lower Merion Little League</div>
-        <h3>The world's 2nd&#8209;largest Little League</h3>
-        <p>The complete league platform for the <strong>2nd largest Little League program in the world</strong> &mdash; 178 teams, 20 divisions, 1,000+ games a season across 54 fields. Live scores, schedules, standings, playoff brackets, registration, and admin, all in one place.</p>
-        <div class="featured-tags"><span>Live Scores</span><span>Playoff Brackets</span><span>Registration</span></div>
-        <span class="featured-link" style="opacity:.55;cursor:default">Launching with the 2026 season</span>
-      </div>
-    </div>
-    <div class="featured-card reveal" data-tilt>
-      <a class="featured-img" href="https://lcybl.vercel.app/" target="_blank" rel="noopener"><img src="lcybl-screenshot.webp" alt="Lancaster County Youth Baseball League Website" loading="lazy"><div class="featured-img-overlay"></div><div class="featured-badge">Live Project</div></a>
-      <div class="featured-body">
-        <div class="client-name">Lancaster County Youth Baseball</div>
-        <h3>185 teams, one scoreboard</h3>
-        <p>A record <strong>185 teams across Lancaster County</strong> &mdash; live scores in every division, team pages, tournaments, volunteer and sponsor pages, league documents, and a playoff and champion history going back to 2009.</p>
-        <div class="featured-tags"><span>185 Teams</span><span>Live Scores</span><span>Champion History</span></div>
-        <a href="https://lcybl.vercel.app/" target="_blank" rel="noopener" class="featured-link">Visit Live Site &rarr;</a>
-      </div>
-    </div>
-    <div class="featured-card warm-accent reveal" data-tilt>
-      <a class="featured-img" href="https://islandfastpitch.com/" target="_blank" rel="noopener"><img src="island-screenshot.webp" alt="Island Fastpitch Website" loading="lazy"><div class="featured-img-overlay"></div><div class="featured-badge warm">Live Project</div></a>
-      <div class="featured-body">
-        <div class="client-name">Island Fastpitch</div>
-        <h3>Leagues and tournaments on Long Island</h3>
-        <p>The premier fastpitch leagues and tournaments on Long Island &mdash; spring, summer, and fall seasons for 8U through 18+, league registration, a tournament calendar, scores, standings, college clinic signups, and a team shop.</p>
-        <div class="featured-tags"><span>Fastpitch</span><span>Registration</span><span>Tournaments</span></div>
-        <a href="https://islandfastpitch.com/" target="_blank" rel="noopener" class="featured-link">Visit Live Site &rarr;</a>
-      </div>
-    </div>
-    <div class="featured-card reveal" data-tilt>
-      <a class="featured-img" href="https://coybl.org/" target="_blank" rel="noopener"><img src="coybl-screenshot.webp" alt="Central Ohio Youth Baseball League Website" loading="lazy"><div class="featured-img-overlay"></div><div class="featured-badge">Live Project</div></a>
-      <div class="featured-body">
-        <div class="client-name">Central Ohio Youth Baseball League</div>
-        <h3>Pitch counts, power rankings, coach logins</h3>
-        <p>A multi-community youth baseball league in Central Ohio &mdash; scores, schedules, standings, <strong>pitch count tracking</strong>, power rankings, tournaments, coach portals, and team registration.</p>
-        <div class="featured-tags"><span>Pitch Counts</span><span>Power Rankings</span><span>Coach Portal</span></div>
-        <a href="https://coybl.org/" target="_blank" rel="noopener" class="featured-link">Visit Live Site &rarr;</a>
-      </div>
-    </div>
-    <div class="featured-card warm-accent reveal" data-tilt>
-      <a class="featured-img" href="https://dvsl.vercel.app/" target="_blank" rel="noopener"><img src="dvsl-screenshot.webp" alt="Delaware Valley Softball League Website" loading="lazy"><div class="featured-img-overlay"></div><div class="featured-badge warm">Live Project</div></a>
-      <div class="featured-body">
-        <div class="client-name">Delaware Valley Softball League</div>
-        <h3>A complete league platform, from scratch</h3>
-        <p>Scores, stats, standings, recaps, rosters, captain dashboard, and a full admin backend &mdash; everything the league needs in one place.</p>
-        <div class="featured-tags"><span>Live Stats</span><span>Recaps</span><span>Captain Dashboard</span></div>
-        <a href="https://dvsl.vercel.app/" target="_blank" rel="noopener" class="featured-link">Visit Live Site &rarr;</a>
-      </div>
-    </div>
-    <div class="featured-card reveal" data-tilt>
-      <a class="featured-img" href="https://sfbl-1.vercel.app/" target="_blank" rel="noopener"><img src="sfbl-screenshot.webp" alt="South Florida Baseball League Website" loading="lazy"><div class="featured-img-overlay"></div><div class="featured-badge">Live Project</div></a>
-      <div class="featured-body">
-        <div class="client-name">South Florida Baseball League</div>
-        <h3>An adult league, dialed in</h3>
-        <p>Scores, standings, stats, rosters, and registration for an 18+ baseball league in South Florida &mdash; same platform engine, fully rebranded for the league.</p>
-        <div class="featured-tags"><span>Adult League</span><span>Registration</span><span>Box Scores</span></div>
-        <a href="https://sfbl-1.vercel.app/" target="_blank" rel="noopener" class="featured-link">Visit Live Site &rarr;</a>
-      </div>
-    </div>
-    </div>
-  </div>
-  <div class="featured-group">
-    <div class="fg-h reveal"><span class="fg-k">03</span><span class="fg-t">Programs &amp; Camps</span><span class="fg-n">Brand and registration sites</span></div>
-    <div class="mini-grid">
-    <a class="mini reveal" href="https://lbdc1.vercel.app/" target="_blank" rel="noopener"><span class="mini-img"><img src="lbdc-screenshot.webp" alt="Long Beach Diamond Classics Website" loading="lazy"></span><span class="mini-body"><b>Long Beach Diamond Classics</b><span>Men's 50+ baseball league, Southern California</span></span></a>
-    <a class="mini reveal" href="https://aces-basketball.vercel.app/" target="_blank" rel="noopener"><span class="mini-img"><img src="aces-screenshot.webp" alt="Lower Merion Aces Basketball Website" loading="lazy"></span><span class="mini-body"><b>Lower Merion Aces Basketball</b><span>HS program site: rosters, schedules, program info</span></span></a>
-    <a class="mini reveal" href="https://greggdownerbasketball.com" target="_blank" rel="noopener"><span class="mini-img"><img src="downer-screenshot.webp" alt="Gregg Downer Basketball Website" loading="lazy"></span><span class="mini-body"><b>Downer Basketball Academy</b><span>Camp registration for a legendary coach</span></span></a>
-    <a class="mini reveal" href="https://www.fielddayadventures.com/" target="_blank" rel="noopener"><span class="mini-img"><img src="fda-screenshot.webp" alt="Field Day Adventures Website" loading="lazy"></span><span class="mini-body"><b>Field Day Adventures</b><span>Brand + registration site for a Longport, NJ kids camp</span></span></a>
-    </div>
   </div>
 </section>
 
@@ -1210,7 +1181,7 @@ footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.5rem}
 
 <footer>
   <div class="footer-logo"><span class="bracket bl">{</span><span class="ft"><span class="f1">MAIN LINE</span><span class="f2">WEB DESIGN</span></span><span class="bracket br">}</span></div>
-  <div class="footer-links"><a href="#services">Services</a><a href="#work">Work</a><!--<a href="#pricing">Pricing</a>--><a href="demo.html">Demo</a><a href="#contact">Contact</a></div>
+  <div class="footer-links"><a href="#services">Services</a><a href="#work">Work</a><!--<a href="#pricing">Pricing</a>--><!--<a href="demo.html">Demo</a>--><a href="#contact">Contact</a></div>
   <a href="https://x.com/MainLineWebDsgn" target="_blank" class="footer-social">&#120143; / @MainLineWebDsgn</a>
   <div>&copy; 2026 Main Line Web Design. All rights reserved.</div>
   <div class="footer-legal">Main Line Web Design is a trading name of Always Competing Sports LLC. Adam Miller, owner.</div>
