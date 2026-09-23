@@ -739,14 +739,6 @@ footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.5rem}
 </head>
 <body>
 
-<div class="intro-overlay">
-  <canvas id="introParticles"></canvas>
-  <div class="intro-word" id="w0">listen<span class="dot">.</span></div>
-  <div class="intro-word" id="w1">design<span class="dot">.</span></div>
-  <div class="intro-word" id="w2">deliver<span class="dot">.</span></div>
-  <div class="intro-pips"><span class="ipip"></span><span class="ipip"></span><span class="ipip"></span></div>
-</div>
-
 <nav>
   <a href="#" class="nav-logo"><span class="bracket bl">{</span><span class="nav-text"><span class="n1">MAIN LINE</span><span class="n2">WEB DESIGN</span></span><span class="bracket br">}</span></a>
   <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
@@ -758,7 +750,7 @@ footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.5rem}
   <div class="spotlight spot-top"></div><div class="spotlight spot-center"></div><div class="spotlight spot-left"></div><div class="spotlight spot-right"></div>
   <div class="bc-grid">
     <div class="bc-left">
-      <div class="bc-problem"><span class="bc-live"><i></i>Live</span><span class="bc-type" id="bcType"><noscript><s>It&rsquo;s 11:04 PM on a Sunday. Nobody posted the scores. Again.</s> <b>Fixed.</b></noscript></span></div>
+      <div class="bc-problem"><span class="bc-live"><i></i>Live</span><span class="bc-type" id="bcType"><s>It&rsquo;s 11:04 PM on a Sunday. Nobody posted the scores. Again.</s> <b>Fixed.</b></span></div>
       <h1 class="bc-h">Your league,<br><em>run like the big leagues.</em></h1>
       <p class="bc-sub">Live scores, standings, brackets, registration, and recaps that write themselves. On a site parents brag about instead of apologize for.</p>
       <!-- personalizer / demo entry hidden for now -->
@@ -845,13 +837,13 @@ footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.5rem}
     <div class="fg-h reveal"><span class="fg-k">02</span><span class="fg-t">Leagues</span><span class="fg-n">Scores, standings, recaps, registration, admin</span></div>
     <div class="featured-grid">
     <div class="featured-card warm-accent reveal" data-tilt>
-      <div class="featured-img"><img src="lmll-screenshot.webp" alt="Lower Merion Little League Website" loading="lazy"><div class="featured-img-overlay"></div><div class="featured-badge warm">Launching Soon</div></div>
+      <a class="featured-img" href="https://new.lmll.org" target="_blank" rel="noopener"><img src="lmll-screenshot.webp" alt="Lower Merion Little League Website" loading="lazy"><div class="featured-img-overlay"></div><div class="featured-badge warm">Live Project</div></a>
       <div class="featured-body">
         <div class="client-name">Lower Merion Little League</div>
         <h3>The world's 2nd&#8209;largest Little League</h3>
         <p>The complete league platform for the <strong>2nd largest Little League program in the world</strong> &mdash; 178 teams, 20 divisions, 1,000+ games a season across 54 fields. Live scores, schedules, standings, playoff brackets, registration, and admin, all in one place.</p>
         <div class="featured-tags"><span>Live Scores</span><span>Playoff Brackets</span><span>Registration</span></div>
-        <span class="featured-link" style="opacity:.55;cursor:default">Launching with the 2026 season</span>
+        <a href="https://new.lmll.org" target="_blank" rel="noopener" class="featured-link">Visit Live Site &rarr;</a>
       </div>
     </div>
 <div class="featured-card warm-accent reveal" data-tilt>
@@ -1227,11 +1219,7 @@ footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.5rem}
   var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
   // typed problem line
   var tEl=document.getElementById('bcType');
-  if(tEl){var line='It\u2019s 11:04 PM on a Sunday. Nobody posted the scores. Again.';
-    var doneHTML='<s>'+line+'</s> <b>Fixed.</b>';
-    if(reduce){tEl.innerHTML=doneHTML}
-    else{var i=0;tEl.classList.add('typing');(function step(){if(i<=line.length){tEl.textContent=line.slice(0,i);i++;setTimeout(step,i<14?50:26)}else{tEl.classList.remove('typing');setTimeout(function(){tEl.innerHTML=doneHTML},900)}})()}
-  }
+  if(tEl){tEl.innerHTML='<s>It\u2019s 11:04 PM on a Sunday. Nobody posted the scores. Again.</s> <b>Fixed.</b>';}
   // cast engine
   var stage=document.getElementById('castStage');
   if(stage){var scenes=stage.querySelectorAll('.cscene');var ci=0,timer=null;
