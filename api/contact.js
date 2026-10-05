@@ -166,6 +166,12 @@ module.exports = async function (req, res) {
 
   // Fully static auto-reply: nothing from the request is echoed, so the endpoint cannot be used to relay text.
   var replyText = 'Thanks for reaching out to Main Line Web Design.\n\nI read every inquiry myself and will get back to you within 24 hours with a first take and a couple of questions.\n\nIn the meantime, the interactive demo is a good way to see how the admin side works:\nhttps://mainline-webdesign.com/demo.html#admin\n\nAdam Miller\nMain Line Web Design\nhttps://mainline-webdesign.com\n';
+  var replyHtml = '<div style="font-family:-apple-system,Segoe UI,Helvetica,Arial,sans-serif;font-size:15px;line-height:1.6;color:#0f172a">'
+    + '<p style="margin:0 0 14px">Thanks for reaching out to Main Line Web Design.</p>'
+    + '<p style="margin:0 0 14px">I read every inquiry myself and will get back to you within 24 hours with a first take and a couple of questions.</p>'
+    + '<p style="margin:0 0 14px">In the meantime, the <a href="https://mainline-webdesign.com/demo.html#admin" style="color:#2563eb;text-decoration:underline">interactive demo</a> is a good way to see how the admin side works.</p>'
+    + '<p style="margin:18px 0 0">Adam Miller<br>Main Line Web Design<br><a href="https://mainline-webdesign.com" style="color:#2563eb;text-decoration:underline">mainline-webdesign.com</a></p>'
+    + '</div>';
 
   try {
     await sendgrid(key, {
@@ -181,7 +187,8 @@ module.exports = async function (req, res) {
         from: { email: from, name: 'Adam Miller, Main Line Web Design' },
         reply_to: { email: to },
         subject: 'Got it, thanks for reaching out',
-        content: [{ type: 'text/plain', value: replyText }]
+        content: [{ type: 'text/plain', value: replyText }, { type: 'text/html', value: replyHtml }],
+        tracking_settings: { click_tracking: { enable: false, enable_text: false } }
       });
     } catch (e) { console.error('auto-reply failed', e.message); }
     return isForm ? redirectDone(res) : send(res, 200, { ok: true });
