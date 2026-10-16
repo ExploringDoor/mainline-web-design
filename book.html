@@ -281,21 +281,20 @@ footer{border-top:1px solid var(--border);padding:2.5rem 4rem;display:flex;flex-
   'use strict';
 
   /* ===== YOUR AVAILABILITY. Edit these and nothing else. =====
-     Times are Eastern, 24h "HH:MM". Each entry is a slot a prospect can pick for a 15-minute call.
-     0=Sun 1=Mon 2=Tue 3=Wed 4=Thu 5=Fri 6=Sat. An empty list closes that day. */
-  var AVAIL={
-    1:['16:00','16:30','17:00','17:30','18:00','18:30','19:00','19:30'],
-    2:['16:00','16:30','17:00','17:30','18:00','18:30','19:00','19:30'],
-    3:['16:00','16:30','17:00','17:30','18:00','18:30','19:00','19:30'],
-    4:['16:00','16:30','17:00','17:30','18:00','18:30','19:00','19:30'],
-    5:['16:00','16:30','17:00','17:30','18:00'],
-    6:['09:00','09:30','10:00','10:30','11:00','11:30'],
-    0:[]
-  };
+     Eastern time, 24h "HH:MM". Every day opens at OPEN; the last call starts so it ends by CLOSE,
+     in STEP_MIN-minute slots. To close a day, add its number to CLOSED_DAYS
+     (0=Sun 1=Mon 2=Tue 3=Wed 4=Thu 5=Fri 6=Sat), e.g. CLOSED_DAYS=[0] closes Sundays. */
+  var OPEN='07:00', CLOSE='23:00', STEP_MIN=30;
+  var CLOSED_DAYS=[];
   var LEAD_MIN=180;      // nothing bookable sooner than 3 hours from now
   var HORIZON_DAYS=45;   // how far out the calendar opens
   var CALL_MIN=15;
   /* ============================================================ */
+  var AVAIL=(function(){
+    function mins(hm){var t=hm.split(':');return (+t[0])*60+(+t[1])}
+    var list=[]; for(var m=mins(OPEN); m+CALL_MIN<=mins(CLOSE); m+=STEP_MIN) list.push(pad(Math.floor(m/60))+':'+pad(m%60));
+    var a={}; for(var d=0;d<7;d++) a[d]=CLOSED_DAYS.indexOf(d)>=0?[]:list.slice(); return a;
+  })();
 
   var TZ='America/New_York';
   var MONTHS=['January','February','March','April','May','June','July','August','September','October','November','December'];
