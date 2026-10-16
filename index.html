@@ -460,6 +460,11 @@ footer{border-top:1px solid var(--border);padding:2.5rem 4rem;display:flex;flex-
 .contact-pts li::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent2);flex-shrink:0;margin-top:.5rem}
 .contact-direct{font-family:var(--mono);font-size:.7rem;color:var(--muted);letter-spacing:.04em}
 .contact-direct a{color:var(--accent);border-bottom:1px solid rgba(56,189,248,.35)}
+.contact-call{display:flex;align-items:center;gap:1.1rem;flex-wrap:wrap;margin:0 0 1.6rem}
+.contact-call[hidden]{display:none}
+.contact-call .btn-orbit{padding:.95rem 1.8rem}
+.call-text{font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);border-bottom:1px solid rgba(56,189,248,.35)}
+.call-text[hidden]{display:none}
 .intake{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.8rem;position:relative;overflow:hidden}
 .intake::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(56,189,248,.5),transparent)}
 .f-row{display:grid;gap:.9rem;margin-bottom:.9rem}
@@ -651,6 +656,8 @@ footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.5rem}
 .tour-stage[data-active="3"] .ts-bub.b1{animation:bubIn .4s ease .15s forwards}
 .tour-stage[data-active="3"] .ts-bub.b2{animation:bubIn .4s ease .9s forwards}
 .tour-stage[data-active="3"] .ts-bub.b3{animation:bubIn .4s ease 1.7s forwards}
+.tour-stage[data-active="0"] .ts-bub.t1{animation:bubIn .4s ease .15s forwards}
+.tour-stage[data-active="0"] .ts-bub.t2{animation:bubIn .4s ease 1.1s forwards}
 @keyframes bubIn{to{opacity:1;transform:none}}
 .tour-steps{display:flex;flex-direction:column}
 .tstep{min-height:56vh;display:flex;flex-direction:column;justify-content:center;opacity:.35;transition:opacity .4s}
@@ -752,7 +759,7 @@ footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.5rem}
     <div class="bc-left">
       <div class="bc-problem"><span class="bc-live"><i></i>Live</span><span class="bc-type" id="bcType"><s>It&rsquo;s 11:04 PM on a Sunday. Nobody posted the scores. Again.</s> <b>Fixed.</b></span></div>
       <h1 class="bc-h">Your league,<br><em>run like the big leagues.</em></h1>
-      <p class="bc-sub">Live scores, standings, brackets, registration, and recaps that write themselves. On a site parents brag about instead of apologize for.</p>
+      <p class="bc-sub">Your coaches text the score from the dugout. Standings, brackets, and the recap update on their own, and parents get the alert. No per-player fees. On a site parents brag about instead of apologize for.</p>
       <!-- personalizer / demo entry hidden for now -->
       <div class="bc-ctas"><a href="#contact"><button class="btn-orbit">Start Your Project &rarr;</button></a><a href="#tour" class="bc-watch">Watch it run &darr;</a></div>
     </div>
@@ -842,7 +849,7 @@ footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.5rem}
         <div class="client-name">Lower Merion Little League</div>
         <h3>The world's 2nd&#8209;largest Little League</h3>
         <p>The complete league platform for the <strong>2nd largest Little League program in the world</strong> &mdash; 178 teams, 20 divisions, 1,000+ games a season across 54 fields. Live scores, schedules, standings, playoff brackets, registration, and admin, all in one place.</p>
-        <div class="featured-tags"><span>Live Scores</span><span>Playoff Brackets</span><span>Registration</span></div>
+        <div class="featured-tags"><span>Scores &amp; Standings</span><span>Playoff Brackets</span><span>Registration</span></div>
         <a href="https://new.lmll.org" target="_blank" rel="noopener" class="featured-link">Visit Live Site &rarr;</a>
       </div>
     </div>
@@ -902,18 +909,19 @@ footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.5rem}
 <section class="tour" id="tour">
   <div class="tour-head">
     <div class="bug reveal">Watch It Run</div>
-    <h2 class="bc-h2 reveal">One score goes in. <em>Everything updates.</em></h2>
+    <h2 class="bc-h2 reveal">One text goes in. <em>Everything updates.</em></h2>
     <p class="tour-sub reveal">This is the whole pitch. Scroll and watch what happens the moment a game ends.</p>
   </div>
   <div class="tour-grid">
     <div class="tour-stagewrap"><div class="tour-stage" id="tourStage" data-active="0" aria-hidden="true">
       <div class="ts" data-ts="0">
-        <div class="ts-chrome"><span class="mirror-name">Main Line Demo League</span><span>Admin &rsaquo; Scores</span></div>
-        <div class="ts-adminrow">
-          <div class="ts-g"><span class="ts-time">7:30 PM &middot; Field 2</span><span class="ts-teams"><img src="demo-logos/sharks.webp" alt="">Sharks <input value="3" readonly> at <img src="demo-logos/tigers.webp" alt="">Tigers <input value="5" readonly></span></div>
-          <button class="ts-pub" id="tsPub" type="button">Publish</button>
+        <div class="ts-chrome"><span class="mirror-name">Main Line Demo League</span><span>Score line &middot; 7:31 PM</span></div>
+        <div class="ts-phone">
+          <div class="ts-ph-head">Text the score</div>
+          <div class="ts-bub t1 me">Tigers 5, Sharks 3. Final.</div>
+          <div class="ts-bub t2">Posted. Standings, bracket, and recap are updated.</div>
         </div>
-        <div class="ts-note">A manager does this from the parking lot.</div>
+        <div class="ts-note">A coach sends this from the dugout. No app, no login.</div>
       </div>
       <div class="ts" data-ts="1">
         <div class="ts-chrome gold"><span>AI Recap</span><span>4 seconds later</span></div>
@@ -939,7 +947,7 @@ footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.5rem}
       </div>
     </div></div>
     <div class="tour-steps">
-      <div class="tstep" data-step="0"><span class="tnum">01</span><h3>A manager enters the score</h3><p>Two numbers and a Publish button, from a phone, in the parking lot. That is the entire job.</p></div>
+      <div class="tstep" data-step="0"><span class="tnum">01</span><h3>A coach texts the score</h3><p>One text from the dugout: &ldquo;Tigers 5, Sharks 3. Final.&rdquo; No app to download, no login to remember, no admin screen. That is the entire job.</p></div>
       <div class="tstep" data-step="1"><span class="tnum">02</span><h3>The recap writes itself</h3><p>Headline, the key inning, player of the game. Four seconds after the final, it reads like a beat writer filed it.</p></div>
       <div class="tstep" data-step="2"><span class="tnum">03</span><h3>Standings re-rank on their own</h3><p>Wins, losses, games back, run differential, streaks. Nobody opens a spreadsheet ever again.</p></div>
       <div class="tstep" data-step="3"><span class="tnum">04</span><h3>Parents get the text</h3><p>Alerts go out, playoff seeds update, and the bracket is ready before the team is out of the parking lot.</p></div>
@@ -1125,10 +1133,14 @@ footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.5rem}
     <div class="contact-copy reveal">
       <div class="label">Get In Touch</div>
       <h2>Ready to upgrade your <em>league?</em></h2>
-      <p>Starting a new league, running a tournament, or finally rebuilding the site every parent complains about. Tell me the basics and I'll reply within 24 hours with a first take and a couple of questions.</p>
+      <p>Starting a new league, running a tournament, or finally rebuilding the site every parent complains about. The fastest way to get a real number is a 15-minute call: tell me about your league and I'll tell you exactly what it costs and how long it takes.</p>
+      <div class="contact-call" id="contactCall" hidden>
+        <a id="bookCall" href="#" target="_blank" rel="noopener"><button class="btn-orbit" type="button">Book a 15-minute call &rarr;</button></a>
+        <a class="call-text" id="textMe" href="#">or text me</a>
+      </div>
       <ul class="contact-pts">
-        <li>No sales call required. Email back and forth is fine.</li>
-        <li>Ask for a reference call with a current client.</li>
+        <li>Prefer to type? The form works too. I reply within 24 hours.</li>
+        <li>Ask for a reference call with a current commissioner or tournament director.</li>
         <li>Want a mockup first? Say so and I'll show your league on the engine.</li>
       </ul>
       <div class="contact-direct">Prefer email? <a id="contactEmail" href="#">adam.mainlinewebdesign@gmail.com</a></div>
@@ -1422,6 +1434,13 @@ document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el)});
 (function(){
   var u='adam.mainlinewebdesign';var d='gmail.com';var E=u+'@'+d;
   var ce=document.getElementById('contactEmail');if(ce)ce.href='mai'+'lto:'+E+'?subject=League%20website%20inquiry';
+  /* Book-a-call CTA. Fill these two in and the buttons appear; left empty they stay hidden so nothing dead ships. */
+  var BOOK_CALL_URL='';   /* e.g. https://calendly.com/your-handle/15min */
+  var TEXT_NUMBER='';     /* E.164, e.g. +16105551234 */
+  (function(){var w=document.getElementById('contactCall'),b=document.getElementById('bookCall'),t=document.getElementById('textMe');if(!w)return;var any=false;
+    if(BOOK_CALL_URL&&b){b.href=BOOK_CALL_URL;any=true}else if(b){b.hidden=true}
+    if(TEXT_NUMBER&&t){t.href='sms:'+TEXT_NUMBER;any=true}else if(t){t.hidden=true}
+    if(any)w.hidden=false})();
   document.querySelectorAll('.nav-cta').forEach(function(a){a.href='#contact'});
   var form=document.getElementById('intake');if(!form)return;
   var msg=document.getElementById('intakeMsg'),btn=document.getElementById('intakeBtn'),done=document.getElementById('intakeDone');
