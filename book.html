@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book a 15-minute call | Main Line Web Design</title>
+<meta name="description" content="Pick a time for a 15-minute call with Adam Miller of Main Line Web Design. Tell me about your league or tournament and I'll tell you exactly what a custom site costs and how long it takes.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://mainline-webdesign.com/book.html">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="favicon.svg">
+<meta name="theme-color" content="#040b14">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mainline-webdesign.com/book.html">
+<meta property="og:title" content="Book a 15-minute call | Main Line Web Design">
+<meta property="og:description" content="Pick a time. Tell me about your league. I'll tell you exactly what it costs and how long it takes.">
+<meta property="og:site_name" content="Main Line Web Design">
+<meta property="og:image" content="https://mainline-webdesign.com/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Book a 15-minute call | Main Line Web Design">
+<meta name="twitter:image" content="https://mainline-webdesign.com/og-card.png">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,800;0,900;1,800;1,900&family=Urbanist:wght@200;300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=Sora:wght@300;400;500;600;700;800&display=swap');
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#040b14;--fg:#e2e8f0;--accent:#38bdf8;--accent2:#fbbf24;--muted:#6a7a8a;--card:#0c1926;--border:#1a2a3a;--inset:#08131f;--sans:'Sora',system-ui,sans-serif;--heading:'Urbanist',sans-serif;--mono:'Space Grotesk',monospace;--cond:'Barlow Condensed',sans-serif;--ease:cubic-bezier(.16,1,.3,1)}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+button:disabled{cursor:default}
+
+/* NAV (identical to the homepage) */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.2rem 4rem;display:flex;justify-content:space-between;align-items:center;backdrop-filter:blur(20px);background:rgba(4,11,20,.85)}
+.nav-logo{display:flex;align-items:center;gap:0}
+.nav-logo .bracket{font-family:var(--mono);font-size:28px;font-weight:300;color:var(--accent);opacity:.3;line-height:1}
+.nav-logo .bl{padding-right:5px}.nav-logo .br{padding-left:5px}
+.nav-logo .nav-text{display:flex;flex-direction:column;align-items:center;line-height:1}
+.nav-logo .n1{font-family:var(--heading);font-size:14px;font-weight:800;text-transform:uppercase;color:#fff;letter-spacing:2px}
+.nav-logo .n2{font-family:var(--heading);font-size:7px;font-weight:600;text-transform:uppercase;color:var(--accent);letter-spacing:4px;margin-top:1px}
+.nav-links{display:flex;gap:2.5rem;align-items:center}
+.nav-links a{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);transition:color .3s;font-weight:500}
+.nav-links a:hover{color:var(--fg)}
+.nav-cta{color:var(--accent)!important;border:1px solid var(--accent);padding:.6rem 1.5rem;transition:all .3s!important}
+.nav-cta:hover{background:var(--accent);color:var(--bg)!important}
+.nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;width:44px;height:44px;padding:0;background:none;border:none;cursor:pointer;position:relative;z-index:2}
+.nav-toggle span{display:block;width:24px;height:2px;background:var(--fg);border-radius:2px;transition:transform .3s,opacity .3s;margin:0 auto}
+nav.open .nav-toggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+nav.open .nav-toggle span:nth-child(2){opacity:0}
+nav.open .nav-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* BUTTONS */
+.btn-orbit{position:relative;z-index:1;padding:1rem 2.5rem;background:var(--accent);color:var(--bg);font-family:var(--sans);font-weight:700;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;border:none;cursor:pointer;border-radius:8px;transition:transform .3s,box-shadow .3s,opacity .3s}
+.btn-orbit:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 8px 30px rgba(56,189,248,.3)}
+.btn-orbit:disabled{opacity:.4}
+.btn-outline{padding:.9rem 2.5rem;background:transparent;color:var(--fg);font-family:var(--sans);font-weight:500;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--border);cursor:pointer;transition:all .3s;border-radius:4px;display:inline-block}
+.btn-outline:hover{border-color:var(--fg)}
+
+/* PAGE HEADER */
+.bk-hero{padding:9rem 4rem 2.5rem;max-width:1240px;margin:0 auto}
+.label{font-family:var(--mono);font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;font-weight:600}
+.bk-hero h1{font-family:var(--cond);font-weight:900;text-transform:uppercase;font-size:clamp(2.4rem,5vw,4rem);line-height:.98;letter-spacing:.01em;color:#fff}
+.bk-hero h1 em{font-style:italic;color:var(--accent2)}
+.bk-hero p{color:var(--muted);font-size:.95rem;line-height:1.8;font-weight:300;max-width:560px;margin-top:1.1rem}
+
+/* BOOKING LAYOUT (ported from the Armed Fitness wizard, re-skinned) */
+.booking{display:grid;grid-template-columns:320px minmax(0,1fr);gap:clamp(1.6rem,3vw,2.6rem);align-items:start;max-width:1240px;margin:0 auto;padding:0 4rem 6rem}
+.steps{display:grid;gap:.8rem;position:sticky;top:6.5rem}
+.step{display:flex;gap:1rem;align-items:center;padding:1.05rem 1.2rem;border:1px solid var(--border);border-radius:12px;background:var(--card);color:var(--muted);transition:border-color .3s,color .3s,background .3s}
+.step .sn{width:34px;height:34px;flex:none;border-radius:50%;border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--cond);font-weight:800;font-size:1.05rem;transition:background .3s,border-color .3s,color .3s}
+.step.on{border-color:rgba(56,189,248,.55);color:var(--fg);background:linear-gradient(140deg,rgba(56,189,248,.1),var(--card))}
+.step.on .sn{background:var(--accent);border-color:var(--accent);color:var(--bg)}
+.step.done{color:var(--fg)}
+.step.done .sn{background:var(--inset);border-color:var(--accent);color:var(--accent)}
+.step .sl{font-weight:600;font-size:.92rem}
+.step .sd{font-size:.76rem;color:var(--muted)}
+.book-panel{border:1px solid var(--border);border-radius:16px;background:var(--card);padding:clamp(1.4rem,3vw,2.4rem);min-height:460px}
+.book-pane{display:none}
+.book-pane.on{display:block;animation:fade-in .5s var(--ease)}
+@keyframes fade-in{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.book-pane h3{font-family:var(--cond);font-weight:800;text-transform:uppercase;font-size:1.7rem;line-height:1.05;color:#fff;margin-bottom:.4rem}
+.book-pane .hint{color:var(--muted);margin-bottom:1.4rem;font-size:.9rem;line-height:1.6}
+.tzline{font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:1.2rem}
+.tzline b{color:var(--accent2);font-weight:600}
+.cal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem}
+.cal-head .mo{font-family:var(--cond);font-weight:800;font-size:1.35rem;text-transform:uppercase;letter-spacing:.04em}
+.cal-nav{display:flex;gap:.5rem}
+.cal-nav button{width:38px;height:38px;border:1px solid var(--border);border-radius:10px;display:flex;align-items:center;justify-content:center;transition:border-color .3s,background .3s}
+.cal-nav button:hover:not(:disabled){border-color:var(--accent);background:rgba(56,189,248,.12)}
+.cal-nav button:disabled{opacity:.35}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.cal-grid .dow{text-align:center;font-family:var(--mono);font-size:.62rem;font-weight:600;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;padding-block:.5rem}
+.cal-day{aspect-ratio:1;border:1px solid var(--border);border-radius:10px;background:var(--inset);display:flex;align-items:center;justify-content:center;font-weight:600;font-size:.95rem;transition:border-color .25s,background .25s,transform .25s var(--ease)}
+.cal-day:hover:not(:disabled){border-color:var(--accent);transform:translateY(-2px)}
+.cal-day:disabled{opacity:.28;background:transparent}
+.cal-day.sel{background:var(--accent);border-color:var(--accent);color:var(--bg)}
+.cal-day.today{border-color:rgba(251,191,36,.6)}
+#slot-wrap{margin-top:1.8rem}
+#slot-wrap p{font-weight:600;margin-bottom:.9rem;font-size:.95rem}
+#slot-wrap p span{color:var(--accent2)}
+.slot-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(118px,1fr));gap:.8rem}
+.slot{border:1px solid var(--border);border-radius:10px;background:var(--inset);padding:.85rem .6rem;text-align:center;font-weight:600;font-size:.9rem;font-variant-numeric:tabular-nums;transition:border-color .25s,background .25s,transform .25s var(--ease)}
+.slot:hover:not(:disabled){border-color:var(--accent);transform:translateY(-2px)}
+.slot.sel{background:var(--accent);border-color:var(--accent);color:var(--bg)}
+.book-nav{display:flex;justify-content:space-between;gap:1rem;margin-top:1.8rem;flex-wrap:wrap}
+.summary-box{border:1px solid rgba(56,189,248,.35);border-radius:12px;background:linear-gradient(140deg,rgba(56,189,248,.08),var(--inset));padding:1.2rem 1.4rem;display:grid;gap:.5rem;margin-bottom:1.6rem}
+.summary-box .row{display:flex;justify-content:space-between;gap:1rem;font-size:.92rem}
+.summary-box .row .k{color:var(--muted)}
+.summary-box .row .v{font-weight:600;text-align:right}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.field{display:grid;gap:.4rem}
+.field.full{grid-column:1/-1}
+.field label{font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.field input,.field textarea{width:100%;font:inherit;font-size:.95rem;color:var(--fg);background:var(--inset);border:1px solid var(--border);border-radius:8px;padding:.8rem .9rem;transition:border-color .25s}
+.field textarea{min-height:90px;resize:vertical;line-height:1.5}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--accent)}
+.f-hp{position:absolute;left:-9999px;opacity:0;height:0;overflow:hidden}
+.f-msg{font-size:.85rem;color:#fca5a5;margin-top:.9rem;min-height:1.2em}
+.confirm-wrap{text-align:center;display:grid;gap:1.1rem;justify-items:center;padding-block:1.6rem}
+.big-check{width:84px;height:84px;border-radius:50%;background:rgba(56,189,248,.14);border:1.5px solid var(--accent);display:flex;align-items:center;justify-content:center;animation:pop .6s var(--ease)}
+@keyframes pop{0%{transform:scale(.4);opacity:0}70%{transform:scale(1.12)}100%{transform:scale(1);opacity:1}}
+.confirm-wrap .lead{font-size:1.05rem;max-width:46ch;line-height:1.6}
+.confirm-wrap .sub{color:var(--muted);font-size:.9rem;max-width:52ch;line-height:1.6}
+.cal-adds{display:flex;gap:.8rem;flex-wrap:wrap;justify-content:center}
+.fallback{border:1px solid rgba(251,191,36,.45);border-radius:12px;background:rgba(251,191,36,.07);padding:1.1rem 1.3rem;font-size:.9rem;line-height:1.6;text-align:left;max-width:56ch}
+.fallback a{color:var(--accent);border-bottom:1px solid rgba(56,189,248,.35)}
+
+/* FOOTER (identical to the homepage) */
+footer{border-top:1px solid var(--border);padding:2.5rem 4rem;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;font-size:.75rem;color:var(--muted)}
+.footer-legal{flex-basis:100%;text-align:center;margin-top:1.6rem;padding-top:1.4rem;border-top:1px solid var(--border);font-size:.68rem;line-height:1.5;color:var(--muted);opacity:.72}
+.footer-logo{display:flex;align-items:center;gap:0}
+.footer-logo .bracket{font-family:var(--mono);font-size:18px;font-weight:300;color:var(--accent);opacity:.2;line-height:1}
+.footer-logo .bl{padding-right:3px}.footer-logo .br{padding-left:3px}
+.footer-logo .ft{display:flex;flex-direction:column;align-items:center;line-height:1}
+.footer-logo .f1{font-family:var(--heading);font-size:10px;font-weight:800;text-transform:uppercase;color:#fff;letter-spacing:1.5px}
+.footer-logo .f2{font-family:var(--heading);font-size:5px;font-weight:600;text-transform:uppercase;color:var(--accent);letter-spacing:3px;margin-top:1px}
+.footer-links{display:flex;gap:1.6rem}
+.footer-links a{color:var(--muted);transition:color .3s}.footer-links a:hover{color:var(--fg)}
+
+@media(max-width:980px){
+  .booking{grid-template-columns:1fr}
+  .steps{position:static;grid-template-columns:repeat(3,1fr)}
+  .step{flex-direction:column;text-align:center;gap:.4rem;padding:.8rem .4rem}
+  .step .sd{display:none}
+}
+@media(max-width:900px){
+  nav{padding:1rem 1.5rem}
+  .nav-toggle{display:flex}
+  .nav-links{position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:rgba(4,11,20,.98);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:.25rem 1.5rem 1.1rem;max-height:0;overflow:hidden;opacity:0;pointer-events:none;transition:max-height .32s var(--ease),opacity .25s}
+  nav.open .nav-links{max-height:26rem;opacity:1;pointer-events:auto}
+  .nav-links a{font-size:.95rem;letter-spacing:.02em;text-transform:none;color:var(--fg);padding:1rem .2rem;border-bottom:1px solid var(--border)}
+  .nav-links a:last-child{border-bottom:none}
+  .nav-cta{color:var(--accent)!important;border:1px solid var(--accent)!important;border-radius:8px;text-align:center;margin-top:.9rem;padding:.85rem 1.5rem!important}
+  .bk-hero{padding:7rem 1.5rem 2rem}
+  .booking{padding:0 1.5rem 4rem}
+  footer{padding:2rem 1.5rem;gap:1rem;justify-content:center;text-align:center}
+}
+@media(max-width:640px){
+  .form-grid{grid-template-columns:1fr}
+  .book-nav .btn-orbit,.book-nav .btn-outline{width:100%;text-align:center}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.book-pane.on,.big-check{animation:none}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo"><span class="bracket bl">{</span><span class="nav-text"><span class="n1">MAIN LINE</span><span class="n2">WEB DESIGN</span></span><span class="bracket br">}</span></a>
+  <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
+  <div class="nav-links" id="navLinks"><a href="index.html#services">Services</a><a href="index.html#about">About</a><a href="index.html#work">Work</a><a href="index.html#contact" class="nav-cta">Get In Touch</a></div>
+</nav>
+
+<header class="bk-hero">
+  <div class="label">Book a call</div>
+  <h1>Fifteen minutes.<br><em>One real number.</em></h1>
+  <p>Pick a time that works for you. Tell me about your league or tournament, what you're using today, and what's broken. I'll tell you exactly what a custom site costs and how long it takes. No pitch deck, no follow-up sequence.</p>
+</header>
+
+<section class="booking">
+  <aside class="steps" aria-label="Booking steps">
+    <div class="step on"><span class="sn">1</span><div><div class="sl">Pick a time</div><div class="sd">Date, then an open slot</div></div></div>
+    <div class="step"><span class="sn">2</span><div><div class="sl">Your details</div><div class="sd">Thirty seconds</div></div></div>
+    <div class="step"><span class="sn">3</span><div><div class="sl">Confirmed</div><div class="sd">On both our calendars</div></div></div>
+  </aside>
+
+  <div class="book-panel">
+
+    <!-- STEP 1: date + time -->
+    <div class="book-pane on">
+      <h3>Pick a date and time</h3>
+      <p class="hint">Fifteen minutes on the phone. Grab whatever's open.</p>
+      <div class="tzline" id="tzline">Times shown in your time zone</div>
+      <div class="cal-head">
+        <span class="mo" id="cal-month">Month</span>
+        <div class="cal-nav">
+          <button type="button" id="cal-prev" aria-label="Previous month"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M15 6l-6 6 6 6"/></svg></button>
+          <button type="button" id="cal-next" aria-label="Next month"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M9 6l6 6-6 6"/></svg></button>
+        </div>
+      </div>
+      <div class="cal-grid" id="cal-grid"></div>
+      <div id="slot-wrap" hidden>
+        <p>Open times, <span id="slot-date"></span></p>
+        <div class="slot-grid" id="slot-grid"></div>
+      </div>
+      <div class="book-nav">
+        <span></span>
+        <button class="btn-orbit" type="button" id="next-1" disabled>Next: your details &rarr;</button>
+      </div>
+    </div>
+
+    <!-- STEP 2: details -->
+    <div class="book-pane">
+      <h3>Almost there</h3>
+      <p class="hint">Who am I calling, and what are we talking about?</p>
+      <div class="summary-box">
+        <div class="row"><span class="k">When</span><span class="v" id="sum-when">&mdash;</span></div>
+        <div class="row"><span class="k">Eastern time</span><span class="v" id="sum-et">&mdash;</span></div>
+        <div class="row"><span class="k">Length</span><span class="v">15 minutes, by phone</span></div>
+      </div>
+      <form id="book-form" novalidate>
+        <div class="form-grid">
+          <div class="field"><label for="bf-name">Your name</label><input id="bf-name" type="text" autocomplete="name" required maxlength="120"></div>
+          <div class="field"><label for="bf-phone">Phone (I'll call this)</label><input id="bf-phone" type="tel" autocomplete="tel" required maxlength="40"></div>
+          <div class="field full"><label for="bf-email">Email</label><input id="bf-email" type="email" autocomplete="email" required maxlength="200"></div>
+          <div class="field full"><label for="bf-org">League or organization</label><input id="bf-org" type="text" autocomplete="organization" required maxlength="160"></div>
+          <div class="field full"><label for="bf-notes">What should I know before we talk? (optional)</label><textarea id="bf-notes" maxlength="2000"></textarea></div>
+        </div>
+        <div class="f-hp" aria-hidden="true"><label>Website<input type="text" id="bf-hp" tabindex="-1" autocomplete="off"></label></div>
+        <div class="f-msg" id="bf-msg" role="status" aria-live="polite"></div>
+        <div class="book-nav">
+          <button class="btn-outline" type="button" id="back-2">&larr; Pick a different time</button>
+          <button class="btn-orbit" type="submit" id="bf-submit">Book the call &rarr;</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- STEP 3: confirmed -->
+    <div class="book-pane">
+      <div class="confirm-wrap">
+        <div class="big-check"><svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="3"><path d="M4 12.5 10 18 20 6"/></svg></div>
+        <h3 id="conf-title">You're booked.</h3>
+        <p class="lead" id="conf-line">&mdash;</p>
+        <p class="sub" id="conf-sub">A confirmation is on its way to your email. I'll call the number you gave me.</p>
+        <div class="cal-adds" id="cal-adds">
+          <a class="btn-outline" id="add-gcal" href="#" target="_blank" rel="noopener">Add to Google Calendar</a>
+          <a class="btn-outline" id="add-ics" href="#" download="call-with-adam.ics">Add to Apple / Outlook</a>
+        </div>
+        <div class="fallback" id="fallback" hidden></div>
+        <a class="btn-orbit" href="index.html" style="display:inline-block;margin-top:.4rem">Back to the site</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo"><span class="bracket bl">{</span><span class="ft"><span class="f1">MAIN LINE</span><span class="f2">WEB DESIGN</span></span><span class="bracket br">}</span></div>
+  <div class="footer-links"><a href="index.html#services">Services</a><a href="index.html#work">Work</a><a href="index.html#contact">Contact</a></div>
+  <a href="https://x.com/MainLineWebDsgn" target="_blank" rel="noopener" class="footer-social">&#120143; / @MainLineWebDsgn</a>
+  <div>&copy; 2026 Main Line Web Design. All rights reserved.</div>
+  <div class="footer-legal">Main Line Web Design is a trading name of Always Competing Sports LLC. Adam Miller, owner.</div>
+</footer>
+
+<script>
+// MOBILE NAV (same handler as the homepage)
+(function(){
+  var nav=document.querySelector('nav'),t=document.getElementById('navToggle'),links=document.getElementById('navLinks');
+  if(!nav||!t||!links)return;
+  function close(){nav.classList.remove('open');t.setAttribute('aria-expanded','false');t.setAttribute('aria-label','Open menu')}
+  function toggle(){var open=nav.classList.toggle('open');t.setAttribute('aria-expanded',open?'true':'false');t.setAttribute('aria-label',open?'Close menu':'Open menu')}
+  t.addEventListener('click',function(e){e.stopPropagation();toggle()});
+  links.addEventListener('click',function(e){if(e.target.closest('a'))close()});
+  document.addEventListener('click',function(e){if(nav.classList.contains('open')&&!nav.contains(e.target))close()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close()});
+})();
+
+// BOOKING WIZARD. Ported from the Armed Fitness calendar; the demo's localStorage save and fake
+// "taken" slots are replaced with a real POST to /api/book (emails both sides).
+(function(){
+  'use strict';
+
+  /* ===== YOUR AVAILABILITY. Edit these and nothing else. =====
+     Times are Eastern, 24h "HH:MM". Each entry is a slot a prospect can pick for a 15-minute call.
+     0=Sun 1=Mon 2=Tue 3=Wed 4=Thu 5=Fri 6=Sat. An empty list closes that day. */
+  var AVAIL={
+    1:['16:00','16:30','17:00','17:30','18:00','18:30','19:00','19:30'],
+    2:['16:00','16:30','17:00','17:30','18:00','18:30','19:00','19:30'],
+    3:['16:00','16:30','17:00','17:30','18:00','18:30','19:00','19:30'],
+    4:['16:00','16:30','17:00','17:30','18:00','18:30','19:00','19:30'],
+    5:['16:00','16:30','17:00','17:30','18:00'],
+    6:['09:00','09:30','10:00','10:30','11:00','11:30'],
+    0:[]
+  };
+  var LEAD_MIN=180;      // nothing bookable sooner than 3 hours from now
+  var HORIZON_DAYS=45;   // how far out the calendar opens
+  var CALL_MIN=15;
+  /* ============================================================ */
+
+  var TZ='America/New_York';
+  var MONTHS=['January','February','March','April','May','June','July','August','September','October','November','December'];
+  var DOWS=['Su','Mo','Tu','We','Th','Fr','Sa'];
+  var $=function(id){return document.getElementById(id)};
+  var panel=document.querySelector('.book-panel'); if(!panel) return;
+
+  // Eastern wall-clock helpers (no library). etInstant turns "Y-M-D H:M in Eastern" into a real Date.
+  var etFmt=new Intl.DateTimeFormat('en-US',{timeZone:TZ,hour12:false,year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit'});
+  function etParts(d){var p={};etFmt.formatToParts(d).forEach(function(x){p[x.type]=x.value});return p}
+  function etInstant(y,m,d,H,M){
+    var guess=new Date(Date.UTC(y,m-1,d,H,M));
+    var p=etParts(guess);
+    var asET=Date.UTC(+p.year,+p.month-1,+p.day,(+p.hour)%24,+p.minute);
+    return new Date(guess.getTime()+(guess.getTime()-asET));
+  }
+  function pad(n){return (n<10?'0':'')+n}
+  function dateKey(y,m,d){return y+'-'+pad(m)+'-'+pad(d)}
+
+  var nowET=etParts(new Date());
+  var today={y:+nowET.year,m:+nowET.month,d:+nowET.day};
+  var state={step:1,day:null,slot:null,viewY:today.y,viewM:today.m};
+  var minTime=Date.now()+LEAD_MIN*60000;
+  var maxTime=Date.now()+HORIZON_DAYS*86400000;
+
+  // Visitor's zone, for the "times shown in" line and the confirmation
+  var vTZ=(Intl.DateTimeFormat().resolvedOptions().timeZone)||'your time zone';
+  var vName=vTZ;
+  try{ new Intl.DateTimeFormat('en-US',{timeZoneName:'long'}).formatToParts(new Date()).forEach(function(x){if(x.type==='timeZoneName')vName=x.value}); }catch(e){}
+  var inET=(vTZ===TZ);
+  $('tzline').innerHTML='Times shown in <b>'+esc(vName)+'</b>'+(inET?'':'. Adam is on Eastern time.');
+
+  function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+  function fmtLocalTime(d){return d.toLocaleTimeString([],{hour:'numeric',minute:'2-digit'})}
+  function fmtLocalDate(d){return d.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric'})}
+  function fmtET(d){return d.toLocaleString('en-US',{timeZone:TZ,weekday:'short',month:'short',day:'numeric',hour:'numeric',minute:'2-digit'})+' ET'}
+
+  function slotsFor(y,m,d){
+    var dow=new Date(Date.UTC(y,m-1,d)).getUTCDay();
+    return (AVAIL[dow]||[]).map(function(hm){var t=hm.split(':');return etInstant(y,m,d,+t[0],+t[1])})
+      .filter(function(t){return t.getTime()>=minTime&&t.getTime()<=maxTime});
+  }
+
+  /* steps rail + panes */
+  function paintSteps(){
+    document.querySelectorAll('.step').forEach(function(s,i){var n=i+1;s.classList.toggle('on',n===state.step);s.classList.toggle('done',n<state.step)});
+    document.querySelectorAll('.book-pane').forEach(function(p,i){p.classList.toggle('on',i+1===state.step)});
+  }
+  function go(n){
+    state.step=n; if(n===2) paintSummary(); paintSteps();
+    var top=panel.getBoundingClientRect().top+window.scrollY-100;
+    if(window.scrollY>top) window.scrollTo({top:top,behavior:'smooth'});
+  }
+
+  /* calendar */
+  var calGrid=$('cal-grid'), calMo=$('cal-month');
+  function paintCal(){
+    calMo.textContent=MONTHS[state.viewM-1]+' '+state.viewY;
+    calGrid.innerHTML='';
+    DOWS.forEach(function(d){var el=document.createElement('div');el.className='dow';el.textContent=d;calGrid.appendChild(el)});
+    var lead=new Date(Date.UTC(state.viewY,state.viewM-1,1)).getUTCDay();
+    for(var i=0;i<lead;i++) calGrid.appendChild(document.createElement('div'));
+    var days=new Date(state.viewY,state.viewM,0).getDate();
+    for(var d=1;d<=days;d++){
+      var b=document.createElement('button'); b.type='button'; b.className='cal-day'; b.textContent=d;
+      var open=slotsFor(state.viewY,state.viewM,d).length>0;
+      if(!open) b.disabled=true;
+      if(state.viewY===today.y&&state.viewM===today.m&&d===today.d) b.classList.add('today');
+      if(state.day&&state.day.y===state.viewY&&state.day.m===state.viewM&&state.day.d===d) b.classList.add('sel');
+      (function(dd){ b.addEventListener('click',function(){
+        state.day={y:state.viewY,m:state.viewM,d:dd}; state.slot=null;
+        paintCal(); paintSlots();
+        $('next-1').disabled=true; $('slot-wrap').hidden=false;
+        var first=slotsFor(state.day.y,state.day.m,state.day.d)[0];
+        $('slot-date').textContent=first?fmtLocalDate(first):dateKey(state.day.y,state.day.m,dd);
+      }); })(d);
+      calGrid.appendChild(b);
+    }
+    var atStart=(state.viewY===today.y&&state.viewM===today.m);
+    $('cal-prev').disabled=atStart;
+    var lastOpen=new Date(maxTime); var lp=etParts(lastOpen);
+    $('cal-next').disabled=(state.viewY>+lp.year)||(state.viewY===+lp.year&&state.viewM>=+lp.month);
+  }
+  $('cal-prev').addEventListener('click',function(){state.viewM--; if(state.viewM<1){state.viewM=12;state.viewY--} paintCal()});
+  $('cal-next').addEventListener('click',function(){state.viewM++; if(state.viewM>12){state.viewM=1;state.viewY++} paintCal()});
+
+  var slotGrid=$('slot-grid');
+  function paintSlots(){
+    slotGrid.innerHTML=''; if(!state.day) return;
+    slotsFor(state.day.y,state.day.m,state.day.d).forEach(function(t){
+      var b=document.createElement('button'); b.type='button'; b.className='slot'; b.textContent=fmtLocalTime(t);
+      if(state.slot&&state.slot.getTime()===t.getTime()) b.classList.add('sel');
+      b.addEventListener('click',function(){
+        state.slot=t;
+        slotGrid.querySelectorAll('.slot').forEach(function(x){x.classList.remove('sel')});
+        b.classList.add('sel'); $('next-1').disabled=false;
+      });
+      slotGrid.appendChild(b);
+    });
+  }
+
+  /* summary */
+  function paintSummary(){
+    if(!state.slot) return;
+    $('sum-when').textContent=fmtLocalDate(state.slot)+' at '+fmtLocalTime(state.slot)+(inET?'':' ('+vName+')');
+    $('sum-et').textContent=fmtET(state.slot);
+  }
+
+  $('next-1').addEventListener('click',function(){ if(state.slot) go(2) });
+  $('back-2').addEventListener('click',function(){ go(1) });
+
+  /* calendar files for the confirmation */
+  function utcStamp(d){return d.toISOString().replace(/[-:]/g,'').replace(/\.\d{3}/,'')}
+  function gcalLink(start){
+    var end=new Date(start.getTime()+CALL_MIN*60000);
+    var q='action=TEMPLATE&text='+encodeURIComponent('Call with Adam Miller (Main Line Web Design)')+
+      '&dates='+utcStamp(start)+'/'+utcStamp(end)+
+      '&details='+encodeURIComponent('15-minute call about your league website. Adam will call you.');
+    return 'https://calendar.google.com/calendar/render?'+q;
+  }
+  function icsLink(start){
+    var end=new Date(start.getTime()+CALL_MIN*60000);
+    var ics=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Main Line Web Design//Book//EN','BEGIN:VEVENT',
+      'UID:'+utcStamp(start)+'@mainline-webdesign.com','DTSTAMP:'+utcStamp(new Date()),
+      'DTSTART:'+utcStamp(start),'DTEND:'+utcStamp(end),
+      'SUMMARY:Call with Adam Miller (Main Line Web Design)',
+      'DESCRIPTION:15-minute call about your league website. Adam will call you.',
+      'END:VEVENT','END:VCALENDAR'].join('\r\n');
+    return 'data:text/calendar;charset=utf-8,'+encodeURIComponent(ics);
+  }
+
+  /* submit */
+  $('book-form').addEventListener('submit',function(e){
+    e.preventDefault();
+    var msg=$('bf-msg'); msg.textContent='';
+    var f={
+      name:$('bf-name').value.trim(), email:$('bf-email').value.trim(), phone:$('bf-phone').value.trim(),
+      org:$('bf-org').value.trim(), notes:$('bf-notes').value.trim(),
+      startISO:state.slot?state.slot.toISOString():'', tz:vTZ, website2:$('bf-hp').value, page:location.href
+    };
+    if(!state.slot){ msg.textContent='Pick a time first.'; return; }
+    if(!f.name||!f.phone||!f.org||!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(f.email)){ msg.textContent='Name, phone, a valid email, and your league are required.'; return; }
+    var btn=$('bf-submit'); btn.disabled=true; btn.textContent='Booking…';
+
+    function finish(ok,fallbackReason){
+      $('conf-line').textContent=fmtLocalDate(state.slot)+' at '+fmtLocalTime(state.slot)+(inET?'':' ('+vName+')')+'. I\'ll call '+f.phone+'.';
+      $('add-gcal').href=gcalLink(state.slot); $('add-ics').href=icsLink(state.slot);
+      var fb=$('fallback');
+      if(ok){ fb.hidden=true; $('conf-title').textContent='You\'re booked.'; $('conf-sub').hidden=false; }
+      else{
+        $('conf-title').textContent='Almost booked.'; $('conf-sub').hidden=true;
+        var subj=encodeURIComponent('Call request: '+fmtET(state.slot));
+        var body=encodeURIComponent('Hi Adam,\n\nI\'d like a 15-minute call on '+fmtET(state.slot)+'.\n\nName: '+f.name+'\nPhone: '+f.phone+'\nLeague: '+f.org+'\n\n'+(f.notes||''));
+        fb.innerHTML='My booking email didn\'t go through on my end ('+esc(fallbackReason||'mail not configured')+'), so this time isn\'t locked in yet. '+
+          '<a href="mailto:adam.mainlinewebdesign@gmail.com?subject='+subj+'&body='+body+'">Send me this time by email</a> and I\'ll confirm it myself. The calendar buttons below still work.';
+        fb.hidden=false;
+      }
+      btn.disabled=false; btn.textContent='Book the call →';
+      go(3);
+    }
+
+    var ctrl=new AbortController(); var timer=setTimeout(function(){ctrl.abort()},12000);
+    fetch('/api/book',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(f),signal:ctrl.signal})
+      .then(function(r){ return r.json().catch(function(){return {}}).then(function(j){ return {status:r.status,j:j} }) })
+      .then(function(x){
+        clearTimeout(timer);
+        if(x.status===200&&x.j&&x.j.ok) return finish(true);
+        if(x.j&&x.j.fallback) return finish(false,x.j.error);
+        btn.disabled=false; btn.textContent='Book the call →';
+        msg.textContent=(x.j&&x.j.error)||'That didn\'t go through. Try again in a moment.';
+      })
+      .catch(function(){ clearTimeout(timer); finish(false,'network'); });
+  });
+
+  paintSteps(); paintCal();
+})();
+</script>
+</body>
+</html>

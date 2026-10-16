@@ -1135,7 +1135,7 @@ footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.5rem}
       <h2>Ready to upgrade your <em>league?</em></h2>
       <p>Starting a new league, running a tournament, or finally rebuilding the site every parent complains about. The fastest way to get a real number is a 15-minute call: tell me about your league and I'll tell you exactly what it costs and how long it takes.</p>
       <div class="contact-call" id="contactCall" hidden>
-        <a id="bookCall" href="#" target="_blank" rel="noopener"><button class="btn-orbit" type="button">Book a 15-minute call &rarr;</button></a>
+        <a id="bookCall" href="#"><button class="btn-orbit" type="button">Book a 15-minute call &rarr;</button></a>
         <a class="call-text" id="textMe" href="#">or text me</a>
       </div>
       <ul class="contact-pts">
@@ -1435,7 +1435,7 @@ document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el)});
   var u='adam.mainlinewebdesign';var d='gmail.com';var E=u+'@'+d;
   var ce=document.getElementById('contactEmail');if(ce)ce.href='mai'+'lto:'+E+'?subject=League%20website%20inquiry';
   /* Book-a-call CTA. Fill these two in and the buttons appear; left empty they stay hidden so nothing dead ships. */
-  var BOOK_CALL_URL='';   /* e.g. https://calendly.com/your-handle/15min */
+  var BOOK_CALL_URL='book.html';   /* the on-site booking page (/book.html) */
   var TEXT_NUMBER='';     /* E.164, e.g. +16105551234 */
   (function(){var w=document.getElementById('contactCall'),b=document.getElementById('bookCall'),t=document.getElementById('textMe');if(!w)return;var any=false;
     if(BOOK_CALL_URL&&b){b.href=BOOK_CALL_URL;any=true}else if(b){b.hidden=true}
