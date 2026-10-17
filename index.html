@@ -1200,6 +1200,13 @@ footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.5rem}
   window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments)};
   gtag('js',new Date());gtag('config',GA_ID);
 })();
+// META PIXEL — paste the Pixel ID (15 digits) into META_PIXEL_ID to switch it on. Blank = nothing loads.
+(function(){
+  var META_PIXEL_ID=''; // <-- Meta Pixel ID
+  if(!META_PIXEL_ID)return;
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init',META_PIXEL_ID);fbq('track','PageView');
+})();
 // ANALYTICS EVENTS — safely no-op until gtag is loaded
 (function(){
   function ev(name,params){try{if(window.gtag)gtag('event',name,params||{})}catch(e){}}
@@ -1208,6 +1215,7 @@ footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.5rem}
     if(a){var href=a.getAttribute('href')||'';
       if(/demo\.html/.test(href))ev('demo_open',{link:href});
       if(a.classList.contains('nav-cta')||href==='#contact')ev('cta_contact',{});
+      if(a.id==='bookCall'){ev('book_call_click',{});try{if(window.fbq)fbq('track','Lead');}catch(x){}}
     }
     var card=e.target.closest('.featured-card,.mini');
     if(card){var nm=card.querySelector('.client-name,.mini-body b');ev('portfolio_click',{client:nm?nm.textContent.trim():''})}
