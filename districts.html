@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A Modern Home for Your Little League District · Main Line Web Design</title>
+<meta name="description" content="Scores, schedules, tournament brackets, champions, umpire assigning and texting that reaches every family, on one district site that runs itself. Built on and running PA District 27.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:title" content="A Modern Home for Your Little League District">
+<meta property="og:description" content="Everything a district site can do, shown on a real district site I build and run. Built on PA District 27.">
+<meta property="og:image" content="https://mainline-webdesign.com/districts/d27-home.jpg">
+<meta property="og:url" content="https://mainline-webdesign.com/districts.html">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4RLJ9EPT01"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-4RLJ9EPT01');</script>
+<style>
+  :root{--navy:#0a2a5c;--navy2:#0f3c80;--gold:#caa63a;--ink:#17233a;--muted:#5b6675;--line:#e3e8ef;--bg:#f4f6f9;--white:#fff}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:Inter,-apple-system,system-ui,sans-serif;color:var(--ink);background:var(--white);line-height:1.5;-webkit-font-smoothing:antialiased}
+  img{max-width:100%;height:auto;display:block}
+  a{color:var(--navy2)}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+  /* top bar */
+  .top{position:sticky;top:0;z-index:50;background:var(--navy);color:#fff;border-bottom:3px solid var(--gold)}
+  .top .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:12px}
+  .logo{color:#fff;text-decoration:none;font-family:'Barlow Condensed',sans-serif;font-weight:900;letter-spacing:.06em;font-size:20px;display:flex;align-items:center;gap:6px}
+  .logo .br{color:var(--gold);font-weight:800}
+  .dl{background:var(--gold);color:var(--navy);text-decoration:none;font-weight:800;font-size:13px;letter-spacing:.04em;padding:10px 14px;border-radius:9px;white-space:nowrap;font-family:'Barlow Condensed',sans-serif;font-size:15px}
+  /* hero */
+  .hero{background:var(--navy);color:#fff;padding:54px 0 0}
+  .kick{color:var(--gold);font-family:'Barlow Condensed',sans-serif;font-weight:800;letter-spacing:.14em;font-size:13px}
+  h1{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(44px,8vw,76px);line-height:.98;margin:10px 0 14px;letter-spacing:.005em}
+  h1 em{font-style:normal;color:var(--gold)}
+  .lede{max-width:720px;font-size:17px;color:#c9d6ea;margin-bottom:30px}
+  .tiles{background:#fff;color:var(--ink);border-top:3px solid var(--gold);border-bottom:3px solid var(--gold);display:grid;grid-template-columns:repeat(4,1fr)}
+  .tile{padding:22px 10px;text-align:center;border-left:1px solid var(--line)}
+  .tile:first-child{border-left:none}
+  .tile b{display:block;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:30px;color:var(--navy);line-height:1}
+  .tile span{color:var(--muted);font-size:13px}
+  .proof{padding:26px 0 44px}
+  .proof b{display:block;font-size:17px}
+  .proof span{color:#aebfdc;font-size:14px}
+  /* sections */
+  section{padding:56px 0;border-bottom:1px solid var(--line)}
+  .num{display:inline-flex;align-items:center;gap:10px;color:var(--navy2);font-weight:800;font-size:12px;letter-spacing:.1em;text-transform:uppercase}
+  .num i{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:7px;background:var(--navy2);color:#fff;font-style:normal;font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:800}
+  h2{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(32px,5vw,44px);line-height:1.02;margin:12px 0 10px;color:var(--navy)}
+  .intro{color:var(--muted);font-size:16.5px;max-width:760px;margin-bottom:24px}
+  .shot{border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 10px 30px rgba(16,24,40,.10);background:#fff}
+  .shot .bar{height:22px;background:#eef1f5;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:5px;padding:0 10px}
+  .shot .bar i{width:7px;height:7px;border-radius:50%;background:#d7dce3}
+  .cap{color:var(--muted);font-size:13px;margin-top:8px}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:22px}
+  .grid2 .shot{margin-top:0}
+  .row{display:grid;grid-template-columns:1.15fr .85fr;gap:22px;align-items:start}
+  .card{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:18px 18px 14px}
+  .card h3{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:21px;color:var(--navy);margin-bottom:4px}
+  .card h3::after{content:"";display:block;width:26px;height:3px;background:var(--gold);margin-top:6px}
+  .card ul{list-style:none;margin-top:10px}
+  .card li{position:relative;padding-left:16px;margin:7px 0;font-size:14.5px;color:#2a3442}
+  .card li::before{content:"";position:absolute;left:0;top:9px;width:5px;height:5px;background:var(--navy2)}
+  .phone{max-width:300px;margin:0 auto}
+  /* problem cards */
+  .cards4{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:10px}
+  /* proof + form */
+  .final{background:var(--navy);color:#fff;border-bottom:none}
+  .final h2{color:#fff}
+  .final .intro{color:#c9d6ea}
+  .seebox{background:#0f3c80;border:1px solid #2a5aa8;border-radius:14px;padding:20px 22px;margin:18px 0 28px}
+  .seebox b{color:var(--gold);font-family:'Barlow Condensed',sans-serif;font-size:20px;letter-spacing:.02em}
+  .seebox a{color:#fff;font-weight:700}
+  form{background:#fff;color:var(--ink);border-radius:16px;padding:24px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  form h3{grid-column:1/-1;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:28px;color:var(--navy)}
+  form p.sub{grid-column:1/-1;color:var(--muted);font-size:14px;margin-top:-6px}
+  label{display:flex;flex-direction:column;gap:5px;font-size:13px;font-weight:600;color:#2a3442}
+  label.full{grid-column:1/-1}
+  input,textarea{font:inherit;padding:11px 12px;border:1.5px solid #cfd6e0;border-radius:9px;background:#fff}
+  input:focus,textarea:focus{outline:2px solid var(--gold);border-color:var(--gold)}
+  textarea{min-height:84px;resize:vertical}
+  .hp{position:absolute;left:-9999px;opacity:0;height:0;width:0}
+  button{grid-column:1/-1;background:var(--gold);color:var(--navy);border:none;border-radius:11px;padding:15px;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:19px;letter-spacing:.04em;cursor:pointer}
+  button:disabled{opacity:.6;cursor:default}
+  .msg{grid-column:1/-1;font-size:14px}
+  .msg.ok{color:#1f8a54;font-weight:700}
+  .msg.err{color:#c0392b}
+  .foot{background:#061b3d;color:#9fb3d6;text-align:center;padding:26px 20px;font-size:13px}
+  .foot a{color:#fff}
+  @media (max-width:800px){
+    .tiles{grid-template-columns:repeat(2,1fr)} .tile:nth-child(3){border-left:none} .tile{border-top:1px solid var(--line)}
+    .grid2,.row,.cards4{grid-template-columns:1fr}
+    form{grid-template-columns:1fr} label.full{grid-column:auto} form h3,form p.sub,button,.msg{grid-column:auto}
+    .top .wrap{height:56px} .logo{font-size:15px;white-space:nowrap;letter-spacing:.03em} .dl{font-size:13px;padding:9px 11px}
+  }
+</style>
+</head>
+<body>
+
+<div class="top"><div class="wrap">
+  <a class="logo" href="/"><span class="br">{</span> MAIN LINE WEB DESIGN <span class="br">}</span></a>
+  <a class="dl" href="districts/District-Site-Overview.pdf" onclick="gtag&&gtag('event','district_pdf_download')">DOWNLOAD THE GUIDE (PDF)</a>
+</div></div>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="kick">FOR PENNSYLVANIA LITTLE LEAGUE DISTRICTS</div>
+    <h1>A Modern Home<br>for Your <em>District</em></h1>
+    <p class="lede">Scores, schedules, tournament brackets, champions, umpire assigning, and texting that reaches every family, all on one site that runs itself. Everything below is shown on a real district site I build and run.</p>
+  </div>
+  <div class="tiles"><div class="wrap" style="display:contents">
+    <div class="tile"><b>Every</b><span>league</span></div>
+    <div class="tile"><b>Every</b><span>tournament</span></div>
+    <div class="tile"><b>Every</b><span>champion</span></div>
+    <div class="tile"><b>One</b><span>site</span></div>
+  </div></div>
+  <div class="wrap proof"><b>I build and run PA District 27.</b><span>I have built sample sites for districts across Pennsylvania. I can build yours on your real data, and you see it before anything goes live.</span></div>
+</header>
+
+<section><div class="wrap">
+  <div class="num"><i>01</i> Why this matters</div>
+  <h2>Your district deserves better than a dead website.</h2>
+  <p class="intro">Most districts run on a site nobody can update, or no site at all. During tournament season that gap becomes your problem, one text and phone call at a time.</p>
+  <div class="cards4">
+    <div class="card"><h3>What families deal with now</h3><ul><li>"What field are we on?" "What time?" "Who won?" texted straight to you.</li><li>A Facebook page to dig through, or a site that has not changed in years.</li><li>No schedule, no live scores, no brackets they can actually find.</li></ul></div>
+    <div class="card"><h3>What you deal with now</h3><ul><li>A webmaster who is busy, gone, or the only one who knows the password.</li><li>Assigning umpires by spreadsheet and a string of phone calls.</li><li>Paper team entry forms, and chasing coaches for rosters and insurance.</li></ul></div>
+    <div class="card"><h3>The cost</h3><ul><li>You are the help desk every June, instead of running the district.</li><li>Good leagues and families assume the district is behind the times.</li><li>Everything lives in your head, so nothing is in one place.</li></ul></div>
+    <div class="card"><h3>What this fixes</h3><ul><li>One modern site that holds scores, schedules, brackets and champions.</li><li>Umpire assigning, team forms and texting, all built in.</li><li>You stop maintaining it. That part is on me.</li></ul></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="num"><i>02</i> One home for your district</div>
+  <h2>Every league, one site.</h2>
+  <p class="intro">Your member leagues, the tournament season, scores, standings and champions all live in one clean place that works on every phone.</p>
+  <div class="shot"><div class="bar"><i></i><i></i><i></i></div><img src="districts/d27-home.jpg" alt="PA District 27 home page" loading="lazy"></div>
+  <p class="cap">The real PA District 27 home: the season, the divisions and quick links, all on one page.</p>
+  <div class="grid2">
+    <div class="card"><h3>Built for your whole district</h3><ul><li>Baseball and softball, every division, in one site.</li><li>Member leagues and their home fields, with directions.</li><li>Fast and mobile, so families actually use it.</li></ul></div>
+    <div class="card"><h3>Nothing to maintain</h3><ul><li>I set it up and keep it running all season.</li><li>No webmaster, no passwords lost to a volunteer who moved on.</li><li>Updates happen in minutes, not a help ticket.</li></ul></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="num"><i>03</i> Live scores and schedule</div>
+  <h2>Every game, as it happens.</h2>
+  <p class="intro">Scores post from the field and standings update on their own. The whole schedule, by week and by day, is one tap away for every family.</p>
+  <div class="shot"><div class="bar"><i></i><i></i><i></i></div><img src="districts/d27-scores.jpg" alt="Scores page" loading="lazy"></div>
+  <p class="cap">A real scores page: 299 finals across 30 tournaments, each one a tap from its recap and bracket.</p>
+  <div class="grid2">
+    <div class="card"><h3>Scores that keep themselves current</h3><ul><li>Post a final from a phone at the field.</li><li>Standings, brackets and team pages update instantly.</li><li>Tap any game for the box score and the bracket.</li></ul></div>
+    <div class="card"><h3>A schedule families can find</h3><ul><li>Every game by week and by day, filterable by league.</li><li>Game previews before first pitch, recaps after.</li><li>Add any game to a phone calendar in one tap.</li></ul></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="num"><i>04</i> Brackets, champions and a keepsake</div>
+  <h2>Run it like the real thing.</h2>
+  <p class="intro">Full double-elimination brackets that advance on their own, champions kept for good, and a season story book you can flip, share and print.</p>
+  <div class="grid2">
+    <div><div class="shot"><div class="bar"><i></i><i></i><i></i></div><img src="districts/d27-bracket.jpg" alt="Bracket and champion" loading="lazy"></div><p class="cap">A real bracket and crowned champion.</p></div>
+    <div><div class="shot"><div class="bar"><i></i><i></i><i></i></div><img src="districts/d27-flipbook.jpg" alt="Season story book" loading="lazy"></div><p class="cap">A flip-through season story book.</p></div>
+  </div>
+  <div class="grid2">
+    <div class="card"><h3>Brackets done right</h3><ul><li>Double elimination, seeding and if-necessary games.</li><li>Enter a score and the winner advances automatically.</li><li>One button prints a bracket for the snack-stand wall.</li></ul></div>
+    <div class="card"><h3>Champions kept forever</h3><ul><li>Every champion archived with its photo.</li><li>A season story book, written from the real scores.</li><li>Families flip through it, share it, and print it.</li></ul></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="num"><i>05</i> Umpire assigning, handled</div>
+  <h2>No more spreadsheet, no more phone tag.</h2>
+  <p class="intro">Your schedule flows straight into the assigning system. Umpires accept by text, pay tracks itself, and the crew shows back on your site. Built on AssignCrew.</p>
+  <div class="row">
+    <div class="card"><h3>The whole loop, automatic</h3><ul><li>Your tournament schedule reads in on its own, every game, field and time.</li><li>Assign with one click, or auto-assign around availability, travel and conflicts.</li><li>Each ump gets a text or email: tap Accept or Decline, no app, no login.</li><li>Pay and mileage track themselves; export one report at season's end.</li></ul></div>
+    <div><div class="shot phone"><div class="bar"><i></i><i></i><i></i></div><img src="districts/ac-umpire.jpg" alt="Umpire portal" loading="lazy"></div><p class="cap" style="text-align:center">How it looks for an umpire.</p></div>
+  </div>
+  <div class="shot" style="margin-top:22px"><div class="bar"><i></i><i></i><i></i></div><img src="districts/ac-assign.jpg" alt="Assignor board" loading="lazy"></div>
+  <p class="cap">The assignor board: auto-assign, send offers by text, and publish the crew back to your site.</p>
+</div></section>
+
+<section><div class="wrap">
+  <div class="num"><i>06</i> Reach every family's phone</div>
+  <h2>A text beats a website nobody checks.</h2>
+  <p class="intro">The one channel families actually read. Scores, rain-outs, schedule changes and reminders go straight to the phones of people who opted in.</p>
+  <img src="districts/texts.jpg" alt="Text alerts" loading="lazy" style="border-radius:14px">
+  <p class="cap">Real alerts: a coach texts a score in, and families get rain-outs, schedule changes and announcements.</p>
+  <div class="grid2">
+    <div class="card"><h3>Right message, right moment</h3><ul><li>Game-day score alerts the second a final posts.</li><li>Rain-outs and cancellations to everyone affected, in one tap.</li><li>Text-a-Score: a coach texts the final and it posts itself.</li></ul></div>
+    <div class="card"><h3>Done the right way</h3><ul><li>Families opt in, with carrier-compliant sign-up handled for you.</li><li>A push notification version for anyone who installs the site.</li><li>One announcement reaches the whole district or one league.</li></ul></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="num"><i>07</i> Email that actually lands</div>
+  <h2>Not a blast that goes to spam.</h2>
+  <p class="intro">A branded weekly rundown and league-wide announcements, sent the right way so they reach the inbox, not the junk folder.</p>
+  <div class="row">
+    <div><div class="shot"><div class="bar"><i></i><i></i><i></i></div><img src="districts/email.jpg" alt="Weekly rundown email" loading="lazy"></div><p class="cap">A real weekly email: last week's scores, this week's schedule and the champions, built for you.</p></div>
+    <div>
+      <div class="card"><h3>Built to reach the inbox</h3><ul><li>A branded weekly rundown goes out on its own.</li><li>Announcements to the whole district or one league.</li><li>Your domain, verified the right way, so it is not flagged as spam.</li></ul></div>
+      <div class="card" style="margin-top:14px"><h3>Proof it works</h3><ul><li>97% delivered across 15,000+ emails a month, near-zero spam complaints.</li><li>That is what proper setup looks like, not a risky inbox blast.</li></ul></div>
+    </div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="num"><i>08</i> Built for game day</div>
+  <h2>The jobs you actually do, made easy.</h2>
+  <p class="intro">Posting scores from the field, watching the weather, and catching mistakes before they happen.</p>
+  <div class="row">
+    <div class="card"><h3>Score it from the field</h3><ul><li>Tap plus and minus, hit Mark Final, done.</li><li>It posts to the bracket, the standings and the team pages instantly.</li><li>Families get the alert before you have left the parking lot.</li></ul></div>
+    <div><div class="shot phone"><div class="bar"><i></i><i></i><i></i></div><img src="districts/score-phone.jpg" alt="Score entry on a phone" loading="lazy"></div><p class="cap" style="text-align:center">Post a final from your phone.</p></div>
+  </div>
+  <div class="shot" style="margin-top:22px"><div class="bar"><i></i><i></i><i></i></div><img src="districts/admin-ops.jpg" alt="Field status and double-booking check" loading="lazy"></div>
+  <p class="cap">Live field status, and double-bookings caught automatically before you publish the schedule.</p>
+</div></section>
+
+<section><div class="wrap">
+  <div class="num"><i>09</i> Forms, photos and the little things</div>
+  <h2>The parts that save you hours.</h2>
+  <p class="intro">Online team entry that replaces the paper and the email chains, photos added in seconds, and a site that nudges families toward what matters.</p>
+  <div class="shot"><div class="bar"><i></i><i></i><i></i></div><img src="districts/forms-photo.jpg" alt="Team entry form and photo upload" loading="lazy"></div>
+  <p class="cap">Build any team-entry form and collect it online; add a champion photo in seconds, auto-sized for you.</p>
+  <div class="row" style="margin-top:22px">
+    <div class="card"><h3>Online, not on paper</h3><ul><li>Team entry, rosters and insurance (COI), collected online.</li><li>See who has entered and who still owes, at a glance.</li><li>A pop-up on the site points families to registration, scores or an alert.</li></ul></div>
+    <div><div class="shot"><div class="bar"><i></i><i></i><i></i></div><img src="districts/popup.jpg" alt="Site pop-up" loading="lazy"></div><p class="cap" style="text-align:center">A site pop-up that drives sign-ups.</p></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="num"><i>10</i> Volunteers and the snack bar</div>
+  <h2>Fill every shift without the clipboard.</h2>
+  <p class="intro">The host league's snack bar, gate and scorekeeper shifts, signed up online. Families claim a shift, get a reminder, and the district sees every stand covered.</p>
+  <div class="row">
+    <div><div class="shot"><div class="bar"><i></i><i></i><i></i></div><img src="districts/volunteer.jpg" alt="Volunteer shift sign-up" loading="lazy"></div><p class="cap">Families claim snack bar, gate and scorekeeper shifts, with a reminder text.</p></div>
+    <div>
+      <div class="card"><h3>Online, not a clipboard</h3><ul><li>Post the shifts once; families claim them.</li><li>A reminder text goes out the night before.</li><li>No begging for help at the gate on game day.</li></ul></div>
+      <div class="card" style="margin-top:14px"><h3>Every stand covered</h3><ul><li>See which shifts are full and which still need people.</li><li>Great for leagues that require volunteer or service hours.</li></ul></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="final" id="district"><div class="wrap">
+  <div class="num" style="color:var(--gold)"><i style="background:var(--gold);color:var(--navy)">11</i> The proof, and what is next</div>
+  <h2>This is not a concept. It is live.</h2>
+  <p class="intro">PA District 27 runs on everything on this page, today. I built it, and I keep it running. I have built sample sites for other Pennsylvania districts as well, and I can build yours on your real leagues, schedules and champions.</p>
+  <div class="seebox"><b>See it for yourself</b><br>Open <a href="https://padistrict27.com" target="_blank" rel="noopener">padistrict27.com</a> on your phone right now. Every score, schedule, bracket and champion is real. Picture your district's name on it instead.</div>
+
+  <form id="f" novalidate>
+    <h3>Show me my district</h3>
+    <p class="sub">Tell me which district you run and I will build a sample on your real data. No cost to look, nothing goes live until you say so.</p>
+    <label>Your name<input name="name" required autocomplete="name"></label>
+    <label>Email<input name="email" type="email" required autocomplete="email"></label>
+    <label>Your district<input name="district" placeholder="e.g. PA District 12" required></label>
+    <label>Phone (optional)<input name="phone" type="tel" autocomplete="tel"></label>
+    <label class="full">Anything I should know? (optional)<textarea name="extra" placeholder="Your leagues, your tournaments, what you use today"></textarea></label>
+    <input class="hp" name="website2" tabindex="-1" autocomplete="off">
+    <button type="submit" id="btn">BUILD MY DISTRICT'S SAMPLE</button>
+    <div class="msg" id="msg"></div>
+  </form>
+</div></section>
+
+<div class="foot">Adam Miller &middot; Main Line Web Design &middot; <a href="mailto:adam@mainline-webdesign.com">adam@mainline-webdesign.com</a> &middot; <a href="/">mainline-webdesign.com</a><br><span style="opacity:.75">Built on and running PA District 27 &middot; padistrict27.com</span></div>
+
+<script>
+(function(){
+  var f=document.getElementById('f'), btn=document.getElementById('btn'), msg=document.getElementById('msg');
+  f.addEventListener('submit', async function(e){
+    e.preventDefault(); msg.className='msg'; msg.textContent='';
+    var d=Object.fromEntries(new FormData(f).entries());
+    if(!d.name||!d.email||!d.district){ msg.className='msg err'; msg.textContent='Name, email and your district are required.'; return; }
+    var notes='Show me my district sample.'+(d.phone?'\nPhone: '+d.phone:'')+(d.extra?'\n\n'+d.extra:'');
+    var payload={name:d.name,email:d.email,org:d.district,orgType:'Little League District',sport:'Baseball & Softball',notes:notes,ref:'PA DA meeting Oct 2026',page:'districts.html',website2:d.website2||''};
+    btn.disabled=true; btn.textContent='SENDING...';
+    try{
+      var r=await fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+      var j={}; try{ j=await r.json(); }catch(_){}
+      if(r.ok&&j.ok){ f.innerHTML='<h3>Got it, '+d.name.split(' ')[0]+'.</h3><p class="sub" style="font-size:16px;color:#2a3442">I will build a sample for '+d.district.replace(/</g,'')+' and send you a link, usually within a few days. Thanks for a few minutes of your time today.</p>'; if(window.gtag)gtag('event','district_lead'); return; }
+      throw new Error(j.error||'send failed');
+    }catch(err){
+      btn.disabled=false; btn.textContent="BUILD MY DISTRICT'S SAMPLE";
+      var m='mailto:adam@mainline-webdesign.com?subject='+encodeURIComponent('Show me my district: '+d.district)+'&body='+encodeURIComponent(d.name+'\n'+d.email+'\n'+notes);
+      msg.className='msg err'; msg.innerHTML='Could not send right now. <a href="'+m+'">Email me directly instead</a>.';
+    }
+  });
+})();
+</script>
+</body>
+</html>
