@@ -65,6 +65,15 @@
   .phone{max-width:300px;margin:0 auto}
   /* problem cards */
   .cards4{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:10px}
+  .sub{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:22px;color:var(--navy);margin-top:26px}
+  .sub::after{content:"";display:block;width:30px;height:3px;background:var(--gold);margin-top:6px}
+  .cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:14px}
+  .fix{background:var(--navy);color:#fff;border-radius:14px;padding:24px 28px 20px;margin-top:22px;border-left:8px solid var(--gold)}
+  .fix small{display:block;font-weight:800;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+  .fix h3{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:30px;color:#fff;margin:4px 0 10px}
+  .fix ul{list-style:none}
+  .fix li{position:relative;padding-left:20px;margin:8px 0;font-size:17px;color:#fff}
+  .fix li::before{content:"";position:absolute;left:0;top:10px;width:8px;height:8px;border-radius:50%;background:var(--gold)}
   /* proof + form */
   .final{background:var(--navy);color:#fff;border-bottom:none}
   .final h2{color:#fff}
@@ -90,7 +99,7 @@
   .foot a{color:#fff}
   @media (max-width:800px){
     .tiles{grid-template-columns:repeat(2,1fr)} .tile:nth-child(3){border-left:none} .tile{border-top:1px solid var(--line)}
-    .grid2,.row,.cards4{grid-template-columns:1fr}
+    .grid2,.row,.cards4,.cards3{grid-template-columns:1fr}
     form{grid-template-columns:1fr} label.full{grid-column:auto} form h3,form p.sub,button,.msg{grid-column:auto}
     .top .wrap{height:56px} .logo{font-size:15px;white-space:nowrap;letter-spacing:.03em} .dl{font-size:13px;padding:9px 11px}
   }
@@ -122,12 +131,13 @@
   <div class="num"><i>01</i> Why this matters</div>
   <h2>Your district deserves better than a dead website.</h2>
   <p class="intro">Most districts run on a site nobody can update, or no site at all. During tournament season that gap becomes your problem, one text and phone call at a time.</p>
-  <div class="cards4">
-    <div class="card"><h3>What families deal with now</h3><ul><li>"What field are we on?" "What time?" "Who won?" texted straight to you.</li><li>A Facebook page to dig through, or a site that has not changed in years.</li><li>No schedule, no live scores, no brackets they can actually find.</li></ul></div>
-    <div class="card"><h3>What you deal with now</h3><ul><li>A webmaster who is busy, gone, or the only one who knows the password.</li><li>Assigning umpires by spreadsheet and a string of phone calls.</li><li>Paper team entry forms, and chasing coaches for rosters and insurance.</li></ul></div>
+  <h3 class="sub">Where districts are now</h3>
+  <div class="cards3">
+    <div class="card"><h3>What families deal with</h3><ul><li>"What field are we on?" "What time?" "Who won?" All texted straight to you.</li><li>A Facebook page to dig through, or a site that has not changed in years.</li><li>No schedule, no live scores, no brackets they can actually find.</li></ul></div>
+    <div class="card"><h3>What you deal with</h3><ul><li>A webmaster who is busy, gone, or the only one who knows the password.</li><li>Assigning umpires by spreadsheet and a string of phone calls.</li><li>Paper team entry forms, and chasing coaches for rosters and insurance.</li></ul></div>
     <div class="card"><h3>The cost</h3><ul><li>You are the help desk every June, instead of running the district.</li><li>Good leagues and families assume the district is behind the times.</li><li>Everything lives in your head, so nothing is in one place.</li></ul></div>
-    <div class="card"><h3>What this fixes</h3><ul><li>One modern site that holds scores, schedules, brackets and champions.</li><li>Umpire assigning, team forms and texting, all built in.</li><li>You stop maintaining it. That part is on me.</li></ul></div>
   </div>
+  <div class="fix"><small>The solution</small><h3>What this fixes</h3><ul><li>One modern site that holds scores, schedules, brackets and champions.</li><li>Umpire assigning, team forms and texting, all built in.</li><li>You stop maintaining it. That part is on me.</li></ul></div>
 </div></section>
 
 <section><div class="wrap">
@@ -137,20 +147,20 @@
   <div class="shot"><div class="bar"><i></i><i></i><i></i></div><img src="districts/d27-home.jpg" alt="PA District 27 home page" loading="lazy"></div>
   <p class="cap">The real PA District 27 home: the season, the divisions and quick links, all on one page.</p>
   <div class="grid2">
-    <div class="card"><h3>Built for your whole district</h3><ul><li>Baseball and softball, every division, in one site.</li><li>Member leagues and their home fields, with directions.</li><li>Fast and mobile, so families actually use it.</li></ul></div>
+    <div class="card"><h3>Built for your whole district</h3><ul><li>Baseball and softball, every division, in one site.</li><li>Member leagues and their home fields, with directions.</li><li>Fast on a phone, so families actually use it.</li></ul></div>
     <div class="card"><h3>Nothing to maintain</h3><ul><li>I set it up and keep it running all season.</li><li>No webmaster, no passwords lost to a volunteer who moved on.</li><li>Updates happen in minutes, not a help ticket.</li></ul></div>
   </div>
 </div></section>
 
 <section><div class="wrap">
-  <div class="num"><i>03</i> Live scores and schedule</div>
+  <div class="num"><i>03</i> Live scores and schedules</div>
   <h2>Every game, as it happens.</h2>
   <p class="intro">Scores post from the field and standings update on their own. The whole schedule, by week and by day, is one tap away for every family.</p>
   <div class="shot"><div class="bar"><i></i><i></i><i></i></div><img src="districts/d27-scores.jpg" alt="Scores page" loading="lazy"></div>
   <p class="cap">A real scores page: 299 finals across 30 tournaments, each one a tap from its recap and bracket.</p>
   <div class="grid2">
     <div class="card"><h3>Scores that keep themselves current</h3><ul><li>Post a final from a phone at the field.</li><li>Standings, brackets and team pages update instantly.</li><li>Tap any game for the box score and the bracket.</li></ul></div>
-    <div class="card"><h3>A schedule families can find</h3><ul><li>Every game by week and by day, filterable by league.</li><li>Game previews before first pitch, recaps after.</li><li>Add any game to a phone calendar in one tap.</li></ul></div>
+    <div class="card"><h3>A schedule families can find</h3><ul><li>Every game by week and by day, filterable by league.</li><li>Game previews before first pitch, recaps once the game ends.</li><li>Add any game to a phone calendar in one tap.</li></ul></div>
   </div>
   <div class="shot" style="margin-top:28px"><div class="bar"><i></i><i></i><i></i></div><img src="districts/d27-hosting.jpg" alt="Hosting Manager page" loading="lazy"></div>
   <p class="cap">The real Hosting Manager: 221 hosted games across D27's 11 member leagues, each with field and umpire responsibility.</p>
@@ -162,15 +172,15 @@
 
 <section><div class="wrap">
   <div class="num"><i>04</i> Brackets, champions and a keepsake</div>
-  <h2>Run it like the real thing.</h2>
-  <p class="intro">Full double-elimination brackets that advance on their own, champions kept for good, and a season story book you can flip, share and print.</p>
+  <h2>Brackets that run themselves.</h2>
+  <p class="intro">Full double-elimination brackets that advance on their own, a history of champions, and a season story book you can flip through, share and print.</p>
   <div class="grid2">
     <div><div class="shot"><div class="bar"><i></i><i></i><i></i></div><img src="districts/d27-bracket.jpg" alt="Bracket and champion" loading="lazy"></div><p class="cap">A real bracket and crowned champion.</p></div>
     <div><div class="shot"><div class="bar"><i></i><i></i><i></i></div><img src="districts/d27-flipbook.jpg" alt="Season story book" loading="lazy"></div><p class="cap">A flip-through season story book.</p></div>
   </div>
   <div class="grid2">
     <div class="card"><h3>Brackets done right</h3><ul><li>Double elimination, seeding and if-necessary games.</li><li>Enter a score and the winner advances automatically.</li><li>One button prints a bracket for the snack-stand wall.</li></ul></div>
-    <div class="card"><h3>Champions kept forever</h3><ul><li>Every champion archived with its photo.</li><li>A season story book, written from the real scores.</li><li>Families flip through it, share it, and print it.</li></ul></div>
+    <div class="card"><h3>Champions kept forever</h3><ul><li>Every champion archived with its photo.</li><li>A season story book, written from real scores.</li><li>Families can flip through, share or print it.</li></ul></div>
   </div>
 </div></section>
 
@@ -179,7 +189,7 @@
   <h2>No more spreadsheet, no more phone tag.</h2>
   <p class="intro">Your schedule flows straight into the assigning system. Umpires accept by text, pay tracks itself, and the crew shows back on your site. Built on AssignCrew.</p>
   <div class="row">
-    <div class="card"><h3>The whole loop, automatic</h3><ul><li>Your tournament schedule reads in on its own, every game, field and time.</li><li>Assign with one click, or auto-assign around availability, travel and conflicts.</li><li>Each ump gets a text or email: tap Accept or Decline, no app, no login.</li><li>Pay and mileage track themselves; export one report at season's end.</li></ul></div>
+    <div class="card"><h3>The whole loop, automatic</h3><ul><li>Your tournament schedule flows into AssignCrew on its own, every game, field and time.</li><li>Assign with one click, or auto-assign around availability, travel and conflicts.</li><li>Each ump gets a text or email: just tap Accept or Decline. No app or login needed.</li><li>Pay and mileage track themselves; export one report at season's end.</li></ul></div>
     <div><div class="shot phone"><div class="bar"><i></i><i></i><i></i></div><img src="districts/ac-umpire.jpg" alt="Umpire portal" loading="lazy"></div><p class="cap" style="text-align:center">How it looks for an umpire.</p></div>
   </div>
   <div class="shot" style="margin-top:22px"><div class="bar"><i></i><i></i><i></i></div><img src="districts/ac-assign.jpg" alt="Assignor board" loading="lazy"></div>
@@ -206,7 +216,8 @@
     <div><div class="shot"><div class="bar"><i></i><i></i><i></i></div><img src="districts/email.jpg" alt="Weekly rundown email" loading="lazy"></div><p class="cap">A real weekly email: last week's scores, this week's schedule and the champions, built for you.</p></div>
     <div>
       <div class="card"><h3>Built to reach the inbox</h3><ul><li>A branded weekly rundown goes out on its own.</li><li>Announcements to the whole district or one league.</li><li>Your domain, verified the right way, so it is not flagged as spam.</li></ul></div>
-      <div class="card" style="margin-top:14px"><h3>Proof it works</h3><ul><li>97% delivered across 15,000+ emails a month, near-zero spam complaints.</li><li>That is what proper setup looks like, not a risky inbox blast.</li></ul></div>
+      <div class="card" style="margin-top:14px"><h3>Proof it works</h3><ul><li>97% delivered across 15,000+ emails a month, near-zero spam complaints.</li><li>That is what proper setup looks like, not a risky inbox blast.</li><li>Sent only to families who opted in; everyone else is left alone.</li></ul></div>
+      <div class="card" style="margin-top:14px"><h3>Nothing new to learn</h3><ul><li>Write it in the admin, or start from a template.</li><li>Last week's scores and this week's schedule fill in on their own.</li><li>Save it as a PDF or paste it into your own email.</li></ul></div>
     </div>
   </div>
 </div></section>
