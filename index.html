@@ -182,18 +182,37 @@ nav.open .nav-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)
 .intro-section h2 em{font-style:italic;color:var(--accent)}
 .intro-section p{font-size:.9rem;color:var(--muted);line-height:2;font-weight:300}
 
-/* SERVICES */
-.services{padding:4rem 4rem 8rem}
-.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)}
-.serv-card{background:var(--bg);padding:3rem;transition:all .5s;cursor:pointer;position:relative}
-.serv-card::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--accent);transition:width .5s}
-.serv-card:hover::after{width:100%}
-.serv-card:hover{background:var(--card)}
-.serv-icon{font-size:1.5rem;color:var(--accent);margin-bottom:1.5rem;transition:transform .5s,color .5s}
-.serv-card:nth-child(2n) .serv-icon{color:var(--accent2)}
-.serv-card:hover .serv-icon{transform:scale(1.2) rotate(8deg)}
-.serv-card h3{font-family:var(--serif);font-size:1.4rem;font-weight:400;margin-bottom:.75rem}
-.serv-card p{font-size:.8rem;color:var(--muted);line-height:1.8;font-weight:300}
+/* ENGINE: what is actually shipped, grouped */
+.engine{padding:4rem 4rem 7rem}
+.eng-head{max-width:1100px;margin:0 auto 2.6rem}
+.eng-head .label{font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;font-weight:600}
+.eng-head h2{font-family:var(--serif);font-size:2.8rem;font-weight:300;line-height:1.1}
+.eng-head h2 em{font-style:italic;color:var(--accent2)}
+.eng-sub{color:var(--muted);font-size:.9rem;max-width:620px;margin-top:1rem;line-height:1.7;font-weight:300}
+.eng-grid{display:grid;grid-template-columns:repeat(4,1fr);max-width:1100px;margin:0 auto;border-top:1px solid var(--border)}
+.eng-col{padding:1.6rem 1.4rem 0 0;min-width:0}
+.eng-col+.eng-col{border-left:1px solid var(--border);padding-left:1.4rem}
+.eng-col h3{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.15rem;letter-spacing:.07em;text-transform:uppercase;color:#fff;margin-bottom:.6rem;line-height:1.15}
+.eng-col h3 span{color:var(--accent2);margin-right:.55rem}
+.eng-col ul{list-style:none}
+.eng-col li{font-size:.8rem;line-height:1.6;color:#b4c2d0;padding:.65rem 0;border-bottom:1px solid var(--border);font-weight:300}
+.eng-col li:last-child{border-bottom:none}
+.eng-watch{max-width:1100px;margin:2.4rem auto 0;display:flex;gap:.9rem;align-items:center;padding:1.1rem 1.4rem;border:1px solid rgba(74,222,128,.25);background:rgba(74,222,128,.04);border-radius:10px}
+.eng-watch .sdot{flex:none;width:8px;height:8px}
+.eng-watch p{font-size:.85rem;color:#c3cfdb;line-height:1.6;font-weight:300}
+.eng-watch b{color:#fff;font-weight:600}
+
+/* DOORS: one page per kind of buyer */
+.door-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;max-width:1200px;margin:2.4rem auto 0;padding:0 0 3rem}
+.door{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;color:inherit;text-decoration:none;transition:border-color .4s,transform .4s cubic-bezier(.16,1,.3,1),box-shadow .4s}
+.door:hover{border-color:rgba(251,191,36,.45);transform:translateY(-4px);box-shadow:0 22px 50px rgba(0,0,0,.4)}
+.door-img{display:block;aspect-ratio:16/10;overflow:hidden;background:var(--bg)}
+.door-img img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;transition:transform .7s cubic-bezier(.16,1,.3,1)}
+.door:hover .door-img img{transform:scale(1.05)}
+.door-body{display:flex;flex-direction:column;gap:.5rem;padding:1.1rem 1.2rem 1.3rem;flex:1}
+.door-body b{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.7rem;letter-spacing:.03em;text-transform:uppercase;color:#fff;line-height:1}
+.door-body span{font-size:.78rem;color:var(--muted);line-height:1.6;font-weight:300;flex:1}
+.door-body i{font-style:normal;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent2);font-weight:600}
 
 /* HOW IT WORKS */
 .hiw{padding:4rem 4rem 8rem}
@@ -248,7 +267,7 @@ a.featured-img{cursor:pointer}
 .about h2 .wave{display:inline-block;transform-origin:70% 70%;animation:wave 3s ease-in-out infinite}
 @keyframes wave{0%,55%,100%{transform:rotate(0)}10%,30%{transform:rotate(14deg)}20%,40%{transform:rotate(-8deg)}}
 .about-sig{font-family:var(--serif);font-size:1.1rem;color:var(--muted);font-style:italic;margin-top:1.8rem;opacity:.75}
-.about-sig::before{content:'\2014  ';opacity:.6}
+.about-sig::before{content:'';display:inline-block;width:22px;height:1px;background:currentColor;vertical-align:middle;margin-right:.6rem;opacity:.6}
 .about-body p{font-size:.95rem;color:var(--fg);line-height:1.85;font-weight:300;margin-bottom:1.2rem;opacity:.88}
 .about-body p strong{color:var(--accent);font-weight:500}
 .about-body p:last-child{margin-bottom:0}
@@ -504,18 +523,19 @@ footer{border-top:1px solid var(--border);padding:2.5rem 4rem;display:flex;flex-
 .vert-pill:hover{border-color:rgba(56,189,248,.4);color:var(--accent);transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,0,0,.3),0 0 0 1px rgba(56,189,248,.1)}
 .vert-pill:nth-child(2n):hover{border-color:rgba(251,191,36,.4);color:var(--accent2);box-shadow:0 12px 30px rgba(0,0,0,.3),0 0 0 1px rgba(251,191,36,.1)}
 
-@media(max-width:1180px){.featured-grid{grid-template-columns:repeat(2,1fr)}.proof-grid{grid-template-columns:repeat(2,1fr);gap:1rem}.proof-strip{padding:3rem 2rem 3.5rem}.proof-headline{font-size:2.2rem}.dt-inner{gap:2.5rem}.price-grid{grid-template-columns:repeat(2,1fr)}.faq-grid{grid-template-columns:repeat(2,1fr)}.mini-grid{grid-template-columns:repeat(2,1fr)}.contact-inner{gap:2.5rem}}
+@media(max-width:1180px){.featured-grid{grid-template-columns:repeat(2,1fr)}.proof-grid{grid-template-columns:repeat(2,1fr);gap:1rem}.proof-strip{padding:3rem 2rem 3.5rem}.proof-headline{font-size:2.2rem}.dt-inner{gap:2.5rem}.price-grid{grid-template-columns:repeat(2,1fr)}.faq-grid{grid-template-columns:repeat(2,1fr)}.mini-grid{grid-template-columns:repeat(2,1fr)}.contact-inner{gap:2.5rem}.eng-grid{grid-template-columns:repeat(2,1fr)}.eng-col:nth-child(3){border-left:none;padding-left:0}.eng-col:nth-child(n+3){border-top:1px solid var(--border);margin-top:1rem}.door-grid{grid-template-columns:repeat(2,1fr)}nav{padding:1.2rem 2rem}.nav-links{gap:1.5rem}}
 @media(max-width:900px){
 nav{padding:1rem 1.5rem}
 .nav-toggle{display:flex}
 .nav-links{position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:rgba(4,11,20,.98);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:.25rem 1.5rem 1.1rem;max-height:0;overflow:hidden;opacity:0;pointer-events:none;transition:max-height .32s cubic-bezier(.16,1,.3,1),opacity .25s}
-nav.open .nav-links{max-height:26rem;opacity:1;pointer-events:auto}
+nav.open .nav-links{max-height:36rem;opacity:1;pointer-events:auto}
 .nav-links a{font-size:.95rem;letter-spacing:.02em;text-transform:none;color:var(--fg);padding:1rem .2rem;border-bottom:1px solid var(--border)}
 .nav-links a:last-child{border-bottom:none}
 .nav-cta{color:var(--accent)!important;border:1px solid var(--accent)!important;border-radius:8px;text-align:center;margin-top:.9rem;padding:.85rem 1.5rem!important}
 .hero{padding:7rem 1.5rem 4rem}.hero-logo .line1{font-size:clamp(28px,8vw,42px)}.hero-logo .line2{font-size:clamp(14px,3.5vw,20px)}.hero-logo .bracket{font-size:clamp(60px,15vw,100px)}.hero-actions{flex-direction:column;align-items:center}
 .intro-section{grid-template-columns:1fr;gap:2rem;padding:4rem 1.5rem}
-.services{padding:4rem 1.5rem}.services-grid{grid-template-columns:1fr}
+.engine{padding:3.5rem 1.5rem 4.5rem}.eng-head h2{font-size:2.2rem}.eng-grid{grid-template-columns:1fr}.eng-col,.eng-col+.eng-col{border-left:none;padding:1.2rem 0 0}.eng-col+.eng-col{border-top:1px solid var(--border);margin-top:.6rem}.eng-watch{align-items:flex-start}.eng-watch .sdot{margin-top:.45rem}
+.door-grid{grid-template-columns:1fr;gap:1rem;padding-bottom:1.5rem}
 .featured{padding:4rem 1.5rem}.featured-grid{grid-template-columns:1fr;gap:1.5rem}
 .about{padding:4rem 1.5rem}.about-inner{grid-template-columns:1fr;gap:2.5rem}
 .stats{padding:2.5rem 1.5rem}.stats-grid{grid-template-columns:repeat(2,1fr);gap:2rem 1rem}
@@ -749,7 +769,7 @@ footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.5rem}
 <nav>
   <a href="#" class="nav-logo"><span class="bracket bl">{</span><span class="nav-text"><span class="n1">MAIN LINE</span><span class="n2">WEB DESIGN</span></span><span class="bracket br">}</span></a>
   <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
-  <div class="nav-links" id="navLinks"><a href="#services">Services</a><a href="#about">About</a><a href="#work">Work</a><!--<a href="#pricing">Pricing</a>--><!--<a href="demo.html">Demo</a>--><a href="#contact" class="nav-cta">Get In Touch</a></div>
+  <div class="nav-links" id="navLinks"><a href="tournaments.html">Tournaments</a><a href="leagues.html">Leagues</a><a href="districts.html">Districts</a><a href="basketball.html">Basketball</a><a href="#work">Work</a><a href="#about">About</a><!--<a href="#pricing">Pricing</a>--><!--<a href="demo.html">Demo</a>--><a href="#contact" class="nav-cta">Get In Touch</a></div>
 </nav>
 
 <section class="hero bc">
@@ -796,6 +816,16 @@ footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.5rem}
         <div class="proof-sub">Games covered every season</div>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="portfolio" id="who">
+  <div class="port-header"><div class="label reveal">Who It's For</div><h2 class="reveal">Built for every level of the game.</h2><p class="port-sub reveal">One engine underneath, built around four very different jobs. Pick yours to see the real sites already running on it.</p></div>
+  <div class="door-grid">
+    <a class="door reveal" href="tournaments.html"><span class="door-img"><img src="sts-screenshot.webp" alt="" loading="lazy"></span><span class="door-body"><b>Tournaments</b><span>Registration, payments, brackets and champions for directors running events every weekend.</span><i>See tournament sites &rarr;</i></span></a>
+    <a class="door reveal" href="leagues.html"><span class="door-img"><img src="buyers/lmll-home.webp" alt="" loading="lazy"></span><span class="door-body"><b>Leagues</b><span>Coaches text the score, and the standings, playoffs and team pages update themselves.</span><i>See league sites &rarr;</i></span></a>
+    <a class="door reveal" href="districts.html"><span class="door-img"><img src="d27-screenshot.webp" alt="" loading="lazy"></span><span class="door-body"><b>Districts</b><span>Every member league, every tournament and every champion on one district site.</span><i>See the district site &rarr;</i></span></a>
+    <a class="door reveal" href="basketball.html"><span class="door-img"><img src="buyers/neb-home.webp" alt="" loading="lazy"></span><span class="door-body"><b>Basketball</b><span>Events, club teams, camps and clinics, built for the gym and not a template.</span><i>See basketball sites &rarr;</i></span></a>
   </div>
 </section>
 
@@ -997,55 +1027,82 @@ footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.5rem}
   </div>
 </section>
 
-<section class="services" id="services">
-  <div class="services-grid">
-    <div class="serv-card reveal"><div class="serv-icon">&#9670;</div><h3>League Platforms</h3><p>The full stack: scores, schedules, standings, stats, team pages, recaps, and a public face that doesn't embarrass your league.</p></div>
-    <div class="serv-card reveal"><div class="serv-icon">&#9671;</div><h3>Tournament Sites</h3><p>Live brackets, pool play, seedings, championship archives. Single-event sites or multi-league district hubs.</p></div>
-    <div class="serv-card reveal"><div class="serv-icon">&#9635;</div><h3>Registration & Payments</h3><p>Player and team registration flows with payment, waivers, rosters, and league-ready data on the back end.</p></div>
-    <div class="serv-card reveal"><div class="serv-icon">&#9651;</div><h3>Admin Backends</h3><p>Score entry, roster management, schedule edits, and content updates &mdash; built for commissioners and team managers, not engineers.</p></div>
-    <div class="serv-card reveal"><div class="serv-icon">&#9675;</div><h3>Brand & Marketing Sites</h3><p>Camps, academies, coaches, and program sites that need a real identity &mdash; not a Squarespace template with your logo glued on.</p></div>
-    <div class="serv-card reveal"><div class="serv-icon">&#9633;</div><h3>Ongoing Support</h3><p>Season-to-season updates, new features, and a real person who picks up the phone when something breaks before a game.</p></div>
+<section class="engine" id="engine">
+  <div class="eng-head">
+    <div class="label reveal">What's In The Engine</div>
+    <h2 class="reveal">Not a wish list. <em>Running this season.</em></h2>
+    <p class="eng-sub reveal">Every line below is live on a client site right now, from Long Island to South Texas. Your site starts with all of it, then gets built around how you actually run.</p>
   </div>
+  <div class="eng-grid">
+    <div class="eng-col reveal"><h3><span>01</span>Scores &amp; schedules</h3><ul>
+      <li>Coaches text in the final. It posts and the standings update.</li>
+      <li>Brackets that seed and advance themselves, champion banner included.</li>
+      <li>A game moves and every affected team gets an email, automatically.</li>
+      <li>Season points races and a champions archive.</li>
+      <li>Already scoring in TeamLinkt? It pulls every result in.</li>
+    </ul></div>
+    <div class="eng-col reveal"><h3><span>02</span>Registration &amp; money</h3><ul>
+      <li>Registration and payment into your own Square or Stripe.</li>
+      <li>Waivers, team insurance and per-event pricing.</li>
+      <li>Roster lock at the deadline you set.</li>
+      <li>Camps and clinics the office posts itself, with per-session limits.</li>
+      <li>Club dues tracked player by player.</li>
+    </ul></div>
+    <div class="eng-col reveal"><h3><span>03</span>Coaches, directors &amp; families</h3><ul>
+      <li>Director logins that only see their own events.</li>
+      <li>Directors email their own coaches, and nobody else's.</li>
+      <li>Coach dashboards: roster, schedule, practices, who's coming.</li>
+      <li>A family portal with one team code and no passwords.</li>
+      <li>Umpire assigning with accept by text, built on AssignCrew.</li>
+    </ul></div>
+    <div class="eng-col reveal"><h3><span>04</span>Behind the scenes</h3><ul>
+      <li>Game Day and Final Score graphics for Instagram, built from the schedule.</li>
+      <li>Your domain, your data, your payment account.</li>
+      <li>No per-player fees, ever.</li>
+      <li>A real person on game day, not a ticket queue.</li>
+    </ul></div>
+  </div>
+  <div class="eng-watch reveal"><span class="sdot green"></span><p><b>Your site is checked every 30 minutes, day and night.</b> If something breaks, I get the alert before your coaches notice.</p></div>
 </section>
 
 <section class="pricing" id="pricing" style="display:none">
   <div class="price-head">
     <div class="label reveal">What It Costs</div>
-    <h2 class="reveal">Flat per season. <em>No per-player fees.</em></h2>
-    <p class="price-sub reveal">One annual number that covers the build, hosting, updates, and support. Your league keeps its own payment processor, so registration money never passes through me, and parents never see a "platform fee" line.</p>
+    <h2 class="reveal">Flat per year. <em>No per-player fees.</em></h2>
+    <p class="price-sub reveal">One yearly number that covers the build, hosting, updates, and support. Most league and tournament clients land between $4,000 and $12,000 a year. Your payment processor stays yours, so registration money never passes through me, and parents never see a "platform fee" line.</p>
   </div>
   <div class="price-grid">
     <div class="price-card reveal">
       <div class="pc-k">League Site</div>
-      <div class="pc-r">$2,500 <span>to</span> $4,000<small>per season</small></div>
+      <div class="pc-r">$3,000 <span>to</span> $5,000<small>per year</small></div>
       <p>Schedules, scores, standings, team pages, news, and an admin your board can run. For leagues that want to stop living in group texts.</p>
-      <ul><li>Live scores &amp; standings</li><li>Team pages &amp; schedules</li><li>News, rules, documents</li><li>Commissioner admin</li></ul>
-      <div class="pc-f"><span>Typical build: 2 to 4 weeks</span><span>Like: COYBL, Island Fastpitch</span></div>
+      <ul><li>Scores &amp; standings</li><li>Team pages &amp; schedules</li><li>News, rules, documents</li><li>Commissioner admin</li></ul>
+      <div class="pc-f"><span>Typical build: 2 to 4 weeks</span><span>Like: COYBL</span></div>
     </div>
     <div class="price-card hot reveal">
       <div class="pc-tag">Most leagues</div>
       <div class="pc-k">League Platform</div>
-      <div class="pc-r">$4,000 <span>to</span> $6,500<small>per season</small></div>
-      <p>Everything in League Site plus registration, online payments, game recaps, box scores, playoff brackets, and text alerts. The full engine.</p>
-      <ul><li>Registration &amp; card payments</li><li>AI game recaps &amp; box scores</li><li>Playoff brackets &amp; history</li><li>Manager portals &amp; text alerts</li></ul>
+      <div class="pc-r">$5,000 <span>to</span> $8,000<small>per year</small></div>
+      <p>Everything in League Site plus registration, online payments, scores by text, game recaps, box scores, playoff brackets, and camps the office posts itself. The full engine.</p>
+      <ul><li>Registration &amp; card payments</li><li>Scores by text &amp; game recaps</li><li>Playoff brackets &amp; history</li><li>Coach logins &amp; camps</li></ul>
       <div class="pc-f"><span>Typical build: 4 to 6 weeks</span><span>Like: Lower Merion, Island</span></div>
     </div>
     <div class="price-card reveal">
       <div class="pc-k">Tournament Operations</div>
-      <div class="pc-r">$4,000 <span>to</span> $7,500<small>per season</small></div>
-      <p>Built for companies running events every weekend: team registration with payment, waivers, insurance, pool play to bracket, and a director's dashboard.</p>
-      <ul><li>Team registration &amp; payments</li><li>Waivers, insurance, rosters</li><li>Pool play, seeding, brackets</li><li>Director admin &amp; champions</li></ul>
-      <div class="pc-f"><span>Typical build: 4 to 8 weeks</span><span>Like: Small Town Select</span></div>
+      <div class="pc-r">$5,000 <span>to</span> $12,000<small>per year</small></div>
+      <p>Built for companies running events every weekend: team registration with payment, waivers, insurance, pool play to bracket, director logins, and coaches emailed the moment a game moves.</p>
+      <ul><li>Team registration &amp; payments</li><li>Waivers, insurance, rosters</li><li>Pool play, seeding, brackets</li><li>Directors &amp; schedule alerts</li></ul>
+      <div class="pc-f"><span>Typical build: 4 to 8 weeks</span><span>Like: Small Town Select, National Exposure</span></div>
     </div>
     <div class="price-card reveal">
       <div class="pc-k">District Hub</div>
-      <div class="pc-r">$2,000 <span>to</span> $4,000<small>per season</small></div>
-      <p>One site for every league in a district: tournament schedules, live brackets, champions, and a place the DA can forward to parents instead of a PDF.</p>
-      <ul><li>Multi-league tournaments</li><li>Live brackets &amp; pool play</li><li>Champion archives</li><li>Keeps SportsConnect for registration</li></ul>
+      <div class="pc-r">$2,000 <span>to</span> $5,000<small>per year</small></div>
+      <p>One site for every league in a district: tournament schedules, brackets, champions, and a place the DA can forward to parents instead of a PDF.</p>
+      <ul><li>Multi-league tournaments</li><li>Brackets &amp; pool play</li><li>Champion archives</li><li>Keeps SportsConnect for registration</li></ul>
       <div class="pc-f"><span>Typical build: 2 to 4 weeks</span><span>Like: PA District 27</span></div>
     </div>
   </div>
-  <p class="price-note reveal">Ranges, not quotes. Where you land depends on divisions, features, and how much data moves over. Year one includes the build; renewals cover hosting, updates, and support. <a href="#contact">Tell me about your league</a> and I'll give you one number.</p>
+  <p class="price-note reveal">Ranges, not quotes. Where you land depends on events, divisions, features, and how much data moves over. Year one includes the build; renewals cover hosting, updates, and support. <a href="#contact">Tell me about your league</a> and I'll give you one number.</p>
 
   <div class="faq">
     <div class="faq-head reveal"><div class="label">Straight Answers</div><h3>What commissioners ask before they say yes</h3></div>
@@ -1074,13 +1131,13 @@ footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.5rem}
   <div class="about-inner">
     <div class="reveal">
       <div class="label">Behind the Keyboard</div>
-      <h2>Hi, I'm <em>Adam</em>. <span class="wave">&#128075;</span></h2>
-      <div class="about-sig">One person. One studio. Every pixel.</div>
+      <h2>Hi, I'm <em>Adam</em>.</h2>
+      <div class="about-sig">You talk to the person who built it.</div>
     </div>
     <div class="about-body reveal">
-      <p>Main Line Web Design is a <strong>one-person studio</strong> based just outside Philadelphia. I design and build every league platform myself &mdash; from the first sketch to the final deploy.</p>
-      <p>No agencies, no outsourced templates, no Rolodex of contractors I'm managing behind the scenes. Just <span class="highlight">me, the code, and your league.</span></p>
-      <p>I work mostly with leagues, tournaments, coaches, and programs that want a site that actually represents them &mdash; not the same generic SportsConnect or LeagueLineup page every other team is stuck with.</p>
+      <p>Main Line Web Design is my studio, based just outside Philadelphia. I design and build every site myself, from the first sketch to game day, and I'm the one who answers when something needs to change.</p>
+      <p>That's the point. When you call, <span class="highlight">you get the person who wrote the code</span>, not a support queue. Today that's leagues, tournament companies, districts and programs from California to Long Island, including the <strong>2nd largest Little League in the world</strong> to the <strong>largest tournament provider in Texas</strong>.</p>
+      <p>Every site I run is checked every 30 minutes, around the clock, so I usually know about a problem before you do. Your league owns its domain, its data and its payment account, and the code is plain enough that any developer could pick it up. No lock-in.</p>
       <p>When I'm not building, you can find me in the gym or playing sports with the family.</p>
     </div>
   </div>
@@ -1092,20 +1149,6 @@ footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.5rem}
     <div class="stat-item reveal"><div class="stat-num" data-count="100" data-suffix="%">100%</div><div class="stat-label">Custom Built</div></div>
     <div class="stat-item reveal"><div class="stat-num" data-count="0" data-suffix="">0</div><div class="stat-label">Per-Player Fees</div></div>
     <div class="stat-item reveal"><div class="stat-num" data-count="0" data-suffix="">0</div><div class="stat-label">Lock-In</div></div>
-  </div>
-</section>
-
-<section class="portfolio" id="portfolio">
-  <div class="port-header"><div class="label reveal">Who We Build For</div><h2 class="reveal">Built for every level of the game.</h2><p class="port-sub reveal">If you run it, manage it, coach it, or organize it &mdash; we've probably built something like it. And if we haven't, we'd love to.</p></div>
-  <div class="vert-grid reveal">
-    <div class="vert-pill">Little Leagues</div>
-    <div class="vert-pill">Travel &amp; Club Teams</div>
-    <div class="vert-pill">Adult Leagues</div>
-    <div class="vert-pill">Tournaments &amp; Showcases</div>
-    <div class="vert-pill">School &amp; HS Programs</div>
-    <div class="vert-pill">Camps &amp; Academies</div>
-    <div class="vert-pill">Coaches &amp; Trainers</div>
-    <div class="vert-pill">Districts &amp; Associations</div>
   </div>
 </section>
 
@@ -1185,7 +1228,7 @@ footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.5rem}
 
 <footer>
   <div class="footer-logo"><span class="bracket bl">{</span><span class="ft"><span class="f1">MAIN LINE</span><span class="f2">WEB DESIGN</span></span><span class="bracket br">}</span></div>
-  <div class="footer-links"><a href="#services">Services</a><a href="#work">Work</a><!--<a href="#pricing">Pricing</a>--><!--<a href="demo.html">Demo</a>--><a href="#contact">Contact</a></div>
+  <div class="footer-links"><a href="tournaments.html">Tournaments</a><a href="leagues.html">Leagues</a><a href="districts.html">Districts</a><a href="basketball.html">Basketball</a><a href="#work">Work</a><!--<a href="#pricing">Pricing</a>--><!--<a href="demo.html">Demo</a>--><a href="#contact">Contact</a></div>
   <a href="https://x.com/MainLineWebDsgn" target="_blank" class="footer-social">&#120143; / @MainLineWebDsgn</a>
   <div>&copy; 2026 Main Line Web Design. All rights reserved.</div>
   <div class="footer-legal">Main Line Web Design is a trading name of Always Competing Sports LLC. Adam Miller, owner.</div>

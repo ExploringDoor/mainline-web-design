@@ -293,7 +293,7 @@
     var d=Object.fromEntries(new FormData(f).entries());
     if(!d.name||!d.email||!d.district){ msg.className='msg err'; msg.textContent='Name, email and your district are required.'; return; }
     var notes='Show me my district sample.'+(d.phone?'\nPhone: '+d.phone:'')+(d.extra?'\n\n'+d.extra:'');
-    var payload={name:d.name,email:d.email,org:d.district,orgType:'Little League District',sport:'Baseball & Softball',notes:notes,ref:'PA DA meeting Oct 2026',page:'districts.html',website2:d.website2||''};
+    var payload={name:d.name,email:d.email,org:d.district,orgType:'Little League District',sport:'Baseball & Softball',notes:notes,ref:(document.referrer.indexOf(location.host)>-1?'districts page via site':'PA DA meeting Oct 2026'),page:'districts.html',website2:d.website2||''};
     btn.disabled=true; btn.textContent='SENDING...';
     try{
       var r=await fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
